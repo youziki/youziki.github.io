@@ -21,3 +21,7 @@ youziki's blog
   石家庄二中实验学校
   
   高二OIER
+
+## friends :
+
+  [bored](https://yellow-bored.github.io/)
