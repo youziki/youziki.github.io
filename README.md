@@ -1,4 +1,6 @@
-# [youziki's blog](https://youziki.github.io/)
+# [youziki.github.io](https://youziki.github.io/)
+
+youziki's blog
 
 ## connect :
 
