@@ -1,6 +1,4 @@
-# youziki.github.io
-
-youziki's blog
+# [youziki's blog](https://youziki.github.io/)
 
 ## connect :
 
@@ -10,17 +8,19 @@ youziki's blog
 
   MicroBlog : NULL
 
-  Luogu : ql12345
+  Luogu : [ql12345](https://www.luogu.com.cn/user/286239)
 
-  AcWing : jszz
+  Codeforces : [jszz](https://codeforces.com/profile/jszz)
+
+  AcWing : [jszz](https://www.acwing.com/user/myspace/index/49792/)
 
   Phone : NULL
 
 ## education :
   
-  石家庄二中实验学校
+  [石家庄二中实验学校](http://www.sjzezsyxx.com/)
   
-  高二OIER
+  [高二OIER](https://bytew.net/OIer/)
 
 ## friends :
 
