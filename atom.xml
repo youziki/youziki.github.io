@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://youziki.github.io</id>
     <title>Gridea</title>
-    <updated>2020-10-30T01:05:44.628Z</updated>
+    <updated>2020-10-30T01:13:09.381Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://youziki.github.io"/>
     <link rel="self" href="https://youziki.github.io/atom.xml"/>
@@ -10,6 +10,77 @@
     <logo>https://youziki.github.io/images/avatar.png</logo>
     <icon>https://youziki.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[超级快读快写]]></title>
+        <id>https://youziki.github.io/7JuzUCVU6/</id>
+        <link href="https://youziki.github.io/7JuzUCVU6/">
+        </link>
+        <updated>2020-10-30T01:10:42.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-cpp">namespace io
+{
+    const int MAXBUF = 1 &lt;&lt; 22;
+    char B[MAXBUF], *S = B, *T = B;
+    #define getc() (S == T &amp;&amp; (T = (S = B) + fread(B, 1, MAXBUF, stdin), S == T) ? 0 : *S++)
+    template&lt;class Type&gt; inline Type read()
+    {
+        register Type aa = 0;
+        register bool bb = 0;
+        register char ch, *S = io::S, *T = io::T;
+        for(ch = getc(); (ch &lt; '0' || ch &gt; '9') &amp;&amp; ch != '-'; ch = getc())
+            ;
+        for(ch == '-' ? bb = 1 : aa = ch - '0', ch = getc(); '0' &lt;= ch &amp;&amp; ch &lt;= '9'; ch = getc())
+            aa = aa * 10 + ch - '0';
+        io::S = S, io::T = T;
+        return bb ? -aa : aa; 
+    }
+    int (*F)() = read&lt;int&gt;;
+    
+    template&lt;&gt; inline double read()
+    {
+        register double aa, bb;
+        register char ch;
+        register char *S = io::S, *T = io::T;
+        while(ch=getc(),(ch&lt;'0'||ch&gt;'9'))
+            ;aa=ch-'0';
+        while(ch=getc(),(ch&gt;='0'&amp;&amp;ch&lt;='9'))aa=aa*10+ch-'0';
+        if(ch=='.'){bb=1;while(ch=getc(),ch&gt;='0'&amp;&amp;ch&lt;='9')bb*=0.1,aa+=bb*(ch-'0');}
+        io::S = S, io::T = T;
+        return aa;
+    }
+    
+    char buff[MAXBUF], *iter = buff;
+    template&lt;class T&gt;inline void P(register T x, register char ch = '\n')
+    {
+        static int stack[110];
+        register int O = 0;
+        register char *iter = io::iter;
+        if(!x)*iter++ = '0';
+        else
+        {
+            (x &lt; 0) ? x = -x, *iter++ = '-' : 1;
+            for(; x; x /= 10)
+                stack[++O] = x % 10;
+            for(; O; *iter++ = '0' + stack[O--])
+                ;
+        }
+        *iter++ = ch, io::iter = iter;
+    }
+    
+    inline void putc(register char ch) {*iter++ = ch;}
+    
+    inline void ouput() {fwrite(buff, 1, iter - buff, stdout), iter = buff;}
+}
+</code></pre>
+<p>main函数：</p>
+<pre><code class="language-cpp">    using io::P;
+    int (*F)()=io::read&lt;int&gt;;
+    int n=F(),m=F(),yyy=F();
+
+    P(ans/y*yyy);
+    io::ouput();
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[我的sb错误们]]></title>
         <id>https://youziki.github.io/U91BQ6Msk/</id>
@@ -791,58 +862,6 @@ for(int i = (mx &lt;&lt; 1); i; --i)
         }
     }
     ans = max(ans, sum + 1);
-}
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[讲题 P4165组队]]></title>
-        <id>https://youziki.github.io/ZUxFJHE3i/</id>
-        <link href="https://youziki.github.io/ZUxFJHE3i/">
-        </link>
-        <updated>2020-10-29T16:48:57.000Z</updated>
-        <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/P4165">传送门</a></p>
-<p>暴力枚举每个minh，暴力对每个人求出一个使这个人可以被选的minv范围，差分表示u，最后求一遍前缀和，最大的数即为选这个为minv时人数最大，最大的人数</p>
-<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
-#define int long long
-using namespace std;
-
-const int M=5005;
-int n,A,B,C,h[M],hh[M],s[M],hs=1,ans=1;
-int cnt[M*2],smax;
-
-signed main()
-{
-	cin&gt;&gt;n&gt;&gt;A&gt;&gt;B&gt;&gt;C;
-	for (int i=1;i&lt;=n;i++)
-		cin&gt;&gt;h[i]&gt;&gt;s[i],smax=max(smax,s[i]),hh[i]=h[i];
-	sort(hh+1,hh+1+n);
-	for (int i=2;i&lt;=n;i++)
-		if (hh[i]!=hh[i-1])
-			hh[++hs]=hh[i];
-	for (int i=1;i&lt;=hs;i++)
-	{
-		memset(cnt,0,sizeof(cnt));
-		for (int j=1;j&lt;=n;j++)
-		{
-			if (h[j]&gt;=hh[i]&amp;&amp;(A*(h[j]-hh[i]))&lt;=C)
-			{
-				int tl;
-				if (B==0)
-					tl=1;
-				else
-					tl=max(1ll,s[j]-(C-A*(h[j]-hh[i]))/B);
-				 
-				cnt[tl]++,cnt[s[j]+1]--;
-			}
-		}
-		for (int j=2;j&lt;=smax;j++)
-			cnt[j]+=cnt[j-1];
-		for (int j=1;j&lt;=n;j++)
-			ans=max(ans,cnt[s[j]]);
-	}
-	cout&lt;&lt;ans;
-	return 0;
 }
 </code></pre>
 ]]></content>
