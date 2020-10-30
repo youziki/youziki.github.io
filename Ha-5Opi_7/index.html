@@ -1,0 +1,1072 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="description" content="T1 失控的未来交通工具
+题意：
+一个带边权无向图，有两种操作：
+
+
+加一条边
+
+
+加边以及询问在x，x+b，...，x+(c-1)b这些数中，有多少存在一条与之模m同余的从u到v的路径（可以不是简单路径）。
+
+
+注：注意是无向图！
+前置知..." />
+    <meta name="keywords" content="学习笔记" />
+    <link rel="stylesheet" href="https://youziki.github.io/media/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/js/clipboard.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
+    <!-- 数学公式 -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css"
+        integrity="sha384-9tPv11A+glH/on/wEu99NVwDPwkMQESOocs/ZGXPoIiLE8MU/qkqUcZ3zzL+6DuH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js"
+        integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/contrib/auto-render.min.js"
+        integrity="sha384-aGfk5kvhIq5x1x5YdvCp4upKZYnA8ckafviDpmWEKp4afOZEqOli7gqSnh8I6enH" crossorigin="anonymous">
+    </script>
+    <script>
+        renderMathInElement(document.body, {
+            delimiters: [{
+                    left: "$$",
+                    right: "$$",
+                    display: true
+                },
+                {
+                    left: "$",
+                    right: "$",
+                    display: false
+                }
+            ]
+        });
+    </script>
+
+    
+    <title>Gridea</title>
+    
+    <style>
+        .markdownIt-TOC {
+            margin-left: 28%;
+            padding-left: 2px;
+            width: 80%;
+        }
+
+        .markdownIt-TOC li {
+            padding-left: 8%;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+    </div>
+    <div id="codeCopyText" style="display: none">代码复制成功了哦，亲~</div>
+    <div id="domainname" style="display:none">https://youziki.github.io</div>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div>
+            <div id="bar">
+                <head>
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/bootstrap.min.css">
+</head>
+<style>
+  @media screen and (max-width:1200px) and (min-width: 768px) {
+    @media (min-width: 768px) {
+      .navbar-nav {
+        float: right;
+        margin: 0;
+      }
+    }
+  }
+  @media screen and (max-width:768px){
+    .mbapspan{
+      padding: 0;
+    }
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#barmenu"
+          aria-expanded="false" id="barbutton">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://youziki.github.io">Gridea&nbsp;&nbsp;|</a>
+        <span class="navbar-brand mbapspan"><i id="mbaplayer" class="fa fa-play-circle-o" aria-hidden="true"
+            style="font-size: 28px;top: 12px;position: absolute;" onclick="aplayerPlay();"></i></span>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="barmenu">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="/">
+              首页
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              归档
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags">
+              标签
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/post/about">
+              关于
+            </a>
+          </li>
+          
+          
+          
+          
+          <li><a href="https://youziki.github.io/friends">友链</a></li>
+
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+  <script>
+  var btstate = false;
+  var bt = $("#barbutton");
+  var bm = $("#barmenu");
+  bt.click(function(){
+    dropdown();
+  })
+  function dropdown(){
+    console.log(btstate);
+    //下拉
+    if(btstate==false){
+      bt.removeClass("collapsed");
+      bt.attr("aria-expanded","true");
+      bm.attr("aria-expanded","true")
+      bm.fadeIn(700);
+      btstate = true;
+    }
+    else{
+      bt.addClass("collapsed");
+      bt.attr("aria-expanded","false");
+      bm.removeClass("in");
+      bm.hide();
+      bm.attr("aria-expanded","false");
+      btstate = false;
+    }
+  }
+  </script> 
+</body>
+            </div>
+            <div class="row">
+                <div class="side"><body>
+    
+    <div id=side>
+        <div class="avatar-border">
+            <img src="https://youziki.github.io/images/avatar.png?v=1604019938318" class="avatar">
+        </div>
+        <div class="sitename">Gridea</div>
+        <span class="describtion" data-text='["众人皆醉我独醒"]'>&nbsp;</span>
+        
+        <div class="search">
+            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
+            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
+            <div class="search-results"></div>
+        </div>
+        
+    <div class="share-button">
+        <span>社交按钮</span>
+        
+        
+        
+        
+        
+        
+    </div>
+    <div id="qq" style="display:none"></div>
+    
+    
+    <div class="mchocie describtion">
+        <a href="/" class="menubutton">
+            首页
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/archives" class="menubutton">
+            归档
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/tags" class="menubutton">
+            标签
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/post/about" class="menubutton">
+            关于
+        </a>
+    </div>
+    
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="https://youziki.github.io/friends" class="menubutton">友人帐</a>
+    </div>
+    
+    <hr>
+    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: <a
+        href="https://github.com/850552586/gridea-theme-fog">Fog</a></div>
+    
+    
+    </div>
+
+
+<script src="https://youziki.github.io/media/js/wordshow.js"></script>
+    
+
+
+
+
+    
+</body>
+<script>
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            window.location.href = "tencent://message/?uin=" + qq + "&Site=&Menu=yes";
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script>
+</div>
+                
+                <div id="tab1" class="tab">
+                    <div class="bars">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="close"></div>
+                </div>
+                <div class="col-md-1 col-lg-3"></div>
+                <div id="main" class="col-xs-12 col-sm-12 col-md-10 col-lg-7">
+                    <link rel="stylesheet" href="https://youziki.github.io/media/css/font-awesome.css">
+
+<body>
+    <div class="allcontent" id="postdetail">
+        <div class="postshow" style="padding-bottom: 0;">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;">
+                <img src="https://cdn.luogu.com.cn/upload/image_hosting/xdvp0hhr.png" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo-detail">
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-10-30</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 10 min read</div>
+                <div class="posttag">
+                    
+                    <a href="https://youziki.github.io/4STTQXNzf/" class="postlink">
+                        <i class="fa fa-tag"></i> 学习笔记
+                    </a>
+                    
+                </div>
+            </div>
+            
+        <div id="articlecontent">
+            <div id="texttitle" style="text-align: center">
+                <h2>题解 9.16 - 9.19 数学专题</h2>
+                <!-- id 将作为查询条件 -->
+                <div id="pl" style="display:none">https://youziki.github.io/Ha-5Opi_7/</div>
+                <div id="rootaddr" style="display:none">https://youziki.github.io</div>
+                <span id="hotnum">
+                    <h4><i class="fa fa-eye" aria-hidden="true" style="color: #FF8C00;"></i>&nbsp;&nbsp;热度</i>: <i
+                            class="hotnum">loading...</i></h4>
+                </span>
+            </div>
+            <div class="text ">
+                <h2 id="t1-失控的未来交通工具">T1 <a href="http://sdfzoj.zhaojinxi.top/problem/70">失控的未来交通工具</a></h2>
+<p><strong>题意：</strong></p>
+<p>一个带边权无向图，有两种操作：</p>
+<ul>
+<li>
+<p>加一条边</p>
+</li>
+<li>
+<p>加边以及询问在x，x+b，...，x+(c-1)b这些数中，有多少存在一条与之模m同余的从u到v的路径（可以不是简单路径）。</p>
+</li>
+</ul>
+<p>注：注意是无向图！</p>
+<h3 id="前置知识带权并查集-解同余方程exgcd">前置知识：带权并查集、解同余方程（exgcd）</h3>
+<h3 id="solution">Solution：</h3>
+<h4 id="经验像这种在图上寻找路径并且对路径取模尤其还不是简单路径的题基本上都和环的性质有关-因为环我们可以无限跑啊">经验：像这种在图上寻找路径，并且对路径取模，尤其还不是简单路径的题，基本上都和环的性质有关。因为环我们可以无限跑啊！</h4>
+<ul>
+<li>
+<h4 id="性质">性质：</h4>
+</li>
+</ul>
+<p>如果u和v都不在一个连通块，显然无解</p>
+<p>如果在一个连通块：</p>
+<pre><code>“对于连通块上的所有环，设其长度为k，那么dis[u,v]+n(k,m)的长度都有”
+</code></pre>
+<p>证明：</p>
+<pre><code>一个环可以走任意次
+对于环不在dis[u,v]路径上的：中间的路程走m个来回即可抵消
+</code></pre>
+<ul>
+<li>
+<h4 id="转化">转化：</h4>
+</li>
+</ul>
+<p>将该连通块内所有点环的贡献考虑到一起，就是 <strong>“所有环长与m的gcd”的gcd</strong></p>
+<p>设这个gcd为k</p>
+<p>问题转化为：<strong>nk = x+ib (mod m) (i:0~c-1)的解数</strong></p>
+<p>显然求出 <strong>x+ib = 0 (mod k)</strong> 的最小非负整数解，然后将 x + k/(k,b) 即可得到下一个解</p>
+<p>又因为 <strong>i = -x/b</strong> ，所以最大x可以得到，与最小的相减，除以每次应加的数，即可得到解数了</p>
+<ul>
+<li>
+<h4 id="实现">实现：</h4>
+</li>
+</ul>
+<p>还剩下一个大问题：如何维护每个连通块的所有环的gcd</p>
+<p>显然用并查集，因为需要一个并查集中两点见的距离，所以用带权并查集</p>
+<p>性感理解一个事情：</p>
+<pre><code>两点之间的距离 与 两点到并查集根的距离之和 是等价的（因为可以无限走，所以绕的远路都是等价的）
+</code></pre>
+<p>小细节：</p>
+<ul>
+<li>
+<p>上面说了，“...长度都有”中“...”是包含dis[u,v]的，所以输入进去的x要减去，才是要解的方程中的x</p>
+</li>
+<li>
+<p>合并两集合时的路径直接设为 <strong>从“小”并查集根到u，再到v，再到“大”并查集根</strong></p>
+</li>
+</ul>
+<h3 id="code">Code：</h3>
+<pre><code class="language-cpp">const int N=1e6+7;
+int n,M,q,fa[N],d[N],g[N];
+
+int Find(re int x){//板子啦~
+	if(!fa[x])return x;
+	int root=fa[x]; fa[x]=Find(fa[x]),d[x]=(d[x]+d[root])%M;
+	return fa[x];
+}
+int GCD(re int x,re int y)
+void exgcd(re int a,re int b,re int &amp;gcd,re int &amp;x,re int &amp;y)
+
+signed main(){
+	read(n),read(M),read(q);
+	for(int i=1;i&lt;=n;++i)g[i]=M;
+	for(int op,u,v,x,b,c;q--;){
+		read(op),read(u),read(v),read(x);
+		if(op==1){
+			b=Find(u),c=Find(v);
+			if(b==c)g[c]=GCD(g[c],abs(d[u]-d[v])+x);
+			else fa[b]=c,g[c]=GCD(g[c],g[b]),d[b]=(x-d[u]-d[v])%M;
+			g[c]=GCD(g[c],x&lt;&lt;1);
+		}else{
+			read(b),read(c); int f1=Find(u),f2=Find(v);
+			if(f1!=f2){puts(&quot;0&quot;);continue;}
+			x=(x-d[u]-d[v]+M)%M;
+			if(!b){printf(&quot;%d\n&quot;,x%g[f1]?0:c);continue;}
+			int invb,x2,gcd,k=g[f1],mini; exgcd(b,k,gcd,invb,x2);
+			k=k/gcd;
+			if(x%gcd){puts(&quot;0&quot;);continue;}
+			mini=(LL)(invb*(-x)/gcd%k+k)%k;
+			printf(&quot;%d\n&quot;,mini&lt;c?(c-mini+k-1)/k:0);
+		}
+	}
+}
+</code></pre>
+<h2 id="t2-密钥破解">T2 <a href="http://sdfzoj.zhaojinxi.top/problem/72">密钥破解</a></h2>
+<p>Pollard-Rho板子，会Pollard-Rho的话，这就是个模拟了。。。</p>
+<ul>
+<li>
+<p>__int128不开会T</p>
+</li>
+<li>
+<p>Pollard-Rho复杂度O(n^1/4)</p>
+</li>
+</ul>
+<h3 id="code-2">Code：</h3>
+<pre><code class="language-cpp">//PollardRho
+LL max_factor; #define MF max_factor
+il LL gcd(re LL x,re LL y)
+il lll power(re LL a,re LL b,re LL mod)
+
+int pri[9]={0,2,3,5,8,11,13,17,19};
+il bool MillerRabin(LL n){
+	if(n==4685624825598111||n&lt;2)return 0;//先判
+	if(n==2||n==3||n==5||n==7||n==11||n==13||n==17||n==19)return 1;
+	LL a=n-1,b=0;//用费马小定理是要看x^a是否同余于1
+	while(!(a&amp;1))a&gt;&gt;=1,++b;//将a分解到最后
+	for(re int i=1,j;i&lt;=8;++i){//同样的事情多做几次提高准确性
+		lll x=pri[i],v=power(x,a,n);
+		if(v==1||v==n-1)continue;（第一步可以是1，因为这是最靠前的了）
+		for(j=0;j&lt;b;++j){
+			v=v*v%n;
+			if(v==n-1)break;//看到a的过程中是否会有一点为n-1，如果有，证明以后一定可以导出1，通过验证
+            		//v==1是不行的，因为如果n是素数，是1，则之前应该已经是n-1被break了
+		}
+		if(j&gt;=b)return 0;
+	}
+	return 1;
+}
+
+il LL f(re LL x,re LL c,re LL n){return ((lll)x*x+c)%n;}
+il LL PollardRho(re LL x){//背板子
+	LL s=0,t=0,c=(LL)rand()%(x-1)+1;
+	int step=0,goal=1;
+	LL val=1,d;
+	for(goal=1;;goal&lt;&lt;=1,s=t,val=1){
+		for(step=1;step&lt;=goal;++step){
+			t=f(t,c,x);
+			val=(lll)val*abs(t-s)%x;
+			if(step%127==0) if((d=gcd(val,x))&gt;1)return d;
+		}
+		if((d=gcd(val,x))&gt;1)return d;
+	}
+}
+il void fac(re LL x){
+	if(x&lt;=MF||x&lt;2)return;
+	if(MillerRabin(x))return MF=max(MF,x),void();
+	LL p=x;
+	while(p&gt;=x)p=PollardRho(x);
+	while(x%p==0)x/=p;
+	fac(x),fac(p);
+}
+//无脑膜你（变量名有亿点e'xin yyy）
+LL E,N,C,D,ANS;
+void exgcd(re LL a,re LL b,re LL &amp;GCD,re LL &amp;x,re LL &amp;y)
+
+signed main(){
+	read(E),read(N),read(C);
+	fac(N);
+	LL R=(MF-1)*(N/MF-1),GCD,Y;
+	exgcd(E,R,GCD,D,Y); D=(D%R+R)%R; ANS=power(C,D,N);
+	printf(&quot;%lld %lld&quot;,D,ANS);
+}
+</code></pre>
+<h2 id="t3-密码学第三次小作业">T3 <a href="http://sdfzoj.zhaojinxi.top/problem/73">密码学第三次小作业</a></h2>
+<p>血的教训yyy~</p>
+<p>和T2没半毛钱关系！<s>题目背景**！</s></p>
+<p>题中专门加粗了 <strong>e1和e2互质</strong>，所以<s>看完题解</s>可以想到这就是让说</p>
+<pre><code>“存在x,y，使得xe1 + ye2 = 1”
+</code></pre>
+<p>看到e在指数位置，考虑将这个式子放在指数位置，得到：</p>
+<p>m^(xe1+ye2) = (m<sup>e1)</sup>x * (m<sup>e2)</sup>y = m^1 = m = c1^x * c2^y</p>
+<p>膜你即可</p>
+<p>如果x,y是负数，c^x = (c<sup>-1)</sup>-x，求c逆元即可</p>
+<h3 id="code-3">Code：</h3>
+<pre><code class="language-cpp">int T;
+LL c1,c2,e1,e2,n;
+void exgcd(re LL a,re LL b,re LL &amp;x,re LL &amp;y)
+il LL power(re LL a,re LL b,re LL mod)
+
+il LL inv(re LL x){
+	LL ans1,ans2;
+	exgcd(x,n,ans1,ans2);
+	return (ans1%n+n)%n;
+}
+signed main(){
+	read(T);
+	while(T--){
+		read(c1),read(c2),read(e1),read(e2),read(n);
+		LL x,y; exgcd(e1,e2,x,y);
+		if(x&lt;0)c1=inv(c1),x=-x; if(y&lt;0)c2=inv(c2),y=-y;
+		LL ans=(lll)power(c1,x,n)*power(c2,y,n)%n;
+		printf(&quot;%lld\n&quot;,ans);
+	}
+}
+</code></pre>
+<h2 id="t4-乘法逆元">T4 <a href="http://sdfzoj.zhaojinxi.top/problem/74">乘法逆元</a></h2>
+<p>板子，公式背过</p>
+<pre><code class="language-cpp">#define int long long
+int inv[1000010],n,p;
+signed main(){
+    scanf(&quot;%lld%lld&quot;,&amp;n,&amp;p);
+    inv[1]=1; for(int i=2;i&lt;=n;i++)inv[i]=(p-p/i)*inv[p%i]%p;
+    for(int i=1;i&lt;=n;++i)printf(&quot;%lld\n&quot;,inv[i]);
+}
+</code></pre>
+<h2 id="t5-数论只会gcd">T5 <a href="http://sdfzoj.zhaojinxi.top/problem/75">数论只会GCD</a></h2>
+<p><s>太难了不会</s></p>
+<ul>
+<li>考虑只有一个序列、不修改（考虑完了自动就把“多序列不修改”考虑了）</li>
+</ul>
+<p>O(N^3)：***</p>
+<p>O(N^2)：处理出前缀和，考虑每个位置为右端点，从1到该位置扫一遍，O(1)更新不同数字个数</p>
+<p>O(N)：</p>
+<p>计算每个数字贡献，<s>在题解的引导下</s>，想到每个数字分开考虑</p>
+<pre><code>对于一个位置，它的贡献为它前面位置+1到它-1 * 它+1到最后
+</code></pre>
+<p>然鹅~，题解给了另一种思路：计算不包含这个数的区间个数（等于每两个相邻位置之间子区间个数），这样，多序列不修改显然就是每个序列乘起来就好了</p>
+<ul>
+<li>考虑修改（不难，代码不会<s>懒得写</s>）</li>
+</ul>
+<h3 id="fake-code">FAke Code：</h3>
+<pre><code>对每个序列：扫出每个数字出现的位置，顺便求出每个数字的贡献数组 O(len)
+求出每一个数字的答案数组，并求出答案 O(len)
+对于修改：在该序列上找到该数位置的前驱后继，对于每一个序列每一个数维护一个平衡树存位置
+</code></pre>
+<p>代码真的太难了，仙姑着吧 yyy</p>
+
+            </div>
+            <hr style="width: 80%;">
+            
+            <div class="sharebtnContainer">
+                <button type="button" class="sharebtn">转载分享</button>
+            </div>
+            <div class="shareContainer">
+                <div class="share" style="height:30px;background: white;">
+                    <a class="qq" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/QQ.png" alt=""></i></a>
+                    <a class="wechat" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/wechat.png" alt=""></i></a>
+                    <a class="weibo" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/weibo.png" alt=""></i></a>
+                    <a class="qzone" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/qzone.png" alt=""></i></a>
+                    <a class="douban" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/douban.png" alt=""></i></a>
+                    <a class="facebook" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/facebook.png" alt=""></i></a>
+                    <a class="twitter" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/twitter.png" alt=""></i></a>
+                </div>
+            </div>
+            
+            
+            <div class="donateContainer">
+                <img src="https://youziki.github.io/media/images/donate.png" alt="" class="donateImg">
+            </div>
+            <div class="donateContainer">
+                <img src="" alt="" class="donate">
+            </div>
+            
+            <div class="postfooter">
+                <ul class="post-copyright">
+                    <li><strong>文章作者：</strong>youziki</li>
+            <li><strong>原文链接：</strong>https://youziki.github.io/Ha-5Opi_7/</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用<i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA
+                许可协议。转载请注明出处！</li>
+            </ul>
+        </div>
+        <div id="otherpost">
+            
+            <div class="prev-post-pc">
+                <div id="ppcontainer" onclick="window.location.href= 'https://youziki.github.io/tsBoMPwUc/';return false">
+                    
+                    <img src="https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png" style="width: 100%;" class="opimg">
+                    
+                    <h4 class="optitle">题解 CF1419A 【Digit Game】</h4>
+                </div>
+            </div>
+            <div class="prev-post">
+                上一篇 <a href="https://youziki.github.io/tsBoMPwUc/">题解 CF1419A 【Digit Game】</a>
+            </div>
+            
+            
+            <div class="next-post-pc">
+                <div id="npcontainer" onclick="window.location.href= 'https://youziki.github.io/tlaHf4DA4/';return false">
+                    
+                    <img src="https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png" style="width: 100%;" class="opimg">
+                    
+                    <h4 class="optitle">题解 CF1418C 【Mortal Kombat Tower】</h4>
+                </div>
+            </div>
+            <div class="next-post">
+                下一篇 <a href="https://youziki.github.io/tlaHf4DA4/">题解 CF1418C 【Mortal Kombat Tower】</a>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+    </div>
+
+</body>
+<script>
+    //文章阅读热度
+    var pl = $("#pl").html();
+    var rootaddr = $("#rootaddr").html();
+    pl = pl.replace(rootaddr, "");
+    $("#hotnum").attr('id', pl);
+</script>
+                <div id="comment"  class="comment" style="background: white">
+                    <div class="commentcontainer">
+                        
+                        <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                        
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-1 col-lg-2"></div>
+                <div id="bg">
+                </div>
+            </div>
+            
+        
+        <div class="toc-container">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#t1-%E5%A4%B1%E6%8E%A7%E7%9A%84%E6%9C%AA%E6%9D%A5%E4%BA%A4%E9%80%9A%E5%B7%A5%E5%85%B7">T1 失控的未来交通工具</a>
+<ul>
+<li><a href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E5%B8%A6%E6%9D%83%E5%B9%B6%E6%9F%A5%E9%9B%86-%E8%A7%A3%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8Bexgcd">前置知识：带权并查集、解同余方程（exgcd）</a></li>
+<li><a href="#solution">Solution：</a>
+<ul>
+<li><a href="#%E7%BB%8F%E9%AA%8C%E5%83%8F%E8%BF%99%E7%A7%8D%E5%9C%A8%E5%9B%BE%E4%B8%8A%E5%AF%BB%E6%89%BE%E8%B7%AF%E5%BE%84%E5%B9%B6%E4%B8%94%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%8F%96%E6%A8%A1%E5%B0%A4%E5%85%B6%E8%BF%98%E4%B8%8D%E6%98%AF%E7%AE%80%E5%8D%95%E8%B7%AF%E5%BE%84%E7%9A%84%E9%A2%98%E5%9F%BA%E6%9C%AC%E4%B8%8A%E9%83%BD%E5%92%8C%E7%8E%AF%E7%9A%84%E6%80%A7%E8%B4%A8%E6%9C%89%E5%85%B3-%E5%9B%A0%E4%B8%BA%E7%8E%AF%E6%88%91%E4%BB%AC%E5%8F%AF%E4%BB%A5%E6%97%A0%E9%99%90%E8%B7%91%E5%95%8A">经验：像这种在图上寻找路径，并且对路径取模，尤其还不是简单路径的题，基本上都和环的性质有关。因为环我们可以无限跑啊！</a></li>
+<li><a href="#%E6%80%A7%E8%B4%A8">性质：</a></li>
+<li><a href="#%E8%BD%AC%E5%8C%96">转化：</a></li>
+<li><a href="#%E5%AE%9E%E7%8E%B0">实现：</a></li>
+</ul>
+</li>
+<li><a href="#code">Code：</a></li>
+</ul>
+</li>
+<li><a href="#t2-%E5%AF%86%E9%92%A5%E7%A0%B4%E8%A7%A3">T2 密钥破解</a>
+<ul>
+<li><a href="#code-2">Code：</a></li>
+</ul>
+</li>
+<li><a href="#t3-%E5%AF%86%E7%A0%81%E5%AD%A6%E7%AC%AC%E4%B8%89%E6%AC%A1%E5%B0%8F%E4%BD%9C%E4%B8%9A">T3 密码学第三次小作业</a>
+<ul>
+<li><a href="#code-3">Code：</a></li>
+</ul>
+</li>
+<li><a href="#t4-%E4%B9%98%E6%B3%95%E9%80%86%E5%85%83">T4 乘法逆元</a></li>
+<li><a href="#t5-%E6%95%B0%E8%AE%BA%E5%8F%AA%E4%BC%9Agcd">T5 数论只会GCD</a>
+<ul>
+<li><a href="#fake-code">FAke Code：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+    </div>
+    </div>
+    <div class="tog">
+        <div class="toggleContainer">
+            <div class="toggle">
+                <i class="fas fa-angle-double-up"></i>
+            </div>
+        </div>
+    </div>
+    <div id="bgchoice" style="display: none">link</div>
+    
+    <div id="bgurl" style="display:none">https://cdn.luogu.com.cn/upload/image_hosting/0pz3220b.png</div>
+    
+    </div>
+</body>
+<script>
+    var img = $("img");
+    for (var i = 0; i < img.length; i++) {
+        if (img.eq(i).attr("class") == undefined) {
+            img.eq(i).attr("class", "lazyload");
+            var imgsrc = img.eq(i).attr("src");
+            img.eq(i).attr("data-original", imgsrc);
+            img.eq(i).attr("src", "");
+            img.eq(i).hide();
+        }
+    }
+</script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<script>
+    //寻找所有code标签，加复制按钮鸭！(行内代码除外)
+    var codes = document.getElementsByTagName('code');
+    if (codes.length) {
+        for (var i = 0; i < codes.length; i++) {
+            //高度/行高=文本行数
+            // var rowNum=Math.round(codes[i].height()/parseFloat(codes[i].css('line-height')));
+            // console.log("当前有"+rowNum+"行");
+            var code_id = "code_id_" + i;
+            codes[i].setAttribute("id", code_id);
+            var ci = "#" + code_id;
+            var codedot = $(ci);
+            var rowNum = Math.round(codedot.height() / parseFloat(codedot.css('line-height')));
+            if (rowNum <= 1) continue;
+            var btn = document.createElement("button");
+            btn.setAttribute("class", "copybt");
+            btn.setAttribute("data-clipboard-target", "#" + code_id);
+            btn.innerHTML = '复制代码';
+            codes[i].parentNode.insertBefore(btn, codes[i]);
+        }
+    };
+    var cop = new ClipboardJS('.copybt');
+    var codeCopyText = $("#codeCopyText").html();
+    cop.on('success', function (e) {
+        alert(codeCopyText);
+        e.clearSelection();
+    });
+    cop.on('error', function (e) {
+        alert("矮油，复制失败了...手动复制吧勇士！");
+        e.clearSelection();
+    });
+</script>
+
+<script type="text/javascript">
+    var message_Path = '/live2d/'
+    var home_Path = document.getElementById("domainname").innerHTML + "/"; //此处修改为你的域名，必须带斜杠
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/js/live2d.js"></script>
+<script type="text/javascript" src="https://youziki.github.io/media/live2d/js/message.js"></script>
+<script type="text/javascript">
+    loadlive2d("live2d", "https://youziki.github.io/media/live2d/assets/tororo.model.json");
+</script>
+
+<script>
+    $(function () {
+        $('.toggleContainer').click(function () {
+            $('html,body').animate({
+                scrollTop: '0px'
+            }, 800);
+        });
+        $(window).scroll(function () {
+            var st = $(window).scrollTop();
+            if (st > 30) {
+                $(".toggleContainer").fadeIn(400);
+            } else {
+                $(".toggleContainer").fadeOut(100);
+            }
+        });
+    });
+</script>
+
+<script>
+    var bgchoice = $('#bgchoice').html();
+    var bg = $('#bg');
+    var bgurl = document.getElementById("bgurl").innerHTML;
+    if (bgchoice == 'default')
+        for (var i = 0; i < 3; i++)
+            bgurl = bgurl.replace("\\", "/");
+    bg.css("background", "url('" + bgurl + "')");
+</script>
+
+
+<script src="https://youziki.github.io/media/js/index.js"></script>
+
+
+
+<!-- 动态更改上(下)一篇博客图片框长宽 -->
+<script>
+    npcontainer = document.querySelector('#npcontainer');
+    npstyle = window.getComputedStyle(npcontainer, null);
+    npwidth = npstyle.width;
+    npheight = 0.6 * Number(npwidth.replace("px", ""));
+    npheight = npheight.toString() + "px";
+    var op = $(".opimg");
+    op.css("height", npheight);
+</script>
+
+<script src="https://youziki.github.io/media/share/dist/Share.js"></script>
+
+<script>
+    var avatarSrc = $(".avatar").attr("src");
+    var dp = document.getElementsByClassName("describtion")[0].innerHTML;
+</script>
+
+
+<script>
+    var title = document.getElementById("texttitle").getElementsByTagName("h2");
+    
+    var share = new Share('.share', {
+        title: title[0].innerHTML,
+        initialized: true,
+        //默认获取网站描述
+        description: dp,
+        //网站图片默认获取的是设置的用户头像
+        image: avatarSrc,
+        //激活的分享网站
+        sites: ["weibo", "qq", "wechat", "douban", "qzone", "facebook", "twitter", "google"],
+        //微信分享PC端会生成二维码分享,移动端如果可以唤起微信最好
+        wechatQrcodeTitle: "微信扫一扫：分享", // 微信二维码提示文字
+        wechatQrcodeHelper: '<p>微信里扫一下二维码</p><p>便可将本文分享至朋友圈。</p>',
+        //关闭的网站分享
+        disabled: ['google', 'linkedin'],
+        wechatQrcodePosition: 'bottom'
+    });
+
+    //点击分享按钮展现出分享icons
+    var sharebtnTag = false;
+    $(".sharebtn").click(function () {
+        if(!sharebtnTag)
+        {
+            $(".share").show();
+            sharebtnTag = true;
+        }
+        else
+        {
+            $(".share").hide();
+            sharebtnTag = false;
+        }
+    })
+
+    var donatebtnTag = false;
+    $(".donateImg").click(function () {
+        if(!donatebtnTag)
+        {
+            $(".donate").show();
+            donatebtnTag = true;
+        }
+        else{
+            $(".donate").hide();
+            donatebtnTag = false;
+        }
+    })
+
+    //加载后的事件同步（阅读量、移动端评论等
+    window.onload=function(){
+        getHotnum();
+        var sharepc = $(".share").eq(0).html();
+        $(".share").eq(1).html(sharepc);
+        document.getElementById("veditor").setAttribute("placeholder", jrsc);
+        aplayerbtnInit();
+    }
+</script>
+
+
+<script>
+    jQuery(document).ready(function ($) {
+        function lazyload() {
+            var oLazyload = $("img.lazyload"),
+                fLazyload = function (hLazyload) {
+                    var nLazyload = $(window).height() + $(document).scrollTop();
+                    oLazyload.each(function () {
+                        $(this).offset().top < nLazyload && ($(this).trigger("appear"), oLazyload =
+                            oLazyload.not(this));
+                    }), 0 == oLazyload.length && $(window).unbind("scroll", fLazyload);
+                };
+            oLazyload.each(function () {
+                $(this).one("appear", function () {
+                    $(this).attr("src", $(this).attr("data-original"));
+                    $(this).fadeIn(500);
+                });
+            }), $(window).bind("scroll", fLazyload), fLazyload();
+        }
+        lazyload();
+    });
+</script>
+
+<!-- <script src="https://youziki.github.io/media/js/av-min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.13.0/dist/av-min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.6.1/dist/av-live-query-min.js"></script> -->
+
+<script>
+    function getHotnum() {
+        //文章阅读热度（重构，利用leancloud原生api）
+        var pl = $("#pl").html();
+        var rootaddr = $("#rootaddr").html();
+        pl = pl.replace(rootaddr, "");
+
+        var appid = '';
+        var appkey = '';
+        console.log(appid, appkey)
+        if(AV==undefined)
+            AV.init({
+                appId: appid,
+                appKey: appkey
+            });
+        const query = new AV.Query('Counter');
+        query.equalTo('url', pl);
+        var time = 'Loading...';
+        query.find().then(function (results) {
+            console.log(results)
+            if (results.length == 0) {
+                console.log("0")
+                var NewCounter = AV.Object.extend('Counter');
+                var nc = new NewCounter();
+                nc.save({
+                    time: 1,
+                    title: "题解 9.16 - 9.19 数学专题",
+                    url: pl,
+                    xid: pl,
+                }).then(function (object) {
+                    $(".hotnum").eq(0).html(1);
+                    $(".hotnum").eq(1).html(1);
+                });
+            } else {
+                id = results[0].id;
+                var todo = AV.Object.createWithoutData('Counter', id);
+                time = results[0].attributes.time + 1;
+                todo.set("time", time);
+                todo.save();
+                console.log(todo);
+                $(".hotnum").eq(0).html(time);
+                $(".hotnum").eq(1).html(time);
+            }
+
+        }, function (error) {
+            console.log(error)
+        });
+    }
+</script>

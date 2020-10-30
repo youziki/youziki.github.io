@@ -1,0 +1,1453 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="description" content="没加入的题就是水题，或者高精这种恶心题，正常题就算不会，也会加入仙姑
+牛牛的方程式——牛客tg1 T1
+裴蜀定理的推论，对多个数也成立
+这题真正好的地方不是猜结论，更不是证明，而是特判！有很多细节：
+a/b/ca /b /ca/b/c的gc..." />
+    <meta name="keywords" content="比赛" />
+    <link rel="stylesheet" href="https://youziki.github.io/media/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/js/clipboard.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
+    <!-- 数学公式 -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css"
+        integrity="sha384-9tPv11A+glH/on/wEu99NVwDPwkMQESOocs/ZGXPoIiLE8MU/qkqUcZ3zzL+6DuH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js"
+        integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/contrib/auto-render.min.js"
+        integrity="sha384-aGfk5kvhIq5x1x5YdvCp4upKZYnA8ckafviDpmWEKp4afOZEqOli7gqSnh8I6enH" crossorigin="anonymous">
+    </script>
+    <script>
+        renderMathInElement(document.body, {
+            delimiters: [{
+                    left: "$$",
+                    right: "$$",
+                    display: true
+                },
+                {
+                    left: "$",
+                    right: "$",
+                    display: false
+                }
+            ]
+        });
+    </script>
+
+    
+    <title>Gridea</title>
+    
+    <style>
+        .markdownIt-TOC {
+            margin-left: 28%;
+            padding-left: 2px;
+            width: 80%;
+        }
+
+        .markdownIt-TOC li {
+            padding-left: 8%;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+    </div>
+    <div id="codeCopyText" style="display: none">代码复制成功了哦，亲~</div>
+    <div id="domainname" style="display:none">https://youziki.github.io</div>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div>
+            <div id="bar">
+                <head>
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/bootstrap.min.css">
+</head>
+<style>
+  @media screen and (max-width:1200px) and (min-width: 768px) {
+    @media (min-width: 768px) {
+      .navbar-nav {
+        float: right;
+        margin: 0;
+      }
+    }
+  }
+  @media screen and (max-width:768px){
+    .mbapspan{
+      padding: 0;
+    }
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#barmenu"
+          aria-expanded="false" id="barbutton">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://youziki.github.io">Gridea&nbsp;&nbsp;|</a>
+        <span class="navbar-brand mbapspan"><i id="mbaplayer" class="fa fa-play-circle-o" aria-hidden="true"
+            style="font-size: 28px;top: 12px;position: absolute;" onclick="aplayerPlay();"></i></span>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="barmenu">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="/">
+              首页
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              归档
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags">
+              标签
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/post/about">
+              关于
+            </a>
+          </li>
+          
+          
+          
+          
+          <li><a href="https://youziki.github.io/friends">友链</a></li>
+
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+  <script>
+  var btstate = false;
+  var bt = $("#barbutton");
+  var bm = $("#barmenu");
+  bt.click(function(){
+    dropdown();
+  })
+  function dropdown(){
+    console.log(btstate);
+    //下拉
+    if(btstate==false){
+      bt.removeClass("collapsed");
+      bt.attr("aria-expanded","true");
+      bm.attr("aria-expanded","true")
+      bm.fadeIn(700);
+      btstate = true;
+    }
+    else{
+      bt.addClass("collapsed");
+      bt.attr("aria-expanded","false");
+      bm.removeClass("in");
+      bm.hide();
+      bm.attr("aria-expanded","false");
+      btstate = false;
+    }
+  }
+  </script> 
+</body>
+            </div>
+            <div class="row">
+                <div class="side"><body>
+    
+    <div id=side>
+        <div class="avatar-border">
+            <img src="https://youziki.github.io/images/avatar.png?v=1604019938318" class="avatar">
+        </div>
+        <div class="sitename">Gridea</div>
+        <span class="describtion" data-text='["众人皆醉我独醒"]'>&nbsp;</span>
+        
+        <div class="search">
+            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
+            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
+            <div class="search-results"></div>
+        </div>
+        
+    <div class="share-button">
+        <span>社交按钮</span>
+        
+        
+        
+        
+        
+        
+    </div>
+    <div id="qq" style="display:none"></div>
+    
+    
+    <div class="mchocie describtion">
+        <a href="/" class="menubutton">
+            首页
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/archives" class="menubutton">
+            归档
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/tags" class="menubutton">
+            标签
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/post/about" class="menubutton">
+            关于
+        </a>
+    </div>
+    
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="https://youziki.github.io/friends" class="menubutton">友人帐</a>
+    </div>
+    
+    <hr>
+    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: <a
+        href="https://github.com/850552586/gridea-theme-fog">Fog</a></div>
+    
+    
+    </div>
+
+
+<script src="https://youziki.github.io/media/js/wordshow.js"></script>
+    
+
+
+
+
+    
+</body>
+<script>
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            window.location.href = "tencent://message/?uin=" + qq + "&Site=&Menu=yes";
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script>
+</div>
+                
+                <div id="tab1" class="tab">
+                    <div class="bars">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="close"></div>
+                </div>
+                <div class="col-md-1 col-lg-3"></div>
+                <div id="main" class="col-xs-12 col-sm-12 col-md-10 col-lg-7">
+                    <link rel="stylesheet" href="https://youziki.github.io/media/css/font-awesome.css">
+
+<body>
+    <div class="allcontent" id="postdetail">
+        <div class="postshow" style="padding-bottom: 0;">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;">
+                <img src="https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo-detail">
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-10-29</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 22 min read</div>
+                <div class="posttag">
+                    
+                    <a href="https://youziki.github.io/ajbBPuKpd/" class="postlink">
+                        <i class="fa fa-tag"></i> 比赛
+                    </a>
+                    
+                </div>
+            </div>
+            
+        <div id="articlecontent">
+            <div id="texttitle" style="text-align: center">
+                <h2>牛客考前集训</h2>
+                <!-- id 将作为查询条件 -->
+                <div id="pl" style="display:none">https://youziki.github.io/niu-ke-kao-qian-ji-xun/</div>
+                <div id="rootaddr" style="display:none">https://youziki.github.io</div>
+                <span id="hotnum">
+                    <h4><i class="fa fa-eye" aria-hidden="true" style="color: #FF8C00;"></i>&nbsp;&nbsp;热度</i>: <i
+                            class="hotnum">loading...</i></h4>
+                </span>
+            </div>
+            <div class="text ">
+                <p>没加入的题就是水题，或者高精这种恶心题，正常题就算不会，也会加入仙姑</p>
+<h3 id="牛牛的方程式牛客tg1-t1"><a href="https://ac.nowcoder.com/acm/contest/7605/A">牛牛的方程式——牛客tg1 T1</a></h3>
+<p>裴蜀定理的推论，对多个数也成立</p>
+<p>这题真正好的地方不是猜结论，更不是证明，而是特判！有很多细节：</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mi mathvariant="normal">/</mi><mi>b</mi><mi mathvariant="normal">/</mi><mi>c</mi></mrow><annotation encoding="application/x-tex">a /b /c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mord">/</span><span class="mord mathdefault">b</span><span class="mord">/</span><span class="mord mathdefault">c</span></span></span></span>的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mi>c</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">gcd</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">c</span><span class="mord mathdefault">d</span></span></span></span>有可能为0，这时不代表无解，还要看<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi></mrow><annotation encoding="application/x-tex">d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span></span></span></span>是否为0</p>
+<p>不开<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><mi>n</mi><mi>g</mi><mi>l</mi><mi>o</mi><mi>n</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">long long</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span></span></span></span>会从100爆成30！！！</p>
+<pre><code class="language-cpp">int a = __gcd(read(), __gcd(read(), read()));
+if(! a)
+{
+    puts(read() ? &quot;NO&quot; : &quot;YES&quot;);
+    continue;
+}
+puts(read() % a ? &quot;NO&quot; : &quot;YES&quot;);
+</code></pre>
+<h3 id="牛牛的猜球游戏牛客tg1-t2"><a href="https://ac.nowcoder.com/acm/contest/7605/B">牛牛的猜球游戏——牛客tg1 T2</a></h3>
+<p>同样地，这题代码难度也很小，但思维难度有点大</p>
+<p>首先可以一眼得到<s>错误</s>莫队思路，为什么错呢？因为在操作为交换两个数时，对一个操作序列，将其正着做两边是不可还原的！但反着做一遍是可还原的（这一点手模样例即可得出）</p>
+<p>然后可以顺着考场上倍增的思路得到一个正确的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nlogn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>能过的思路：倍增或线段树，<strong>对操作序列进行维护</strong></p>
+<h4 id="正解前缀和on">正解：前缀和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></h4>
+<p>预处理出来所有操作正着做的前缀和，再用这个前缀和导出每一个前缀的逆操作数组</p>
+<p>说明：逆操作是指，一段操作正着做想要还原需要倒着做一遍，一段的逆操作就是倒着做的等价操作</p>
+<p>所以查询<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">[l,r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span>的状态，只要用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>1</mn><mo separator="true">,</mo><mi>r</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">[1,r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span>正操作的状态套一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>1</mn><mo separator="true">,</mo><mi>l</mi><mo>−</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">[1,l-1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span>逆操作的状态即可，不知道为什么如果是逆操作外套正操作会错？</p>
+<h4 id="实现">实现：</h4>
+<p>求逆操作是要用到映射（事实上本题就充满了映射思想）</p>
+<p>求逆操作我越想越不懂，但本题用到的部分只要理解它相当于整了个映射，将每个前缀逆操作的状态映射回去，使得可以抵消顺操作</p>
+<h4 id="code">Code：</h4>
+<pre><code class="language-cpp">for(int i = 0; i &lt;= 9; ++i)
+	a[0][i] = b[0][i] = i;
+for(int i = 1; i &lt;= n; ++i)
+{
+	int u = read(), v = read();
+	for(int j = 0; j &lt;= 9; ++j)
+		a[i][j] = a[i - 1][j];
+	swap(a[i][u], a[i][v]);
+	for(int j = 0; j &lt;= 9; ++j)
+		b[i][a[i][j]] = j;
+}
+while(m --)
+{
+	int l = read() - 1, r = read();
+	for(int i = 0; i &lt;= 9; ++i)
+		print(b[l][a[r][i]]), putchar(' ');
+
+	putchar('\n');
+}
+</code></pre>
+<p>下面来一个更仙的<strong>莫队</strong>做法！</p>
+<p>回顾我们为什么排除了莫队做法：因为最前面的操作不具有可减性</p>
+<pre><code class="language-cpp">example:
+
+操作：         1 2 / 2 3 / 3 4
+
+原序列：       1 2 3 4 5
+1/2/3操作：    2 3 4 1 5
+再进行1/2操作：3 2 4 1 5 
+2/3操作：      1 3 4 2 5
+</code></pre>
+<p>不要轻言放弃！进一步想为什么不具有可减性？因为交换与否会导致交换后的两个球出现在别的位置被交换</p>
+<p>进一步想，如果不做一开始的交换操作，这两个球就不会被交换，所以这两个球就还是原来的球，后面操作只是将这两个球弄反了，所以<strong>减去前面一个交换就等于将参与交换的两个球交换回来，即交换的两个位置上的球</strong>（注意区分，后面减去一个操作是交换位置）</p>
+<p>于是就很简单了，刚好复习一下莫队</p>
+<h4 id="code-2">Code：</h4>
+<pre><code class="language-cpp">
+</code></pre>
+<h3 id="牛牛的凑数游戏牛客tg1-t3"><a href="https://ac.nowcoder.com/acm/contest/7605/C">牛牛的凑数游戏——牛客tg1 T3</a></h3>
+<p>先总结总结这题吧，代码<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>95</mn></mrow><annotation encoding="application/x-tex">95%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span><span class="mord">5</span></span></span></span>就是主席树板子（甚至比板子要简单），但思维很难且需要一步一步来，刚好复习一下主席树</p>
+<h4 id="first-step-找到一个引理">First Step ： 找到一个引理</h4>
+<p>一个集合不能表示的最小的数为这个集合升序排列之后，第一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>u</mi><msub><mi>m</mi><mi>i</mi></msub><mo>&lt;</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">sum_i &lt; a_{i+1} - 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6891em;vertical-align:-0.15em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.791661em;vertical-align:-0.208331em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>位置的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>u</mi><msub><mi>m</mi><mi>i</mi></msub><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">sum_i + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></p>
+<p>正确性显然</p>
+<h4 id="second-step-对一个暴力算法进行优化">Second Step ： 对一个暴力算法进行优化</h4>
+<p>每次对询问的区间排序，扫一遍找到答案</p>
+<p>考虑已经有了一个排序后的前缀<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">sum</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span></span></span></span>，数值<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub><mo>&lt;</mo><mi>s</mi><mi>u</mi><msub><mi>m</mi><mi>i</mi></msub><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a_i &lt; sum_i + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6891em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>的数都不能使<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>u</mi><msub><mi>m</mi><mi>i</mi></msub><mo>&lt;</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">sum_i &lt; a_{i + 1} - 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6891em;vertical-align:-0.15em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.791661em;vertical-align:-0.208331em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>成立，直接加入<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">sum</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span></span></span></span>即可</p>
+<p>考虑每次将可以加入答案的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span>一起加入答案，降低复杂度，显然每次的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span>是连续的一段值域，可以用<strong>权值线段树</strong>，因为每次询问的是一个区间，自然想到<strong>主席树</strong></p>
+<h4 id="code-3">Code：</h4>
+<pre><code class="language-cpp">#define int long long
+
+const int N = 100005;
+const int mx = 1e9 + 7;
+
+int rt[N * 300], tot, sum[N * 300], ls[N * 300], rs[N * 300];
+
+int update(int root, int l, int r, int k)
+{
+    int dir = ++ tot;
+    sum[dir] = sum[root], ls[dir] = ls[root], rs[dir] = rs[root];
+    if(l == r)
+    {
+        sum[dir] += k;
+        return dir;
+    }
+    int mid = (l + r) &gt;&gt; 1;
+    if(k &lt;= mid)
+        ls[dir] = update(ls[dir], l, mid, k);
+    else
+        rs[dir] = update(rs[dir], mid + 1, r, k);
+    sum[dir] = sum[ls[dir]] + sum[rs[dir]];
+    return dir;
+}
+
+int query(int p, int q, int l, int r, int L, int R)
+{
+    if(R &lt; l || r &lt; L) return 0;
+    if(L &lt;= l &amp;&amp; r &lt;= R) return sum[q] - sum[p];
+    int mid = (l + r) &gt;&gt; 1;
+    return query(ls[p], ls[q], l, mid, L, R) + query(rs[p], rs[q], mid + 1, r, L, R);
+}
+
+inline int calc(int l, int r)
+{
+    int maxa = 0, suma = 0, t; // maxa表示之前用到的最大的a，防止同一个值重复加入，suma表示之前的前缀和
+    while(t = query(rt[l - 1], rt[r], 1, mx, maxa + 1, suma + 1))
+        maxa = suma + 1, suma += t;
+    return suma + 1;
+}
+
+signed main()
+{
+    int n = read(), m = read();
+    for(int i = 1; i &lt;= n; ++i)
+        rt[i] = update(rt[i - 1], 1, mx, read());
+    while(m --)
+    {
+        int a = read(), b = read();
+        cout &lt;&lt; calc(a, b) &lt;&lt; endl;
+    }
+    
+    return 0;
+}
+</code></pre>
+<p>这是在线做法，还有个离线树状数组做法，应该也是每次扩大<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span>的值域，复杂度也是一样的，还有一道类似的树状数组题，<a href="http://acm.hdu.edu.cn/showproblem.php?pid=4417">有缘再做</a>，仙姑~</p>
+<h3 id="牛牛的rpg游戏牛客tg1-t4"><a href="https://ac.nowcoder.com/acm/contest/7605/D">牛牛的RPG游戏——牛客tg1 T4</a></h3>
+<p>没看太懂，仙姑~</p>
+<h4 id="题解">题解：</h4>
+<figure data-type="image" tabindex="1"><img src="https://cdn.luogu.com.cn/upload/image_hosting/h33u8pnm.png" alt="" loading="lazy"></figure>
+<h4 id="题解代码"><a href="https://www.luogu.com.cn/paste/3zy8zioy">题解代码</a></h4>
+<hr>
+<h3 id="包含牛客tg2-t2"><a href="https://ac.nowcoder.com/acm/contest/7607/B">包含——牛客tg2 T2</a></h3>
+<p>这题，怎么说，真的是凸显出了前两道题考思维，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi>o</mi><mi>i</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">noip</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">n</span><span class="mord mathdefault">o</span><span class="mord mathdefault">i</span><span class="mord mathdefault">p</span></span></span></span>难道也会如此？！！！</p>
+<p>自己想了一小会儿，没思路，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>i</mi><mi>n</mi><mi>x</mi><mi>u</mi></mrow><annotation encoding="application/x-tex">minxu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault">x</span><span class="mord mathdefault">u</span></span></span></span>想出来01Trie，想了半天，觉得不可，于队也想01Trie，也不可，自己还想了一个分治思想，时复假了。。。</p>
+<p>问高义雄，说是高维前缀和（这几天会学的），觉得作为T2太难了...</p>
+<p>于是，一个用户的T2题解出来，打脸，，，<strong>人家dfs暴力标记每一个集合内的数的所有子集，用vis数组记忆化剪枝，均摊<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mi>e</mi><mn>6</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1e6)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mord mathdefault">e</span><span class="mord">6</span><span class="mclose">)</span></span></span></span>，似乎不可卡！</strong></p>
+<p>于是就是这题了，还是贴一下<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>j</mi><mo>−</mo></mrow><annotation encoding="application/x-tex">pj-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mord">−</span></span></span></span>代码纪念：</p>
+<pre><code class="language-cpp">bool vis[1000005];
+
+void dfs(int x)
+{
+	if(vis[x] || !x) return;
+	vis[x] = 1;
+	for(int i = 22; ~i; --i)
+		if((x &gt;&gt; i) &amp; 1) dfs(x ^ (1 &lt;&lt; i));
+}
+
+signed main()
+{
+	int n = read(), m = read();
+	for(int i = 1; i &lt;= n; ++i)
+		dfs(read());
+	for(int i = 1; i &lt;= m; ++i)
+		puts(vis[read()] ? &quot;yes&quot; : &quot;no&quot;);
+}
+</code></pre>
+<p>注意：开<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>a</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">map</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">a</span><span class="mord mathdefault">p</span></span></span></span>会<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span></span></span></span>，想了想，可能每次插入和查询在不在是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(logn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>的</p>
+<h3 id="移动牛客tg2-t4"><a href="https://ac.nowcoder.com/acm/contest/7607/D">移动——牛客tg2 T4</a></h3>
+<p>显然将时间离散化，考虑<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span></p>
+<p>设<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>[</mo><mi>i</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">f[i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span></span></span></span>表示<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>时间段在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>位置最早的时间（每个时间段只一个限制中对应一个位置）</p>
+<p>因为可以来回走，似乎不好转移，考虑最短路，实质上就是<strong>在状态之间跑最短路</strong>，堆中按<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>排（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>相当于最短路中的距离，时间段和位置都是一个点）</p>
+<p>需要预处理一些东西：每个位置可以走的时间段</p>
+<p>代码挺好的，注释不少</p>
+<h4 id="code-4">Code：</h4>
+<pre><code class="language-cpp">#define pii pair&lt;int, int&gt;
+#define L first
+#define R second
+#define m_p make_pair
+
+const int N = 200010;
+const int INF = 0x3f3f3f3f;
+
+vector &lt;pii&gt; v[N], cur;
+int n, m, id[N], f[N];
+
+struct P
+{
+	int id, x, t;
+
+	inline bool operator &gt; (const P &amp;A) const
+	{
+		return t &gt; A.t;
+	}
+};
+priority_queue &lt; P, vector &lt;P&gt;, greater &lt;P&gt; &gt; q;
+
+inline void init()
+{
+	n = read(), m = read();
+	for(int i = 1; i &lt;= m; ++i)
+		v[read()].push_back( {read(), read()} );
+	v[0].push_back( {0, INF} );
+	v[n + 1].push_back( {0, INF} );
+
+	id[1] = 1;
+	for(int i = 1; i &lt;= n; ++i)
+	// 把v[i]变成了第i个位置的空档（门是打开的）
+	// 预处理出id[]表示i位置第一个空档编号
+	{
+		sort(v[i].begin(), v[i].end());
+		cur.clear();
+		int r = -1;
+		for(int j = 0; j &lt; v[i].size(); ++j)
+		{
+			auto p = v[i][j];
+			if(p.L &gt; r + 1) cur.push_back( {r + 1, p.L - 1} );
+			r = max(r, p.R);
+		}
+		cur.push_back( {r + 1, INF} );
+		v[i] = cur;
+		id[i + 1] = id[i] + v[i].size();
+	}
+}
+
+inline void calc(P p, int x) // 转移
+{
+	int r = v[p.x][p.id - id[p.x]].R; // 注意vector下标从0开始，这里是找到从这个位置，最晚可以在什么时候走到x
+	int i = lower_bound(v[x].begin(), v[x].end(), m_p(p.t + 1, 0) ) - v[x].begin() - 1; // 找出可以更新的状态
+
+	if(v[x][i].R &gt;= p.t + 1 &amp;&amp; f[id[x] + i] &gt; p.t + 1) // 如果可以更新，而且更新更优，更新，并加入新状态
+	{
+		f[id[x] + i] = p.t + 1;
+		q.push( (P){id[x] + i, x, p.t + 1});
+	}
+	
+	for(++ i; i &lt; v[x].size() &amp;&amp; v[x][i].L &lt;= r + 1; ++i)
+		if(f[id[x] + i] &gt; v[x][i].L) // 从i往后任意时刻到x都可以，就把每一段都更新为开头
+		{
+			f[id[x] + i] = v[x][i].L;
+			q.push( (P){id[x] + i, x, v[x][i].L});
+		}
+}
+
+inline void dp()
+{
+	memset(f, 0x3f, sizeof f);
+	f[0] = 0;
+	q.push( (P){0, 0, 0} ); // 起点入队（初始化）
+
+	while(q.size())
+	{
+		auto p = q.top(); q.pop();
+		if(p.t &gt; f[p.id]) continue;
+		if(p.x &gt; 0) calc(p, p.x - 1); // 后退
+		if(p.x &lt; n + 1) calc(p, p.x + 1); // 前进
+        // 最终是要走到n + 1的
+	}
+}
+
+signed main()
+{
+	init();
+	dp();
+	print( f[id[n + 1]] );
+
+	return 0;
+}
+</code></pre>
+<h3 id="牛半仙的妹子数牛客tg3-t1"><a href="https://ac.nowcoder.com/acm/contest/7609/A">牛半仙的妹子数——牛客tg3 T1</a></h3>
+<p>小结论题（证明略）：</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mi>n</mi><mi>s</mi><mo>=</mo><mi>c</mi><mo>×</mo><msup><mn>2</mn><mi>k</mi></msup><mspace></mspace><mspace width="0.6666666666666666em"/><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow><mtext> </mtext><mtext> </mtext><mo>(</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo>+</mo><mi>c</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">ans = c \times 2 ^ k \mod (a + b + c)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span><span class="mspace allowbreak"></span><span class="mspace" style="margin-right:0.6666666666666666em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">o</span><span class="mord mathrm">d</span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">c</span><span class="mclose">)</span></span></span></span></p>
+<h3 id="牛半仙的妹子图牛客tg3-t2"><a href="https://ac.nowcoder.com/acm/contest/7609/B">牛半仙的妹子图——牛客tg3 T2</a></h3>
+<p>自己和于队考场都过大样例，但都爆0？看了过了的人代码发现没什么区别？唯一的区别是用了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi><mi>i</mi><mi>t</mi><mi>s</mi><mi>e</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">bitset</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span><span class="mord mathdefault">e</span><span class="mord mathdefault">t</span></span></span></span>？但也有人用了还过了...</p>
+<h4 id="solution">Solution：</h4>
+<h5 id="算法标签前缀和-kruskal-离散化乱搞">算法标签：前缀和 + kruskal + 离散化乱搞</h5>
+<h5 id="算法流程">算法流程：</h5>
+<ul>
+<li>
+<p>kruskal的时候更新出来每条边处可达集合的颜色数（如果边的一端在可达集合，整个集合“或”入颜色数，否则合并，不更新颜色数）</p>
+</li>
+<li>
+<p>前缀和起来</p>
+</li>
+<li>
+<p>每次询问的时候，前缀和相减得出答案（注意前缀和数组的下标是边的编号）</p>
+</li>
+</ul>
+<p><s>讨论区还有一种解法：</s></p>
+<h5 id="算法标签前缀和-dijkstra-二分">算法标签：前缀和 + dijkstra + 二分</h5>
+<p>预处理出来每个点到根的最小最大代价，询问时二分答案</p>
+<p>正确性证明：因为最大值，所以可以不走最短路，只要一个点能到，就一定可以到，不用考虑是否按最大代价最小的路径走</p>
+<p><s>正解还有一种解法：</s></p>
+<h5 id="算法标签正解-观察数据范围">算法标签：<s>正解</s> 观察数据范围</h5>
+<p>对于每一次加边，如果颜色变化，则记这条边为分割边，将所有分割边记录下来，考虑到颜色数量很少，所以分割边最多600条，每次暴力计算两个分割边间的答案即可</p>
+<h4 id="为了不浪费时间以下是ac-code第一种做法">为了不浪费时间，以下是<strong>AC Code：（第一种做法）</strong></h4>
+<pre><code class="language-cpp">int n,m,Q,S,opt,mod,vis[N],c[N],zz[N],a[N],w[N];
+ll ans,s[N];
+vector&lt;int&gt; G[N];
+struct Link{
+	int x,y,w;
+	bool operator &lt;(const Link b)const{
+		return w&lt;b.w;
+	}
+}L[N];
+int f[N];
+void init(int n){
+	for(int i=1;i&lt;=n;++i)f[i]=i;
+}
+inline int getf(int x){
+	return f[x]==x?x:f[x]=getf(f[x]);
+}
+void dfs(int u,int &amp;tmp){
+	vis[u]=1;
+	if(!zz[c[u]])++tmp,zz[c[u]]=1;
+	for(auto v:G[u]){
+		if(!vis[v])dfs(v,tmp);
+	}
+}
+ll Solve(int x){
+	int p=upper_bound(w+1,w+m+1,x)-w-1;
+	return s[p]+1LL*(x-w[p]+1)*a[p];
+}
+int main(){
+	n=read(),m=read(),Q=read(),S=read(),opt=read();
+	if(opt)mod=read();
+	for(int i=1;i&lt;=n;++i){
+		c[i]=read();
+	}
+	for(int i=1;i&lt;=m;++i){
+		int u=read(),v=read(),w=read();
+		L[i]={u,v,w};
+	}
+	sort(L+1,L+m+1);
+	vis[S]=1,zz[c[S]]=1,a[0]=1;
+	init(n);
+	for(int i=1;i&lt;=m;++i){
+		int fx=getf(L[i].x),fy=getf(L[i].y);
+		w[i]=L[i].w;
+		a[i]=a[i-1];
+		if(fx==fy)continue;
+		G[L[i].x].push_back(L[i].y);
+		G[L[i].y].push_back(L[i].x);
+		if(vis[fy]&amp;&amp;!vis[fx]){
+			dfs(L[i].x,a[i]);
+		}
+		else if(vis[fx]&amp;&amp;!vis[fy]){
+			dfs(L[i].y,a[i]);
+		}
+	}
+	w[0]=1;
+	for(int i=1;i&lt;=m;++i){
+		s[i]=s[i-1]+1LL*(w[i]-w[i-1])*a[i-1];
+	}
+	while(Q--){
+		int l=read(),r=read();
+		if(opt)l=(l^ans)%mod+1,r=(r^ans)%mod+1;
+		if(l&gt;r)swap(l,r);
+		ans=Solve(r)-Solve(l-1);
+		printf(&quot;%lld\n&quot;,ans);
+	}
+	return 0;
+}
+</code></pre>
+<h3 id="牛半仙的妹子tree牛客tg3-t3"><a href="https://ac.nowcoder.com/acm/contest/7609/C">牛半仙的妹子Tree——牛客tg3 T3</a></h3>
+<p>官方题解特别好！对每个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mi>u</mi><mi>b</mi><mi>t</mi><mi>a</mi><mi>s</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">Subtask</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault">u</span><span class="mord mathdefault">b</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>都给出了题解和代码</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mi>u</mi><mi>b</mi><mi>t</mi><mi>a</mi><mi>s</mi><mi>k</mi><mn>0</mn></mrow><annotation encoding="application/x-tex">Subtask 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault">u</span><span class="mord mathdefault">b</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord">0</span></span></span></span>：记录每个点最早被覆盖的时间，操作1dfs更新，操作2<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>e</mi><mi>m</mi><mi>s</mi><mi>e</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">memset</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">e</span><span class="mord mathdefault">m</span><span class="mord mathdefault">s</span><span class="mord mathdefault">e</span><span class="mord mathdefault">t</span></span></span></span>，操作3x和时间比较即可</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mi>u</mi><mi>b</mi><mi>t</mi><mi>a</mi><mi>s</mi><mi>k</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">Subtask 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault">u</span><span class="mord mathdefault">b</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord">1</span></span></span></span>：菊花图，特判时间</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mi>u</mi><mi>b</mi><mi>t</mi><mi>a</mi><mi>s</mi><mi>k</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">Subtask 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault">u</span><span class="mord mathdefault">b</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord">2</span></span></span></span>（没看懂）：对于链的情况，由于每个点度数至多为 22， 我们可以写一种基于度数的做法：在 11 操作时将询问的点加入队列，每个单位时间暴力更新所有点扩展到的节点，可以通过该 subtask</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mi>u</mi><mi>b</mi><mi>t</mi><mi>a</mi><mi>s</mi><mi>k</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">Subtask 3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault">u</span><span class="mord mathdefault">b</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord">3</span></span></span></span>：</p>
+<p>WAY 1：每个点会在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>×</mo><mi>l</mi><mi>o</mi><msub><mi>g</mi><mn>2</mn></msub><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">2 \times log_2(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>的时间内被覆盖，每次询问枚举前面点，看距离是否满足</p>
+<p><strong>WAY 2：树高<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><msub><mi>g</mi><mn>2</mn></msub><mi mathvariant="normal">（</mi><mi>n</mi><mi mathvariant="normal">）</mi></mrow><annotation encoding="application/x-tex">log_2（n）</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">（</span><span class="mord mathdefault">n</span><span class="mord cjk_fallback">）</span></span></span></span>，对于询问暴力找<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><msub><mi>g</mi><mn>2</mn></msub><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">log_2(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>时间内的操作即可，需要求lca来计算距离，因为树高为log，直接暴力跳lca即可！</strong></p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mi>u</mi><mi>b</mi><mi>t</mi><mi>a</mi><mi>s</mi><mi>k</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">Subtask 4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault">u</span><span class="mord mathdefault">b</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord">4</span></span></span></span>：前面已经有了足够多的提示，可以想到分块，将询问的时间分块，块内暴力枚举前面的操作（是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msqrt><mi>m</mi></msqrt></mrow><annotation encoding="application/x-tex">\sqrt m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.23972em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault" style="padding-left:0.833em;">m</span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
+-10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
+-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
+35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
+-221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
+s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
+s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.23972em;"><span></span></span></span></span></span></span></span></span>个的），对于块外的操作，每次换块时将其贡献记录上，方法就是跑在图上<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>p</mi><mi>f</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">spfa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">p</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">a</span></span></span></span>，更新每个点最早被覆盖的时间</p>
+<pre><code class="language-cpp">const int N = 1000007;
+
+int n, m, head[N], tot, dep[N];
+int eu[N], lg[N], st[N], dfn, minn[N][25];
+
+struct E
+{
+    int ver, nxt;
+} e[N];
+
+inline void add(int u, int v)
+{
+    e[++ tot] = {v, head[u]}, head[u] = tot;
+}
+
+void dfs(int x, int fa)
+{
+    dep[x] = dep[fa] + 1;
+    eu[++ dfn] = x;
+    st[x] = dfn;
+    for(int i = head[x]; i; i = e[i].nxt)
+    {
+        int y = e[i].ver;
+        if(y == fa) continue;
+        dfs(y, x);
+        eu[++ dfn] = x;
+    }
+}
+
+inline int mi(int x, int y)
+{
+    return dep[x] &lt; dep[y] ? x : y;
+}
+
+inline void lca_pre()
+{
+    for(int i = 1; i &lt;= dfn; ++i) minn[i][0] = eu[i];
+    int mx = n &lt;&lt; 1;
+    for(int i = 1; i &lt;= lg[mx]; ++i)
+        for(int j = 1; j + (1 &lt;&lt; i) - 1 &lt;= mx; ++j)
+            minn[j][i] = mi( minn[j][i - 1], minn[j + (1 &lt;&lt; (i - 1))][i - 1] );
+}
+
+inline int lca(int x, int y)
+{
+    if(st[x] &gt; st[y]) swap(x, y);
+    int l = st[x], r = st[y], k = lg[r - l + 1];
+    return mi( minn[l][k], minn[r - (1 &lt;&lt; k) + 1][k] );
+}
+
+inline int dis(int x, int y)
+{
+    return dep[x] + dep[y] - (dep[lca(x, y)] &lt;&lt; 1);
+}
+
+struct P
+{
+    int t, pos;
+} p[N], now[N], pp[N];
+
+int cntp, vis[N], mii[N], tag, cntnow, block;
+
+inline void spfa()
+{
+    queue &lt;P&gt; q;
+    q.push(p[1]);
+    int l = 2;
+    while(q.size())
+    {
+        auto x = q.front(); q.pop();
+        for(int i = head[x.pos]; i; i = e[i].nxt)
+        {
+            int y = e[i].ver;
+            if(! vis[y])
+            {
+                vis[y] = 1;
+                mii[y] = min(mii[y], mii[x.pos] + 1);
+                q.push( (P){mii[y], y} );
+                if(mii[y] == p[l].t)
+                {
+                    vis[p[l].pos] = 1;
+                    q.push(p[l ++]);
+                }
+            }
+        }
+    }
+}
+
+inline void RE()
+{
+    memset(vis, 0, sizeof vis);
+    memset(mii, 0x7f, sizeof(mii));
+
+    for(int i = 1; i &lt;= cntnow; ++i) p[++ cntp] = now[i];
+    for(int i = 1; i &lt;= cntp; ++i)
+        mii[p[i].pos] = min(mii[p[i].pos], p[i].t);
+    
+    spfa();
+}
+
+inline void query(int x, int times)
+{
+    if(! tag &amp;&amp; times &gt;= mii[x])
+    {
+        puts(&quot;wrxcsd&quot;);
+        return;
+    }
+    for(int i = 1; i &lt;= cntnow; ++i)
+        if(dis(x, now[i].pos) &lt;= times - now[i].t)
+        {
+            puts(&quot;wrxcsd&quot;);
+            return;
+        }
+    puts(&quot;orzFsYo&quot;);
+}
+
+inline void init()
+{
+    memset(mii, 0x7f, sizeof mii);
+
+    lg[0] = -1;
+    for(int i = 1; i &lt;= N - 6; ++i)
+        lg[i] = lg[i &gt;&gt; 1] + 1;
+
+    n = read(), m = read();
+    p[0].t = 1e9;
+    for(int i = 1; i &lt; n; ++i)
+    {
+        int u = read(), v = read();
+        add(u, v), add(v, u);
+    }
+    dfs(1, 0);
+    lca_pre();
+    block = sqrt(m) * 2;
+}
+
+inline void work()
+{
+    for(int i = 1; i &lt;= m; ++i)
+    {
+        if(i % block == 0)
+        {
+            RE();
+            cntnow = tag = 0;
+        }
+        int op = read(), x = read();
+        if(op == 1)
+            now[++cntnow] = {i, x};
+        else if(op == 2)
+            tag = 1, cntnow = cntp = 0;
+        else
+            query(x, i);
+    }
+}
+
+signed main()
+{
+    init();
+    work();
+
+    return 0;
+}
+</code></pre>
+<h3 id="牛半仙的魔塔增强版牛客tg3-t4"><a href="https://ac.nowcoder.com/acm/contest/7609/D">牛半仙的魔塔（增强版）——牛客tg3 T4</a></h3>
+<p>思路跟<a href="https://www.luogu.com.cn/problem/UVA1205">这题</a>一样</p>
+<figure data-type="image" tabindex="2"><img src="https://cdn.luogu.com.cn/upload/image_hosting/xr6ps9qu.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://cdn.luogu.com.cn/upload/image_hosting/dxizt8ud.png" alt="" loading="lazy"></figure>
+<pre><code class="language-cpp">int first[200005], nxt[200005], to[200005], tot = 0;
+void Add(int x, int y) {nxt[++tot] = first[x]; first[x] = tot; to[tot] = y;}
+int fa[100005], b[100005], a[100005], d[100005], hh[100005], val[100005], HH[100005], Val[100005], tim[100005];
+int vis[100005], sc[100005];
+int ffa[500005];
+int findfa(int x) {return (ffa[x] == x) ? x : ffa[x] = findfa(ffa[x]);}
+void fight(int x) {
+    //cout &lt;&lt; x &lt;&lt; endl;
+    b[1] -= (a[x] - d[1]) * hh[x];
+    d[1] += val[x];
+}
+void dfs(int u, int F) {
+    fa[u] = F;
+    for(int e = first[u]; e; e = nxt[e]) {
+        int v = to[e];
+        if(v == F)  continue;
+        dfs(v, u);
+    }
+}
+vector&lt;int&gt; Nxt[100005];
+void Do(int u) {
+    fight(u); sc[u] = 1;
+    for(int i = 0; i &lt; Nxt[u].size(); i++) {
+        Do(Nxt[u][i]);
+    }
+}
+signed main() {
+    priority_queue&lt;pair&lt;double, int&gt; &gt; q;
+    int n; scanf(&quot;%lld&quot;, &amp;n);
+    for(int i = 1; i &lt; n; i++) {
+        int x, y;
+        scanf(&quot;%lld%lld&quot;, &amp;x, &amp;y);
+        Add(x, y); Add(y, x);
+    }
+    dfs(1, 0);
+    scanf(&quot;%lld%lld%lld&quot;, &amp;b[1], &amp;a[1], &amp;d[1]);
+    for(int i = 2; i &lt;= n; i++) {
+        scanf(&quot;%lld%lld%lld%lld&quot;, &amp;b[i], &amp;a[i], &amp;d[i], &amp;val[i]);
+        hh[i] = b[i] / (a[1] - d[i]);  HH[i] = hh[i]; Val[i] = val[i];
+        if(b[i] % (a[1] - d[i]) == 0)  --hh[i], --HH[i];
+        q.push(make_pair(1.0 * val[i] / hh[i], i));
+    }
+    sc[1] = 1;
+    for(int i = 1; i &lt;= n; i++)  ffa[i] = i;
+    while(!q.empty()) {
+        int u = q.top().second; q.pop();
+        if(vis[u])  continue;  vis[u] = 1;
+        if(sc[fa[u]])  {Do(u); continue;}
+        HH[findfa(fa[u])] += HH[u], Val[findfa(fa[u])] += Val[u];
+        Nxt[ffa[fa[u]]].push_back(u);
+        ffa[u] = ffa[fa[u]];
+        q.push(make_pair(1.0 * Val[ffa[fa[u]]] / HH[ffa[fa[u]]], ffa[fa[u]]));
+    }
+    cout &lt;&lt; b[1] &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+
+            </div>
+            <hr style="width: 80%;">
+            
+            <div class="sharebtnContainer">
+                <button type="button" class="sharebtn">转载分享</button>
+            </div>
+            <div class="shareContainer">
+                <div class="share" style="height:30px;background: white;">
+                    <a class="qq" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/QQ.png" alt=""></i></a>
+                    <a class="wechat" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/wechat.png" alt=""></i></a>
+                    <a class="weibo" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/weibo.png" alt=""></i></a>
+                    <a class="qzone" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/qzone.png" alt=""></i></a>
+                    <a class="douban" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/douban.png" alt=""></i></a>
+                    <a class="facebook" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/facebook.png" alt=""></i></a>
+                    <a class="twitter" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/twitter.png" alt=""></i></a>
+                </div>
+            </div>
+            
+            
+            <div class="donateContainer">
+                <img src="https://youziki.github.io/media/images/donate.png" alt="" class="donateImg">
+            </div>
+            <div class="donateContainer">
+                <img src="" alt="" class="donate">
+            </div>
+            
+            <div class="postfooter">
+                <ul class="post-copyright">
+                    <li><strong>文章作者：</strong>youziki</li>
+            <li><strong>原文链接：</strong>https://youziki.github.io/niu-ke-kao-qian-ji-xun/</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用<i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA
+                许可协议。转载请注明出处！</li>
+            </ul>
+        </div>
+        <div id="otherpost">
+            
+            <div class="prev-post-pc">
+                <div id="ppcontainer" onclick="window.location.href= 'https://youziki.github.io/50e0ECyRE/';return false">
+                    
+                    <img src="https://cdn.luogu.com.cn/upload/image_hosting/0pz3220b.png" style="width: 100%;" class="opimg">
+                    
+                    <h4 class="optitle">题解 8.19 T3 pancake</h4>
+                </div>
+            </div>
+            <div class="prev-post">
+                上一篇 <a href="https://youziki.github.io/50e0ECyRE/">题解 8.19 T3 pancake</a>
+            </div>
+            
+            
+            <div class="next-post-pc">
+                <div id="npcontainer" onclick="window.location.href= 'https://youziki.github.io/my-ce-shi/';return false">
+                    
+                    <img src="https://cdn.luogu.com.cn/upload/image_hosting/31ub8x3h.png" style="width: 100%;" class="opimg">
+                    
+                    <h4 class="optitle">MY 测试</h4>
+                </div>
+            </div>
+            <div class="next-post">
+                下一篇 <a href="https://youziki.github.io/my-ce-shi/">MY 测试</a>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+    </div>
+
+</body>
+<script>
+    //文章阅读热度
+    var pl = $("#pl").html();
+    var rootaddr = $("#rootaddr").html();
+    pl = pl.replace(rootaddr, "");
+    $("#hotnum").attr('id', pl);
+</script>
+                <div id="comment"  class="comment" style="background: white">
+                    <div class="commentcontainer">
+                        
+                        <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                        
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-1 col-lg-2"></div>
+                <div id="bg">
+                </div>
+            </div>
+            
+        
+        <div class="toc-container">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E7%89%9B%E7%89%9B%E7%9A%84%E6%96%B9%E7%A8%8B%E5%BC%8F%E7%89%9B%E5%AE%A2tg1-t1">牛牛的方程式——牛客tg1 T1</a></li>
+<li><a href="#%E7%89%9B%E7%89%9B%E7%9A%84%E7%8C%9C%E7%90%83%E6%B8%B8%E6%88%8F%E7%89%9B%E5%AE%A2tg1-t2">牛牛的猜球游戏——牛客tg1 T2</a>
+<ul>
+<li><a href="#%E6%AD%A3%E8%A7%A3%E5%89%8D%E7%BC%80%E5%92%8Con">正解：前缀和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></a></li>
+<li><a href="#%E5%AE%9E%E7%8E%B0">实现：</a></li>
+<li><a href="#code">Code：</a></li>
+<li><a href="#code-2">Code：</a></li>
+</ul>
+</li>
+<li><a href="#%E7%89%9B%E7%89%9B%E7%9A%84%E5%87%91%E6%95%B0%E6%B8%B8%E6%88%8F%E7%89%9B%E5%AE%A2tg1-t3">牛牛的凑数游戏——牛客tg1 T3</a>
+<ul>
+<li><a href="#first-step-%E6%89%BE%E5%88%B0%E4%B8%80%E4%B8%AA%E5%BC%95%E7%90%86">First Step ： 找到一个引理</a></li>
+<li><a href="#second-step-%E5%AF%B9%E4%B8%80%E4%B8%AA%E6%9A%B4%E5%8A%9B%E7%AE%97%E6%B3%95%E8%BF%9B%E8%A1%8C%E4%BC%98%E5%8C%96">Second Step ： 对一个暴力算法进行优化</a></li>
+<li><a href="#code-3">Code：</a></li>
+</ul>
+</li>
+<li><a href="#%E7%89%9B%E7%89%9B%E7%9A%84rpg%E6%B8%B8%E6%88%8F%E7%89%9B%E5%AE%A2tg1-t4">牛牛的RPG游戏——牛客tg1 T4</a>
+<ul>
+<li><a href="#%E9%A2%98%E8%A7%A3">题解：</a></li>
+<li><a href="#%E9%A2%98%E8%A7%A3%E4%BB%A3%E7%A0%81">题解代码</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8C%85%E5%90%AB%E7%89%9B%E5%AE%A2tg2-t2">包含——牛客tg2 T2</a></li>
+<li><a href="#%E7%A7%BB%E5%8A%A8%E7%89%9B%E5%AE%A2tg2-t4">移动——牛客tg2 T4</a>
+<ul>
+<li><a href="#code-4">Code：</a></li>
+</ul>
+</li>
+<li><a href="#%E7%89%9B%E5%8D%8A%E4%BB%99%E7%9A%84%E5%A6%B9%E5%AD%90%E6%95%B0%E7%89%9B%E5%AE%A2tg3-t1">牛半仙的妹子数——牛客tg3 T1</a></li>
+<li><a href="#%E7%89%9B%E5%8D%8A%E4%BB%99%E7%9A%84%E5%A6%B9%E5%AD%90%E5%9B%BE%E7%89%9B%E5%AE%A2tg3-t2">牛半仙的妹子图——牛客tg3 T2</a>
+<ul>
+<li><a href="#solution">Solution：</a>
+<ul>
+<li><a href="#%E7%AE%97%E6%B3%95%E6%A0%87%E7%AD%BE%E5%89%8D%E7%BC%80%E5%92%8C-kruskal-%E7%A6%BB%E6%95%A3%E5%8C%96%E4%B9%B1%E6%90%9E">算法标签：前缀和 + kruskal + 离散化乱搞</a></li>
+<li><a href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B">算法流程：</a></li>
+<li><a href="#%E7%AE%97%E6%B3%95%E6%A0%87%E7%AD%BE%E5%89%8D%E7%BC%80%E5%92%8C-dijkstra-%E4%BA%8C%E5%88%86">算法标签：前缀和 + dijkstra + 二分</a></li>
+<li><a href="#%E7%AE%97%E6%B3%95%E6%A0%87%E7%AD%BE%E6%AD%A3%E8%A7%A3-%E8%A7%82%E5%AF%9F%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4">算法标签：<s>正解</s> 观察数据范围</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%BA%E4%BA%86%E4%B8%8D%E6%B5%AA%E8%B4%B9%E6%97%B6%E9%97%B4%E4%BB%A5%E4%B8%8B%E6%98%AFac-code%E7%AC%AC%E4%B8%80%E7%A7%8D%E5%81%9A%E6%B3%95">为了不浪费时间，以下是<strong>AC Code：（第一种做法）</strong></a></li>
+</ul>
+</li>
+<li><a href="#%E7%89%9B%E5%8D%8A%E4%BB%99%E7%9A%84%E5%A6%B9%E5%AD%90tree%E7%89%9B%E5%AE%A2tg3-t3">牛半仙的妹子Tree——牛客tg3 T3</a></li>
+<li><a href="#%E7%89%9B%E5%8D%8A%E4%BB%99%E7%9A%84%E9%AD%94%E5%A1%94%E5%A2%9E%E5%BC%BA%E7%89%88%E7%89%9B%E5%AE%A2tg3-t4">牛半仙的魔塔（增强版）——牛客tg3 T4</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+    </div>
+    </div>
+    <div class="tog">
+        <div class="toggleContainer">
+            <div class="toggle">
+                <i class="fas fa-angle-double-up"></i>
+            </div>
+        </div>
+    </div>
+    <div id="bgchoice" style="display: none">link</div>
+    
+    <div id="bgurl" style="display:none">https://cdn.luogu.com.cn/upload/image_hosting/0pz3220b.png</div>
+    
+    </div>
+</body>
+<script>
+    var img = $("img");
+    for (var i = 0; i < img.length; i++) {
+        if (img.eq(i).attr("class") == undefined) {
+            img.eq(i).attr("class", "lazyload");
+            var imgsrc = img.eq(i).attr("src");
+            img.eq(i).attr("data-original", imgsrc);
+            img.eq(i).attr("src", "");
+            img.eq(i).hide();
+        }
+    }
+</script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<script>
+    //寻找所有code标签，加复制按钮鸭！(行内代码除外)
+    var codes = document.getElementsByTagName('code');
+    if (codes.length) {
+        for (var i = 0; i < codes.length; i++) {
+            //高度/行高=文本行数
+            // var rowNum=Math.round(codes[i].height()/parseFloat(codes[i].css('line-height')));
+            // console.log("当前有"+rowNum+"行");
+            var code_id = "code_id_" + i;
+            codes[i].setAttribute("id", code_id);
+            var ci = "#" + code_id;
+            var codedot = $(ci);
+            var rowNum = Math.round(codedot.height() / parseFloat(codedot.css('line-height')));
+            if (rowNum <= 1) continue;
+            var btn = document.createElement("button");
+            btn.setAttribute("class", "copybt");
+            btn.setAttribute("data-clipboard-target", "#" + code_id);
+            btn.innerHTML = '复制代码';
+            codes[i].parentNode.insertBefore(btn, codes[i]);
+        }
+    };
+    var cop = new ClipboardJS('.copybt');
+    var codeCopyText = $("#codeCopyText").html();
+    cop.on('success', function (e) {
+        alert(codeCopyText);
+        e.clearSelection();
+    });
+    cop.on('error', function (e) {
+        alert("矮油，复制失败了...手动复制吧勇士！");
+        e.clearSelection();
+    });
+</script>
+
+<script type="text/javascript">
+    var message_Path = '/live2d/'
+    var home_Path = document.getElementById("domainname").innerHTML + "/"; //此处修改为你的域名，必须带斜杠
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/js/live2d.js"></script>
+<script type="text/javascript" src="https://youziki.github.io/media/live2d/js/message.js"></script>
+<script type="text/javascript">
+    loadlive2d("live2d", "https://youziki.github.io/media/live2d/assets/tororo.model.json");
+</script>
+
+<script>
+    $(function () {
+        $('.toggleContainer').click(function () {
+            $('html,body').animate({
+                scrollTop: '0px'
+            }, 800);
+        });
+        $(window).scroll(function () {
+            var st = $(window).scrollTop();
+            if (st > 30) {
+                $(".toggleContainer").fadeIn(400);
+            } else {
+                $(".toggleContainer").fadeOut(100);
+            }
+        });
+    });
+</script>
+
+<script>
+    var bgchoice = $('#bgchoice').html();
+    var bg = $('#bg');
+    var bgurl = document.getElementById("bgurl").innerHTML;
+    if (bgchoice == 'default')
+        for (var i = 0; i < 3; i++)
+            bgurl = bgurl.replace("\\", "/");
+    bg.css("background", "url('" + bgurl + "')");
+</script>
+
+
+<script src="https://youziki.github.io/media/js/index.js"></script>
+
+
+
+<!-- 动态更改上(下)一篇博客图片框长宽 -->
+<script>
+    npcontainer = document.querySelector('#npcontainer');
+    npstyle = window.getComputedStyle(npcontainer, null);
+    npwidth = npstyle.width;
+    npheight = 0.6 * Number(npwidth.replace("px", ""));
+    npheight = npheight.toString() + "px";
+    var op = $(".opimg");
+    op.css("height", npheight);
+</script>
+
+<script src="https://youziki.github.io/media/share/dist/Share.js"></script>
+
+<script>
+    var avatarSrc = $(".avatar").attr("src");
+    var dp = document.getElementsByClassName("describtion")[0].innerHTML;
+</script>
+
+
+<script>
+    var title = document.getElementById("texttitle").getElementsByTagName("h2");
+    
+    var share = new Share('.share', {
+        title: title[0].innerHTML,
+        initialized: true,
+        //默认获取网站描述
+        description: dp,
+        //网站图片默认获取的是设置的用户头像
+        image: avatarSrc,
+        //激活的分享网站
+        sites: ["weibo", "qq", "wechat", "douban", "qzone", "facebook", "twitter", "google"],
+        //微信分享PC端会生成二维码分享,移动端如果可以唤起微信最好
+        wechatQrcodeTitle: "微信扫一扫：分享", // 微信二维码提示文字
+        wechatQrcodeHelper: '<p>微信里扫一下二维码</p><p>便可将本文分享至朋友圈。</p>',
+        //关闭的网站分享
+        disabled: ['google', 'linkedin'],
+        wechatQrcodePosition: 'bottom'
+    });
+
+    //点击分享按钮展现出分享icons
+    var sharebtnTag = false;
+    $(".sharebtn").click(function () {
+        if(!sharebtnTag)
+        {
+            $(".share").show();
+            sharebtnTag = true;
+        }
+        else
+        {
+            $(".share").hide();
+            sharebtnTag = false;
+        }
+    })
+
+    var donatebtnTag = false;
+    $(".donateImg").click(function () {
+        if(!donatebtnTag)
+        {
+            $(".donate").show();
+            donatebtnTag = true;
+        }
+        else{
+            $(".donate").hide();
+            donatebtnTag = false;
+        }
+    })
+
+    //加载后的事件同步（阅读量、移动端评论等
+    window.onload=function(){
+        getHotnum();
+        var sharepc = $(".share").eq(0).html();
+        $(".share").eq(1).html(sharepc);
+        document.getElementById("veditor").setAttribute("placeholder", jrsc);
+        aplayerbtnInit();
+    }
+</script>
+
+
+<script>
+    jQuery(document).ready(function ($) {
+        function lazyload() {
+            var oLazyload = $("img.lazyload"),
+                fLazyload = function (hLazyload) {
+                    var nLazyload = $(window).height() + $(document).scrollTop();
+                    oLazyload.each(function () {
+                        $(this).offset().top < nLazyload && ($(this).trigger("appear"), oLazyload =
+                            oLazyload.not(this));
+                    }), 0 == oLazyload.length && $(window).unbind("scroll", fLazyload);
+                };
+            oLazyload.each(function () {
+                $(this).one("appear", function () {
+                    $(this).attr("src", $(this).attr("data-original"));
+                    $(this).fadeIn(500);
+                });
+            }), $(window).bind("scroll", fLazyload), fLazyload();
+        }
+        lazyload();
+    });
+</script>
+
+<!-- <script src="https://youziki.github.io/media/js/av-min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.13.0/dist/av-min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.6.1/dist/av-live-query-min.js"></script> -->
+
+<script>
+    function getHotnum() {
+        //文章阅读热度（重构，利用leancloud原生api）
+        var pl = $("#pl").html();
+        var rootaddr = $("#rootaddr").html();
+        pl = pl.replace(rootaddr, "");
+
+        var appid = '';
+        var appkey = '';
+        console.log(appid, appkey)
+        if(AV==undefined)
+            AV.init({
+                appId: appid,
+                appKey: appkey
+            });
+        const query = new AV.Query('Counter');
+        query.equalTo('url', pl);
+        var time = 'Loading...';
+        query.find().then(function (results) {
+            console.log(results)
+            if (results.length == 0) {
+                console.log("0")
+                var NewCounter = AV.Object.extend('Counter');
+                var nc = new NewCounter();
+                nc.save({
+                    time: 1,
+                    title: "牛客考前集训",
+                    url: pl,
+                    xid: pl,
+                }).then(function (object) {
+                    $(".hotnum").eq(0).html(1);
+                    $(".hotnum").eq(1).html(1);
+                });
+            } else {
+                id = results[0].id;
+                var todo = AV.Object.createWithoutData('Counter', id);
+                time = results[0].attributes.time + 1;
+                todo.set("time", time);
+                todo.save();
+                console.log(todo);
+                $(".hotnum").eq(0).html(time);
+                $(".hotnum").eq(1).html(time);
+            }
+
+        }, function (error) {
+            console.log(error)
+        });
+    }
+</script>

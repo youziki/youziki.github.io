@@ -1,0 +1,983 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="description" content="副标题：网络流简单技巧与闫总听课笔记
+题们
+1. 要求输出方案：
+加上这句话：
+for(int i=2;i&lt;=tot;i+=2)
+	if(e[i].ver&gt;m&amp;&amp;e[i].ver&lt;=n&amp;&amp;!..." />
+    <meta name="keywords" content="学习笔记" />
+    <link rel="stylesheet" href="https://youziki.github.io/media/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/js/clipboard.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
+    <!-- 数学公式 -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css"
+        integrity="sha384-9tPv11A+glH/on/wEu99NVwDPwkMQESOocs/ZGXPoIiLE8MU/qkqUcZ3zzL+6DuH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js"
+        integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/contrib/auto-render.min.js"
+        integrity="sha384-aGfk5kvhIq5x1x5YdvCp4upKZYnA8ckafviDpmWEKp4afOZEqOli7gqSnh8I6enH" crossorigin="anonymous">
+    </script>
+    <script>
+        renderMathInElement(document.body, {
+            delimiters: [{
+                    left: "$$",
+                    right: "$$",
+                    display: true
+                },
+                {
+                    left: "$",
+                    right: "$",
+                    display: false
+                }
+            ]
+        });
+    </script>
+
+    
+    <title>Gridea</title>
+    
+    <style>
+        .markdownIt-TOC {
+            margin-left: 28%;
+            padding-left: 2px;
+            width: 80%;
+        }
+
+        .markdownIt-TOC li {
+            padding-left: 8%;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+    </div>
+    <div id="codeCopyText" style="display: none">代码复制成功了哦，亲~</div>
+    <div id="domainname" style="display:none">https://youziki.github.io</div>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div>
+            <div id="bar">
+                <head>
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/bootstrap.min.css">
+</head>
+<style>
+  @media screen and (max-width:1200px) and (min-width: 768px) {
+    @media (min-width: 768px) {
+      .navbar-nav {
+        float: right;
+        margin: 0;
+      }
+    }
+  }
+  @media screen and (max-width:768px){
+    .mbapspan{
+      padding: 0;
+    }
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#barmenu"
+          aria-expanded="false" id="barbutton">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://youziki.github.io">Gridea&nbsp;&nbsp;|</a>
+        <span class="navbar-brand mbapspan"><i id="mbaplayer" class="fa fa-play-circle-o" aria-hidden="true"
+            style="font-size: 28px;top: 12px;position: absolute;" onclick="aplayerPlay();"></i></span>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="barmenu">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="/">
+              首页
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              归档
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags">
+              标签
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/post/about">
+              关于
+            </a>
+          </li>
+          
+          
+          
+          
+          <li><a href="https://youziki.github.io/friends">友链</a></li>
+
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+  <script>
+  var btstate = false;
+  var bt = $("#barbutton");
+  var bm = $("#barmenu");
+  bt.click(function(){
+    dropdown();
+  })
+  function dropdown(){
+    console.log(btstate);
+    //下拉
+    if(btstate==false){
+      bt.removeClass("collapsed");
+      bt.attr("aria-expanded","true");
+      bm.attr("aria-expanded","true")
+      bm.fadeIn(700);
+      btstate = true;
+    }
+    else{
+      bt.addClass("collapsed");
+      bt.attr("aria-expanded","false");
+      bm.removeClass("in");
+      bm.hide();
+      bm.attr("aria-expanded","false");
+      btstate = false;
+    }
+  }
+  </script> 
+</body>
+            </div>
+            <div class="row">
+                <div class="side"><body>
+    
+    <div id=side>
+        <div class="avatar-border">
+            <img src="https://youziki.github.io/images/avatar.png?v=1604019938318" class="avatar">
+        </div>
+        <div class="sitename">Gridea</div>
+        <span class="describtion" data-text='["众人皆醉我独醒"]'>&nbsp;</span>
+        
+        <div class="search">
+            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
+            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
+            <div class="search-results"></div>
+        </div>
+        
+    <div class="share-button">
+        <span>社交按钮</span>
+        
+        
+        
+        
+        
+        
+    </div>
+    <div id="qq" style="display:none"></div>
+    
+    
+    <div class="mchocie describtion">
+        <a href="/" class="menubutton">
+            首页
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/archives" class="menubutton">
+            归档
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/tags" class="menubutton">
+            标签
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/post/about" class="menubutton">
+            关于
+        </a>
+    </div>
+    
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="https://youziki.github.io/friends" class="menubutton">友人帐</a>
+    </div>
+    
+    <hr>
+    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: <a
+        href="https://github.com/850552586/gridea-theme-fog">Fog</a></div>
+    
+    
+    </div>
+
+
+<script src="https://youziki.github.io/media/js/wordshow.js"></script>
+    
+
+
+
+
+    
+</body>
+<script>
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            window.location.href = "tencent://message/?uin=" + qq + "&Site=&Menu=yes";
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script>
+</div>
+                
+                <div id="tab1" class="tab">
+                    <div class="bars">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="close"></div>
+                </div>
+                <div class="col-md-1 col-lg-3"></div>
+                <div id="main" class="col-xs-12 col-sm-12 col-md-10 col-lg-7">
+                    <link rel="stylesheet" href="https://youziki.github.io/media/css/font-awesome.css">
+
+<body>
+    <div class="allcontent" id="postdetail">
+        <div class="postshow" style="padding-bottom: 0;">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;">
+                <img src="https://cdn.luogu.com.cn/upload/image_hosting/xdvp0hhr.png" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo-detail">
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-10-30</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 9 min read</div>
+                <div class="posttag">
+                    
+                    <a href="https://youziki.github.io/4STTQXNzf/" class="postlink">
+                        <i class="fa fa-tag"></i> 学习笔记
+                    </a>
+                    
+                </div>
+            </div>
+            
+        <div id="articlecontent">
+            <div id="texttitle" style="text-align: center">
+                <h2>网络流 1</h2>
+                <!-- id 将作为查询条件 -->
+                <div id="pl" style="display:none">https://youziki.github.io/ARG1LnATg/</div>
+                <div id="rootaddr" style="display:none">https://youziki.github.io</div>
+                <span id="hotnum">
+                    <h4><i class="fa fa-eye" aria-hidden="true" style="color: #FF8C00;"></i>&nbsp;&nbsp;热度</i>: <i
+                            class="hotnum">loading...</i></h4>
+                </span>
+            </div>
+            <div class="text ">
+                <h1 id="副标题网络流简单技巧与闫总听课笔记">副标题：网络流简单技巧与闫总听课笔记</h1>
+<h2 id="题们"><a href="https://www.luogu.com.cn/problem/list?tag=332&amp;orderBy=&amp;order=&amp;page=1">题们</a></h2>
+<h4 id="1-要求输出方案">1. 要求输出方案：</h4>
+<p>加上这句话：</p>
+<pre><code class="language-cpp">for(int i=2;i&lt;=tot;i+=2)
+	if(e[i].ver&gt;m&amp;&amp;e[i].ver&lt;=n&amp;&amp;!e[i].w)
+		cout&lt;&lt;e[i].ver&lt;&lt;' '&lt;&lt;e[i^1].ver&lt;&lt;endl;
+</code></pre>
+<h4 id="2-方格取数相邻的两个格子不能取求最大">2. 方格取数，相邻的两个格子不能取，求最大</h4>
+<p><strong>题中存在“矛盾”的信息，考虑最小割模型：</strong></p>
+<p>我们令矛盾的双方在双方，中间连边权为INF，这样，相矛盾的两点就不可能选到一块</p>
+<p>本题具体做法：</p>
+<p>S连横纵坐标和为奇数的点，T连偶点，相邻点之间连边，S,T连的边边权都是对应点权值</p>
+<p><strong>这其实是利用横纵坐标和来区分双方的点，找到某一特征来区分两边点要保证这两个特征内部没有矛盾</strong></p>
+<h4 id="3-接着上面第二条黑体字可以找到一些相关题的做法">3. 接着上面第二条黑体字，可以找到一些相关题的做法：</h4>
+<p>像 “骑士共存问题” 和 “长脖子鹿放置问题” ，一个是跳到的格颜色必然不同，另一个是跳到的格行的奇偶性不同（即一行一行染色，颜色必不同）</p>
+<h4 id="4-判断是否满流">4. 判断是否满流：</h4>
+<p>可以将左边源点连出的所有边流量加起来和Dinic比较（圆桌问题）</p>
+<h3 id="5-上下界可行流总结">5. 上下界可行流总结：</h3>
+<h4 id="总体思想">总体思想：</h4>
+<p>将问题转化为没有下界的最大流问题，通用做法就是流量和容量都减去一个流量下界（注意减去之后流量不再守恒）</p>
+<h4 id="无源汇">无源汇：</h4>
+<p>“少补，多出”的思想：如果流入的流量下界多，也就是A[i]&gt;0，说明“流入的已经多了”，需要从S连向这个点，反之连向T</p>
+<p>注意：无解条件为这个网络的最大流没有“满流”</p>
+<p>具体做法：我们将所有S连出去的A[i]&gt;0的边权加起来，如果最大流小于这个和，因为如果满足流入流出减少量，这样流量必不守恒，所以不满足全部限制</p>
+<h4 id="有源汇">有源汇：</h4>
+<p>这时候比较绕，我们先按照 <em>无源汇</em> 的做法找出一个最大流。这时候需要注意“当前的最大流不是给定源点和汇点的最大流，</p>
+<p>有一个很好用的结论是：<code>这个最大流加上以给定源汇点为源汇点的可行流等价于原图的可行流</code></p>
+<p>注意到在求这个最大流的时候还有一个问题：题中给定的源汇点的流量是可以不守恒的，但如果把他们当做普通点，他们的流量就守恒了，所以，为了让流量不守恒，我们从t向s连一条边权为正无穷的边</p>
+<p>结论证明比较复杂 <s>（说实话，没太懂）</s>，但是我们也可以发现，整个过程中存在三个图：原流网络，虚拟源汇点的流网络，真实源汇点的流网络（也可以说是第二张图的残余网络）</p>
+<p><s>以上一段可能有误</s></p>
+<p>啊，反正！我们已经有了解法了</p>
+<p><strong>最大流：求出第一遍虚拟源汇最大流后，加上真实源汇最大流</strong></p>
+<p><strong>最小流：求出第一遍虚拟源汇最大流后，加上真实源汇最小流</strong></p>
+<p>真实源汇最小流（s到t最小流） = -t到s最大流</p>
+<p><strong>所以，最小流：求出第一遍虚拟源汇最大流后，减去反过来的真实源汇最大流</strong></p>
+<p>判断无解和无源汇一样</p>
+<h4 id="6-多源汇最大流">6. 多源汇最大流：</h4>
+<p>虚拟源点向每个源点连一条边权正无穷的边，每个汇点向虚拟汇点连一条边权正无穷的边，跑最大流</p>
+<h4 id="7-伊基的故事-i-道路重建最小割的必须边与可行边">7. 伊基的故事 I - 道路重建（最小割的必须边与可行边）</h4>
+<p>这题要求的是有多少条边，容量增加之后可以使最大流增加</p>
+<p>建模：这条边满足两个条件：</p>
+<ul>
+<li>
+<p>原最大流中满流</p>
+</li>
+<li>
+<p>存在从S到这条边起点的增广路，存在从这条边终点到T的增广路</p>
+</li>
+</ul>
+<p>第一条枚举边的时候顺便判即可，第二条可以在Dinic完之后dfs一遍S和T走流量大于0能到达的点</p>
+<p>注意几个细节：</p>
+<ul>
+<li>
+<p>dfsT的时候，是看反向边流量是否大于0</p>
+</li>
+<li>
+<p>枚举边的时候，只枚举正向边，比较好理解（反正正反枚举，计入答案的边都是一样的，而且反向边也不可能合法）</p>
+</li>
+</ul>
+<p><strong>upd：</strong>（来自xht37的blog）</p>
+<p>首先求最大流，那么最小割的可行边与必须边都必须是<strong>满流</strong></p>
+<p>可行边(x,y)：在残余网络中不存在x到y的路径</p>
+<p>必须边(x,y)：在残余网络中S能到x且y能T</p>
+<p><a href="https://www.luogu.com.cn/problem/P4126">P4126 [AHOI2009]最小割</a></p>
+<h4 id="8-秘密挤奶机">8. 秘密挤奶机</h4>
+<p>从源点到汇点走T遍，每次不能走相同的边，求经过所有边中边权最大值最小</p>
+<p>显然二分，二分完一个答案之后看只走小于等于这个边是否可以T次。具体怎么做？</p>
+<ul>
+<li>
+<p>额外记录一下每条边的边权，每次二分的时候，可以走的边容量赋为1，反之为0</p>
+</li>
+<li>
+<p>如果最大流大于等于T，证明可以</p>
+</li>
+</ul>
+<p>总结：</p>
+<ul>
+<li>
+<p>“不能走相同的边”即为“每条边只能走一次”，就可以想到每条边的容量设为1</p>
+</li>
+<li>
+<p>走T次，应该想到最大流大于等于T，因为最大流中每个1，即代表一条路径（本题中）</p>
+</li>
+</ul>
+<h4 id="9-星际转移问题">9. 星际转移问题</h4>
+<p>这题很复杂，见图解和代码</p>
+<h4 id="10-对点有限制">10. 对点有限制：</h4>
+<p>想“酒店之王”和“餐饮”，一个人（牛）只能吃下一份饭，考虑拆点，点之间连边</p>
+<h4 id="11-删点">11. 删点：</h4>
+<p>如果可以转化成删边，就与最小割模型相同</p>
+<p>做法：将每个点拆点，连边权为点权，删点变为删边</p>
+<h4 id="12-需要多次对同一个流网络跑最大流时清空边流量企鹅游行">12. 需要多次对同一个流网络跑最大流时清空边流量（“企鹅游行”）：</h4>
+<p>让每条正向边加上其反向边流量反向边流量清空</p>
+<pre><code class="language-cpp">for(int j=2;j&lt;=tot;j+=2){
+	e[j].w+=e[j^1].w;
+	e[j^1].w=0;
+}
+</code></pre>
+<h4 id="13-猪">13. “猪”：</h4>
+<p>分层图似乎可做，也不难，有个更妙的建图</p>
+<p>想象对于一个人，他进行的操作其实是将他取到的仓库中的猪都拿走，然后重新分配一部分回去给一些仓库，那么模拟地“我们可以从人向其仓库连容量为正无穷的边”</p>
+<p>但是这样做显然是不行的，因为有可能从下一个人流流量到上一个人，因为整个流网络里没有时间戳</p>
+<p><strong>为了增加时间戳：我们只在人中连边，从上一个人连向下一个人（仓库）</strong></p>
+<p>具体地：遍历当前人的每一个仓库，如果他是第一次访问这个仓库，从源点向他连一条边权为仓库猪数量的边，如果不是，从上一个访问这个仓库的人向他连一条边权为正无穷的边</p>
+<pre><code class="language-cpp">for(int i=1;i&lt;=n;++i){
+	int a,b;cin&gt;&gt;a;
+	for(int j=1,k;j&lt;=a;++j){
+		cin&gt;&gt;k;
+		if(!lst[k])add(S,i,num[k]);
+		else add(lst[k],i,INF);
+		lst[k]=i;
+	}
+	cin&gt;&gt;b;
+	add(i,T,b);
+}
+</code></pre>
+<h4 id="14-集合划分模型">14. 集合划分模型</h4>
+<p><a href="https://www.luogu.com.cn/problem/P2057">P2057 [SHOI2007]善意的投票 / [JLOI2010]冠军调查</a></p>
+<pre><code class="language-cpp">有n个物品和两个集合S,T
+将一个物品放入S集合会花费ai 
+放入T集合会花费bi
+还有若干个形如(u,v,w)限制条件，表示如果u和v同时不在一个集合会花费w
+每个物品必须且只能属于一个集合，求最小的代价
+</code></pre>
+<p>难度不大，向S连bi，向T连ai，u,v之间连w双向边</p>
+<h4 id="15-平面图最小割">15. 平面图最小割</h4>
+<p>边与边只在顶点相交的图被称为<strong>平面图</strong></p>
+<p>对于一个平面图，都有其对应的<strong>对偶图</strong></p>
+<p>平面图被划分出的每一个区域当作对偶图的一个点<br>
+平面图中的每一条边两边的区域对应的点用边相连，特别地，若两边为同一区域则加一条回边（自环）<br>
+这样构成的图即为原平面图的对偶图</p>
+<p><strong>平面图最小割等于对偶图最短路</strong></p>
+<p><a href="https://www.luogu.com.cn/problem/P4001">P4001 [ICPC-Beijing 2006]狼抓兔子</a></p>
+<p><strong>平面图上一条边信息对应于对偶图上与它相交的边的信息</strong></p>
+<p>见图解</p>
+<h3 id="16-最小割的一系列抽象子问题">16. 最小割的一系列抽象子问题</h3>
+<h4 id="最大权闭合子图">最大权闭合子图</h4>
+<p>概念：是一个点集，所有点的所有边不能指向点集外的点，使点权最大</p>
+<h4 id="最大密度子图">最大密度子图</h4>
+<p>概念：定义在所有边权和点权都是1的无向图上，是一个点集加一个边集，所有边的起始点不能是点集外的点，点集没有限制，使边权和比点权和最大</p>
+
+            </div>
+            <hr style="width: 80%;">
+            
+            <div class="sharebtnContainer">
+                <button type="button" class="sharebtn">转载分享</button>
+            </div>
+            <div class="shareContainer">
+                <div class="share" style="height:30px;background: white;">
+                    <a class="qq" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/QQ.png" alt=""></i></a>
+                    <a class="wechat" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/wechat.png" alt=""></i></a>
+                    <a class="weibo" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/weibo.png" alt=""></i></a>
+                    <a class="qzone" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/qzone.png" alt=""></i></a>
+                    <a class="douban" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/douban.png" alt=""></i></a>
+                    <a class="facebook" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/facebook.png" alt=""></i></a>
+                    <a class="twitter" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/twitter.png" alt=""></i></a>
+                </div>
+            </div>
+            
+            
+            <div class="donateContainer">
+                <img src="https://youziki.github.io/media/images/donate.png" alt="" class="donateImg">
+            </div>
+            <div class="donateContainer">
+                <img src="" alt="" class="donate">
+            </div>
+            
+            <div class="postfooter">
+                <ul class="post-copyright">
+                    <li><strong>文章作者：</strong>youziki</li>
+            <li><strong>原文链接：</strong>https://youziki.github.io/ARG1LnATg/</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用<i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA
+                许可协议。转载请注明出处！</li>
+            </ul>
+        </div>
+        <div id="otherpost">
+            
+            <div class="prev-post-pc">
+                <div id="ppcontainer" onclick="window.location.href= 'https://youziki.github.io/CLGCLJM5F/';return false">
+                    
+                    <img src="https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png" style="width: 100%;" class="opimg">
+                    
+                    <h4 class="optitle">题解 Nice Matrix</h4>
+                </div>
+            </div>
+            <div class="prev-post">
+                上一篇 <a href="https://youziki.github.io/CLGCLJM5F/">题解 Nice Matrix</a>
+            </div>
+            
+            
+            <div class="next-post-pc">
+                <div id="npcontainer" onclick="window.location.href= 'https://youziki.github.io/4X-9Mbc56/';return false">
+                    
+                    <img src="https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png" style="width: 100%;" class="opimg">
+                    
+                    <h4 class="optitle">题解 CF1408D</h4>
+                </div>
+            </div>
+            <div class="next-post">
+                下一篇 <a href="https://youziki.github.io/4X-9Mbc56/">题解 CF1408D</a>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+    </div>
+
+</body>
+<script>
+    //文章阅读热度
+    var pl = $("#pl").html();
+    var rootaddr = $("#rootaddr").html();
+    pl = pl.replace(rootaddr, "");
+    $("#hotnum").attr('id', pl);
+</script>
+                <div id="comment"  class="comment" style="background: white">
+                    <div class="commentcontainer">
+                        
+                        <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                        
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-1 col-lg-2"></div>
+                <div id="bg">
+                </div>
+            </div>
+            
+        
+        <div class="toc-container">
+            <ul class="markdownIt-TOC">
+<li><a href="#%E5%89%AF%E6%A0%87%E9%A2%98%E7%BD%91%E7%BB%9C%E6%B5%81%E7%AE%80%E5%8D%95%E6%8A%80%E5%B7%A7%E4%B8%8E%E9%97%AB%E6%80%BB%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0">副标题：网络流简单技巧与闫总听课笔记</a>
+<ul>
+<li><a href="#%E9%A2%98%E4%BB%AC">题们</a><br>
+*
+<ul>
+<li><a href="#1-%E8%A6%81%E6%B1%82%E8%BE%93%E5%87%BA%E6%96%B9%E6%A1%88">1. 要求输出方案：</a></li>
+<li><a href="#2-%E6%96%B9%E6%A0%BC%E5%8F%96%E6%95%B0%E7%9B%B8%E9%82%BB%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%A0%BC%E5%AD%90%E4%B8%8D%E8%83%BD%E5%8F%96%E6%B1%82%E6%9C%80%E5%A4%A7">2. 方格取数，相邻的两个格子不能取，求最大</a></li>
+<li><a href="#3-%E6%8E%A5%E7%9D%80%E4%B8%8A%E9%9D%A2%E7%AC%AC%E4%BA%8C%E6%9D%A1%E9%BB%91%E4%BD%93%E5%AD%97%E5%8F%AF%E4%BB%A5%E6%89%BE%E5%88%B0%E4%B8%80%E4%BA%9B%E7%9B%B8%E5%85%B3%E9%A2%98%E7%9A%84%E5%81%9A%E6%B3%95">3. 接着上面第二条黑体字，可以找到一些相关题的做法：</a></li>
+<li><a href="#4-%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E6%BB%A1%E6%B5%81">4. 判断是否满流：</a></li>
+<li><a href="#5-%E4%B8%8A%E4%B8%8B%E7%95%8C%E5%8F%AF%E8%A1%8C%E6%B5%81%E6%80%BB%E7%BB%93">5. 上下界可行流总结：</a>
+<ul>
+<li><a href="#%E6%80%BB%E4%BD%93%E6%80%9D%E6%83%B3">总体思想：</a></li>
+<li><a href="#%E6%97%A0%E6%BA%90%E6%B1%87">无源汇：</a></li>
+<li><a href="#%E6%9C%89%E6%BA%90%E6%B1%87">有源汇：</a></li>
+<li><a href="#6-%E5%A4%9A%E6%BA%90%E6%B1%87%E6%9C%80%E5%A4%A7%E6%B5%81">6. 多源汇最大流：</a></li>
+<li><a href="#7-%E4%BC%8A%E5%9F%BA%E7%9A%84%E6%95%85%E4%BA%8B-i-%E9%81%93%E8%B7%AF%E9%87%8D%E5%BB%BA%E6%9C%80%E5%B0%8F%E5%89%B2%E7%9A%84%E5%BF%85%E9%A1%BB%E8%BE%B9%E4%B8%8E%E5%8F%AF%E8%A1%8C%E8%BE%B9">7. 伊基的故事 I - 道路重建（最小割的必须边与可行边）</a></li>
+<li><a href="#8-%E7%A7%98%E5%AF%86%E6%8C%A4%E5%A5%B6%E6%9C%BA">8. 秘密挤奶机</a></li>
+<li><a href="#9-%E6%98%9F%E9%99%85%E8%BD%AC%E7%A7%BB%E9%97%AE%E9%A2%98">9. 星际转移问题</a></li>
+<li><a href="#10-%E5%AF%B9%E7%82%B9%E6%9C%89%E9%99%90%E5%88%B6">10. 对点有限制：</a></li>
+<li><a href="#11-%E5%88%A0%E7%82%B9">11. 删点：</a></li>
+<li><a href="#12-%E9%9C%80%E8%A6%81%E5%A4%9A%E6%AC%A1%E5%AF%B9%E5%90%8C%E4%B8%80%E4%B8%AA%E6%B5%81%E7%BD%91%E7%BB%9C%E8%B7%91%E6%9C%80%E5%A4%A7%E6%B5%81%E6%97%B6%E6%B8%85%E7%A9%BA%E8%BE%B9%E6%B5%81%E9%87%8F%E4%BC%81%E9%B9%85%E6%B8%B8%E8%A1%8C">12. 需要多次对同一个流网络跑最大流时清空边流量（“企鹅游行”）：</a></li>
+<li><a href="#13-%E7%8C%AA">13. “猪”：</a></li>
+<li><a href="#14-%E9%9B%86%E5%90%88%E5%88%92%E5%88%86%E6%A8%A1%E5%9E%8B">14. 集合划分模型</a></li>
+<li><a href="#15-%E5%B9%B3%E9%9D%A2%E5%9B%BE%E6%9C%80%E5%B0%8F%E5%89%B2">15. 平面图最小割</a></li>
+</ul>
+</li>
+<li><a href="#16-%E6%9C%80%E5%B0%8F%E5%89%B2%E7%9A%84%E4%B8%80%E7%B3%BB%E5%88%97%E6%8A%BD%E8%B1%A1%E5%AD%90%E9%97%AE%E9%A2%98">16. 最小割的一系列抽象子问题</a>
+<ul>
+<li><a href="#%E6%9C%80%E5%A4%A7%E6%9D%83%E9%97%AD%E5%90%88%E5%AD%90%E5%9B%BE">最大权闭合子图</a></li>
+<li><a href="#%E6%9C%80%E5%A4%A7%E5%AF%86%E5%BA%A6%E5%AD%90%E5%9B%BE">最大密度子图</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+    </div>
+    </div>
+    <div class="tog">
+        <div class="toggleContainer">
+            <div class="toggle">
+                <i class="fas fa-angle-double-up"></i>
+            </div>
+        </div>
+    </div>
+    <div id="bgchoice" style="display: none">link</div>
+    
+    <div id="bgurl" style="display:none">https://cdn.luogu.com.cn/upload/image_hosting/0pz3220b.png</div>
+    
+    </div>
+</body>
+<script>
+    var img = $("img");
+    for (var i = 0; i < img.length; i++) {
+        if (img.eq(i).attr("class") == undefined) {
+            img.eq(i).attr("class", "lazyload");
+            var imgsrc = img.eq(i).attr("src");
+            img.eq(i).attr("data-original", imgsrc);
+            img.eq(i).attr("src", "");
+            img.eq(i).hide();
+        }
+    }
+</script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<script>
+    //寻找所有code标签，加复制按钮鸭！(行内代码除外)
+    var codes = document.getElementsByTagName('code');
+    if (codes.length) {
+        for (var i = 0; i < codes.length; i++) {
+            //高度/行高=文本行数
+            // var rowNum=Math.round(codes[i].height()/parseFloat(codes[i].css('line-height')));
+            // console.log("当前有"+rowNum+"行");
+            var code_id = "code_id_" + i;
+            codes[i].setAttribute("id", code_id);
+            var ci = "#" + code_id;
+            var codedot = $(ci);
+            var rowNum = Math.round(codedot.height() / parseFloat(codedot.css('line-height')));
+            if (rowNum <= 1) continue;
+            var btn = document.createElement("button");
+            btn.setAttribute("class", "copybt");
+            btn.setAttribute("data-clipboard-target", "#" + code_id);
+            btn.innerHTML = '复制代码';
+            codes[i].parentNode.insertBefore(btn, codes[i]);
+        }
+    };
+    var cop = new ClipboardJS('.copybt');
+    var codeCopyText = $("#codeCopyText").html();
+    cop.on('success', function (e) {
+        alert(codeCopyText);
+        e.clearSelection();
+    });
+    cop.on('error', function (e) {
+        alert("矮油，复制失败了...手动复制吧勇士！");
+        e.clearSelection();
+    });
+</script>
+
+<script type="text/javascript">
+    var message_Path = '/live2d/'
+    var home_Path = document.getElementById("domainname").innerHTML + "/"; //此处修改为你的域名，必须带斜杠
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/js/live2d.js"></script>
+<script type="text/javascript" src="https://youziki.github.io/media/live2d/js/message.js"></script>
+<script type="text/javascript">
+    loadlive2d("live2d", "https://youziki.github.io/media/live2d/assets/tororo.model.json");
+</script>
+
+<script>
+    $(function () {
+        $('.toggleContainer').click(function () {
+            $('html,body').animate({
+                scrollTop: '0px'
+            }, 800);
+        });
+        $(window).scroll(function () {
+            var st = $(window).scrollTop();
+            if (st > 30) {
+                $(".toggleContainer").fadeIn(400);
+            } else {
+                $(".toggleContainer").fadeOut(100);
+            }
+        });
+    });
+</script>
+
+<script>
+    var bgchoice = $('#bgchoice').html();
+    var bg = $('#bg');
+    var bgurl = document.getElementById("bgurl").innerHTML;
+    if (bgchoice == 'default')
+        for (var i = 0; i < 3; i++)
+            bgurl = bgurl.replace("\\", "/");
+    bg.css("background", "url('" + bgurl + "')");
+</script>
+
+
+<script src="https://youziki.github.io/media/js/index.js"></script>
+
+
+
+<!-- 动态更改上(下)一篇博客图片框长宽 -->
+<script>
+    npcontainer = document.querySelector('#npcontainer');
+    npstyle = window.getComputedStyle(npcontainer, null);
+    npwidth = npstyle.width;
+    npheight = 0.6 * Number(npwidth.replace("px", ""));
+    npheight = npheight.toString() + "px";
+    var op = $(".opimg");
+    op.css("height", npheight);
+</script>
+
+<script src="https://youziki.github.io/media/share/dist/Share.js"></script>
+
+<script>
+    var avatarSrc = $(".avatar").attr("src");
+    var dp = document.getElementsByClassName("describtion")[0].innerHTML;
+</script>
+
+
+<script>
+    var title = document.getElementById("texttitle").getElementsByTagName("h2");
+    
+    var share = new Share('.share', {
+        title: title[0].innerHTML,
+        initialized: true,
+        //默认获取网站描述
+        description: dp,
+        //网站图片默认获取的是设置的用户头像
+        image: avatarSrc,
+        //激活的分享网站
+        sites: ["weibo", "qq", "wechat", "douban", "qzone", "facebook", "twitter", "google"],
+        //微信分享PC端会生成二维码分享,移动端如果可以唤起微信最好
+        wechatQrcodeTitle: "微信扫一扫：分享", // 微信二维码提示文字
+        wechatQrcodeHelper: '<p>微信里扫一下二维码</p><p>便可将本文分享至朋友圈。</p>',
+        //关闭的网站分享
+        disabled: ['google', 'linkedin'],
+        wechatQrcodePosition: 'bottom'
+    });
+
+    //点击分享按钮展现出分享icons
+    var sharebtnTag = false;
+    $(".sharebtn").click(function () {
+        if(!sharebtnTag)
+        {
+            $(".share").show();
+            sharebtnTag = true;
+        }
+        else
+        {
+            $(".share").hide();
+            sharebtnTag = false;
+        }
+    })
+
+    var donatebtnTag = false;
+    $(".donateImg").click(function () {
+        if(!donatebtnTag)
+        {
+            $(".donate").show();
+            donatebtnTag = true;
+        }
+        else{
+            $(".donate").hide();
+            donatebtnTag = false;
+        }
+    })
+
+    //加载后的事件同步（阅读量、移动端评论等
+    window.onload=function(){
+        getHotnum();
+        var sharepc = $(".share").eq(0).html();
+        $(".share").eq(1).html(sharepc);
+        document.getElementById("veditor").setAttribute("placeholder", jrsc);
+        aplayerbtnInit();
+    }
+</script>
+
+
+<script>
+    jQuery(document).ready(function ($) {
+        function lazyload() {
+            var oLazyload = $("img.lazyload"),
+                fLazyload = function (hLazyload) {
+                    var nLazyload = $(window).height() + $(document).scrollTop();
+                    oLazyload.each(function () {
+                        $(this).offset().top < nLazyload && ($(this).trigger("appear"), oLazyload =
+                            oLazyload.not(this));
+                    }), 0 == oLazyload.length && $(window).unbind("scroll", fLazyload);
+                };
+            oLazyload.each(function () {
+                $(this).one("appear", function () {
+                    $(this).attr("src", $(this).attr("data-original"));
+                    $(this).fadeIn(500);
+                });
+            }), $(window).bind("scroll", fLazyload), fLazyload();
+        }
+        lazyload();
+    });
+</script>
+
+<!-- <script src="https://youziki.github.io/media/js/av-min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.13.0/dist/av-min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.6.1/dist/av-live-query-min.js"></script> -->
+
+<script>
+    function getHotnum() {
+        //文章阅读热度（重构，利用leancloud原生api）
+        var pl = $("#pl").html();
+        var rootaddr = $("#rootaddr").html();
+        pl = pl.replace(rootaddr, "");
+
+        var appid = '';
+        var appkey = '';
+        console.log(appid, appkey)
+        if(AV==undefined)
+            AV.init({
+                appId: appid,
+                appKey: appkey
+            });
+        const query = new AV.Query('Counter');
+        query.equalTo('url', pl);
+        var time = 'Loading...';
+        query.find().then(function (results) {
+            console.log(results)
+            if (results.length == 0) {
+                console.log("0")
+                var NewCounter = AV.Object.extend('Counter');
+                var nc = new NewCounter();
+                nc.save({
+                    time: 1,
+                    title: "网络流 1",
+                    url: pl,
+                    xid: pl,
+                }).then(function (object) {
+                    $(".hotnum").eq(0).html(1);
+                    $(".hotnum").eq(1).html(1);
+                });
+            } else {
+                id = results[0].id;
+                var todo = AV.Object.createWithoutData('Counter', id);
+                time = results[0].attributes.time + 1;
+                todo.set("time", time);
+                todo.save();
+                console.log(todo);
+                $(".hotnum").eq(0).html(time);
+                $(".hotnum").eq(1).html(time);
+            }
+
+        }, function (error) {
+            console.log(error)
+        });
+    }
+</script>

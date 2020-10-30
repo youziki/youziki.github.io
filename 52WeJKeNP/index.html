@@ -1,0 +1,1072 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="description" content="9.3 模拟赛
+T1 排列
+太难了，不会
+建模很仙（二分图）
+file:///C:/Users/Administrator/AppData/Roaming/Tencent/TIM/Temp/G%7DIGY4U5HCD5L2PJ[KX@8.p..." />
+    <meta name="keywords" content="比赛" />
+    <link rel="stylesheet" href="https://youziki.github.io/media/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/js/clipboard.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
+    <!-- 数学公式 -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css"
+        integrity="sha384-9tPv11A+glH/on/wEu99NVwDPwkMQESOocs/ZGXPoIiLE8MU/qkqUcZ3zzL+6DuH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js"
+        integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/contrib/auto-render.min.js"
+        integrity="sha384-aGfk5kvhIq5x1x5YdvCp4upKZYnA8ckafviDpmWEKp4afOZEqOli7gqSnh8I6enH" crossorigin="anonymous">
+    </script>
+    <script>
+        renderMathInElement(document.body, {
+            delimiters: [{
+                    left: "$$",
+                    right: "$$",
+                    display: true
+                },
+                {
+                    left: "$",
+                    right: "$",
+                    display: false
+                }
+            ]
+        });
+    </script>
+
+    
+    <title>Gridea</title>
+    
+    <style>
+        .markdownIt-TOC {
+            margin-left: 28%;
+            padding-left: 2px;
+            width: 80%;
+        }
+
+        .markdownIt-TOC li {
+            padding-left: 8%;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+    </div>
+    <div id="codeCopyText" style="display: none">代码复制成功了哦，亲~</div>
+    <div id="domainname" style="display:none">https://youziki.github.io</div>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div>
+            <div id="bar">
+                <head>
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/bootstrap.min.css">
+</head>
+<style>
+  @media screen and (max-width:1200px) and (min-width: 768px) {
+    @media (min-width: 768px) {
+      .navbar-nav {
+        float: right;
+        margin: 0;
+      }
+    }
+  }
+  @media screen and (max-width:768px){
+    .mbapspan{
+      padding: 0;
+    }
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#barmenu"
+          aria-expanded="false" id="barbutton">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://youziki.github.io">Gridea&nbsp;&nbsp;|</a>
+        <span class="navbar-brand mbapspan"><i id="mbaplayer" class="fa fa-play-circle-o" aria-hidden="true"
+            style="font-size: 28px;top: 12px;position: absolute;" onclick="aplayerPlay();"></i></span>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="barmenu">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="/">
+              首页
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              归档
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags">
+              标签
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/post/about">
+              关于
+            </a>
+          </li>
+          
+          
+          
+          
+          <li><a href="https://youziki.github.io/friends">友链</a></li>
+
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+  <script>
+  var btstate = false;
+  var bt = $("#barbutton");
+  var bm = $("#barmenu");
+  bt.click(function(){
+    dropdown();
+  })
+  function dropdown(){
+    console.log(btstate);
+    //下拉
+    if(btstate==false){
+      bt.removeClass("collapsed");
+      bt.attr("aria-expanded","true");
+      bm.attr("aria-expanded","true")
+      bm.fadeIn(700);
+      btstate = true;
+    }
+    else{
+      bt.addClass("collapsed");
+      bt.attr("aria-expanded","false");
+      bm.removeClass("in");
+      bm.hide();
+      bm.attr("aria-expanded","false");
+      btstate = false;
+    }
+  }
+  </script> 
+</body>
+            </div>
+            <div class="row">
+                <div class="side"><body>
+    
+    <div id=side>
+        <div class="avatar-border">
+            <img src="https://youziki.github.io/images/avatar.png?v=1604019938318" class="avatar">
+        </div>
+        <div class="sitename">Gridea</div>
+        <span class="describtion" data-text='["众人皆醉我独醒"]'>&nbsp;</span>
+        
+        <div class="search">
+            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
+            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
+            <div class="search-results"></div>
+        </div>
+        
+    <div class="share-button">
+        <span>社交按钮</span>
+        
+        
+        
+        
+        
+        
+    </div>
+    <div id="qq" style="display:none"></div>
+    
+    
+    <div class="mchocie describtion">
+        <a href="/" class="menubutton">
+            首页
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/archives" class="menubutton">
+            归档
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/tags" class="menubutton">
+            标签
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/post/about" class="menubutton">
+            关于
+        </a>
+    </div>
+    
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="https://youziki.github.io/friends" class="menubutton">友人帐</a>
+    </div>
+    
+    <hr>
+    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: <a
+        href="https://github.com/850552586/gridea-theme-fog">Fog</a></div>
+    
+    
+    </div>
+
+
+<script src="https://youziki.github.io/media/js/wordshow.js"></script>
+    
+
+
+
+
+    
+</body>
+<script>
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            window.location.href = "tencent://message/?uin=" + qq + "&Site=&Menu=yes";
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script>
+</div>
+                
+                <div id="tab1" class="tab">
+                    <div class="bars">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="close"></div>
+                </div>
+                <div class="col-md-1 col-lg-3"></div>
+                <div id="main" class="col-xs-12 col-sm-12 col-md-10 col-lg-7">
+                    <link rel="stylesheet" href="https://youziki.github.io/media/css/font-awesome.css">
+
+<body>
+    <div class="allcontent" id="postdetail">
+        <div class="postshow" style="padding-bottom: 0;">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;">
+                <img src="https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo-detail">
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-10-30</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 10 min read</div>
+                <div class="posttag">
+                    
+                    <a href="https://youziki.github.io/ajbBPuKpd/" class="postlink">
+                        <i class="fa fa-tag"></i> 比赛
+                    </a>
+                    
+                </div>
+            </div>
+            
+        <div id="articlecontent">
+            <div id="texttitle" style="text-align: center">
+                <h2>题解 9.3 &amp; 9.4 模拟赛</h2>
+                <!-- id 将作为查询条件 -->
+                <div id="pl" style="display:none">https://youziki.github.io/52WeJKeNP/</div>
+                <div id="rootaddr" style="display:none">https://youziki.github.io</div>
+                <span id="hotnum">
+                    <h4><i class="fa fa-eye" aria-hidden="true" style="color: #FF8C00;"></i>&nbsp;&nbsp;热度</i>: <i
+                            class="hotnum">loading...</i></h4>
+                </span>
+            </div>
+            <div class="text ">
+                <h1 id="93-模拟赛">9.3 模拟赛</h1>
+<h3 id="t1-排列"><a href="https://www.luogu.com.cn/problem/T146518">T1 排列</a></h3>
+<p><s>太难了，不会</s></p>
+<p>建模很仙（二分图）</p>
+<p>file:///C:/Users/Administrator/AppData/Roaming/Tencent/TIM/Temp/G%7DIGY4U5HC<sub>D5L2PJ[KX</sub>@8.png</p>
+<p>file:///C:/Users/Administrator/AppData/Roaming/Tencent/TIM/Temp/K[XL]X5W)V6DTU6DBN1KFWF.png</p>
+<p><a href="https://www.luogu.com.cn/paste/0ya5yz3q">嫖来的std</a></p>
+<p><s>有看得懂的能教教我嘛</s></p>
+<h3 id="t2-苹果树"><a href="https://www.luogu.com.cn/problem/T146519">T2 苹果树</a>（重题）</h3>
+<p>树上差分板子</p>
+<h3 id="t3-括号序列"><a href="https://www.luogu.com.cn/problem/T146520">T3 括号序列</a></h3>
+<p>本题暴露了自己连暴力都不会！</p>
+<p>本来可以O(N<sup>2)的处理出以每个点为开始的合法的答案，非要O(N</sup>2)枚举区间！搞了个O(N^3) 70 -&gt; 40</p>
+<h4 id="经验">经验：</h4>
+<p>以“每个点为起点的区间”可以遍历所有区间，</p>
+<p>如果处理固定区间和以一个点为开始的区间的复杂度相同，则可以减少O(N)的复杂度</p>
+<h3 id="题解">题解：</h3>
+<p>正解也不难</p>
+<p>性质：</p>
+<p><strong>一个“合法”[l,r]，当且仅当Sl-1==Sr（很好证明）（Si表示从头扫描到i当前的栈）</strong></p>
+<p>于是乎就很简单了，从头扫描一遍，同时hash记录下栈，最后找“无序相同数对”数即可</p>
+<p>（注意：按照意义（S[l-1]~S[r]）hash要从0位置开始）</p>
+<p>时间复杂度O(NlogN)（因为找“数对”数的时候要sort一遍）</p>
+<h3 id="code">code：</h3>
+<pre><code class="language-cpp">//代码也有必要一说！
+//首先，一定要开unsigned long long呀！unsigned int是不行的，会爆！
+//对于一个数组进行Hash：
+//      1.老老实实用unsigned long long很香
+//      2.稍微麻烦一点————用一个数组记录每个状态出现的位置，然后通过“加”和“等于”操作完成，避免“减”造成的迷之错误（注释掉的部分）
+
+const int N=2e6+7,MOD=998244353;
+LL n,top,ans,cnt=1,pos[N];
+unsigned LL H[N];
+char a[N],stk[N];
+signed main(){
+    scanf(&quot;%s&quot;,a+1); n=strlen(a+1);
+    H[0]=0;
+   
+    // REP(i,1,n)
+        // if(a[i]==stk[top])--top, H[i]=(H[i-1]-a[i]*MOD)/MOD;
+        // else stk[++top]=a[i], H[i]=H[i-1]*MOD+a[i];
+	REP(i,1,n)
+		if(top&amp;&amp;a[i]==stk[top])H[i]=H[pos[top--]-1];
+		else stk[++top]=a[i],pos[top]=i,H[i]=H[i-1]*MOD+a[i];
+   
+    sort(H,H+n+1);
+    REP(i,0,n) if(H[i]==H[i+1]){
+        while(H[i]==H[i+1])++i,++cnt;
+        ans=(ans+cnt*(cnt-1)/2%MOD)%MOD; cnt=1;
+    }
+    printf(&quot;%lld\n&quot;,ans);
+    return 0;
+}
+</code></pre>
+<h1 id="94-模拟赛">9.4 模拟赛</h1>
+<h3 id="t1-石头剪刀布"><a href="https://www.luogu.com.cn/problem/T146540">T1 石头剪刀布</a></h3>
+<h3 id="题解-2">题解：</h3>
+<p>一个显然的性质 <s>（我没想到）</s>：</p>
+<p><strong>已知获胜的人的决策，则一场比赛的双方的决策就都知道了</strong></p>
+<p>于是就可以枚举最后获胜的决策（R、P、S），然后递归处理两边，得到的一定是合法的次序</p>
+<p>字典序的话，递归处理完check交换使得字典序最小即可</p>
+<h3 id="code-2">code：</h3>
+<pre><code class="language-cpp">const int N=2e6+7;
+int n,m,top,r,p,s,cntr,cntp,cnts;//石头、布、剪刀 
+char goal,stk[N];
+map&lt;char,char&gt; son;
+il void check(re int l,re int r){
+	int len=r-l;
+	REP(i,0,len-1)
+		if(stk[l+i]&lt;stk[r+i])return;
+		else if(stk[l+i]&gt;stk[r+i]){
+			REP(j,0,len-1) swap(stk[l+j],stk[r+j]);
+			return;
+		}
+}
+void dfs(re char now,re int dep,re int l){
+	if(dep==m)
+		return stk[++top]=now,cntr+=(now=='R'),cntp+=(now=='P'),cnts+=(now=='S'),void();
+	dfs(now,dep+1,l);
+	dfs(son[now],dep+1,l+(1&lt;&lt;(m-dep-1)));
+	check(l,l+(1&lt;&lt;(m-dep-1)));
+}
+il bool calc(){
+	if(r!=cntr||p!=cntp||s!=cnts)return 0;
+	REP(i,1,top) putchar(stk[i]);
+	return 1;
+}
+signed main(){
+	son['P']='R',son['R']='S',son['S']='P';
+	read(r),read(p),read(s); n=r+p+s; m=log(n)/log(2)+1;
+	goal='P'; dfs(goal,1,1); if(calc())return 0; top=0,cntr=cntp=cnts=0;
+	goal='R'; dfs(goal,1,1); if(calc())return 0; top=0,cntr=cntp=cnts=0;
+	goal='S'; dfs(goal,1,1); if(calc())return 0; top=0,cntr=cntp=cnts=0;
+	puts(&quot;IMPOSSIBLE&quot;);
+	return 0;
+}
+</code></pre>
+<h3 id="t2-投票"><a href="https://www.luogu.com.cn/problem/T146544">T2 投票</a></h3>
+<p>想到了O(2^N * N^2)的暴力枚举子集然后dp <s>（但实际得分是期望得分的20/50）</s></p>
+<h3 id="题解-3">题解：</h3>
+<ul>
+<li>性质：</li>
+</ul>
+<p><strong>按p[]排序之后，最终选择的集合一定是一段前缀 和 一段后缀</strong></p>
+<ul>
+<li>证明：</li>
+</ul>
+<p>有一个最终选择集合，存在一个元素前后（排序意义下）一个都没有选，那么 <em>易证</em></p>
+<p>选择其前面一个或后面一个更优</p>
+<p>略证：</p>
+<p>设除这个元素外投“好”的人数k&lt;&lt;1个概率P2、(k&lt;&lt;1)-1个概率P3、这个元素投“好”概率P1</p>
+<pre><code>当前答案：P2 * (1-P1) + P3 * P1
+
+选择投“好”概率为P1 + k的元素的答案： P2 * (1-P1 - k) + P3 * (p1 + k)
+
+答案增加了：(P3 - P2) * k
+</code></pre>
+<p>当P3 - P2为正数时选择后面那个元素，反之选择前面那个元素（按P[]从小到大排序）</p>
+<p>Q.E.D.</p>
+<ul>
+<li>具体做法</li>
+</ul>
+<p>O(N^2)预处理出选前i个j个好的方案数，前后缀都处理一遍</p>
+<p>枚举前缀长度即可，对于每一个方案计算方案数，方法就是累加所有情况概率</p>
+<h3 id="code-3">code：</h3>
+<pre><code class="language-cpp">const int N=2e3+7;
+int n,k;
+LD f[N][N],g[N][N],p[N],ans,res;
+signed main(){
+    read(n),read(k); REP(i,1,n) scanf(&quot;%Lf&quot;,p+i);
+    f[0][0]=g[0][0]=1;
+    sort(p+1,p+n+1);
+    REP(i,1,k) REP(j,0,i) if(j)f[i][j]=f[i-1][j]*(1-p[i])+f[i-1][j-1]*p[i]; else f[i][j]=f[i-1][j]*(1-p[i]);
+    reverse(p+1,p+n+1);
+    REP(i,1,k) REP(j,0,i) if(j)g[i][j]=g[i-1][j]*(1-p[i])+g[i-1][j-1]*p[i]; else g[i][j]=g[i-1][j]*(1-p[i]);
+    REP(i,0,k){
+        REP(j,0,min(i,k&gt;&gt;1)) res+=f[i][j]*g[k-i][(k&gt;&gt;1)-j];
+        ans=max(ans,res); res=0;
+    }
+    printf(&quot;%Lf&quot;,ans);
+    return 0;
+}
+</code></pre>
+<h3 id="t3-工厂"><a href="https://www.luogu.com.cn/problem/T146546">T3 工厂</a></h3>
+<h3 id="题解-4">题解：</h3>
+<ul>
+<li>
+<h4 id="名词">名词：</h4>
+</li>
+</ul>
+<p>完备匹配：每个点都在匹配中，又叫“完美匹配”</p>
+<p>完全二分图：每个左部点与每个右部点直接有且只有一条边</p>
+<ul>
+<li>
+<h4 id="建模">建模：</h4>
+</li>
+</ul>
+<p>将每个工人看成A集合的点，每台机器看成B集合的点，这就是一张二分图</p>
+<p>一句话模型：最少加边使得二分图每一个最大匹配都是完备匹配</p>
+<ul>
+<li>
+<h4 id="性质">性质：</h4>
+</li>
+</ul>
+<p><strong>“二分图每一个最大匹配都是完备匹配” 当且仅当 “每一个连通块都是左右集合点数相同的完全二分图”</strong></p>
+<ul>
+<li>
+<h4 id="再次建模">再次建模：</h4>
+</li>
+</ul>
+<p>已有一些连通块，通过加边合并一些连通块，使得 最终答案 = 每个连通块中左部点数的平方 - 总的已有边数 最小，且需满足每个连通块左右部点数相等</p>
+<ul>
+<li>
+<h4 id="性质-2">性质：</h4>
+</li>
+</ul>
+<p>如果已经有一个连通块满足点数相等，则这个连通块不需再扩大（显然两个这样的连通块合并需要新加很多边）</p>
+<ul>
+<li>
+<h4 id="正解dp不会">正解：dp（不会）</h4>
+</li>
+</ul>
+<p>file:///C:/Users/Administrator/AppData/Roaming/Tencent/TIM/Temp/XG_VN0N5[GIO@)(HF8A(E~R.png</p>
+<ul>
+<li>
+<h4 id="随机策略">随机策略：</h4>
+</li>
+</ul>
+<p>将选择的每个连通块中的现在的小连通块编号无序排列，有一个序列</p>
+<p>随机化这个序列，逐步逼近得到正确答案</p>
+<pre><code class="language-cpp">const int N=81;
+int n,mp[N][N],ans,vis[N],x[N],y[N],cnt,tmp=1&lt;&lt;30,f[N];
+char a[N];
+void dfs(re int now,re int &amp;c1,re int &amp;c2){
+	now&lt;=n?++c1:++c2; vis[now]=1;
+	REP(i,1,n&lt;&lt;1) if(mp[now][i]&amp;&amp;!vis[i])dfs(i,c1,c2);
+}
+signed main(){
+    read(n); REP(i,1,n){scanf(&quot;%s&quot;,a+1); REP(j,1,n)if(a[j]=='1')mp[i][j+n]=mp[j+n][i]=1,--ans;}
+		REP(i,1,n&lt;&lt;1) if(!vis[i]){
+			++cnt,dfs(i,x[cnt],y[cnt]);
+			if(x[cnt]==y[cnt])ans+=x[cnt]*x[cnt],x[cnt]=y[cnt]=0,--cnt;
+		}
+		REP(i,1,cnt)f[i]=i;
+		REP(i,1,100010){
+			random_shuffle(f+1,f+cnt+1);
+			int cntx=0,cnty=0,res=0;
+			REP(j,1,cnt){
+				int t=f[j]; cntx+=x[t],cnty+=y[t];
+				if(cntx==cnty)res+=cntx*cntx,cntx=cnty=0;
+			}
+			tmp=min(tmp,res);
+		}
+		printf(&quot;%d&quot;,ans+tmp);
+    return 0;
+}
+</code></pre>
+<h2 id="总结">总结：</h2>
+<ol>
+<li>
+<p>自己不会的题，都需要想性质、结论或者就是庞大的建模</p>
+</li>
+<li>
+<p>二分图好秀啊！两道难题都是二分图模型，而且都很难想到</p>
+</li>
+<li>
+<p>二分图这里各种名词和结论很多，好多都是第一次听，多结合题，更好地理解每个名词的实际模型</p>
+</li>
+</ol>
+
+            </div>
+            <hr style="width: 80%;">
+            
+            <div class="sharebtnContainer">
+                <button type="button" class="sharebtn">转载分享</button>
+            </div>
+            <div class="shareContainer">
+                <div class="share" style="height:30px;background: white;">
+                    <a class="qq" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/QQ.png" alt=""></i></a>
+                    <a class="wechat" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/wechat.png" alt=""></i></a>
+                    <a class="weibo" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/weibo.png" alt=""></i></a>
+                    <a class="qzone" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/qzone.png" alt=""></i></a>
+                    <a class="douban" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/douban.png" alt=""></i></a>
+                    <a class="facebook" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/facebook.png" alt=""></i></a>
+                    <a class="twitter" href=""><i><img class="shareicon"
+                                src="https://youziki.github.io/media/images/twitter.png" alt=""></i></a>
+                </div>
+            </div>
+            
+            
+            <div class="donateContainer">
+                <img src="https://youziki.github.io/media/images/donate.png" alt="" class="donateImg">
+            </div>
+            <div class="donateContainer">
+                <img src="" alt="" class="donate">
+            </div>
+            
+            <div class="postfooter">
+                <ul class="post-copyright">
+                    <li><strong>文章作者：</strong>youziki</li>
+            <li><strong>原文链接：</strong>https://youziki.github.io/52WeJKeNP/</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用<i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA
+                许可协议。转载请注明出处！</li>
+            </ul>
+        </div>
+        <div id="otherpost">
+            
+            <div class="prev-post-pc">
+                <div id="ppcontainer" onclick="window.location.href= 'https://youziki.github.io/yqTsp5zVF/';return false">
+                    
+                    <img src="https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png" style="width: 100%;" class="opimg">
+                    
+                    <h4 class="optitle">题解 CF1406B 【Maximum Product】</h4>
+                </div>
+            </div>
+            <div class="prev-post">
+                上一篇 <a href="https://youziki.github.io/yqTsp5zVF/">题解 CF1406B 【Maximum Product】</a>
+            </div>
+            
+            
+            <div class="next-post-pc">
+                <div id="npcontainer" onclick="window.location.href= 'https://youziki.github.io/xgDIcUSaF/';return false">
+                    
+                    <img src="https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png" style="width: 100%;" class="opimg">
+                    
+                    <h4 class="optitle">题解 P1825</h4>
+                </div>
+            </div>
+            <div class="next-post">
+                下一篇 <a href="https://youziki.github.io/xgDIcUSaF/">题解 P1825</a>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+    </div>
+
+</body>
+<script>
+    //文章阅读热度
+    var pl = $("#pl").html();
+    var rootaddr = $("#rootaddr").html();
+    pl = pl.replace(rootaddr, "");
+    $("#hotnum").attr('id', pl);
+</script>
+                <div id="comment"  class="comment" style="background: white">
+                    <div class="commentcontainer">
+                        
+                        <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                        
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-1 col-lg-2"></div>
+                <div id="bg">
+                </div>
+            </div>
+            
+        
+        <div class="toc-container">
+            <ul class="markdownIt-TOC">
+<li><a href="#93-%E6%A8%A1%E6%8B%9F%E8%B5%9B">9.3 模拟赛</a><br>
+*
+<ul>
+<li><a href="#t1-%E6%8E%92%E5%88%97">T1 排列</a></li>
+<li><a href="#t2-%E8%8B%B9%E6%9E%9C%E6%A0%91">T2 苹果树</a></li>
+<li><a href="#t3-%E6%8B%AC%E5%8F%B7%E5%BA%8F%E5%88%97">T3 括号序列</a>
+<ul>
+<li><a href="#%E7%BB%8F%E9%AA%8C">经验：</a></li>
+</ul>
+</li>
+<li><a href="#%E9%A2%98%E8%A7%A3">题解：</a></li>
+<li><a href="#code">code：</a></li>
+</ul>
+</li>
+<li><a href="#94-%E6%A8%A1%E6%8B%9F%E8%B5%9B">9.4 模拟赛</a><br>
+*
+<ul>
+<li><a href="#t1-%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83">T1 石头剪刀布</a></li>
+<li><a href="#%E9%A2%98%E8%A7%A3-2">题解：</a></li>
+<li><a href="#code-2">code：</a></li>
+<li><a href="#t2-%E6%8A%95%E7%A5%A8">T2 投票</a></li>
+<li><a href="#%E9%A2%98%E8%A7%A3-3">题解：</a></li>
+<li><a href="#code-3">code：</a></li>
+<li><a href="#t3-%E5%B7%A5%E5%8E%82">T3 工厂</a></li>
+<li><a href="#%E9%A2%98%E8%A7%A3-4">题解：</a>
+<ul>
+<li><a href="#%E5%90%8D%E8%AF%8D">名词：</a></li>
+<li><a href="#%E5%BB%BA%E6%A8%A1">建模：</a></li>
+<li><a href="#%E6%80%A7%E8%B4%A8">性质：</a></li>
+<li><a href="#%E5%86%8D%E6%AC%A1%E5%BB%BA%E6%A8%A1">再次建模：</a></li>
+<li><a href="#%E6%80%A7%E8%B4%A8-2">性质：</a></li>
+<li><a href="#%E6%AD%A3%E8%A7%A3dp%E4%B8%8D%E4%BC%9A">正解：dp（不会）</a></li>
+<li><a href="#%E9%9A%8F%E6%9C%BA%E7%AD%96%E7%95%A5">随机策略：</a></li>
+</ul>
+</li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结：</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+    </div>
+    </div>
+    <div class="tog">
+        <div class="toggleContainer">
+            <div class="toggle">
+                <i class="fas fa-angle-double-up"></i>
+            </div>
+        </div>
+    </div>
+    <div id="bgchoice" style="display: none">link</div>
+    
+    <div id="bgurl" style="display:none">https://cdn.luogu.com.cn/upload/image_hosting/0pz3220b.png</div>
+    
+    </div>
+</body>
+<script>
+    var img = $("img");
+    for (var i = 0; i < img.length; i++) {
+        if (img.eq(i).attr("class") == undefined) {
+            img.eq(i).attr("class", "lazyload");
+            var imgsrc = img.eq(i).attr("src");
+            img.eq(i).attr("data-original", imgsrc);
+            img.eq(i).attr("src", "");
+            img.eq(i).hide();
+        }
+    }
+</script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<script>
+    //寻找所有code标签，加复制按钮鸭！(行内代码除外)
+    var codes = document.getElementsByTagName('code');
+    if (codes.length) {
+        for (var i = 0; i < codes.length; i++) {
+            //高度/行高=文本行数
+            // var rowNum=Math.round(codes[i].height()/parseFloat(codes[i].css('line-height')));
+            // console.log("当前有"+rowNum+"行");
+            var code_id = "code_id_" + i;
+            codes[i].setAttribute("id", code_id);
+            var ci = "#" + code_id;
+            var codedot = $(ci);
+            var rowNum = Math.round(codedot.height() / parseFloat(codedot.css('line-height')));
+            if (rowNum <= 1) continue;
+            var btn = document.createElement("button");
+            btn.setAttribute("class", "copybt");
+            btn.setAttribute("data-clipboard-target", "#" + code_id);
+            btn.innerHTML = '复制代码';
+            codes[i].parentNode.insertBefore(btn, codes[i]);
+        }
+    };
+    var cop = new ClipboardJS('.copybt');
+    var codeCopyText = $("#codeCopyText").html();
+    cop.on('success', function (e) {
+        alert(codeCopyText);
+        e.clearSelection();
+    });
+    cop.on('error', function (e) {
+        alert("矮油，复制失败了...手动复制吧勇士！");
+        e.clearSelection();
+    });
+</script>
+
+<script type="text/javascript">
+    var message_Path = '/live2d/'
+    var home_Path = document.getElementById("domainname").innerHTML + "/"; //此处修改为你的域名，必须带斜杠
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/js/live2d.js"></script>
+<script type="text/javascript" src="https://youziki.github.io/media/live2d/js/message.js"></script>
+<script type="text/javascript">
+    loadlive2d("live2d", "https://youziki.github.io/media/live2d/assets/tororo.model.json");
+</script>
+
+<script>
+    $(function () {
+        $('.toggleContainer').click(function () {
+            $('html,body').animate({
+                scrollTop: '0px'
+            }, 800);
+        });
+        $(window).scroll(function () {
+            var st = $(window).scrollTop();
+            if (st > 30) {
+                $(".toggleContainer").fadeIn(400);
+            } else {
+                $(".toggleContainer").fadeOut(100);
+            }
+        });
+    });
+</script>
+
+<script>
+    var bgchoice = $('#bgchoice').html();
+    var bg = $('#bg');
+    var bgurl = document.getElementById("bgurl").innerHTML;
+    if (bgchoice == 'default')
+        for (var i = 0; i < 3; i++)
+            bgurl = bgurl.replace("\\", "/");
+    bg.css("background", "url('" + bgurl + "')");
+</script>
+
+
+<script src="https://youziki.github.io/media/js/index.js"></script>
+
+
+
+<!-- 动态更改上(下)一篇博客图片框长宽 -->
+<script>
+    npcontainer = document.querySelector('#npcontainer');
+    npstyle = window.getComputedStyle(npcontainer, null);
+    npwidth = npstyle.width;
+    npheight = 0.6 * Number(npwidth.replace("px", ""));
+    npheight = npheight.toString() + "px";
+    var op = $(".opimg");
+    op.css("height", npheight);
+</script>
+
+<script src="https://youziki.github.io/media/share/dist/Share.js"></script>
+
+<script>
+    var avatarSrc = $(".avatar").attr("src");
+    var dp = document.getElementsByClassName("describtion")[0].innerHTML;
+</script>
+
+
+<script>
+    var title = document.getElementById("texttitle").getElementsByTagName("h2");
+    
+    var share = new Share('.share', {
+        title: title[0].innerHTML,
+        initialized: true,
+        //默认获取网站描述
+        description: dp,
+        //网站图片默认获取的是设置的用户头像
+        image: avatarSrc,
+        //激活的分享网站
+        sites: ["weibo", "qq", "wechat", "douban", "qzone", "facebook", "twitter", "google"],
+        //微信分享PC端会生成二维码分享,移动端如果可以唤起微信最好
+        wechatQrcodeTitle: "微信扫一扫：分享", // 微信二维码提示文字
+        wechatQrcodeHelper: '<p>微信里扫一下二维码</p><p>便可将本文分享至朋友圈。</p>',
+        //关闭的网站分享
+        disabled: ['google', 'linkedin'],
+        wechatQrcodePosition: 'bottom'
+    });
+
+    //点击分享按钮展现出分享icons
+    var sharebtnTag = false;
+    $(".sharebtn").click(function () {
+        if(!sharebtnTag)
+        {
+            $(".share").show();
+            sharebtnTag = true;
+        }
+        else
+        {
+            $(".share").hide();
+            sharebtnTag = false;
+        }
+    })
+
+    var donatebtnTag = false;
+    $(".donateImg").click(function () {
+        if(!donatebtnTag)
+        {
+            $(".donate").show();
+            donatebtnTag = true;
+        }
+        else{
+            $(".donate").hide();
+            donatebtnTag = false;
+        }
+    })
+
+    //加载后的事件同步（阅读量、移动端评论等
+    window.onload=function(){
+        getHotnum();
+        var sharepc = $(".share").eq(0).html();
+        $(".share").eq(1).html(sharepc);
+        document.getElementById("veditor").setAttribute("placeholder", jrsc);
+        aplayerbtnInit();
+    }
+</script>
+
+
+<script>
+    jQuery(document).ready(function ($) {
+        function lazyload() {
+            var oLazyload = $("img.lazyload"),
+                fLazyload = function (hLazyload) {
+                    var nLazyload = $(window).height() + $(document).scrollTop();
+                    oLazyload.each(function () {
+                        $(this).offset().top < nLazyload && ($(this).trigger("appear"), oLazyload =
+                            oLazyload.not(this));
+                    }), 0 == oLazyload.length && $(window).unbind("scroll", fLazyload);
+                };
+            oLazyload.each(function () {
+                $(this).one("appear", function () {
+                    $(this).attr("src", $(this).attr("data-original"));
+                    $(this).fadeIn(500);
+                });
+            }), $(window).bind("scroll", fLazyload), fLazyload();
+        }
+        lazyload();
+    });
+</script>
+
+<!-- <script src="https://youziki.github.io/media/js/av-min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.13.0/dist/av-min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.6.1/dist/av-live-query-min.js"></script> -->
+
+<script>
+    function getHotnum() {
+        //文章阅读热度（重构，利用leancloud原生api）
+        var pl = $("#pl").html();
+        var rootaddr = $("#rootaddr").html();
+        pl = pl.replace(rootaddr, "");
+
+        var appid = '';
+        var appkey = '';
+        console.log(appid, appkey)
+        if(AV==undefined)
+            AV.init({
+                appId: appid,
+                appKey: appkey
+            });
+        const query = new AV.Query('Counter');
+        query.equalTo('url', pl);
+        var time = 'Loading...';
+        query.find().then(function (results) {
+            console.log(results)
+            if (results.length == 0) {
+                console.log("0")
+                var NewCounter = AV.Object.extend('Counter');
+                var nc = new NewCounter();
+                nc.save({
+                    time: 1,
+                    title: "题解 9.3 &amp; 9.4 模拟赛",
+                    url: pl,
+                    xid: pl,
+                }).then(function (object) {
+                    $(".hotnum").eq(0).html(1);
+                    $(".hotnum").eq(1).html(1);
+                });
+            } else {
+                id = results[0].id;
+                var todo = AV.Object.createWithoutData('Counter', id);
+                time = results[0].attributes.time + 1;
+                todo.set("time", time);
+                todo.save();
+                console.log(todo);
+                $(".hotnum").eq(0).html(time);
+                $(".hotnum").eq(1).html(time);
+            }
+
+        }, function (error) {
+            console.log(error)
+        });
+    }
+</script>
