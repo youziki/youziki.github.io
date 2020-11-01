@@ -1,667 +1,618 @@
+<!DOCTYPE html>
 <html>
   <head>
-    
-<meta charset="utf-8" >
+    <meta charset="utf-8" >
 
-<title>Gridea</title>
-<meta name="description" content="众人皆醉我独醒">
+<title>文章归档 | Gridea</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604202864212">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604203068983">
 <link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
 
 
 
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
 
+    <meta name="description" content="众人皆醉我独醒">
   </head>
   <body>
     <div id="app" class="main">
-      <div class="site-header-container">
-  <div class="site-header">
-    <div class="left">
-      <a href="https://youziki.github.io">
-        <img class="avatar" src="https://youziki.github.io/images/avatar.png?v=1604202864212" alt="" width="32px" height="32px">
-      </a>
-      <a href="https://youziki.github.io">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://youziki.github.io">
+        <img src="https://youziki.github.io/images/avatar.png?v=1604203068983" class="site-logo">
         <h1 class="site-title">Gridea</h1>
       </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
     </div>
-    <div class="right">
-      <transition name="fade">
-        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
-      </transition>
-    </div>
-  </div>
-</div>
-
-<transition name="fade">
-  <div class="menu-container" style="display: none;" v-show="menuVisible">
-    <div class="menu-list">
+    <div>
       
         
-          <a href="/" class="menu purple-link">
+          <a href="/" class="site-nav">
             首页
           </a>
         
       
         
-          <a href="/archives" class="menu purple-link">
+          <a href="/archives" class="site-nav">
             归档
           </a>
         
       
         
-          <a href="/tags" class="menu purple-link">
+          <a href="/tags" class="site-nav">
             标签
           </a>
         
       
         
-          <a href="/post/about" class="menu purple-link">
+          <a href="/post/about" class="site-nav">
             关于
           </a>
         
       
     </div>
   </div>
-</transition>
-
-
-        <div class="content-container">
-          
-          
-
-<div class="archives-container">
-  
-    <h2 class="year">2020</h2>
-    
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
       
-        <article class="post">
-          <a href="https://youziki.github.io/-mCL3wgZ9/">
-            <h2 class="post-title">
-              矩阵乘法
-              <small>2020-10-31</small>
-            </h2>
-          </a>
-        </article>
+        
       
-    
+        
       
-        <article class="post">
-          <a href="https://youziki.github.io/3s3dsK9Ks/">
-            <h2 class="post-title">
-              大切な人といつかまた巡り会えますように
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
+        
       
-    
+        
       
-        <article class="post">
-          <a href="https://youziki.github.io/J3GjYEAK7/">
-            <h2 class="post-title">
-              题解 P3924 康娜的线段树
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
+        
       
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/7JuzUCVU6/">
-            <h2 class="post-title">
-              超级快读快写
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/U91BQ6Msk/">
-            <h2 class="post-title">
-              我的sb错误们
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/BiqpVckQd/">
-            <h2 class="post-title">
-              题解 水0（dp专题）
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/_pgSwlkeO/">
-            <h2 class="post-title">
-              洛谷博客主题索引
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/6SmkEJSIi/">
-            <h2 class="post-title">
-              题解 AT1983 [AGC001E] BBQ Hard
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/ijw8kL7BV/">
-            <h2 class="post-title">
-              题解 AT3621 [ARC084B] Small Multiple
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/h03BnPY5Z/">
-            <h2 class="post-title">
-              扫描线法1
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/FcEEoNXLQ/">
-            <h2 class="post-title">
-              一些有趣的题（CF）
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/p4ApHHIlg/">
-            <h2 class="post-title">
-              Splay 1
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/KtjKX9FvN/">
-            <h2 class="post-title">
-              题解 10.20 模拟赛
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/ZUxFJHE3i/">
-            <h2 class="post-title">
-              讲题 P4165组队
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/jSZ4iyzqC/">
-            <h2 class="post-title">
-              题解 CF1433C 【Dominant Piranha】
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/mlyhGUvMu/">
-            <h2 class="post-title">
-              题解 D-变换（水题）
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/tqh1AV_Um/">
-            <h2 class="post-title">
-              题解 模拟赛们
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/ykRN01Bp_/">
-            <h2 class="post-title">
-              LCT 1
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/14xSFypGf/">
-            <h2 class="post-title">
-              题解 10.14模拟赛
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/1ixDZCNMV/">
-            <h2 class="post-title">
-              题解 P3421 【[POI2005]SKO-Knights】
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/S4K1RMIs8/">
-            <h2 class="post-title">
-              题解 P5336 【[THUSC2016]成绩单】
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/texHFRrzQ/">
-            <h2 class="post-title">
-              CF标签速查
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/CEdwscerZ/">
-            <h2 class="post-title">
-              ywy_c_asm毒瘤模拟赛
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/YakP1wEr2/">
-            <h2 class="post-title">
-              10.10
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/zSfuHMX0r/">
-            <h2 class="post-title">
-              单调栈与计数1
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/W64aLyA4l/">
-            <h2 class="post-title">
-              题解 P2816 宋荣子搭积木
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/zJnklKb1x/">
-            <h2 class="post-title">
-              题解 P5454 【[THUPC2018]城市地铁规划】
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/qTGufIt5l/">
-            <h2 class="post-title">
-              一些计数经典模型
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/UHPAMm_2Y/">
-            <h2 class="post-title">
-              题解 10.7模拟赛
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/21dmVXRpD/">
-            <h2 class="post-title">
-              purfer序列 1
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/f5Ui4Gqvr/">
-            <h2 class="post-title">
-              题解 CF1423B 【Valuable Paper】
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/-1I4rtNEM/">
-            <h2 class="post-title">
-              题解 CF1422A 【Fence】
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/CLGCLJM5F/">
-            <h2 class="post-title">
-              题解 Nice Matrix
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/ARG1LnATg/">
-            <h2 class="post-title">
-              网络流 1
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/4X-9Mbc56/">
-            <h2 class="post-title">
-              题解 CF1408D
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/Yvqs1Lhjy/">
-            <h2 class="post-title">
-              题解 9.29 模拟赛
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/BHJDSI5SE/">
-            <h2 class="post-title">
-              构造 1
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/3UXQLpROt/">
-            <h2 class="post-title">
-              题解 P1306 【斐波那契公约数】
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/2NEFyCGX0/">
-            <h2 class="post-title">
-              题解 CF1420C2 【Pokémon Army (hard version)】
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/KuJUbC3dJ/">
-            <h2 class="post-title">
-              题解 9.25 &amp; 26 模拟赛
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/Mtpm9Jzr1/">
-            <h2 class="post-title">
-              期望 1
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/mO27dOOwE/">
-            <h2 class="post-title">
-              题解 P2938 【[USACO09FEB]Stock Market G】
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/9TgB9WBGd/">
-            <h2 class="post-title">
-              题解 CF439E 【Devu and Birthday Celebration】
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/ER8J9mYb2/">
-            <h2 class="post-title">
-              题解 CF223C 【Partial Sums】
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/nDInYoxXK/">
-            <h2 class="post-title">
-              题解 CF1225D 【Power Products】
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/88KKQ0YZ1/">
-            <h2 class="post-title">
-              题解 CF908G 【New Year and Original Order】
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/rZMXFccH8/">
-            <h2 class="post-title">
-              动态规划学习笔记
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/MMhjaffUC/">
-            <h2 class="post-title">
-              题解 9.22 模拟赛 T1 &amp; T2
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/CFk--Yu0m/">
-            <h2 class="post-title">
-              【题解】牛客挑战赛43 9.22
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://youziki.github.io/8RrZzBfzQ/">
-            <h2 class="post-title">
-              分层图最短路 9.22
-              <small>2020-10-30</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-  
+    </div>
+    <div class="site-description">
+      众人皆醉我独醒
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
 </div>
 
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          
+
+          <h2 class="archives-title">文章归档</h2>
+          <div class="archives-container">
+            
+              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2020</h2>
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/-mCL3wgZ9/">
+                      <h2 class="post-title">
+                        矩阵乘法
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/3s3dsK9Ks/">
+                      <h2 class="post-title">
+                        大切な人といつかまた巡り会えますように
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/J3GjYEAK7/">
+                      <h2 class="post-title">
+                        题解 P3924 康娜的线段树
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/7JuzUCVU6/">
+                      <h2 class="post-title">
+                        超级快读快写
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/U91BQ6Msk/">
+                      <h2 class="post-title">
+                        我的sb错误们
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/BiqpVckQd/">
+                      <h2 class="post-title">
+                        题解 水0（dp专题）
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/_pgSwlkeO/">
+                      <h2 class="post-title">
+                        洛谷博客主题索引
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/6SmkEJSIi/">
+                      <h2 class="post-title">
+                        题解 AT1983 [AGC001E] BBQ Hard
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/ijw8kL7BV/">
+                      <h2 class="post-title">
+                        题解 AT3621 [ARC084B] Small Multiple
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/h03BnPY5Z/">
+                      <h2 class="post-title">
+                        扫描线法1
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/FcEEoNXLQ/">
+                      <h2 class="post-title">
+                        一些有趣的题（CF）
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/p4ApHHIlg/">
+                      <h2 class="post-title">
+                        Splay 1
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/KtjKX9FvN/">
+                      <h2 class="post-title">
+                        题解 10.20 模拟赛
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/ZUxFJHE3i/">
+                      <h2 class="post-title">
+                        讲题 P4165组队
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/jSZ4iyzqC/">
+                      <h2 class="post-title">
+                        题解 CF1433C 【Dominant Piranha】
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/mlyhGUvMu/">
+                      <h2 class="post-title">
+                        题解 D-变换（水题）
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/tqh1AV_Um/">
+                      <h2 class="post-title">
+                        题解 模拟赛们
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/ykRN01Bp_/">
+                      <h2 class="post-title">
+                        LCT 1
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/14xSFypGf/">
+                      <h2 class="post-title">
+                        题解 10.14模拟赛
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/1ixDZCNMV/">
+                      <h2 class="post-title">
+                        题解 P3421 【[POI2005]SKO-Knights】
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/S4K1RMIs8/">
+                      <h2 class="post-title">
+                        题解 P5336 【[THUSC2016]成绩单】
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/texHFRrzQ/">
+                      <h2 class="post-title">
+                        CF标签速查
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/CEdwscerZ/">
+                      <h2 class="post-title">
+                        ywy_c_asm毒瘤模拟赛
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/YakP1wEr2/">
+                      <h2 class="post-title">
+                        10.10
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/zSfuHMX0r/">
+                      <h2 class="post-title">
+                        单调栈与计数1
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/W64aLyA4l/">
+                      <h2 class="post-title">
+                        题解 P2816 宋荣子搭积木
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/zJnklKb1x/">
+                      <h2 class="post-title">
+                        题解 P5454 【[THUPC2018]城市地铁规划】
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/qTGufIt5l/">
+                      <h2 class="post-title">
+                        一些计数经典模型
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/UHPAMm_2Y/">
+                      <h2 class="post-title">
+                        题解 10.7模拟赛
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/21dmVXRpD/">
+                      <h2 class="post-title">
+                        purfer序列 1
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/f5Ui4Gqvr/">
+                      <h2 class="post-title">
+                        题解 CF1423B 【Valuable Paper】
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/-1I4rtNEM/">
+                      <h2 class="post-title">
+                        题解 CF1422A 【Fence】
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/CLGCLJM5F/">
+                      <h2 class="post-title">
+                        题解 Nice Matrix
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/ARG1LnATg/">
+                      <h2 class="post-title">
+                        网络流 1
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/4X-9Mbc56/">
+                      <h2 class="post-title">
+                        题解 CF1408D
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/Yvqs1Lhjy/">
+                      <h2 class="post-title">
+                        题解 9.29 模拟赛
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/BHJDSI5SE/">
+                      <h2 class="post-title">
+                        构造 1
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/3UXQLpROt/">
+                      <h2 class="post-title">
+                        题解 P1306 【斐波那契公约数】
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/2NEFyCGX0/">
+                      <h2 class="post-title">
+                        题解 CF1420C2 【Pokémon Army (hard version)】
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/KuJUbC3dJ/">
+                      <h2 class="post-title">
+                        题解 9.25 &amp; 26 模拟赛
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/Mtpm9Jzr1/">
+                      <h2 class="post-title">
+                        期望 1
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/mO27dOOwE/">
+                      <h2 class="post-title">
+                        题解 P2938 【[USACO09FEB]Stock Market G】
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/9TgB9WBGd/">
+                      <h2 class="post-title">
+                        题解 CF439E 【Devu and Birthday Celebration】
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/ER8J9mYb2/">
+                      <h2 class="post-title">
+                        题解 CF223C 【Partial Sums】
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/nDInYoxXK/">
+                      <h2 class="post-title">
+                        题解 CF1225D 【Power Products】
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/88KKQ0YZ1/">
+                      <h2 class="post-title">
+                        题解 CF908G 【New Year and Original Order】
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/rZMXFccH8/">
+                      <h2 class="post-title">
+                        动态规划学习笔记
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/MMhjaffUC/">
+                      <h2 class="post-title">
+                        题解 9.22 模拟赛 T1 &amp; T2
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/CFk--Yu0m/">
+                      <h2 class="post-title">
+                        【题解】牛客挑战赛43 9.22
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://youziki.github.io/8RrZzBfzQ/">
+                      <h2 class="post-title">
+                        分层图最短路 9.22
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+            
+          </div>
+
+          <div class="pagination-container">
+  
+  
+    <a href="https://youziki.github.io/archives/page/2" class="next">下一页 <i class="icon-arrow-ios-forward-outline"></i></a>
+  
+</div>
 
         </div>
-
-        <div class="site-footer">
-  <div class="slogan">众人皆醉我独醒</div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  </div>
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
-</div>
-
-
       </div>
-      <script type="application/javascript">
+    </div>
 
-hljs.initHighlightingOnLoad()
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
 
 var app = new Vue({
   el: '#app',
@@ -673,8 +624,14 @@ var app = new Vue({
 </script>
 
 
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
 
 
-    </div>
+
+
+
   </body>
 </html>

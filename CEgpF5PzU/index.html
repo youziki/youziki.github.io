@@ -1,435 +1,311 @@
-
 <!DOCTYPE html>
 <html>
   <head>
-    
-<meta charset="utf-8" >
+    <meta charset="utf-8" >
 
 <title>题解 | Gridea</title>
-<meta name="description" content="众人皆醉我独醒">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604202864212">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604203068983">
 <link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
 
 
 
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
 
+    <meta name="description" content="众人皆醉我独醒">
   </head>
   <body>
     <div id="app" class="main">
-      <div class="site-header-container">
-  <div class="site-header">
-    <div class="left">
-      <a href="https://youziki.github.io">
-        <img class="avatar" src="https://youziki.github.io/images/avatar.png?v=1604202864212" alt="" width="32px" height="32px">
-      </a>
-      <a href="https://youziki.github.io">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://youziki.github.io">
+        <img src="https://youziki.github.io/images/avatar.png?v=1604203068983" class="site-logo">
         <h1 class="site-title">Gridea</h1>
       </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
     </div>
-    <div class="right">
-      <transition name="fade">
-        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
-      </transition>
-    </div>
-  </div>
-</div>
-
-<transition name="fade">
-  <div class="menu-container" style="display: none;" v-show="menuVisible">
-    <div class="menu-list">
+    <div>
       
         
-          <a href="/" class="menu purple-link">
+          <a href="/" class="site-nav">
             首页
           </a>
         
       
         
-          <a href="/archives" class="menu purple-link">
+          <a href="/archives" class="site-nav">
             归档
           </a>
         
       
         
-          <a href="/tags" class="menu purple-link">
+          <a href="/tags" class="site-nav">
             标签
           </a>
         
       
         
-          <a href="/post/about" class="menu purple-link">
+          <a href="/post/about" class="site-nav">
             关于
           </a>
         
       
     </div>
   </div>
-</transition>
-
-
-      <div class="content-container">
-
-        <div class="current-tag-container">
-          <h2 class="title">
-            <i class="icon icon-pricetags-outline"></i> 题解
-          </h2> 
-        </div>
-
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
         
-<section class="post-item">
-    <div class="content">
-      <a href="https://youziki.github.io/J3GjYEAK7/">
-        <h2 class="post-title">题解 P3924 康娜的线段树</h2>
-      </a>
-      <div class="post-abstract">
+      
         
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2020-10-30</span>
+      
         
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="https://youziki.github.io/CEgpF5PzU/">
-                题解
-                
-              </a>
-            
-          </span>
+      
         
-      </div>
+      
+        
+      
     </div>
-    
-      <a href="https://youziki.github.io/J3GjYEAK7/">
-        <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png')">
-        </div>
-      </a>
-    
-  </section>
-
-<section class="post-item">
-    <div class="content">
-      <a href="https://youziki.github.io/6SmkEJSIi/">
-        <h2 class="post-title">题解 AT1983 [AGC001E] BBQ Hard</h2>
-      </a>
-      <div class="post-abstract">
-        
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2020-10-30</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="https://youziki.github.io/CEgpF5PzU/">
-                题解
-                
-              </a>
-            
-          </span>
-        
-      </div>
+    <div class="site-description">
+      众人皆醉我独醒
     </div>
-    
-      <a href="https://youziki.github.io/6SmkEJSIi/">
-        <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png')">
-        </div>
-      </a>
-    
-  </section>
-
-<section class="post-item">
-    <div class="content">
-      <a href="https://youziki.github.io/ijw8kL7BV/">
-        <h2 class="post-title">题解 AT3621 [ARC084B] Small Multiple</h2>
-      </a>
-      <div class="post-abstract">
-        
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2020-10-30</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="https://youziki.github.io/CEgpF5PzU/">
-                题解
-                
-              </a>
-            
-          </span>
-        
-      </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
     </div>
-    
-      <a href="https://youziki.github.io/ijw8kL7BV/">
-        <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png')">
-        </div>
-      </a>
-    
-  </section>
-
-<section class="post-item">
-    <div class="content">
-      <a href="https://youziki.github.io/ZUxFJHE3i/">
-        <h2 class="post-title">讲题 P4165组队</h2>
-      </a>
-      <div class="post-abstract">
-        
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2020-10-30</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="https://youziki.github.io/CEgpF5PzU/">
-                题解
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-      <a href="https://youziki.github.io/ZUxFJHE3i/">
-        <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png')">
-        </div>
-      </a>
-    
-  </section>
-
-<section class="post-item">
-    <div class="content">
-      <a href="https://youziki.github.io/jSZ4iyzqC/">
-        <h2 class="post-title">题解 CF1433C 【Dominant Piranha】</h2>
-      </a>
-      <div class="post-abstract">
-        
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2020-10-30</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="https://youziki.github.io/CEgpF5PzU/">
-                题解
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-      <a href="https://youziki.github.io/jSZ4iyzqC/">
-        <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png')">
-        </div>
-      </a>
-    
-  </section>
-
-<section class="post-item">
-    <div class="content">
-      <a href="https://youziki.github.io/mlyhGUvMu/">
-        <h2 class="post-title">题解 D-变换（水题）</h2>
-      </a>
-      <div class="post-abstract">
-        
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2020-10-30</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="https://youziki.github.io/CEgpF5PzU/">
-                题解
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-      <a href="https://youziki.github.io/mlyhGUvMu/">
-        <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png')">
-        </div>
-      </a>
-    
-  </section>
-
-<section class="post-item">
-    <div class="content">
-      <a href="https://youziki.github.io/1ixDZCNMV/">
-        <h2 class="post-title">题解 P3421 【[POI2005]SKO-Knights】</h2>
-      </a>
-      <div class="post-abstract">
-        
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2020-10-30</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="https://youziki.github.io/CEgpF5PzU/">
-                题解
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-      <a href="https://youziki.github.io/1ixDZCNMV/">
-        <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png')">
-        </div>
-      </a>
-    
-  </section>
-
-<section class="post-item">
-    <div class="content">
-      <a href="https://youziki.github.io/S4K1RMIs8/">
-        <h2 class="post-title">题解 P5336 【[THUSC2016]成绩单】</h2>
-      </a>
-      <div class="post-abstract">
-        
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2020-10-30</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="https://youziki.github.io/CEgpF5PzU/">
-                题解
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-      <a href="https://youziki.github.io/S4K1RMIs8/">
-        <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png')">
-        </div>
-      </a>
-    
-  </section>
-
-<section class="post-item">
-    <div class="content">
-      <a href="https://youziki.github.io/W64aLyA4l/">
-        <h2 class="post-title">题解 P2816 宋荣子搭积木</h2>
-      </a>
-      <div class="post-abstract">
-        
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2020-10-30</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="https://youziki.github.io/CEgpF5PzU/">
-                题解
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-      <a href="https://youziki.github.io/W64aLyA4l/">
-        <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png')">
-        </div>
-      </a>
-    
-  </section>
-
-<section class="post-item">
-    <div class="content">
-      <a href="https://youziki.github.io/zJnklKb1x/">
-        <h2 class="post-title">题解 P5454 【[THUPC2018]城市地铁规划】</h2>
-      </a>
-      <div class="post-abstract">
-        
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2020-10-30</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="https://youziki.github.io/CEgpF5PzU/">
-                题解
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-      <a href="https://youziki.github.io/zJnklKb1x/">
-        <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png')">
-        </div>
-      </a>
-    
-  </section>
+  </div>
+</div>
 
 
-<div class="pagination-container">
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <h2 class="current-tag">标签: 题解</h2>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://youziki.github.io/J3GjYEAK7/">
+                  <h2 class="post-title">题解 P3924 康娜的线段树</h2>
+                </a>
+                <div class="post-date">
+                  2020-10-30
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://youziki.github.io/J3GjYEAK7/">
+                  <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://youziki.github.io/6SmkEJSIi/">
+                  <h2 class="post-title">题解 AT1983 [AGC001E] BBQ Hard</h2>
+                </a>
+                <div class="post-date">
+                  2020-10-30
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://youziki.github.io/6SmkEJSIi/">
+                  <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://youziki.github.io/ijw8kL7BV/">
+                  <h2 class="post-title">题解 AT3621 [ARC084B] Small Multiple</h2>
+                </a>
+                <div class="post-date">
+                  2020-10-30
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://youziki.github.io/ijw8kL7BV/">
+                  <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://youziki.github.io/ZUxFJHE3i/">
+                  <h2 class="post-title">讲题 P4165组队</h2>
+                </a>
+                <div class="post-date">
+                  2020-10-30
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://youziki.github.io/ZUxFJHE3i/">
+                  <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://youziki.github.io/jSZ4iyzqC/">
+                  <h2 class="post-title">题解 CF1433C 【Dominant Piranha】</h2>
+                </a>
+                <div class="post-date">
+                  2020-10-30
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://youziki.github.io/jSZ4iyzqC/">
+                  <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://youziki.github.io/mlyhGUvMu/">
+                  <h2 class="post-title">题解 D-变换（水题）</h2>
+                </a>
+                <div class="post-date">
+                  2020-10-30
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://youziki.github.io/mlyhGUvMu/">
+                  <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://youziki.github.io/1ixDZCNMV/">
+                  <h2 class="post-title">题解 P3421 【[POI2005]SKO-Knights】</h2>
+                </a>
+                <div class="post-date">
+                  2020-10-30
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://youziki.github.io/1ixDZCNMV/">
+                  <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://youziki.github.io/S4K1RMIs8/">
+                  <h2 class="post-title">题解 P5336 【[THUSC2016]成绩单】</h2>
+                </a>
+                <div class="post-date">
+                  2020-10-30
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://youziki.github.io/S4K1RMIs8/">
+                  <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://youziki.github.io/W64aLyA4l/">
+                  <h2 class="post-title">题解 P2816 宋荣子搭积木</h2>
+                </a>
+                <div class="post-date">
+                  2020-10-30
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://youziki.github.io/W64aLyA4l/">
+                  <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://youziki.github.io/zJnklKb1x/">
+                  <h2 class="post-title">题解 P5454 【[THUPC2018]城市地铁规划】</h2>
+                </a>
+                <div class="post-date">
+                  2020-10-30
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://youziki.github.io/zJnklKb1x/">
+                  <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+
+          <div class="pagination-container">
   
   
     <a href="https://youziki.github.io/CEgpF5PzU/page/2" class="next">下一页 <i class="icon-arrow-ios-forward-outline"></i></a>
   
 </div>
 
-
+        </div>
       </div>
-
-      <div class="site-footer">
-  <div class="slogan">众人皆醉我独醒</div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  </div>
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
-</div>
-
-
     </div>
-    <script type="application/javascript">
 
-hljs.initHighlightingOnLoad()
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
 
 var app = new Vue({
   el: '#app',
@@ -439,6 +315,13 @@ var app = new Vue({
 })
 
 </script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
 
 
 
