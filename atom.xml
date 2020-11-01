@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://youziki.github.io</id>
     <title>Gridea</title>
-    <updated>2020-10-30T10:56:01.801Z</updated>
+    <updated>2020-11-01T03:54:40.285Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://youziki.github.io"/>
     <link rel="self" href="https://youziki.github.io/atom.xml"/>
@@ -10,6 +10,100 @@
     <logo>https://youziki.github.io/images/avatar.png</logo>
     <icon>https://youziki.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[矩阵乘法]]></title>
+        <id>https://youziki.github.io/-mCL3wgZ9/</id>
+        <link href="https://youziki.github.io/-mCL3wgZ9/">
+        </link>
+        <updated>2020-10-31T01:24:24.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="p3193-hnoi2008gt考试"><a href="https://www.luogu.com.cn/problem/P3193">P3193 [HNOI2008]GT考试</a></h3>
+<h4 id="题意">题意：</h4>
+<p>有一个不吉利串，求长度为n的不包含这个不吉利串的方案数</p>
+<h4 id="solution">Solution：</h4>
+<p>想朴素暴力，令<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">f[i][j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>表示“前i个位置，最后j个和前j个匹配”的方案数，转移：i, j到i+1, k暴力枚举小于等于j+1的k，然后<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>验证，可以发现<strong>对于一个后缀，它加一个固定字符可以匹配到的字符是固定的（因为只与这个后缀有关）</strong>，所以可以将这个转化关系变为一个矩阵。</p>
+<p>总体思路长这个样子：先KMP处理出来border，再类似KMP处理出转移矩阵，然后处理出来初始矩阵：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>[</mo><mn>0</mn><mo>]</mo><mo>[</mo><mn>0</mn><mo>]</mo><mo separator="true">,</mo><mi>f</mi><mo>[</mo><mn>0</mn><mo>]</mo><mo>[</mo><mn>1</mn><mo>]</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><mi>f</mi><mo>[</mo><mn>0</mn><mo>]</mo><mo>[</mo><mi>m</mi><mo>−</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">f[0][0],f[0][1]...,f[0][m-1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span>，最后矩阵快速幂得出最终状态，将所有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>[</mo><mi>n</mi><mo>]</mo><mo>[</mo><mn>0</mn><mo>]</mo><mo separator="true">,</mo><mi>f</mi><mo>[</mo><mi>n</mi><mo>]</mo><mo>[</mo><mn>1</mn><mo>]</mo><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><mi>f</mi><mo>[</mo><mi>n</mi><mo>]</mo><mo>[</mo><mi>m</mi><mo>−</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">f[n][0],f[n][1],...,f[n][m-1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathdefault">n</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathdefault">n</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathdefault">n</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span>加起来即为答案</p>
+<h4 id="code">Code：</h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+#define int long long
+
+const int N = 25;
+
+int n, m, k, nxt[N];
+char ch[N];
+int a[N][N];
+
+inline void kmp()
+{
+    for(int i = 2, j = 0; i &lt;= m; ++i)
+    {
+        while(j &gt; 0 &amp;&amp; ch[i] != ch[j + 1]) j = nxt[j];
+        if(ch[i] == ch[j + 1]) ++ j;
+        nxt[i] = j;
+    }
+    
+    for(int i = 0; i &lt; m; ++i)
+        for(char c = '0'; c &lt;= '9'; ++c)
+        {
+            int j = i;
+            while(j &gt; 0 &amp;&amp; ch[j + 1] != c) j = nxt[j];
+            if(ch[j + 1] == c) ++ j;
+            if(j &lt; m) ++ a[i][j];
+        }
+}
+
+inline void mul(int C[][N], int A[][N], int B[][N])
+{
+    static int t[N][N];
+    memset(t, 0, sizeof t);
+    
+    for(int i = 0; i &lt; m; ++i)
+        for(int j = 0; j &lt; m; ++j)
+            for(int l = 0; l &lt; m; ++l)
+                (t[i][j] += A[i][l] * B[l][j]) %= k;
+    
+    memcpy(C, t, sizeof t);
+}
+
+inline int power()
+{
+    int f[N][N] = {1}, ans = 0; // f0
+    
+    for(; n; n &gt;&gt;= 1, mul(a, a, a))
+        if(n &amp; 1) mul(f, f, a);
+    
+    for(int i = 0; i &lt; m; ++i) (ans += f[0][i]) %= k;
+    
+    return ans;
+}
+
+signed main()
+{
+    cin &gt;&gt; n &gt;&gt; m &gt;&gt; k;
+    cin &gt;&gt; ch + 1;
+    
+    kmp();
+    cout &lt;&lt; power();
+    
+    return 0;
+}
+</code></pre>
+<h4 id="总结加强对固定转移关系的敏锐度-练习一下魔改的kmp也是极好的">总结：加强对固定转移关系的敏锐度、练习一下魔改的KMP也是极好的</h4>
+<h3 id="p3597-poi2015wyc"><a href="https://www.luogu.com.cn/problem/P3597">P3597 [POI2015]WYC</a></h3>
+<h4 id="题意-2">题意：</h4>
+<p>给定一张n个点m条边的带权有向图，每条边的边权只可能是1，2，3中的一种。将所有可能的路径按路径长度排序，请输出第k小的路径的长度，注意路径不一定是简单路径，即可以重复走同一个点。</p>
+<h4 id="solution-2">Solution：</h4>
+<p>考虑朴素暴力：从小到大枚举每个长度的路径的方案数，第一个大于k的长度即为答案</p>
+<blockquote>
+<p>凡一步一步跳的都考虑倍增</p>
+</blockquote>
+<p>于是问题变成了长度2^i次方的路径条数，可以用矩阵快速幂快速求出</p>
+<p>只剩下一个问题：这样要求所有边权为1，题中边权很小，考虑<strong>加点</strong>将一条边权大于1的边变为若干边权为1的边</p>
+<p>代码不难</p>
+<h3 id="p4159-scoi2009-迷路"><a href="https://www.luogu.com.cn/problem/P4159">P4159 [SCOI2009] 迷路</a></h3>
+<h3 id="p6772-noi2020美食家"><a href="https://www.luogu.com.cn/problem/P6772">P6772 [NOI2020]美食家</a></h3>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[大切な人といつかまた巡り会えますように]]></title>
         <id>https://youziki.github.io/3s3dsK9Ks/</id>
@@ -702,43 +796,6 @@ void change(int p, int l, int r, int x, int y, int k)
 <h4 id="p5490-模板扫描线"><a href="https://www.luogu.com.cn/problem/P5490">P5490 【模板】扫描线</a></h4>
 <h4 id="t153158-窗口的jj森森猩猩模板扫描线法"><a href="https://www.luogu.com.cn/problem/T153158">T153158 窗口的JJ/森森/猩猩/【模板】扫描线法</a></h4>
 <h4 id="p3875-tjoi2010被污染的河流"><a href="https://www.luogu.com.cn/problem/P3875">P3875 [TJOI2010]被污染的河流</a></h4>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[一些有趣的题（CF）]]></title>
-        <id>https://youziki.github.io/FcEEoNXLQ/</id>
-        <link href="https://youziki.github.io/FcEEoNXLQ/">
-        </link>
-        <updated>2020-10-29T16:51:24.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="1-cf1433f-zero-remainder-sum">1 . <a href="https://www.luogu.com.cn/problem/CF1433F">CF1433F Zero Remainder Sum</a></h3>
-<p>给一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>×</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">n \times m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>的矩阵，每行选择不超过一半的元素，使得最终选的所有元素和是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>的倍数，并且和最大，求最大和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo separator="true">,</mo><mi>m</mi><mo separator="true">,</mo><mi>k</mi><mo>&lt;</mo><mo>=</mo><mn>70</mn></mrow><annotation encoding="application/x-tex">n, m, k &lt;= 70</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">n</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">7</span><span class="mord">0</span></span></span></span></p>
-<p><strong>Solution：</strong> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span></p>
-<p><strong>Code：</strong></p>
-<pre><code class="language-cpp">int n, m, k;
-int a[N][N], f[N][N][N][N &gt;&gt; 1];
-
-int dp(int i, int j, int mod, int now)
-{
-    if(~ f[i][j][mod][now]) return f[i][j][mod][now];
-    if(i == n + 1) return mod ? -INF : 0;
-    if(j == m || now == m / 2) return f[i][j][mod][now] = dp(i + 1, 1, mod, 0);
-    return f[i][j][mod][now] = max(dp(i, j + 1, mod, now), a[i][j] + dp(i, j + 1, (mod + a[i][j]) % k, now + 1));
-}
-
-signed main()
-{
-    memset(f, -1, sizeof f);
-    n = read(), m = read(), k = read();
-    for(int i = 1; i &lt;= n; ++i)
-        for(int j = 1; j &lt;= m; ++j)
-            a[i][j] = read();
-
-    print(dp(1, 1, 0, 0));
-
-    return 0;
-}
-</code></pre>
-<p><strong>总结：</strong> 看到这种集合元素的限制就想<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span>，看到不会的题，就想<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span></p>
 ]]></content>
     </entry>
 </feed>
