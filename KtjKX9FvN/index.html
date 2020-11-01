@@ -1,104 +1,101 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
-
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>题解 10.20 模拟赛 | Gridea</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604203519105">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604212935460">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
-
-
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="alternate" type="application/atom+xml" title="题解 10.20 模拟赛 | Gridea - Atom Feed" href="https://youziki.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
     <meta name="description" content="T1 math
 显然可以发现一个性质 （这么简单，我没发现）：did_idi​为奇数当且仅当iii为完全平方数！于是就变成了对[1,n][1,n][1,n]中每一个数，求∑j=1m[i×j\sum_{j = 1}^{m}[i \times ..." />
     <meta name="keywords" content="比赛" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://youziki.github.io">
-        <img src="https://youziki.github.io/images/avatar.png?v=1604203519105" class="site-logo">
-        <h1 class="site-title">Gridea</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://youziki.github.io">
+  <img class="avatar" src="https://youziki.github.io/images/avatar.png?v=1604212935460" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    众人皆醉我独醒
+  </p>
+  <div class="menu-container">
+    
       
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
+        <a href="/" class="menu">
+          首页
+        </a>
       
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
+    
       
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
+        <a href="/archives" class="menu">
+          归档
+        </a>
       
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
+    
       
-    </div>
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
+  <div class="social-container">
+    
       
-        
+    
       
-        
+    
       
-        
+    
       
-        
+    
       
-        
-      
-    </div>
-    <div class="site-description">
-      众人皆醉我独醒
-    </div>
-    <div class="site-footer">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
-    </div>
+    
   </div>
 </div>
 
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">题解 10.20 模拟赛</h2>
-            <div class="post-date">2020-10-30</div>
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              题解 10.20 模拟赛
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-10-30
+              </span>
+              <span>
+                6 min read
+              </span>
+              
+                <a href="https://youziki.github.io/ajbBPuKpd/" class="post-tag">
+                  # 比赛
+                </a>
+              
+            </div>
             
-              <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
-              </div>
+              <img class="post-feature-image" src="https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png" alt="">
             
-            <div class="post-content" v-pre>
-              <h3 id="t1-math"><a href="https://www.luogu.com.cn/problem/U135413?contestId=35887">T1 math</a></h3>
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="t1-math"><a href="https://www.luogu.com.cn/problem/U135413?contestId=35887">T1 math</a></h3>
 <p>显然可以发现一个性质 <s>（这么简单，我没发现）</s>：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>d</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">d_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>为奇数当且仅当<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>为完全平方数！于是就变成了对<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>1</mn><mo separator="true">,</mo><mi>n</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">[1,n]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">]</span></span></span></span>中每一个数，求<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>m</mi></msubsup><mo>[</mo><mi>i</mi><mo>×</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">\sum_{j = 1}^{m}[i \times j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.24011em;vertical-align:-0.43581800000000004em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span> 是完全平方数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>]</mo></mrow><annotation encoding="application/x-tex">]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mclose">]</span></span></span></span></p>
 <p>令：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>=</mo><mi>p</mi><mi>i</mi><mo>∗</mo><mi>q</mi><msup><mi>i</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">i = pi * qi^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mord"><span class="mord mathdefault">i</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>，就是要找一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi><mo>=</mo><mi>p</mi><mi>i</mi><mo>∗</mo><mi>q</mi><msup><mi>j</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">j = pi * qj^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>q</mi><mi>j</mi></mrow><annotation encoding="application/x-tex">qj</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>为任意正整数，答案为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msqrt><mrow><mi>m</mi><mi mathvariant="normal">/</mi><mi>p</mi><mi>i</mi></mrow></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{m/pi}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.30499999999999994em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.935em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mord" style="padding-left:1em;"><span class="mord mathdefault">m</span><span class="mord">/</span><span class="mord mathdefault">p</span><span class="mord mathdefault">i</span></span></span><span style="top:-2.8950000000000005em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg width='400em' height='1.28em' viewBox='0 0 400000 1296' preserveAspectRatio='xMinYMin slice'><path d='M263,681c0.7,0,18,39.7,52,119c34,79.3,68.167,
 158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120c340,-704.7,510.7,-1060.3,512,-1067
@@ -237,58 +234,105 @@ for(int i = (mx &lt;&lt; 1); i; --i)
 }
 </code></pre>
 
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#t1-math">T1 math</a>
+<ul>
+<li><a href="#code">Code：</a></li>
+</ul>
+</li>
+<li><a href="#t2-osu">T2 osu</a></li>
+<li><a href="#t3-map">T3 map</a></li>
+<li><a href="#t4-circular">T4 circular</a>
+<ul>
+<li><a href="#code-2">Code：</a>
+<ul>
+<li><a href="#init">init</a></li>
+<li><a href="#get_nxt">get_nxt</a></li>
+<li><a href="#st_pre">st_pre</a></li>
+<li><a href="#work">work</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
             </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://youziki.github.io/ajbBPuKpd/" class="tag">
-                    比赛
-                  </a>
-                
-              </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://youziki.github.io/ZUxFJHE3i/">
-                  <h3 class="post-title">
-                    讲题 P4165组队
-                  </h3>
-                </a>
-              </div>
-            
-
-            
-
-          </div>
-
+          </article>
         </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://youziki.github.io/ZUxFJHE3i/">
+              <h3 class="post-title">
+                讲题 P4165组队
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
       </div>
     </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script type="application/javascript">
+    <script>
+      hljs.initHighlightingOnLoad()
 
-AOS.init();
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
 
-</script>
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
 
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
 
-  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>
-    hljs.initHighlightingOnLoad()
-  </script>
-
-
-
-
-
+    </script>
   </body>
 </html>

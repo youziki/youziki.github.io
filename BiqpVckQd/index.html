@@ -1,20 +1,13 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
-
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>题解 水0（dp专题） | Gridea</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604203519105">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604212935460">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
-
-
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="alternate" type="application/atom+xml" title="题解 水0（dp专题） | Gridea - Atom Feed" href="https://youziki.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
@@ -23,84 +16,88 @@ A CF1201D Treasure Hunting
 题意：
 n×mn \times mn×m矩阵，有一些宝藏，只有在一些特定的列可以向上走，任何时候均可以向左右走，求最少走..." />
     <meta name="keywords" content="学习笔记" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://youziki.github.io">
-        <img src="https://youziki.github.io/images/avatar.png?v=1604203519105" class="site-logo">
-        <h1 class="site-title">Gridea</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://youziki.github.io">
+  <img class="avatar" src="https://youziki.github.io/images/avatar.png?v=1604212935460" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    众人皆醉我独醒
+  </p>
+  <div class="menu-container">
+    
       
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
+        <a href="/" class="menu">
+          首页
+        </a>
       
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
+    
       
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
+        <a href="/archives" class="menu">
+          归档
+        </a>
       
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
+    
       
-    </div>
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
+  <div class="social-container">
+    
       
-        
+    
       
-        
+    
       
-        
+    
       
-        
+    
       
-        
-      
-    </div>
-    <div class="site-description">
-      众人皆醉我独醒
-    </div>
-    <div class="site-footer">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
-    </div>
+    
   </div>
 </div>
 
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">题解 水0（dp专题）</h2>
-            <div class="post-date">2020-10-30</div>
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              题解 水0（dp专题）
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-10-30
+              </span>
+              <span>
+                8 min read
+              </span>
+              
+                <a href="https://youziki.github.io/4STTQXNzf/" class="post-tag">
+                  # 学习笔记
+                </a>
+              
+            </div>
             
-              <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/xdvp0hhr.png')">
-              </div>
+              <img class="post-feature-image" src="https://cdn.luogu.com.cn/upload/image_hosting/xdvp0hhr.png" alt="">
             
-            <div class="post-content" v-pre>
-              <p>整体难度偏低，平均蓝题，但CF的题还是很巧的，所以自认为都是好题</p>
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>整体难度偏低，平均蓝题，但CF的题还是很巧的，所以自认为都是好题</p>
 <h3 id="a-cf1201d-treasure-hunting"><a href="https://www.luogu.com.cn/problem/CF1201D?contestId=36293">A CF1201D Treasure Hunting</a></h3>
 <h4 id="题意">题意：</h4>
 <p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>×</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">n \times m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>矩阵，有一些宝藏，只有在一些特定的列可以向上走，任何时候均可以向左右走，求最少走到所有宝藏步数</p>
@@ -248,58 +245,124 @@ for (int i = 1; i &lt;= q; i++) {
 }
 </code></pre>
 
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#a-cf1201d-treasure-hunting">A CF1201D Treasure Hunting</a>
+<ul>
+<li><a href="#%E9%A2%98%E6%84%8F">题意：</a></li>
+<li><a href="#solution%E7%BA%BF%E6%80%A7dp">Solution：线性dp</a></li>
+</ul>
+</li>
+<li><a href="#c-cf730j-bottles">C CF730J Bottles</a>
+<ul>
+<li><a href="#%E9%A2%98%E6%84%8F-2">题意：</a></li>
+<li><a href="#solution%E8%83%8C%E5%8C%85">Solution：背包</a></li>
+</ul>
+</li>
+<li><a href="#j-cf633d-fibonacci-ish">J CF633D Fibonacci-ish</a>
+<ul>
+<li><a href="#%E9%A2%98%E6%84%8F-3">题意：</a></li>
+<li><a href="#solution">Solution：</a></li>
+<li><a href="#%E5%AE%9E%E7%8E%B0%E8%BF%99%E9%A2%98%E7%BB%86%E8%8A%82%E5%BE%88%E5%A4%9A%E5%BE%88%E6%B7%B1">实现：这题细节很多，很深</a></li>
+</ul>
+</li>
+<li><a href="#k-cf985e-pencils-and-boxes">K CF985E Pencils and Boxes</a>
+<ul>
+<li><a href="#%E9%A2%98%E6%84%8F-4">题意：</a></li>
+<li><a href="#solution-2">Solution：</a></li>
+<li><a href="#%E5%AE%9E%E7%8E%B0">实现：</a></li>
+</ul>
+</li>
+<li><a href="#i-cf940e-cashback">I CF940E Cashback</a>
+<ul>
+<li><a href="#%E9%A2%98%E6%84%8F-5">题意：</a></li>
+<li><a href="#solution-3">Solution：</a></li>
+</ul>
+</li>
+<li><a href="#m-cf766d-mahmoud-and-a-dictionary">M CF766D Mahmoud and a Dictionary</a>
+<ul>
+<li><a href="#%E9%A2%98%E6%84%8F-6">题意：</a></li>
+<li><a href="#solution-4">Solution：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
             </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://youziki.github.io/4STTQXNzf/" class="tag">
-                    学习笔记
-                  </a>
-                
-              </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://youziki.github.io/_pgSwlkeO/">
-                  <h3 class="post-title">
-                    洛谷博客主题索引
-                  </h3>
-                </a>
-              </div>
-            
-
-            
-
-          </div>
-
+          </article>
         </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://youziki.github.io/_pgSwlkeO/">
+              <h3 class="post-title">
+                洛谷博客主题索引
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
       </div>
     </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script type="application/javascript">
+    <script>
+      hljs.initHighlightingOnLoad()
 
-AOS.init();
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
 
-</script>
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
 
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
 
-  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>
-    hljs.initHighlightingOnLoad()
-  </script>
-
-
-
-
-
+    </script>
   </body>
 </html>

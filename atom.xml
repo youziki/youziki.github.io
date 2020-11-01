@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://youziki.github.io</id>
     <title>Gridea</title>
-    <updated>2020-11-01T04:08:34.057Z</updated>
+    <updated>2020-11-01T06:42:18.274Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://youziki.github.io"/>
     <link rel="self" href="https://youziki.github.io/atom.xml"/>
@@ -10,6 +10,19 @@
     <logo>https://youziki.github.io/images/avatar.png</logo>
     <icon>https://youziki.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[题解 11.1模拟赛]]></title>
+        <id>https://youziki.github.io/e1Vw74hqC/</id>
+        <link href="https://youziki.github.io/e1Vw74hqC/">
+        </link>
+        <updated>2020-11-01T06:23:59.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="t1">T1</h2>
+<p>水题</p>
+<h2 id="t2-淘淘蓝蓝喜欢01串"><a href="http://sjzezoj.com:9280/contest/4/problem/17">T2 淘淘蓝蓝喜欢01串</a></h2>
+<p>想假了的水题，自己思路：统计出每一段多于1的数个数，加起来即为sum1，再统计出段数sum2，如果sum1大于sum2，答案为sum2，否则<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi>s</mi><mi>u</mi><mi>m</mi><mn>2</mn><mo>−</mo><mi>s</mi><mi>u</mi><mi>m</mi><mn>1</mn><mo>+</mo><mn>1</mn></mrow><mn>2</mn></mfrac><mo>+</mo><mi>s</mi><mi>u</mi><mi>m</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">\frac {sum2 - sum1 + 1} {2} + sum1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">s</span><span class="mord mathdefault mtight">u</span><span class="mord mathdefault mtight">m</span><span class="mord mtight">2</span><span class="mbin mtight">−</span><span class="mord mathdefault mtight">s</span><span class="mord mathdefault mtight">u</span><span class="mord mathdefault mtight">m</span><span class="mord mtight">1</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span><span class="mord">1</span></span></span></span></p>
+<p>假在了哪里？如果前面段很长，它多于1的数对答案的贡献最多为1，但算入了全部，修改一下即可</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[矩阵乘法]]></title>
         <id>https://youziki.github.io/-mCL3wgZ9/</id>
@@ -712,90 +725,6 @@ signed main()
     return 0;
 }
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[扫描线法1]]></title>
-        <id>https://youziki.github.io/h03BnPY5Z/</id>
-        <link href="https://youziki.github.io/h03BnPY5Z/">
-        </link>
-        <updated>2020-10-29T16:52:35.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="算法模板-扫描线法">算法模板 扫描线法</h1>
-<h3 id="算法流程">算法流程</h3>
-<p>定义变量</p>
-<pre><code class="language-cpp">struct Line // 一条竖直的线段
-{
-	int x, d, u, k;
-
-	inline bool operator &lt; (const Line &amp;A) const
-	{
-		return x &lt; A.x;
-	}
-} line[N];
-
-int n, m, raw[N]; // raw记录所有的纵坐标原值，m为离散化后的值域
-map &lt;int, int&gt; val; // val纵坐标原值离散化后的值
-</code></pre>
-<p>线段树部分</p>
-<pre><code class="language-cpp">struct T
-{
-	int cnt, len; // cnt记录这一整段被覆盖次数， len记录这一整段被覆盖长度
-} t[N &lt;&lt; 2];
-
-void change(int p, int l, int r, int x, int y, int k)
-{
-	if(x &lt;= l &amp;&amp; r &lt;= y)
-	{
-		t[p].cnt += k;
-		if(t[p].cnt) t[p].len = raw[r + 1] - raw[l];
-		else
-        	t[p].len = l == r ? 0 : t[p &lt;&lt; 1].len + t[p &lt;&lt; 1 | 1].len;
-		return;
-	}
-	int mid = (l + r) &gt;&gt; 1;
-	if(x &lt;= mid) change(p &lt;&lt; 1, l, mid, x, y, k);
-	if(y &gt; mid) change(p &lt;&lt; 1 | 1, mid + 1, r, x, y, k);
-	t[p].len = t[p].cnt ? raw[r + 1] - raw[l] : t[p &lt;&lt; 1].len + t[p &lt;&lt; 1 | 1].len;
-}
-</code></pre>
-<p>读入、离散化</p>
-<pre><code class="language-cpp">inline void init()
-{
-	n = read();
-	for(int i = 1; i &lt;= n; ++i)
-	{
-		int x1, x2, d, u; // d:down, u:up即一条线段底端和顶端
-		x1 = read(), raw[(i &lt;&lt; 1) - 1] = d = read(), x2 = read(), raw[i &lt;&lt; 1] = u = read();
-		line[(i &lt;&lt; 1) - 1] = {x1, d, u, 1};
-		line[i &lt;&lt; 1] = {x2, d, u, -1};
-	}
-
-	sort(raw + 1, raw + (n &lt;&lt; 1) + 1);
-	m = unique(raw + 1, raw + (n &lt;&lt; 1) + 1) - (raw + 1);
-	for(int i = 1;i &lt;= m; ++i) val[raw[i]] = i;
-}
-</code></pre>
-<p>扫描——对每条线段进行处理（从左到右）</p>
-<pre><code class="language-cpp">inline void work()
-{
-	int mx = n &lt;&lt; 1;
-	LL ans = 0;
-	sort(line + 1, line + mx + 1);
-   // build(1, 1, m - 1); m - 1是线段树的区间范围，维护的是纵坐标下每一段（m种取值会分成m-1个小段）
-	for(int i = 1; i &lt; mx; ++i)
-	{
-		int d = val[line[i].d], u = val[line[i].u] - 1; // 找到当前段的底端。顶端
-		change(1, 1, m - 1, d, u, line[i].k); // 在线段树中算上这段（如果为一个矩形右边界，则覆盖次数--，反之++
-		ans += 1LL * t[1].len * (line[i + 1].x - line[i].x);
-	}
-
-	print(ans);
-}
-</code></pre>
-<h3 id="例题">例题：</h3>
-<h4 id="p5490-模板扫描线"><a href="https://www.luogu.com.cn/problem/P5490">P5490 【模板】扫描线</a></h4>
-<h4 id="t153158-窗口的jj森森猩猩模板扫描线法"><a href="https://www.luogu.com.cn/problem/T153158">T153158 窗口的JJ/森森/猩猩/【模板】扫描线法</a></h4>
-<h4 id="p3875-tjoi2010被污染的河流"><a href="https://www.luogu.com.cn/problem/P3875">P3875 [TJOI2010]被污染的河流</a></h4>
 ]]></content>
     </entry>
 </feed>

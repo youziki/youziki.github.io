@@ -1,416 +1,367 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
-
-<title>文章归档 | Gridea</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604203519105">
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gridea</title>
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604212935460">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Gridea - Atom Feed" href="https://youziki.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
-
-
-    <meta name="description" content="众人皆醉我独醒">
+    <meta name="description" content="众人皆醉我独醒" />
   </head>
   <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://youziki.github.io">
-        <img src="https://youziki.github.io/images/avatar.png?v=1604203519105" class="site-logo">
-        <h1 class="site-title">Gridea</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://youziki.github.io">
+  <img class="avatar" src="https://youziki.github.io/images/avatar.png?v=1604212935460" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    众人皆醉我独醒
+  </p>
+  <div class="menu-container">
+    
       
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
+        <a href="/" class="menu">
+          首页
+        </a>
       
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
+    
       
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
+        <a href="/archives" class="menu">
+          归档
+        </a>
       
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
+    
       
-    </div>
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
+  <div class="social-container">
+    
       
-        
+    
       
-        
+    
       
-        
+    
       
-        
+    
       
-        
-      
-    </div>
-    <div class="site-description">
-      众人皆醉我独醒
-    </div>
-    <div class="site-footer">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
-    </div>
+    
   </div>
 </div>
 
+    
+        
 
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          
-
-          <h2 class="archives-title">文章归档</h2>
-          <div class="archives-container">
-            
-              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2020</h2>
-              
-                
-                  <article class="post">
-                    <a href="https://youziki.github.io/5GkujlA1z/">
-                      <h2 class="post-title">
-                        分块整理 9.21
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://youziki.github.io/H3TD_CzOy/">
-                      <h2 class="post-title">
-                        题解 CF1419C 【Killjoy】
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://youziki.github.io/yHv385Y2b/">
-                      <h2 class="post-title">
-                        题解 CF1419D2 【Sage&#39;s Birthday (hard version)】
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://youziki.github.io/tsBoMPwUc/">
-                      <h2 class="post-title">
-                        题解 CF1419A 【Digit Game】
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://youziki.github.io/Ha-5Opi_7/">
-                      <h2 class="post-title">
-                        题解 9.16 - 9.19 数学专题
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://youziki.github.io/tlaHf4DA4/">
-                      <h2 class="post-title">
-                        题解 CF1418C 【Mortal Kombat Tower】
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://youziki.github.io/HX2X9V0cC/">
-                      <h2 class="post-title">
-                        题解 CF1406A 【Subset Mex】
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://youziki.github.io/yqTsp5zVF/">
-                      <h2 class="post-title">
-                        题解 CF1406B 【Maximum Product】
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://youziki.github.io/52WeJKeNP/">
-                      <h2 class="post-title">
-                        题解 9.3 &amp; 9.4 模拟赛
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://youziki.github.io/xgDIcUSaF/">
-                      <h2 class="post-title">
-                        题解 P1825
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://youziki.github.io/JdnTvuAQh/">
-                      <h2 class="post-title">
-                        题解 8.18 T2 淘淘的集合
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://youziki.github.io/-1X3NNO6m/">
-                      <h2 class="post-title">
-                        题解 8.21 T1 棋盘
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://youziki.github.io/I6Qpn3cmA/">
-                      <h2 class="post-title">
-                        题解 CF388C 【Fox and Card Game】
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://youziki.github.io/3EmCHbpVH/">
-                      <h2 class="post-title">
-                        题解 P3286 【[SCOI2014]方伯伯的商场之旅】
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://youziki.github.io/2In7G6zcx/">
-                      <h2 class="post-title">
-                        考试题目合集
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://youziki.github.io/8sSc79_Ek/">
-                      <h2 class="post-title">
-                        笛卡尔树 1
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://youziki.github.io/4dB4aJlwv/">
-                      <h2 class="post-title">
-                        题解 8.21 T2 序列
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://youziki.github.io/MDeWh3EZb/">
-                      <h2 class="post-title">
-                        题解 8.20 T2 无聊的日常
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://youziki.github.io/OhERfw-fm/">
-                      <h2 class="post-title">
-                        题解 8.20 T1
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://youziki.github.io/50e0ECyRE/">
-                      <h2 class="post-title">
-                        题解 8.19 T3 pancake
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://youziki.github.io/niu-ke-kao-qian-ji-xun/">
-                      <h2 class="post-title">
-                        牛客考前集训
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://youziki.github.io/my-ce-shi/">
-                      <h2 class="post-title">
-                        MY 测试
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-              
-            
-              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2018</h2>
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                  <article class="post">
-                    <a href="https://youziki.github.io/hello-gridea/">
-                      <h2 class="post-title">
-                        Hello Gridea
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-            
-          </div>
-
-          <div class="pagination-container">
+<div class="archives-container">
   
-    <a href="https://youziki.github.io/archives/" class="prev"><i class="icon-arrow-ios-back-outline"></i> 上一页</a>
+    <h2 class="year">2020</h2>
+    
+      
+        <a href="https://youziki.github.io/8RrZzBfzQ/" class="post">
+          <h2 class="post-title">
+            分层图最短路 9.22
+          </h2>
+          <div class="time">2020-10-30</div>
+        </a>
+      
+    
+      
+        <a href="https://youziki.github.io/5GkujlA1z/" class="post">
+          <h2 class="post-title">
+            分块整理 9.21
+          </h2>
+          <div class="time">2020-10-30</div>
+        </a>
+      
+    
+      
+        <a href="https://youziki.github.io/H3TD_CzOy/" class="post">
+          <h2 class="post-title">
+            题解 CF1419C 【Killjoy】
+          </h2>
+          <div class="time">2020-10-30</div>
+        </a>
+      
+    
+      
+        <a href="https://youziki.github.io/yHv385Y2b/" class="post">
+          <h2 class="post-title">
+            题解 CF1419D2 【Sage&#39;s Birthday (hard version)】
+          </h2>
+          <div class="time">2020-10-30</div>
+        </a>
+      
+    
+      
+        <a href="https://youziki.github.io/tsBoMPwUc/" class="post">
+          <h2 class="post-title">
+            题解 CF1419A 【Digit Game】
+          </h2>
+          <div class="time">2020-10-30</div>
+        </a>
+      
+    
+      
+        <a href="https://youziki.github.io/Ha-5Opi_7/" class="post">
+          <h2 class="post-title">
+            题解 9.16 - 9.19 数学专题
+          </h2>
+          <div class="time">2020-10-30</div>
+        </a>
+      
+    
+      
+        <a href="https://youziki.github.io/tlaHf4DA4/" class="post">
+          <h2 class="post-title">
+            题解 CF1418C 【Mortal Kombat Tower】
+          </h2>
+          <div class="time">2020-10-30</div>
+        </a>
+      
+    
+      
+        <a href="https://youziki.github.io/HX2X9V0cC/" class="post">
+          <h2 class="post-title">
+            题解 CF1406A 【Subset Mex】
+          </h2>
+          <div class="time">2020-10-30</div>
+        </a>
+      
+    
+      
+        <a href="https://youziki.github.io/yqTsp5zVF/" class="post">
+          <h2 class="post-title">
+            题解 CF1406B 【Maximum Product】
+          </h2>
+          <div class="time">2020-10-30</div>
+        </a>
+      
+    
+      
+        <a href="https://youziki.github.io/52WeJKeNP/" class="post">
+          <h2 class="post-title">
+            题解 9.3 &amp; 9.4 模拟赛
+          </h2>
+          <div class="time">2020-10-30</div>
+        </a>
+      
+    
+      
+        <a href="https://youziki.github.io/xgDIcUSaF/" class="post">
+          <h2 class="post-title">
+            题解 P1825
+          </h2>
+          <div class="time">2020-10-30</div>
+        </a>
+      
+    
+      
+        <a href="https://youziki.github.io/JdnTvuAQh/" class="post">
+          <h2 class="post-title">
+            题解 8.18 T2 淘淘的集合
+          </h2>
+          <div class="time">2020-10-30</div>
+        </a>
+      
+    
+      
+        <a href="https://youziki.github.io/-1X3NNO6m/" class="post">
+          <h2 class="post-title">
+            题解 8.21 T1 棋盘
+          </h2>
+          <div class="time">2020-10-30</div>
+        </a>
+      
+    
+      
+        <a href="https://youziki.github.io/I6Qpn3cmA/" class="post">
+          <h2 class="post-title">
+            题解 CF388C 【Fox and Card Game】
+          </h2>
+          <div class="time">2020-10-30</div>
+        </a>
+      
+    
+      
+        <a href="https://youziki.github.io/3EmCHbpVH/" class="post">
+          <h2 class="post-title">
+            题解 P3286 【[SCOI2014]方伯伯的商场之旅】
+          </h2>
+          <div class="time">2020-10-30</div>
+        </a>
+      
+    
+      
+        <a href="https://youziki.github.io/2In7G6zcx/" class="post">
+          <h2 class="post-title">
+            考试题目合集
+          </h2>
+          <div class="time">2020-10-30</div>
+        </a>
+      
+    
+      
+        <a href="https://youziki.github.io/8sSc79_Ek/" class="post">
+          <h2 class="post-title">
+            笛卡尔树 1
+          </h2>
+          <div class="time">2020-10-30</div>
+        </a>
+      
+    
+      
+        <a href="https://youziki.github.io/4dB4aJlwv/" class="post">
+          <h2 class="post-title">
+            题解 8.21 T2 序列
+          </h2>
+          <div class="time">2020-10-30</div>
+        </a>
+      
+    
+      
+        <a href="https://youziki.github.io/MDeWh3EZb/" class="post">
+          <h2 class="post-title">
+            题解 8.20 T2 无聊的日常
+          </h2>
+          <div class="time">2020-10-30</div>
+        </a>
+      
+    
+      
+        <a href="https://youziki.github.io/OhERfw-fm/" class="post">
+          <h2 class="post-title">
+            题解 8.20 T1
+          </h2>
+          <div class="time">2020-10-30</div>
+        </a>
+      
+    
+      
+        <a href="https://youziki.github.io/50e0ECyRE/" class="post">
+          <h2 class="post-title">
+            题解 8.19 T3 pancake
+          </h2>
+          <div class="time">2020-10-30</div>
+        </a>
+      
+    
+      
+        <a href="https://youziki.github.io/niu-ke-kao-qian-ji-xun/" class="post">
+          <h2 class="post-title">
+            牛客考前集训
+          </h2>
+          <div class="time">2020-10-29</div>
+        </a>
+      
+    
+      
+        <a href="https://youziki.github.io/my-ce-shi/" class="post">
+          <h2 class="post-title">
+            MY 测试
+          </h2>
+          <div class="time">2020-10-29</div>
+        </a>
+      
+    
+      
+    
+  
+    <h2 class="year">2018</h2>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        <a href="https://youziki.github.io/hello-gridea/" class="post">
+          <h2 class="post-title">
+            Hello Gridea
+          </h2>
+          <div class="time">2018-12-12</div>
+        </a>
+      
+    
+  
+</div>
+
+    
+        <div class="pagination-container">
+  
+    <a href="https://youziki.github.io/archives/" class="prev-page">上一页</a>
   
   
 </div>
 
-        </div>
+    
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
       </div>
     </div>
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script type="application/javascript">
-
-AOS.init();
-
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
-
-</script>
-
-
-  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>
-    hljs.initHighlightingOnLoad()
-  </script>
-
-
-
-
-
   </body>
 </html>

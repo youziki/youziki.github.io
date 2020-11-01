@@ -1,20 +1,13 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
-
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>题解 8.19 T3 pancake | Gridea</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604203519105">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604212935460">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
-
-
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="alternate" type="application/atom+xml" title="题解 8.19 T3 pancake | Gridea - Atom Feed" href="https://youziki.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
@@ -37,84 +30,88 @@
 
 每次操作完输..." />
     <meta name="keywords" content="那年暑假，我们砥砺前行——启智树" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://youziki.github.io">
-        <img src="https://youziki.github.io/images/avatar.png?v=1604203519105" class="site-logo">
-        <h1 class="site-title">Gridea</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://youziki.github.io">
+  <img class="avatar" src="https://youziki.github.io/images/avatar.png?v=1604212935460" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    众人皆醉我独醒
+  </p>
+  <div class="menu-container">
+    
       
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
+        <a href="/" class="menu">
+          首页
+        </a>
       
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
+    
       
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
+        <a href="/archives" class="menu">
+          归档
+        </a>
       
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
+    
       
-    </div>
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
+  <div class="social-container">
+    
       
-        
+    
       
-        
+    
       
-        
+    
       
-        
+    
       
-        
-      
-    </div>
-    <div class="site-description">
-      众人皆醉我独醒
-    </div>
-    <div class="site-footer">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
-    </div>
+    
   </div>
 </div>
 
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">题解 8.19 T3 pancake</h2>
-            <div class="post-date">2020-10-30</div>
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              题解 8.19 T3 pancake
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-10-30
+              </span>
+              <span>
+                7 min read
+              </span>
+              
+                <a href="https://youziki.github.io/WZIkvhEfs/" class="post-tag">
+                  # 那年暑假，我们砥砺前行——启智树
+                </a>
+              
+            </div>
             
-              <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/0pz3220b.png')">
-              </div>
+              <img class="post-feature-image" src="https://cdn.luogu.com.cn/upload/image_hosting/0pz3220b.png" alt="">
             
-            <div class="post-content" v-pre>
-              <h1 id="题意">题意：</h1>
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h1 id="题意">题意：</h1>
 <h2 id="这是一道数据结构题">这是一道数据结构题</h2>
 <h3 id="题目描述">题目描述</h3>
 <p>给定n个长度为ai薄饼，共切k刀，使得薄饼总代价最小，输出最小代价</p>
@@ -318,58 +315,122 @@ signed main(){
 <h3 id="这么短的题解竟然写这么久555">这么短的题解竟然写这么久555</h3>
 <h1 id="大概是对的啦-20208192104">大概是对的啦。。。 2020.8.19.21:04</h1>
 
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E9%A2%98%E6%84%8F">题意：</a>
+<ul>
+<li><a href="#%E8%BF%99%E6%98%AF%E4%B8%80%E9%81%93%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98">这是一道数据结构题</a>
+<ul>
+<li><a href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0">题目描述</a></li>
+<li><a href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F">输入格式：</a></li>
+<li><a href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F">输出格式：</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4">数据范围：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E9%A2%98%E8%A7%A3">题解</a>
+<ul>
+<li><a href="#%E5%89%8D%E7%BD%AE">前置：</a></li>
+<li><a href="#%E5%BB%BA%E6%A8%A1">建模：</a>
+<ul>
+<li><a href="#%E9%A2%84%E5%A4%87%E5%A4%84%E7%90%86">预备处理：</a></li>
+<li><a href="#%E8%BD%AC%E5%8C%96">转化：</a></li>
+<li><a href="#%E8%A6%81%E6%B1%82">要求：</a></li>
+</ul>
+</li>
+<li><a href="#%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3">问题解决：</a>
+<ul>
+<li><a href="#%E9%A2%84%E5%A4%87%E5%A4%84%E7%90%86-2">预备处理：</a></li>
+<li><a href="#%E5%8E%9F%E5%88%99">原则：</a>
+<ul>
+<li><a href="#%E6%AF%8F%E6%AC%A1%E4%BB%8E%E5%80%99%E9%80%89%E9%9B%86%E5%90%88%E9%80%89%E6%8B%A9%E4%B8%80%E4%B8%AA%E4%BB%B7%E5%80%BC%E6%9C%80%E5%A4%A7%E7%9A%84%E5%8A%A0%E5%85%A5%E7%AD%94%E6%A1%88%E9%80%89k%E6%AC%A1%E5%B0%B1%E5%A5%BD%E4%BA%86">每次从候选集合选择一个价值最大的加入答案（选k次就好了）</a></li>
+<li><a href="#%E6%AD%A3%E7%A1%AE%E6%80%A7%E8%AF%81%E6%98%8E">正确性证明：</a></li>
+<li><a href="#%E5%AE%9E%E7%8E%B0%E9%9B%86%E5%90%88%E7%94%A8multiset%E5%AD%98%E5%8F%AF%E4%BB%A5%E6%9F%A5%E8%AF%A2%E4%BB%B7%E5%80%BC%E6%9C%80%E5%A4%A7%E7%9A%84%E6%A0%BC%E5%AD%90">实现：集合用multiset存，可以查询价值最大的格子</a></li>
+</ul>
+</li>
+<li><a href="#%E6%93%8D%E4%BD%9C%E4%B8%80-%E4%BA%8C">操作一、二：</a></li>
+<li><a href="#%E6%93%8D%E4%BD%9C%E4%B8%89">操作三：</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BB%A3%E7%A0%81%E6%98%BE%E7%84%B6%E6%98%AF%E6%8A%84%E7%9A%84%E8%AF%9D%E8%AF%B4%E8%BF%99%E4%B8%AA%E7%A0%81%E9%A3%8E%E6%84%9F%E8%A7%89%E6%8C%BA%E5%A5%BD%E7%9A%84%E5%91%80">代码：（显然是抄的，话说这个码风感觉挺好的呀？）</a>
+<ul>
+<li><a href="#%E8%BF%99%E4%B9%88%E7%9F%AD%E7%9A%84%E9%A2%98%E8%A7%A3%E7%AB%9F%E7%84%B6%E5%86%99%E8%BF%99%E4%B9%88%E4%B9%85555">这么短的题解竟然写这么久555</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%A4%A7%E6%A6%82%E6%98%AF%E5%AF%B9%E7%9A%84%E5%95%A6-20208192104">大概是对的啦。。。 2020.8.19.21:04</a></li>
+</ul>
+
+              </div>
             </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://youziki.github.io/WZIkvhEfs/" class="tag">
-                    那年暑假，我们砥砺前行——启智树
-                  </a>
-                
-              </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://youziki.github.io/niu-ke-kao-qian-ji-xun/">
-                  <h3 class="post-title">
-                    牛客考前集训
-                  </h3>
-                </a>
-              </div>
-            
-
-            
-
-          </div>
-
+          </article>
         </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://youziki.github.io/niu-ke-kao-qian-ji-xun/">
+              <h3 class="post-title">
+                牛客考前集训
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
       </div>
     </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script type="application/javascript">
+    <script>
+      hljs.initHighlightingOnLoad()
 
-AOS.init();
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
 
-</script>
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
 
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
 
-  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>
-    hljs.initHighlightingOnLoad()
-  </script>
-
-
-
-
-
+    </script>
   </body>
 </html>
