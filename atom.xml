@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://youziki.github.io</id>
     <title>Gridea</title>
-    <updated>2020-11-01T23:58:01.571Z</updated>
+    <updated>2020-11-02T14:20:26.450Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://youziki.github.io"/>
     <link rel="self" href="https://youziki.github.io/atom.xml"/>
@@ -10,6 +10,147 @@
     <logo>https://youziki.github.io/images/avatar.png</logo>
     <icon>https://youziki.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[左偏树 1]]></title>
+        <id>https://youziki.github.io/3yBK2u17b/</id>
+        <link href="https://youziki.github.io/3yBK2u17b/">
+        </link>
+        <updated>2020-11-02T12:16:37.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="左偏树概述">左偏树概述：</h2>
+<h3 id="功能">功能：</h3>
+<p>又叫“可并堆”，是支持合并的堆，常用操作：</p>
+<p>插入一个数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(logn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></p>
+<p>查询最小数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></p>
+<p>合并两个左偏树<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(logn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></p>
+<p>删除最小数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(logn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>（实质上是合并两个左偏树）</p>
+<p>通常可与并查集结合使用（如下面左偏树模板），并查集的根就是左偏树的根（保证相同），可以查询特定点所在的左偏树的信息</p>
+<p>左偏树可删除任意元素，但过于复杂，很少用（不会~）</p>
+<h3 id="算法">算法：</h3>
+<p>维护一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>i</mi><mi>s</mi><mi>t</mi><mo>[</mo><mo>]</mo></mrow><annotation encoding="application/x-tex">dist[]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mopen">[</span><span class="mclose">]</span></span></span></span>表示深度，深度定义为：两个儿子中深度较小值+1</p>
+<blockquote>
+<p>左偏树的合并操作的复杂度与深度成正比</p>
+</blockquote>
+<p>保证左儿子的深度大于等于右儿子的深度（因此叫左偏树）</p>
+<p>合并时，权值小的为根，另一个树递归与右子树合并。如果回溯后左儿子深度小于右儿子深度，互换左右儿子</p>
+<p>新建节点时，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>i</mi><mi>s</mi><mi>t</mi><mo>[</mo><mo>]</mo></mrow><annotation encoding="application/x-tex">dist[]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mopen">[</span><span class="mclose">]</span></span></span></span>记得初始化</p>
+<h3 id="代码">代码：</h3>
+<p>只有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>e</mi><mi>r</mi><mi>g</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">merge</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">e</span></span></span></span>一个函数，将两个（左偏树的）根节点合并，返回新根节点</p>
+<pre><code class="language-cpp">int merge(int x, int y)
+{
+    if(! x || ! y) return x + y;
+    if(cmp(y, x)) swap(x, y); // 保证x小
+    rs[x] = merge(rs[x], y);
+    if(dist[rs[x]] &gt; dist[ls[x]]) swap(rs[x], ls[x]);
+    dist[x] = dist[rs[x]] + 1;
+    return x;
+}
+</code></pre>
+<h3 id="模板-左偏树"><a href="https://www.acwing.com/problem/content/2716/">模板 左偏树</a></h3>
+<h4 id="题意">题意：</h4>
+<p>维护一个左偏树（不一定是一个），初始序列为空，四种操作：</p>
+<ul>
+<li>
+<p>加入一个点作为新堆（给定点权）</p>
+</li>
+<li>
+<p>将第x个插入的数和第y个插入的数所在的堆合并（可能两点本身在一个堆中，忽视此操作）</p>
+</li>
+<li>
+<p>输出第x个插入的数所在的集合的最小数</p>
+</li>
+<li>
+<p>删除第x个插入的数所在的集合的最小数</p>
+</li>
+</ul>
+<h4 id="solution">Solution：</h4>
+<p>并查集处有些细节：</p>
+<ul>
+<li>
+<p>我们在删除一个点时，不在并查集中删除它（它并不会对后面产生影响），但要让左右儿子合并的新根（权值较小的那个）在并查集中指向自己（当然要让原根和原根另一个儿子指向它），这样可以保证该点不会访问到别的点</p>
+</li>
+<li>
+<p>因为不能让0作为根节点，但0权值最小，所以先将0的权值赋为INF</p>
+</li>
+</ul>
+<h4 id="code">Code：</h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+const int N = 233333;
+
+int fa[N], dist[N], v[N], ls[N], rs[N], tot;
+
+int find(int x)
+{
+    return x == fa[x] ? x : fa[x] = find(fa[x]);
+}
+
+inline bool cmp(int x, int y) // x是否小于y
+{
+    return v[x] == v[y] ? x &lt; y : v[x] &lt; v[y];
+}
+
+int merge(int x, int y)
+{
+    if(! x || ! y) return x + y;
+    if(cmp(y, x)) swap(x, y);
+    rs[x] = merge(rs[x], y);
+    if(dist[rs[x]] &gt; dist[ls[x]]) swap(rs[x], ls[x]);
+    dist[x] = dist[rs[x]] + 1;
+    return x;
+}
+
+signed main()
+{
+    ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+    
+    int n;
+    cin &gt;&gt; n;
+    v[0] = 2e9;
+    while(n --)
+    {
+        int t;
+        cin &gt;&gt; t;
+        if(t == 1)
+        {
+            int a;
+            cin &gt;&gt; a;
+            v[++ tot] = a;
+            fa[tot] = tot;
+            dist[tot] = 1;
+        }
+        else if(t == 2)
+        {
+            int x, y;
+            cin &gt;&gt; x &gt;&gt; y;
+            x = find(x), y = find(y); // 保证左偏树根节点就为并查集根节点
+            if(x == y) continue;
+            if(cmp(y, x)) swap(x, y); // y小就交换
+            fa[y] = x; // 根节点为小的
+            merge(x, y);
+        }
+        else if(t == 3)
+        {
+            int x;
+            cin &gt;&gt; x;
+            printf(&quot;%d\n&quot;, v[find(x)]);
+        }
+        else
+        {
+            int x;
+            cin &gt;&gt; x;
+            x = find(x);
+            if(cmp(ls[x], rs[x])) swap(ls[x], rs[x]);
+            fa[x] = rs[x], fa[rs[x]] = rs[x];
+            merge(rs[x], ls[x]);
+        }
+    }
+    
+    return 0;
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[题解 11.1模拟赛]]></title>
         <id>https://youziki.github.io/e1Vw74hqC/</id>
@@ -447,6 +588,12 @@ signed main(){
 <p>一定要记得2也是质数呀！</p>
 <h3 id="14">14</h3>
 <p>CF用<span class='katex-error' title='ParseError: KaTeX parse error: Expected &#039;EOF&#039;, got &#039;#&#039; at position 1: #̲define int long…'>#define int long long</span>后，用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>c</mi><mi>a</mi><mi>n</mi><mi>f</mi></mrow><annotation encoding="application/x-tex">scanf</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">c</span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span>要用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">&quot;</mi></mrow><annotation encoding="application/x-tex">&quot;%lld&quot;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">&quot;</span></span></span></span>！！！</p>
+<h3 id="15">15</h3>
+<p>分解质因数后，需要用到它的全部约数，要考虑清楚1和它本身是否也需要用到！</p>
+<h3 id="16">16</h3>
+<p>mod取998244353时，不要写成99824353！！！</p>
+<h3 id="17">17</h3>
+<p>别再傻傻地写分治了！想想能不能<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>做！！！</p>
 ]]></content>
     </entry>
     <entry>
@@ -735,58 +882,6 @@ signed main()
 
     print(ans * inv2 % mod);
 
-    return 0;
-}
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[题解 AT3621 [ARC084B] Small Multiple]]></title>
-        <id>https://youziki.github.io/ijw8kL7BV/</id>
-        <link href="https://youziki.github.io/ijw8kL7BV/">
-        </link>
-        <updated>2020-10-29T16:53:13.000Z</updated>
-        <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/AT3621">洛谷传送门</a></p>
-<p>思路很巧，实现也是一个知识点</p>
-<p>首先任意一个大于等于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>的数都可以由k每次<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+ 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span>或<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>×</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\times 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">×</span><span class="mord">1</span><span class="mord">0</span></span></span></span>得到，所以就这样连边，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+ 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span>连边权为1，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>×</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\times 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">×</span><span class="mord">1</span><span class="mord">0</span></span></span></span>连边权为0，跑双端队列<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi><mi>f</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">bfs</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">b</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">s</span></span></span></span></p>
-<p><strong>实现：</strong> 起点是1，跑到%k意义下为0就输出，只要是最短路，这样的结果就一定是最小的，要保证是最短路，就要0边权的从队头进入，1边权的从队尾进入</p>
-<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
-
-const int N = 123333;
-
-struct Node
-{
-    int num, k;
-};
-
-int k;
-bool vis[N];
-deque &lt;Node&gt; q;
-
-inline void bfs()
-{
-    while(q.size())
-    {
-        auto x = q.front(); q.pop_front();
-        if(vis[x.num]) continue;
-        vis[x.num] = 1;
-        if(! x.num)
-        {
-            printf(&quot;%d&quot;, x.k);
-            return;
-        }
-        q.push_front( {x.num * 10 % k, x.k} );
-        q.push_back( {(x.num + 1) % k, x.k + 1});
-    }
-}
-
-signed main()
-{
-    scanf(&quot;%d&quot;, &amp;k);
-    q.push_front( {1, 1} );
-    bfs();
-    
     return 0;
 }
 </code></pre>
