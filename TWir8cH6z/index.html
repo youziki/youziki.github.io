@@ -1,0 +1,237 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>题解 CF1445B 【Elimination】 | Gridea</title>
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604373440554">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="题解 CF1445B 【Elimination】 | Gridea - Atom Feed" href="https://youziki.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="证明思路很好
+证明：
+
+
+答案不小于这个数：
+这个数已经有至少100人了，所以第100名不可能小于这个分数
+
+
+答案不大于这个数：
+大于这个数没意义，考虑在所有这条分数线上的人（包括这个分数）都是这个分，仍有至少100个人可选
+
+
+总结：
+..." />
+    <meta name="keywords" content="题解" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://youziki.github.io">
+  <img class="avatar" src="https://youziki.github.io/images/avatar.png?v=1604373440554" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    众人皆醉我独醒
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              题解 CF1445B 【Elimination】
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-11-03
+              </span>
+              <span>
+                1 min read
+              </span>
+              
+                <a href="https://youziki.github.io/CEgpF5PzU/" class="post-tag">
+                  # 题解
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h2 id="证明思路很好">证明思路很好</h2>
+<h4 id="证明">证明：</h4>
+<ul>
+<li>
+<p>答案不小于这个数：</p>
+<p>这个数已经有至少100人了，所以第100名不可能小于这个分数</p>
+</li>
+<li>
+<p>答案不大于这个数：</p>
+<p>大于这个数<strong>没意义</strong>，考虑在所有这条分数线上的人（包括这个分数）都是这个分，仍有至少100个人可选</p>
+</li>
+</ul>
+<h4 id="总结">总结：</h4>
+<ul>
+<li>
+<p>猜完结论之后，从正反两方面将结论证明，如果成功，不要犹豫，写上去就对了</p>
+</li>
+<li>
+<p>“没意义”是OI证明或构造时常用的套路，尤其是CF的题，只需考虑答案的正确性即可</p>
+</li>
+</ul>
+<h4 id="code">Code：</h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+#define int long long
+
+signed main()
+{
+	int t;
+	cin &gt;&gt;t;
+	while(t --)
+	{
+		int a,b,c,d;
+		cin&gt;&gt;a&gt;&gt;b&gt;&gt;c&gt;&gt;d;
+		cout&lt;&lt;max(a+b,c+d)&lt;&lt;endl;
+	}
+	
+	return 0;
+}
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E8%AF%81%E6%98%8E%E6%80%9D%E8%B7%AF%E5%BE%88%E5%A5%BD">证明思路很好</a><br>
+*
+<ul>
+<li><a href="#%E8%AF%81%E6%98%8E">证明：</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结：</a></li>
+<li><a href="#code">Code：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://youziki.github.io/FQbsnRyha/">
+              <h3 class="post-title">
+                题解 CF1445A 【Array Rearrangment】
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

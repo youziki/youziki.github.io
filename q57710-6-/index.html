@@ -1,0 +1,221 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>题解 CF1443A 【Kids Seating】 | Gridea</title>
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604373440554">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="题解 CF1443A 【Kids Seating】 | Gridea - Atom Feed" href="https://youziki.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="构造
+前言：
+这个构造题还不算太水，如果没有选的数&lt;=4×n&lt;=4\times n&lt;=4×n的限制，直接n个质数水过去了。。。
+Solution：
+令所有数的gcdgcdgcd为2（最简单情况），于是范围变为&lt;=2×..." />
+    <meta name="keywords" content="题解" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://youziki.github.io">
+  <img class="avatar" src="https://youziki.github.io/images/avatar.png?v=1604373440554" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    众人皆醉我独醒
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              题解 CF1443A 【Kids Seating】
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-11-03
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+                <a href="https://youziki.github.io/CEgpF5PzU/" class="post-tag">
+                  # 题解
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h2 id="构造">构造</h2>
+<h4 id="前言">前言：</h4>
+<p>这个构造题还不算太水，如果没有选的数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&lt;</mo><mo>=</mo><mn>4</mn><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">&lt;=4\times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>的限制，直接n个质数水过去了。。。</p>
+<h4 id="solution">Solution：</h4>
+<p>令所有数的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mi>c</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">gcd</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">c</span><span class="mord mathdefault">d</span></span></span></span>为2（最简单情况），于是范围变为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&lt;</mo><mo>=</mo><mn>2</mn><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">&lt;=2\times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>，观察样例：</p>
+<pre><code class="language-cpp">4
+8 10 12 14
+</code></pre>
+<p>在/2后为<code>4 5 6 7</code>，于是发现第一个数不就是n！猜到结论：</p>
+<p>答案为（/2意义下）：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo separator="true">,</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mi>n</mi><mo>+</mo><mn>2</mn><mo>+</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo>+</mo><mn>2</mn><mo>×</mo><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n,n+1,n+2+...+2\times n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">n</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></p>
+<p>最后统一乘上2即可</p>
+<h4 id="code">Code：</h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+#define int long long
+
+const int N = 1;
+
+signed main()
+{
+	int t;
+	cin&gt;&gt;t;
+	while(t --)
+	{
+		int n;
+		cin&gt;&gt;n;
+		for(int i = 1; i &lt;= n;++i) cout &lt;&lt; (n + i - 1) * 2 &lt;&lt; ' ';
+		cout&lt;&lt;endl;
+	}
+	
+	return 0;
+}
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E6%9E%84%E9%80%A0">构造</a><br>
+*
+<ul>
+<li><a href="#%E5%89%8D%E8%A8%80">前言：</a></li>
+<li><a href="#solution">Solution：</a></li>
+<li><a href="#code">Code：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://youziki.github.io/HDfnZFm-t/">
+              <h3 class="post-title">
+                题解 CF1444A 【Division】
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
