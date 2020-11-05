@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>图论屑题复习 1 | 和JZ贴贴~</title>
-<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604565941965">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604576470882">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="图论屑题复习 1 | 和JZ贴贴~ - Atom Feed" href="https://youziki.github.io/atom.xml">
@@ -27,7 +27,7 @@ con..." />
       <div class="main-content">
         <div class="site-header">
   <a href="https://youziki.github.io">
-  <img class="avatar" src="https://youziki.github.io/images/avatar.png?v=1604565941965" alt="">
+  <img class="avatar" src="https://youziki.github.io/images/avatar.png?v=1604576470882" alt="">
   </a>
   <h1 class="site-title">
     和JZ贴贴~
@@ -87,7 +87,7 @@ con..." />
                 2020-11-04
               </span>
               <span>
-                9 min read
+                10 min read
               </span>
               
                 <a href="https://youziki.github.io/gsfoIjW4c/" class="post-tag">
@@ -425,6 +425,47 @@ signed main()
 	return 0;
 }
 </code></pre>
+<h3 id="p1892-boi2003团伙"><a href="https://www.luogu.com.cn/problem/P1892">P1892 [BOI2003]团伙</a></h3>
+<h4 id="solution-2">Solution：</h4>
+<p>扩展域并查集板子，比“食物链”还简单，扩展域并查集合并的部分具体谁的父亲指向谁很迷，说明一下。</p>
+<p>看以下样例：</p>
+<pre><code class="language-cpp">3
+2
+E 1 2
+E 2 3
+</code></pre>
+<p>图：</p>
+<figure data-type="image" tabindex="1"><img src="https://cdn.luogu.com.cn/upload/image_hosting/uce0c9y8.png" alt="" loading="lazy"></figure>
+<p>模拟一遍程序可以发现，在连完绿边之后，连蓝边之前<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mi>i</mi><mi>n</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">find</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault">d</span></span></span></span>反集时已经将反集用根节点（正集）表示，所以连出的边能完全表示正集的关系（可能说的有点迷）</p>
+<h4 id="code-5">Code：</h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+int n,m,fa[1000000];
+int find(int x)
+{
+	return x==fa[x]?x:fa[x]=find(fa[x]);
+}
+signed main()
+{
+	cin&gt;&gt;n&gt;&gt;m;
+	for(int i=1;i&lt;=n*2;++i)fa[i]=i;
+	for(int i=1;i&lt;=m;++i)
+	{
+		int u,v;
+		char op;
+		cin&gt;&gt;op&gt;&gt;u&gt;&gt;v;
+		int uu=find(u+n),vv=find(v+n);
+		u=find(u),v=find(v);
+		if(op=='F')fa[u]=v;
+		else fa[uu]=v,fa[vv]=u;
+	}
+	int ans=0;
+	for(int i=1;i&lt;=n;++i)if(find(i)==i)++ans;
+	cout&lt;&lt;ans;
+	
+	return 0;
+}
+</code></pre>
 
               </div>
               <div class="toc-container">
@@ -459,6 +500,12 @@ signed main()
 <ul>
 <li><a href="#solution">Solution：</a></li>
 <li><a href="#code-4">Code：</a></li>
+</ul>
+</li>
+<li><a href="#p1892-boi2003%E5%9B%A2%E4%BC%99">P1892 [BOI2003]团伙</a>
+<ul>
+<li><a href="#solution-2">Solution：</a></li>
+<li><a href="#code-5">Code：</a></li>
 </ul>
 </li>
 </ul>
