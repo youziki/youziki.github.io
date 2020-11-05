@@ -1,0 +1,539 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>图论屑题复习 1 | 和JZ贴贴~</title>
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604565941965">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="图论屑题复习 1 | 和JZ贴贴~ - Atom Feed" href="https://youziki.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="P3385 【模板】负环
+一定要判入队次数，即在判!vis[y]! vis[y]!vis[y]之后，不能判松弛次数
+Code：
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+con..." />
+    <meta name="keywords" content="刷题" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://youziki.github.io">
+  <img class="avatar" src="https://youziki.github.io/images/avatar.png?v=1604565941965" alt="">
+  </a>
+  <h1 class="site-title">
+    和JZ贴贴~
+  </h1>
+  <p class="site-description">
+    众人皆醉我独醒
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              图论屑题复习 1
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-11-04
+              </span>
+              <span>
+                9 min read
+              </span>
+              
+                <a href="https://youziki.github.io/gsfoIjW4c/" class="post-tag">
+                  # 刷题
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://cdn.luogu.com.cn/upload/image_hosting/odzpq6ey.png" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="p3385-模板负环"><a href="https://www.luogu.com.cn/problem/P3385">P3385 【模板】负环</a></h3>
+<p>一定要判入队次数，即在判<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>!</mo><mi>v</mi><mi>i</mi><mi>s</mi><mo>[</mo><mi>y</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">! vis[y]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mclose">!</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">]</span></span></span></span>之后，不能判松弛次数</p>
+<h4 id="code">Code：</h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+const int N = 23333;
+
+int n, m, head[N], tot, q[N], cnt[N], dis[N];
+bool vis[N];
+
+struct E
+{
+	int ver, nxt, w;
+} e[N &lt;&lt; 2];
+
+inline void add(int u, int v, int w)
+{
+	e[++ tot] = {v, head[u], w}, head[u] = tot;
+}
+
+inline bool spfa()
+{
+	memset(cnt, 0, sizeof cnt);
+	memset(dis, 0x3f, sizeof dis);
+	memset(vis, 0, sizeof vis);
+	
+	int hh = 0, tt = 1;
+	q[0] = 1, dis[1] = 0, vis[1] = 1;
+	
+	while(hh != tt)
+	{
+		int x = q[hh ++];
+		if(hh == N - 2) hh = 0;
+		vis[x] = 0;
+		
+		for(int i = head[x]; i; i = e[i].nxt)
+		{
+			int y = e[i].ver, z = e[i].w;
+			if(dis[y] &gt; dis[x] + z)
+			{
+				dis[y] = dis[x] + z;
+				if(! vis[y])
+				{
+					vis[y] = 1;
+					if(++ cnt[y] &gt; n) return 1;
+					q[tt ++] = y;
+					if(tt == N - 2) tt = 0;
+				}
+			}
+		}
+	}
+	
+	return 0;
+}
+
+signed main()
+{
+	int t;
+	scanf(&quot;%d&quot;, &amp;t);
+	while(t --)
+	{
+		memset(head, 0, sizeof head);
+		
+		scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+		for(int i = 1; i &lt;= m; ++i)
+		{
+			int u, v, w;
+			scanf(&quot;%d%d%d&quot;, &amp;u, &amp;v, &amp;w);
+			add(u, v, w);
+			if(w &gt;= 0) add(v, u, w);
+		}
+		
+		puts(spfa() ? &quot;YES&quot; : &quot;NO&quot;);
+	}
+	
+	return 0;
+}
+</code></pre>
+<h3 id="p1938-usaco09novjob-hunt-s"><a href="https://www.luogu.com.cn/problem/P1938">P1938 [USACO09NOV]Job Hunt S</a></h3>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>p</mi><mi>f</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">spfa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">p</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">a</span></span></span></span>跑最长路的时候将原边权减去，点权加上即可</p>
+<h4 id="code-2">Code：</h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+const int N = 2333;
+
+int d, p, c, f, s, head[N], tot, q[N], dis[N];
+bool vis[N];
+
+struct E
+{
+	int ver, nxt, w;
+} e[N];
+
+inline void add(int u, int v, int w)
+{
+	e[++ tot] = {v, head[u], w}, head[u] = tot;
+}
+
+inline void spfa()
+{
+	memset(dis, 0xcf, sizeof dis);
+	memset(vis, 0, sizeof vis);
+	
+	int hh = 0, tt = 1;
+	q[0] = s, dis[s] = d, vis[s] = 1;
+	
+	while(hh != tt)
+	{
+		int x = q[hh ++];
+		if(hh == N - 2) hh = 0;
+		vis[x] = 0;
+		
+		for(int i = head[x]; i; i = e[i].nxt)
+		{
+			int y = e[i].ver, z = e[i].w;
+			if(dis[y] &lt; dis[x] - z + d)
+			{
+				dis[y] = dis[x] - z + d;
+				if(! vis[y])
+				{
+					vis[y] = 1;
+					q[tt ++] = y;
+					if(tt == N - 2) tt = 0;
+				}
+			}
+		}
+	}
+}
+
+signed main()
+{
+	scanf(&quot;%d%d%d%d%d&quot;, &amp;d, &amp;p, &amp;c, &amp;f, &amp;s);
+	for(int i = 1; i &lt;= p; ++i)
+	{
+		int u, v;
+		scanf(&quot;%d%d&quot;, &amp;u, &amp;v);
+		add(u, v, 0);
+	}
+	for(int i = 1; i &lt;= f; ++i)
+	{
+		int u, v, w;
+		scanf(&quot;%d%d%d&quot;, &amp;u, &amp;v, &amp;w);
+		add(u, v, w);
+	}
+	
+	spfa();
+	
+	int ans = 0;
+	for(int i = 1; i &lt;= c; ++i) ans = max(ans, dis[i]);
+	printf(&quot;%d&quot;, ans);
+	
+	return 0;
+}
+</code></pre>
+<h3 id="p6175-无向图的最小环问题"><a href="https://www.luogu.com.cn/problem/P6175">P6175 无向图的最小环问题</a></h3>
+<p>Floyd原理：前k-1轮中得到了前k-1个数之间的最短路（只经过前k-1个数），将一个环中最大的点删去，剩下的一定是两端两个点之间的最短路，且不经过大于等于k的点，所以在每一轮k的时候枚举两个点i,j即可</p>
+<h4 id="code-3">Code：</h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+#define int long long
+
+const int N = 105;
+
+int n, m, a[N][N], mp[N][N];
+
+signed main()
+{
+	scanf(&quot;%lld%lld&quot;, &amp;n, &amp;m);
+	
+	for(int i = 1; i &lt;= n; ++i)
+		for(int j = 1; j &lt;= n; ++j)
+			mp[i][j] = a[i][j] = 2e10;
+	for(int i = 1; i &lt;= n; ++i) mp[i][i] = a[i][i] = 0;
+	
+	for(int i = 1; i &lt;= m; ++i)
+	{
+		int u, v, w;
+		scanf(&quot;%lld%lld%lld&quot;, &amp;u, &amp;v, &amp;w);
+		mp[u][v] = mp[v][u] = a[u][v] = a[v][u] = min(a[u][v], w);
+	}
+	
+	int ans = 2e10;
+	for(int k = 1; k &lt;= n; ++k)
+	{
+		for(int i = 1; i &lt; k; ++i)
+			for(int j = i + 1; j &lt; k; ++j)
+				ans = min(ans, a[i][j] + mp[i][k] + mp[k][j]);
+		
+		for(int i = 1; i &lt;= n; ++i)
+			for(int j = 1; j &lt;= n; ++j)
+				a[i][j] = min(a[i][j], a[i][k] + a[k][j]);
+	}
+
+	if(ans == 2e10) puts(&quot;No solution.&quot;);
+	else printf(&quot;%lld&quot;, ans);
+	
+	return 0;
+}
+</code></pre>
+<h3 id="板子们">板子们：</h3>
+<h4 id="spfaom">SPFA：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>m</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mclose">)</span></span></span></span></h4>
+<p>定义变量</p>
+<pre><code class="language-cpp">int n, m, S, T, dis[N], head[N], tot, q[N]; // 一个距离数组，一个队列，一个标记数组
+bool vis[N];
+</code></pre>
+<p>核心函数</p>
+<pre><code class="language-cpp">inline void spfa()
+{
+    memset(dis, 0x3f, sizeof dis); // 最短路
+
+    int hh = 0, tt = 1;
+    dis[S] = 0, q[0] = S, vis[S] = 1; // 初始化
+
+    while(hh != tt) // 注意这里的写法、hh和tt的初值、以及后面的hh ++和tt ++
+    {
+        int x = q[hh ++];
+        if(hh == N - 2) hh = 0; // 循环数组
+        vis[x] = 0;
+
+        for(int i = head[x]; i; i = e[i].nxt)
+        {
+            int y = e[i].ver, z = e[i].w;
+            if(dis[y] &gt; dis[x] + z)
+            {
+                dis[y] = dis[x] + z;
+                if(! vis[y]) // 如果不在队中，进队
+                {
+                    vis[y] = 1;
+                    q[tt ++] = y;
+                    if(tt == N - 2) tt = 0; // 别忘了循环数组
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<h4 id="朴素dijomlogn">朴素dij：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>m</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(mlogn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></h4>
+<p>定义变量</p>
+<pre><code class="language-cpp">int a[N][N], dis[N]; // 距离数组、标记数组
+bool vis[N];
+</code></pre>
+<p>核心函数</p>
+<pre><code class="language-cpp">inline void dij() {
+    dis[S] = 1;
+    for (int i = 1; i &lt;= n; ++i) { // 每次取出一个点
+        int t = -1;
+        for (int j = 1; j &lt;= n; ++j) // 没有被取出的dis最小的点
+            if (!vis[j] &amp;&amp; (t == -1 || dis[t] &lt; dis[j])) t = j;
+        vis[t] = 1; // 标记
+        for (int j = 1; j &lt;= n; ++j) dis[j] = max(dis[j], dis[t] + a[t][j]); // 更新
+    }
+}
+</code></pre>
+<h4 id="bfs边权为01on">bfs（边权为0/1）：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></h4>
+<p>定义变量</p>
+<pre><code class="language-cpp">int n, m, a[N][N], dis[N], q[N]; // 一个距离数组，一个队列
+</code></pre>
+<p>核心函数</p>
+<pre><code class="language-cpp">inline void bfs()
+{
+    memset(dis, 0x3f, sizeof dis);
+
+    int hh = 0, tt = 0;
+    q[0] = 1, dis[1] = 0; // 初始化
+
+    while(hh &lt;= tt)
+    {
+        int x = q[hh ++];
+        for(int i = 1; i &lt;= n; ++i)
+            if(a[x][i] &amp;&amp; dis[i] &gt; dis[x] + 1)
+            {
+                dis[i] = dis[x] + 1; // 直接更新，不需要vis，每个点第一次入队就是最短路
+                // 所以所有点都入队结束，最短路更新完毕
+                q[++ tt] = i;
+            }
+    }
+}
+</code></pre>
+<h3 id="p1455-搭配购买"><a href="https://www.luogu.com.cn/problem/P1455">P1455 搭配购买</a></h3>
+<h4 id="solution">Solution：</h4>
+<p>会做题，也要学会用简单方法做简单题，这题并查集完全可以搞定，都没必要连边！</p>
+<h4 id="code-4">Code：</h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+const int N = 23333;
+
+int n, m, V, fa[N], c[N], d[N], f[N];
+
+int find(int x)
+{
+	return x == fa[x] ? x : fa[x] = find(fa[x]);
+}
+
+signed main()
+{
+	scanf(&quot;%d%d%d&quot;, &amp;n, &amp;m, &amp;V);
+	for (int i = 1; i &lt;= n; ++i) scanf(&quot;%d%d&quot;, c + i, d + i);
+	
+	for (int i = 1; i &lt;= n; ++i) fa[i] = i;
+	
+	for (int i = 1; i &lt;= m; ++i)
+	{
+		int u, v;
+		scanf(&quot;%d%d&quot;, &amp;u, &amp;v);
+		u = find(u), v = find(v);
+		if (u != v)
+		{
+			fa[u] = v;
+			c[v] += c[u], d[v] += d[u];
+		}
+	}
+	
+	for (int i = 1; i &lt;= n; ++i)
+		if (find(i) == i)
+			for (int j = V; j &gt;= c[i]; --j)
+				f[j] = max(f[j], f[j - c[i]] + d[i]);
+	
+	printf(&quot;%d&quot;, f[V]);
+	
+	return 0;
+}
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#p3385-%E6%A8%A1%E6%9D%BF%E8%B4%9F%E7%8E%AF">P3385 【模板】负环</a>
+<ul>
+<li><a href="#code">Code：</a></li>
+</ul>
+</li>
+<li><a href="#p1938-usaco09novjob-hunt-s">P1938 [USACO09NOV]Job Hunt S</a>
+<ul>
+<li><a href="#code-2">Code：</a></li>
+</ul>
+</li>
+<li><a href="#p6175-%E6%97%A0%E5%90%91%E5%9B%BE%E7%9A%84%E6%9C%80%E5%B0%8F%E7%8E%AF%E9%97%AE%E9%A2%98">P6175 无向图的最小环问题</a>
+<ul>
+<li><a href="#code-3">Code：</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9D%BF%E5%AD%90%E4%BB%AC">板子们：</a>
+<ul>
+<li><a href="#spfaom">SPFA：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>m</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mclose">)</span></span></span></span></a></li>
+<li><a href="#%E6%9C%B4%E7%B4%A0dijomlogn">朴素dij：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>m</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(mlogn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></a></li>
+<li><a href="#bfs%E8%BE%B9%E6%9D%83%E4%B8%BA01on">bfs（边权为0/1）：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></a></li>
+</ul>
+</li>
+<li><a href="#p1455-%E6%90%AD%E9%85%8D%E8%B4%AD%E4%B9%B0">P1455 搭配购买</a>
+<ul>
+<li><a href="#solution">Solution：</a></li>
+<li><a href="#code-4">Code：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://youziki.github.io/1koxEwg5w/">
+              <h3 class="post-title">
+                题解 11.3 模拟赛
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
