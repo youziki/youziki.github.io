@@ -1,13 +1,20 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" >
+
 <title>10.10 | 和JZ贴贴~</title>
-<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604583674025">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604840612149">
 <link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="10.10 | 和JZ贴贴~ - Atom Feed" href="https://youziki.github.io/atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 
 
@@ -16,88 +23,84 @@
 如果dpdpdp的话是树形dpdpdp，还是期望dpdpdp，还是动态dpdpdp。。。
 按照组合数，自己想..." />
     <meta name="keywords" content="刷题" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://youziki.github.io">
-  <img class="avatar" src="https://youziki.github.io/images/avatar.png?v=1604583674025" alt="">
-  </a>
-  <h1 class="site-title">
-    和JZ贴贴~
-  </h1>
-  <p class="site-description">
-    众人皆醉我独醒
-  </p>
-  <div class="menu-container">
-    
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://youziki.github.io">
+        <img src="https://youziki.github.io/images/avatar.png?v=1604840612149" class="site-logo">
+        <h1 class="site-title">和JZ贴贴~</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
       
-        <a href="/" class="menu">
-          首页
-        </a>
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
       
-    
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
       
-        <a href="/archives" class="menu">
-          归档
-        </a>
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
       
-    
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
       
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
+    </div>
   </div>
-  <div class="social-container">
-    
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
+      
+    </div>
+    <div class="site-description">
+      众人皆醉我独醒
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
   </div>
 </div>
 
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              10.10
-            </h2>
-            <div class="post-info">
-              <span>
-                2020-10-30
-              </span>
-              <span>
-                13 min read
-              </span>
-              
-                <a href="https://youziki.github.io/gsfoIjW4c/" class="post-tag">
-                  # 刷题
-                </a>
-              
-            </div>
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">10.10</h2>
+            <div class="post-date">2020-10-30</div>
             
-              <img class="post-feature-image" src="https://cdn.luogu.com.cn/upload/image_hosting/odzpq6ey.png" alt="">
+              <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/odzpq6ey.png')">
+              </div>
             
-            <div class="post-content-wrapper">
-              <div class="post-content">
-                <h3 id="cf1045d-interstellar-battle"><a href="https://www.luogu.com.cn/problem/CF1045D">CF1045D Interstellar battle</a></h3>
+            <div class="post-content" v-pre>
+              <h3 id="cf1045d-interstellar-battle"><a href="https://www.luogu.com.cn/problem/CF1045D">CF1045D Interstellar battle</a></h3>
 <p>真的是很好的题！又思路又套路，还清晰简单 <s>（还让人思考的时候觉得很难很难）</s></p>
 <p>如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span>的话是树形<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span>，还是期望<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span>，还是动态<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span>。。。</p>
 <p>按照组合数，自己想到了考虑分成了几块？不行，每一块没法表示和讨论</p>
@@ -387,113 +390,58 @@ signed main(){
 }
 </code></pre>
 
-              </div>
-              <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#cf1045d-interstellar-battle">CF1045D Interstellar battle</a>
-<ul>
-<li><a href="#code">Code：</a></li>
-<li><a href="#%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%AA%E5%A5%97%E8%B7%AF%E4%B8%80%E4%B8%AAtrick">总结：一个套路，一个Trick</a></li>
-</ul>
-</li>
-<li><a href="#cf1327f-and-segments">CF1327F AND Segments</a>
-<ul>
-<li><a href="#code-2">Code：</a></li>
-</ul>
-</li>
-<li><a href="#p3523-poi2011dyn-dynamite">P3523 [POI2011]DYN-Dynamite</a>
-<ul>
-<li><a href="#%E9%A2%98%E6%84%8F">题意：</a></li>
-<li><a href="#%E6%80%BB%E7%BB%93%E9%9C%80%E8%A6%81%E5%A4%9A%E5%B0%91%E4%B8%AA%E7%82%B9%E6%98%AF%E4%B8%80%E4%B8%AA%E5%BE%88%E5%A5%BD%E7%9A%84%E6%80%9D%E8%B7%AF%E5%8F%AA%E7%94%A8%E6%9C%80%E5%A4%A7%E5%80%BC%E8%AE%B0%E5%BD%95%E5%AD%90%E6%A0%91%E5%86%85%E8%A6%86%E7%9B%96%E5%92%8C%E6%9C%AA%E8%A6%86%E7%9B%96%E7%8A%B6%E6%80%81">总结：“需要”多少个点是一个很好的思路，只用最大值记录子树内覆盖和未覆盖状态</a></li>
-</ul>
-</li>
-<li><a href="#p3457-poi2007pow-the-flood">P3457 [POI2007]POW-The Flood</a>
-<ul>
-<li><a href="#%E6%80%BB%E7%BB%93%E8%B4%AA%E5%BF%83%E5%9C%B0%E9%80%89%E5%8F%96%E6%9C%80%E4%BD%8E%E7%82%B9%E4%B8%8D%E4%B8%80%E5%AE%9A%E6%89%BE%E6%9C%80%E4%BD%8E%E7%82%B9%E6%9E%9A%E4%B8%BE%E5%8F%AF%E4%BB%A5%E5%85%88%E6%8E%92%E5%BA%8F%E5%86%8D%E6%8C%89%E9%A1%BA%E5%BA%8F%E5%A4%84%E7%90%86%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87">总结：贪心地选取最低点不一定找最低点枚举，可以先排序，再按顺序处理，提高效率</a></li>
-</ul>
-</li>
-<li><a href="#p5005-%E4%B8%AD%E5%9B%BD%E8%B1%A1%E6%A3%8B-%E6%91%86%E4%B8%8A%E9%A9%AC">P5005 中国象棋 - 摆上马</a>
-<ul>
-<li><a href="#code-3">Code：</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-              </div>
             </div>
-          </article>
-        </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://youziki.github.io/gsfoIjW4c/" class="tag">
+                    刷题
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://youziki.github.io/zSfuHMX0r/">
+                  <h3 class="post-title">
+                    单调栈与计数1
+                  </h3>
+                </a>
+              </div>
+            
 
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://youziki.github.io/zSfuHMX0r/">
-              <h3 class="post-title">
-                单调栈与计数1
-              </h3>
-            </a>
+            
+
           </div>
-        
 
-        
-
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-  <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
-</div>
-
+        </div>
       </div>
     </div>
 
-    <script>
-      hljs.initHighlightingOnLoad()
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
 
-      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+AOS.init();
 
-      // This should probably be throttled.
-      // Especially because it triggers during smooth scrolling.
-      // https://lodash.com/docs/4.17.10#throttle
-      // You could do like...
-      // window.addEventListener("scroll", () => {
-      //    _.throttle(doThatStuff, 100);
-      // });
-      // Only not doing it here to keep this Pen dependency-free.
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
-      window.addEventListener("scroll", event => {
-        let fromTop = window.scrollY;
+</script>
 
-        mainNavLinks.forEach((link, index) => {
-          let section = document.getElementById(decodeURI(link.hash).substring(1));
-          let nextSection = null
-          if (mainNavLinks[index + 1]) {
-            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-          }
-          if (section.offsetTop <= fromTop) {
-            if (nextSection) {
-              if (nextSection.offsetTop > fromTop) {
-                link.classList.add("current");
-              } else {
-                link.classList.remove("current");    
-              }
-            } else {
-              link.classList.add("current");
-            }
-          } else {
-            link.classList.remove("current");
-          }
-        });
-      });
 
-    </script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
   </body>
 </html>

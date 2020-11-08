@@ -1,13 +1,20 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" >
+
 <title>题解 11.1模拟赛 | 和JZ贴贴~</title>
-<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604583674025">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604840612149">
 <link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="题解 11.1模拟赛 | 和JZ贴贴~ - Atom Feed" href="https://youziki.github.io/atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 
 
@@ -16,88 +23,84 @@
 T2 淘淘蓝蓝喜欢01串
 想假了的水题，自己思路：统计出每一段多于1的数个数，加起来即为sum1，再统计出段数sum2，如果sum1大于sum2，答案为sum2，否则sum2−sum1+12+sum1\frac {sum2 ..." />
     <meta name="keywords" content="比赛" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://youziki.github.io">
-  <img class="avatar" src="https://youziki.github.io/images/avatar.png?v=1604583674025" alt="">
-  </a>
-  <h1 class="site-title">
-    和JZ贴贴~
-  </h1>
-  <p class="site-description">
-    众人皆醉我独醒
-  </p>
-  <div class="menu-container">
-    
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://youziki.github.io">
+        <img src="https://youziki.github.io/images/avatar.png?v=1604840612149" class="site-logo">
+        <h1 class="site-title">和JZ贴贴~</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
       
-        <a href="/" class="menu">
-          首页
-        </a>
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
       
-    
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
       
-        <a href="/archives" class="menu">
-          归档
-        </a>
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
       
-    
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
       
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
+    </div>
   </div>
-  <div class="social-container">
-    
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
+      
+    </div>
+    <div class="site-description">
+      众人皆醉我独醒
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
   </div>
 </div>
 
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              题解 11.1模拟赛
-            </h2>
-            <div class="post-info">
-              <span>
-                2020-11-01
-              </span>
-              <span>
-                5 min read
-              </span>
-              
-                <a href="https://youziki.github.io/ajbBPuKpd/" class="post-tag">
-                  # 比赛
-                </a>
-              
-            </div>
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">题解 11.1模拟赛</h2>
+            <div class="post-date">2020-11-01</div>
             
-              <img class="post-feature-image" src="https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png" alt="">
+              <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
+              </div>
             
-            <div class="post-content-wrapper">
-              <div class="post-content">
-                <h3 id="t1">T1</h3>
+            <div class="post-content" v-pre>
+              <h3 id="t1">T1</h3>
 <p>贪心水题</p>
 <h3 id="t2-淘淘蓝蓝喜欢01串"><a href="http://sjzezoj.com:9280/problem/17">T2 淘淘蓝蓝喜欢01串</a></h3>
 <p>想假了的水题，自己思路：统计出每一段多于1的数个数，加起来即为sum1，再统计出段数sum2，如果sum1大于sum2，答案为sum2，否则<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi>s</mi><mi>u</mi><mi>m</mi><mn>2</mn><mo>−</mo><mi>s</mi><mi>u</mi><mi>m</mi><mn>1</mn><mo>+</mo><mn>1</mn></mrow><mn>2</mn></mfrac><mo>+</mo><mi>s</mi><mi>u</mi><mi>m</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">\frac {sum2 - sum1 + 1} {2} + sum1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">s</span><span class="mord mathdefault mtight">u</span><span class="mord mathdefault mtight">m</span><span class="mord mtight">2</span><span class="mbin mtight">−</span><span class="mord mathdefault mtight">s</span><span class="mord mathdefault mtight">u</span><span class="mord mathdefault mtight">m</span><span class="mord mtight">1</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span><span class="mord">1</span></span></span></span></p>
@@ -168,100 +171,58 @@ signed main()
 <p>题解还有些扩展数据范围的做法：</p>
 <figure data-type="image" tabindex="1"><img src="https://cdn.luogu.com.cn/upload/image_hosting/jyzg84t0.png" alt="" loading="lazy"></figure>
 
-              </div>
-              <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#t1">T1</a></li>
-<li><a href="#t2-%E6%B7%98%E6%B7%98%E8%93%9D%E8%93%9D%E5%96%9C%E6%AC%A201%E4%B8%B2">T2 淘淘蓝蓝喜欢01串</a></li>
-<li><a href="#t3-%E6%B7%98%E6%B7%98%E8%93%9D%E8%93%9D%E4%B9%8B%E5%B9%BB%E5%BD%B1%E6%A0%91">T3 淘淘蓝蓝之幻影树</a>
-<ul>
-<li><a href="#%E6%80%BB%E7%BB%93%E6%80%9D%E8%B7%AF%E4%B8%8D%E9%9A%BE%E4%BD%86%E6%B2%A1%E6%83%B3%E5%88%B0%E7%9C%8B%E5%88%B0%E9%95%BF%E9%A2%98%E9%9D%A2%E4%B8%8D%E8%A6%81%E5%AE%B3%E6%80%95%E4%B8%8D%E8%A6%81%E7%8A%AF%E6%87%92%E7%9C%8B%E5%88%B0sum%E5%BE%88%E5%B0%8F%E5%BA%94%E6%83%B3%E5%88%B0%E5%A4%8D%E6%9D%82%E5%BA%A6%E8%BD%AC%E5%8C%96%E4%B8%BA%E7%94%B1sum%E5%86%B3%E5%AE%9A%E7%9A%84%E5%8D%B3%E6%AF%8F%E4%B8%AA%E7%82%B9%E6%9C%80%E5%A4%9A%E5%A4%84%E7%90%86%E4%B8%80%E6%AC%A1%E5%B8%B8%E6%95%B0%E6%AC%A1">总结：思路不难，但没想到，看到长题面不要害怕，不要犯懒！看到sum很小，应想到复杂度转化为由sum决定的，即每个点最多处理一次（常数次）</a></li>
-</ul>
-</li>
-<li><a href="#t4-%E6%B7%98%E6%B7%98%E8%93%9D%E8%93%9D%E4%B9%8B%E7%94%B5%E7%94%B5%E9%BC%A0%E5%A4%A7%E6%88%98%E5%BE%A1%E5%9D%82%E7%BE%8E%E7%90%B4">T4 淘淘蓝蓝之电电鼠大战御坂美琴</a>
-<ul>
-<li><a href="#%E7%AE%97%E6%B3%95%E6%A0%87%E7%AD%BE%E8%83%8C%E5%8C%85">算法标签：背包</a></li>
-<li><a href="#solution">Solution：</a></li>
-<li><a href="#code">Code：</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-              </div>
             </div>
-          </article>
-        </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://youziki.github.io/ajbBPuKpd/" class="tag">
+                    比赛
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://youziki.github.io/-mCL3wgZ9/">
+                  <h3 class="post-title">
+                    矩阵乘法
+                  </h3>
+                </a>
+              </div>
+            
 
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://youziki.github.io/-mCL3wgZ9/">
-              <h3 class="post-title">
-                矩阵乘法
-              </h3>
-            </a>
+            
+
           </div>
-        
 
-        
-
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-  <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
-</div>
-
+        </div>
       </div>
     </div>
 
-    <script>
-      hljs.initHighlightingOnLoad()
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
 
-      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+AOS.init();
 
-      // This should probably be throttled.
-      // Especially because it triggers during smooth scrolling.
-      // https://lodash.com/docs/4.17.10#throttle
-      // You could do like...
-      // window.addEventListener("scroll", () => {
-      //    _.throttle(doThatStuff, 100);
-      // });
-      // Only not doing it here to keep this Pen dependency-free.
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
-      window.addEventListener("scroll", event => {
-        let fromTop = window.scrollY;
+</script>
 
-        mainNavLinks.forEach((link, index) => {
-          let section = document.getElementById(decodeURI(link.hash).substring(1));
-          let nextSection = null
-          if (mainNavLinks[index + 1]) {
-            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-          }
-          if (section.offsetTop <= fromTop) {
-            if (nextSection) {
-              if (nextSection.offsetTop > fromTop) {
-                link.classList.add("current");
-              } else {
-                link.classList.remove("current");    
-              }
-            } else {
-              link.classList.add("current");
-            }
-          } else {
-            link.classList.remove("current");
-          }
-        });
-      });
 
-    </script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
   </body>
 </html>

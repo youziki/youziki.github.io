@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>SA 1 | 和JZ贴贴~</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604840612149">
+<link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="算法模板 后缀数组（SA）
+SA概述：
+主要内容：
+求出一些信息（sa[]sa[]sa[],height[]height[]height[]），将后缀按字典序排序
+实现：
+通过一些数组求出
+先求SA：
+每次将长度为k的部分作为第一关键字，后..." />
+    <meta name="keywords" content="学习笔记" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://youziki.github.io">
+        <img src="https://youziki.github.io/images/avatar.png?v=1604840612149" class="site-logo">
+        <h1 class="site-title">和JZ贴贴~</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      众人皆醉我独醒
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">SA 1</h2>
+            <div class="post-date">2020-11-08</div>
+            
+              <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/xdvp0hhr.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="算法模板-后缀数组sa">算法模板 后缀数组（SA）</h1>
+<h2 id="sa概述">SA概述：</h2>
+<h3 id="主要内容">主要内容：</h3>
+<p>求出一些信息（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>a</mi><mo>[</mo><mo>]</mo></mrow><annotation encoding="application/x-tex">sa[]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mclose">]</span></span></span></span>,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mo>[</mo><mo>]</mo></mrow><annotation encoding="application/x-tex">height[]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">h</span><span class="mord mathdefault">t</span><span class="mopen">[</span><span class="mclose">]</span></span></span></span>），将后缀按字典序排序</p>
+<h3 id="实现">实现：</h3>
+<p>通过一些数组求出</p>
+<h4 id="先求sa">先求SA：</h4>
+<p>每次将长度为k的部分作为第一关键字，后面（如果足）长度为k的部分作为第二关键字，先对第二关键字进行基数排序，再对第一关键字进行基数排序（保证排序稳定），下一次排序的时候用已经排好的当前这个长度直接得出第二关键字的排序，然后排第一关键字。可以发现每次k是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&lt;</mo><mo>&lt;</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">&lt;&lt;= 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>的，所以时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nlogn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></p>
+<h4 id="求height">求Height：</h4>
+<p>先考虑暴力，枚举i，找到定义中和它匹配的另一个字符串的起始位置，长度k起始为0，如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mo>[</mo><mi>i</mi><mo>+</mo><mi>k</mi><mo>]</mo><mo>=</mo><mo>=</mo><mi>s</mi><mo>[</mo><mi>j</mi><mo>+</mo><mi>k</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">s[i+k]==s[j+k]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">]</span></span></span></span>，就++k，知道不满足（while实现即可）</p>
+<p><strong>用一个性质优化：</strong></p>
+<h5 id="性质">性质：</h5>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mo>[</mo><mi>r</mi><mi>k</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>]</mo><mo>&gt;</mo><mo>=</mo><mi>h</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mo>[</mo><mi>r</mi><mi>k</mi><mo>[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo>]</mo><mo>]</mo><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">height[rk[i]] &gt;= height[rk[i - 1]] + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">h</span><span class="mord mathdefault">t</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">h</span><span class="mord mathdefault">t</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></p>
+<h5 id="优化后时间复杂度">优化后时间复杂度：</h5>
+<p>枚举位置i，用一个循环外变量k记录<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mo>[</mo><mi>r</mi><mi>k</mi><mo>[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo>]</mo><mo>]</mo></mrow><annotation encoding="application/x-tex">height[rk[i-1]]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">h</span><span class="mord mathdefault">t</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mclose">]</span></span></span></span>，每次从k-1开始扩展长度，根据代码复杂度不难发现是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>的</p>
+<h5 id="证明">证明：</h5>
+<p>起始非常简单，看图：</p>
+<figure data-type="image" tabindex="1"><img src="https://cdn.luogu.com.cn/upload/image_hosting/fz8stosp.png" alt="" loading="lazy"></figure>
+<p>粉色的部分为i-1位置和前面一个的LCP，此时，i位置开始的一段串和LCP去掉第一个字符后的绿色部分一定相同，那么可以断定绿色部分一定为“i位置排名前一个的串的一个前缀”，因为这个串一定大于等于前面绿色部分为前缀的后缀，且小于后面绿色部分为前缀的后缀，所以它一定包含绿色部分前缀</p>
+<h3 id="code附带详细讲解">Code：（附带详细讲解）</h3>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+const int N = 1233333; // 1e6
+
+char s[N];
+int n, m, sa[N], x[N], y[N], rk[N], height[N];
+int c[N];
+/*
+核心数组 ：
+sa[i] : 排名为i的后缀是第几个后缀
+height[i] : 排名第i个后缀和排名第i-1个后缀的LCP
+
+辅助数组 ：
+c[i] : 基数排序时用的桶
+x[i] : 第一关键字（可以无序）
+y[i] : 第二关键字排好序后的后缀
+
+rk[i] : 第i个后缀的排名
+h[i] : 第i个后缀和排名在它之前的一个后缀的LCP
+ (实际上不需要这个数组，给h[i]赋值时可以直接给h[rk[i]]赋值)
+*/
+
+inline void get_SA() // 基数排序(Qsort)写在这里面了
+{
+    for (int i = 1; i &lt;= n; ++i) ++ c[x[i] = s[i]];
+    // 第二关键字一开始都为空，直接赋所有第一关键字的值
+    for (int i = 2; i &lt;= m; ++i) c[i] += c[i - 1]; // 求排名需要
+    for (int i = n; i; --i) sa[c[x[i]] --] = i;
+    // 遍历第二关键字排好序后的每一个字符串，赋排名。
+    // 从后往前是为了保证为稳定排序
+    
+    for (int k = 1; k &lt;= n; k &lt;&lt;= 1) // 第一关键字长度为k，总长度在k ~ 2k之间
+    {
+        int num = 0;
+        
+        for (int i = n - k + 1; i &lt;= n; ++i)
+            y[++ num] = i; // 第二关键字为空，排在最前面
+        for (int i = 1; i &lt;= n; ++i)
+            if (sa[i] &gt; k)
+                y[++ num] = sa[i] - k;
+            // 第二关键字本身已经排好序，在其前面加入k个字符即为原串作为第二关键字的串
+            // 起始位置大于k才能在前面加入k个字符
+        
+        for (int i = 1; i &lt;= m; ++i) c[i] = 0;
+        for (int i = 1; i &lt;= n; ++i)
+            ++ c[x[i]]; // 第一关键字，即为前面已经求好的所有长度为&quot;k&quot;的字符串的离散化值
+        for (int i = 2; i &lt;= m; ++i) c[i] += c[i - 1];
+        for (int i = n; i; --i)
+            sa[c[x[ y[i] ]] --] = y[i], y[i] = 0; // y[i]已经没用了，顺便清空
+        
+        swap(x, y); // 这句并不重要
+        // 此时x全0，后面用于记录长度为k ~ 2k的已经排好序的串的离散化值，为下一轮做准备
+        x[sa[1]] = 1, num = 1; // 排名第一的离散化值赋为1
+        // num记录前一个排名的离散化值，用于简化代码
+        for (int i = 2; i &lt;= n; ++i) // 相当于num = unique() - ()
+            x[sa[i]] = (y[sa[i]] == y[sa[i - 1]] &amp;&amp; y[sa[i] + k] == y[sa[i - 1] + k]) ?
+                        num : ++ num; // 是否第一第二关键字都一样，y[]中下标为位置
+        
+        if (num == n) break; // 一定不会大于n，如果等于n，说明已经排序完毕
+        m = num; // 下一轮桶中元素数
+    }
+}
+
+inline void get_height()
+{
+    for (int i = 1; i &lt;= n; ++i) rk[sa[i]] = i; // 赋初值
+    /*
+    性质：h[i] &gt;= h[i - 1] - 1 (h[i] = height[rk[i]])
+    证明：见图解
+    */
+    for (int i = 1, k = 0; i &lt;= n; ++i)
+    {
+        if (rk[i] == 1) continue;
+        if (k) -- k;
+        int j = sa[rk[i] - 1]; // 当前所求height[rk[i]]的主角两个后缀，用于暴力延伸
+        while (i + k &lt;= n &amp;&amp; j + k &lt;= n &amp;&amp; s[i + k] == s[j + k]) ++ k;
+        
+        height[rk[i]] = k;
+    }
+}
+
+signed main()
+{
+    // freopen()
+    // freopen()
+    
+    scanf(&quot;%s&quot;, s + 1);
+    n = strlen(s + 1), m = 122; // 初始桶中元素数赋为不同字符总数
+    
+    get_SA(); // 算法流程比较复杂 O(nlogn)
+    get_height(); // 用到了一个性质，优化时间 O(n)
+    
+    for (int i = 1; i &lt;= n; ++i) printf(&quot;%d &quot;, sa[i]);
+    printf(&quot;\n&quot;);
+    for (int i = 1; i &lt;= n; ++i) printf(&quot;%d &quot;, height[i]);
+    
+    fclose(stdin);
+    fclose(stdout); // 养成好习惯
+    return 0;
+}
+</code></pre>
+<p>再来个无注释版的，方便查阅：</p>
+<pre><code class="language-cpp">char s[N];
+int n, m, sa[N], x[N], y[N], rk[N], height[N];
+int c[N];
+</code></pre>
+<pre><code class="language-cpp">inline void get_SA()
+{
+    for (int i = 1; i &lt;= n; ++i) ++ c[x[i] = s[i]];
+    for (int i = 2; i &lt;= m; ++i) c[i] += c[i - 1];
+    for (int i = n; i; --i) sa[c[x[i]] --] = i;
+    
+    for (int k = 1; k &lt;= n; k &lt;&lt;= 1)
+    {
+        int num = 0;
+        
+        for (int i = n - k + 1; i &lt;= n; ++i) y[++ num] = i;
+        for (int i = 1; i &lt;= n; ++i)
+            if (sa[i] &gt; k)
+                y[++ num] = sa[i] - k;
+        
+        for (int i = 1; i &lt;= m; ++i) c[i] = 0;
+        for (int i = 1; i &lt;= n; ++i) ++ c[x[i]];
+        for (int i = 2; i &lt;= m; ++i) c[i] += c[i - 1];
+        for (int i = n; i; --i) sa[c[x[ y[i] ]] --] = y[i], y[i] = 0;
+        
+        swap(x, y);
+        x[sa[1]] = 1, num = 1;
+        for (int i = 2; i &lt;= n; ++i)
+            x[sa[i]] = (y[sa[i]] == y[sa[i - 1]] &amp;&amp; y[sa[i] + k] == y[sa[i - 1] + k]) ? num : ++ num;
+        
+        if (num == n) break;
+        m = num;
+    }
+}
+</code></pre>
+<pre><code class="language-cpp">inline void get_height()
+{
+    for (int i = 1; i &lt;= n; ++i) rk[sa[i]] = i; 
+    
+    for (int i = 1, k = 0; i &lt;= n; ++i)
+    {
+        if (rk[i] == 1) continue;
+        if (k) -- k;
+        int j = sa[rk[i] - 1];
+        while (i + k &lt;= n &amp;&amp; j + k &lt;= n &amp;&amp; s[i + k] == s[j + k]) ++ k;
+        
+        height[rk[i]] = k;
+    }
+}
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://youziki.github.io/4STTQXNzf/" class="tag">
+                    学习笔记
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://youziki.github.io/eS4-asQD4/">
+                  <h3 class="post-title">
+                    图论屑题复习 1
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

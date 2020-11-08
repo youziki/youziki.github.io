@@ -1,13 +1,20 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" >
+
 <title>网络流 1 | 和JZ贴贴~</title>
-<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604583674025">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604840612149">
 <link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="网络流 1 | 和JZ贴贴~ - Atom Feed" href="https://youziki.github.io/atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 
 
@@ -18,88 +25,84 @@
 for(int i=2;i&lt;=tot;i+=2)
 	if(e[i].ver&gt;m&amp;&amp;e[i].ver&lt;=n&amp;&amp;!..." />
     <meta name="keywords" content="学习笔记" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://youziki.github.io">
-  <img class="avatar" src="https://youziki.github.io/images/avatar.png?v=1604583674025" alt="">
-  </a>
-  <h1 class="site-title">
-    和JZ贴贴~
-  </h1>
-  <p class="site-description">
-    众人皆醉我独醒
-  </p>
-  <div class="menu-container">
-    
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://youziki.github.io">
+        <img src="https://youziki.github.io/images/avatar.png?v=1604840612149" class="site-logo">
+        <h1 class="site-title">和JZ贴贴~</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
       
-        <a href="/" class="menu">
-          首页
-        </a>
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
       
-    
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
       
-        <a href="/archives" class="menu">
-          归档
-        </a>
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
       
-    
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
       
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
+    </div>
   </div>
-  <div class="social-container">
-    
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
+      
+    </div>
+    <div class="site-description">
+      众人皆醉我独醒
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
   </div>
 </div>
 
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              网络流 1
-            </h2>
-            <div class="post-info">
-              <span>
-                2020-10-30
-              </span>
-              <span>
-                9 min read
-              </span>
-              
-                <a href="https://youziki.github.io/4STTQXNzf/" class="post-tag">
-                  # 学习笔记
-                </a>
-              
-            </div>
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">网络流 1</h2>
+            <div class="post-date">2020-10-30</div>
             
-              <img class="post-feature-image" src="https://cdn.luogu.com.cn/upload/image_hosting/xdvp0hhr.png" alt="">
+              <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/xdvp0hhr.png')">
+              </div>
             
-            <div class="post-content-wrapper">
-              <div class="post-content">
-                <h1 id="副标题网络流简单技巧与闫总听课笔记">副标题：网络流简单技巧与闫总听课笔记</h1>
+            <div class="post-content" v-pre>
+              <h1 id="副标题网络流简单技巧与闫总听课笔记">副标题：网络流简单技巧与闫总听课笔记</h1>
 <h2 id="题们"><a href="https://www.luogu.com.cn/problem/list?tag=332&amp;orderBy=&amp;order=&amp;page=1">题们</a></h2>
 <h4 id="1-要求输出方案">1. 要求输出方案：</h4>
 <p>加上这句话：</p>
@@ -241,114 +244,58 @@ for(int i=2;i&lt;=tot;i+=2)
 <h4 id="最大密度子图">最大密度子图</h4>
 <p>概念：定义在所有边权和点权都是1的无向图上，是一个点集加一个边集，所有边的起始点不能是点集外的点，点集没有限制，使边权和比点权和最大</p>
 
-              </div>
-              <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li><a href="#%E5%89%AF%E6%A0%87%E9%A2%98%E7%BD%91%E7%BB%9C%E6%B5%81%E7%AE%80%E5%8D%95%E6%8A%80%E5%B7%A7%E4%B8%8E%E9%97%AB%E6%80%BB%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0">副标题：网络流简单技巧与闫总听课笔记</a>
-<ul>
-<li><a href="#%E9%A2%98%E4%BB%AC">题们</a><br>
-*
-<ul>
-<li><a href="#1-%E8%A6%81%E6%B1%82%E8%BE%93%E5%87%BA%E6%96%B9%E6%A1%88">1. 要求输出方案：</a></li>
-<li><a href="#2-%E6%96%B9%E6%A0%BC%E5%8F%96%E6%95%B0%E7%9B%B8%E9%82%BB%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%A0%BC%E5%AD%90%E4%B8%8D%E8%83%BD%E5%8F%96%E6%B1%82%E6%9C%80%E5%A4%A7">2. 方格取数，相邻的两个格子不能取，求最大</a></li>
-<li><a href="#3-%E6%8E%A5%E7%9D%80%E4%B8%8A%E9%9D%A2%E7%AC%AC%E4%BA%8C%E6%9D%A1%E9%BB%91%E4%BD%93%E5%AD%97%E5%8F%AF%E4%BB%A5%E6%89%BE%E5%88%B0%E4%B8%80%E4%BA%9B%E7%9B%B8%E5%85%B3%E9%A2%98%E7%9A%84%E5%81%9A%E6%B3%95">3. 接着上面第二条黑体字，可以找到一些相关题的做法：</a></li>
-<li><a href="#4-%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E6%BB%A1%E6%B5%81">4. 判断是否满流：</a></li>
-<li><a href="#5-%E4%B8%8A%E4%B8%8B%E7%95%8C%E5%8F%AF%E8%A1%8C%E6%B5%81%E6%80%BB%E7%BB%93">5. 上下界可行流总结：</a>
-<ul>
-<li><a href="#%E6%80%BB%E4%BD%93%E6%80%9D%E6%83%B3">总体思想：</a></li>
-<li><a href="#%E6%97%A0%E6%BA%90%E6%B1%87">无源汇：</a></li>
-<li><a href="#%E6%9C%89%E6%BA%90%E6%B1%87">有源汇：</a></li>
-<li><a href="#6-%E5%A4%9A%E6%BA%90%E6%B1%87%E6%9C%80%E5%A4%A7%E6%B5%81">6. 多源汇最大流：</a></li>
-<li><a href="#7-%E4%BC%8A%E5%9F%BA%E7%9A%84%E6%95%85%E4%BA%8B-i-%E9%81%93%E8%B7%AF%E9%87%8D%E5%BB%BA%E6%9C%80%E5%B0%8F%E5%89%B2%E7%9A%84%E5%BF%85%E9%A1%BB%E8%BE%B9%E4%B8%8E%E5%8F%AF%E8%A1%8C%E8%BE%B9">7. 伊基的故事 I - 道路重建（最小割的必须边与可行边）</a></li>
-<li><a href="#8-%E7%A7%98%E5%AF%86%E6%8C%A4%E5%A5%B6%E6%9C%BA">8. 秘密挤奶机</a></li>
-<li><a href="#9-%E6%98%9F%E9%99%85%E8%BD%AC%E7%A7%BB%E9%97%AE%E9%A2%98">9. 星际转移问题</a></li>
-<li><a href="#10-%E5%AF%B9%E7%82%B9%E6%9C%89%E9%99%90%E5%88%B6">10. 对点有限制：</a></li>
-<li><a href="#11-%E5%88%A0%E7%82%B9">11. 删点：</a></li>
-<li><a href="#12-%E9%9C%80%E8%A6%81%E5%A4%9A%E6%AC%A1%E5%AF%B9%E5%90%8C%E4%B8%80%E4%B8%AA%E6%B5%81%E7%BD%91%E7%BB%9C%E8%B7%91%E6%9C%80%E5%A4%A7%E6%B5%81%E6%97%B6%E6%B8%85%E7%A9%BA%E8%BE%B9%E6%B5%81%E9%87%8F%E4%BC%81%E9%B9%85%E6%B8%B8%E8%A1%8C">12. 需要多次对同一个流网络跑最大流时清空边流量（“企鹅游行”）：</a></li>
-<li><a href="#13-%E7%8C%AA">13. “猪”：</a></li>
-<li><a href="#14-%E9%9B%86%E5%90%88%E5%88%92%E5%88%86%E6%A8%A1%E5%9E%8B">14. 集合划分模型</a></li>
-<li><a href="#15-%E5%B9%B3%E9%9D%A2%E5%9B%BE%E6%9C%80%E5%B0%8F%E5%89%B2">15. 平面图最小割</a></li>
-</ul>
-</li>
-<li><a href="#16-%E6%9C%80%E5%B0%8F%E5%89%B2%E7%9A%84%E4%B8%80%E7%B3%BB%E5%88%97%E6%8A%BD%E8%B1%A1%E5%AD%90%E9%97%AE%E9%A2%98">16. 最小割的一系列抽象子问题</a>
-<ul>
-<li><a href="#%E6%9C%80%E5%A4%A7%E6%9D%83%E9%97%AD%E5%90%88%E5%AD%90%E5%9B%BE">最大权闭合子图</a></li>
-<li><a href="#%E6%9C%80%E5%A4%A7%E5%AF%86%E5%BA%A6%E5%AD%90%E5%9B%BE">最大密度子图</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-              </div>
             </div>
-          </article>
-        </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://youziki.github.io/4STTQXNzf/" class="tag">
+                    学习笔记
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://youziki.github.io/4X-9Mbc56/">
+                  <h3 class="post-title">
+                    题解 CF1408D
+                  </h3>
+                </a>
+              </div>
+            
 
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://youziki.github.io/4X-9Mbc56/">
-              <h3 class="post-title">
-                题解 CF1408D
-              </h3>
-            </a>
+            
+
           </div>
-        
 
-        
-
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-  <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
-</div>
-
+        </div>
       </div>
     </div>
 
-    <script>
-      hljs.initHighlightingOnLoad()
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
 
-      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+AOS.init();
 
-      // This should probably be throttled.
-      // Especially because it triggers during smooth scrolling.
-      // https://lodash.com/docs/4.17.10#throttle
-      // You could do like...
-      // window.addEventListener("scroll", () => {
-      //    _.throttle(doThatStuff, 100);
-      // });
-      // Only not doing it here to keep this Pen dependency-free.
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
-      window.addEventListener("scroll", event => {
-        let fromTop = window.scrollY;
+</script>
 
-        mainNavLinks.forEach((link, index) => {
-          let section = document.getElementById(decodeURI(link.hash).substring(1));
-          let nextSection = null
-          if (mainNavLinks[index + 1]) {
-            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-          }
-          if (section.offsetTop <= fromTop) {
-            if (nextSection) {
-              if (nextSection.offsetTop > fromTop) {
-                link.classList.add("current");
-              } else {
-                link.classList.remove("current");    
-              }
-            } else {
-              link.classList.add("current");
-            }
-          } else {
-            link.classList.remove("current");
-          }
-        });
-      });
 
-    </script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
   </body>
 </html>

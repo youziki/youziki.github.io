@@ -1,103 +1,105 @@
+<!DOCTYPE html>
 <html>
   <head>
-  <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" >
+
 <title>比赛 | 和JZ贴贴~</title>
-<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604583674025">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604840612149">
 <link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="比赛 | 和JZ贴贴~ - Atom Feed" href="https://youziki.github.io/atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-  <meta name="description" content="众人皆醉我独醒" />
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="众人皆醉我独醒">
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://youziki.github.io">
-  <img class="avatar" src="https://youziki.github.io/images/avatar.png?v=1604583674025" alt="">
-  </a>
-  <h1 class="site-title">
-    和JZ贴贴~
-  </h1>
-  <p class="site-description">
-    众人皆醉我独醒
-  </p>
-  <div class="menu-container">
-    
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://youziki.github.io">
+        <img src="https://youziki.github.io/images/avatar.png?v=1604840612149" class="site-logo">
+        <h1 class="site-title">和JZ贴贴~</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
       
-        <a href="/" class="menu">
-          首页
-        </a>
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
       
-    
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
       
-        <a href="/archives" class="menu">
-          归档
-        </a>
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
       
-    
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
       
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
+    </div>
   </div>
-  <div class="social-container">
-    
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
+      
+    </div>
+    <div class="site-description">
+      众人皆醉我独醒
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
   </div>
 </div>
 
-        <div class="current-tag-container">
-            <h2 class="title">
-                标签：# 比赛
-            </h2> 
-        </div>
-        <div class="post-container">
-  
-    <article class="post">
-      <a href="https://youziki.github.io/1koxEwg5w/">
-        <h2 class="post-title">题解 11.3 模拟赛</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2020-11-04
-        </span>
-        <span>
-          4 min read
-        </span>
-        
-          <a href="https://youziki.github.io/ajbBPuKpd/" class="post-tag">
-            # 比赛
-          </a>
-        
-      </div>
-      
-        <a href="https://youziki.github.io/1koxEwg5w/" class="post-feature-image" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
-        </a>
-      
-      <div class="post-abstract">
-        <h3 id="p1800-software"><a href="https://www.luogu.com.cn/problem/P1800">P1800 software</a></h3>
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <h2 class="current-tag">标签: 比赛</h2>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://youziki.github.io/1koxEwg5w/">
+                  <h2 class="post-title">题解 11.3 模拟赛</h2>
+                </a>
+                <div class="post-date">
+                  2020-11-04
+                </div>
+                <div class="post-abstract">
+                  <h3 id="p1800-software"><a href="https://www.luogu.com.cn/problem/P1800">P1800 software</a></h3>
 <h4 id="题意">题意：</h4>
 <p>A，B两个工作，每个工作m个模块，n个人，每个人做A模块速度a[i]，做B模块速度b[i]，所有人同时做求最短时间</p>
 <p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo separator="true">,</mo><mi>m</mi><mo separator="true">,</mo><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo separator="true">,</mo><mi>b</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>&lt;</mo><mo>=</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">n,m,a[i],b[i] &lt;= 100</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span></span></span></span></p>
@@ -162,260 +164,231 @@ signed main()
 <p>答案等于单调栈内元素数量是挺显然的，树上单调栈思路也不难，把回溯时还原整明白了就行了，但考场上回溯还原也没整对（可能我那样复杂度有假，不知为什么还会WA两个）</p>
 <p>正解给出了处理回溯还原的更简单更妙的方法，不模拟单调栈，直接二分插入位置，记录下原top和这个位置原值，最后只还原这两个值即可。这样做为什么是对的？因为实际上就改变了这两个值对吧，归纳地想，其实应该弹栈的元素都没有动，而后面递归的时候后面的元素虽说被覆盖，也会在回溯的时候还原，所以其实也只有二分到的位置和top有改动</p>
 
-      </div>
-    </article>
+                </div>
+              </div>
+              
+                <a class="right" href="https://youziki.github.io/1koxEwg5w/">
+                  <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://youziki.github.io/e1Vw74hqC/">
+                  <h2 class="post-title">题解 11.1模拟赛</h2>
+                </a>
+                <div class="post-date">
+                  2020-11-01
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://youziki.github.io/e1Vw74hqC/">
+                  <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://youziki.github.io/KtjKX9FvN/">
+                  <h2 class="post-title">题解 10.20 模拟赛</h2>
+                </a>
+                <div class="post-date">
+                  2020-10-30
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://youziki.github.io/KtjKX9FvN/">
+                  <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://youziki.github.io/tqh1AV_Um/">
+                  <h2 class="post-title">题解 模拟赛们</h2>
+                </a>
+                <div class="post-date">
+                  2020-10-30
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://youziki.github.io/tqh1AV_Um/">
+                  <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://youziki.github.io/14xSFypGf/">
+                  <h2 class="post-title">题解 10.14模拟赛</h2>
+                </a>
+                <div class="post-date">
+                  2020-10-30
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://youziki.github.io/14xSFypGf/">
+                  <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://youziki.github.io/CEdwscerZ/">
+                  <h2 class="post-title">ywy_c_asm毒瘤模拟赛</h2>
+                </a>
+                <div class="post-date">
+                  2020-10-30
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://youziki.github.io/CEdwscerZ/">
+                  <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://youziki.github.io/UHPAMm_2Y/">
+                  <h2 class="post-title">题解 10.7模拟赛</h2>
+                </a>
+                <div class="post-date">
+                  2020-10-30
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://youziki.github.io/UHPAMm_2Y/">
+                  <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://youziki.github.io/Yvqs1Lhjy/">
+                  <h2 class="post-title">题解 9.29 模拟赛</h2>
+                </a>
+                <div class="post-date">
+                  2020-10-30
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://youziki.github.io/Yvqs1Lhjy/">
+                  <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://youziki.github.io/KuJUbC3dJ/">
+                  <h2 class="post-title">题解 9.25 &amp; 26 模拟赛</h2>
+                </a>
+                <div class="post-date">
+                  2020-10-30
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://youziki.github.io/KuJUbC3dJ/">
+                  <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://youziki.github.io/MMhjaffUC/">
+                  <h2 class="post-title">题解 9.22 模拟赛 T1 &amp; T2</h2>
+                </a>
+                <div class="post-date">
+                  2020-10-30
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://youziki.github.io/MMhjaffUC/">
+                  <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+
+          <div class="pagination-container">
   
-    <article class="post">
-      <a href="https://youziki.github.io/e1Vw74hqC/">
-        <h2 class="post-title">题解 11.1模拟赛</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2020-11-01
-        </span>
-        <span>
-          5 min read
-        </span>
-        
-          <a href="https://youziki.github.io/ajbBPuKpd/" class="post-tag">
-            # 比赛
-          </a>
-        
-      </div>
-      
-        <a href="https://youziki.github.io/e1Vw74hqC/" class="post-feature-image" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
-        </a>
-      
-      <div class="post-abstract">
-        
-      </div>
-    </article>
   
-    <article class="post">
-      <a href="https://youziki.github.io/KtjKX9FvN/">
-        <h2 class="post-title">题解 10.20 模拟赛</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2020-10-30
-        </span>
-        <span>
-          6 min read
-        </span>
-        
-          <a href="https://youziki.github.io/ajbBPuKpd/" class="post-tag">
-            # 比赛
-          </a>
-        
-      </div>
-      
-        <a href="https://youziki.github.io/KtjKX9FvN/" class="post-feature-image" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
-        </a>
-      
-      <div class="post-abstract">
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <a href="https://youziki.github.io/tqh1AV_Um/">
-        <h2 class="post-title">题解 模拟赛们</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2020-10-30
-        </span>
-        <span>
-          7 min read
-        </span>
-        
-          <a href="https://youziki.github.io/ajbBPuKpd/" class="post-tag">
-            # 比赛
-          </a>
-        
-      </div>
-      
-        <a href="https://youziki.github.io/tqh1AV_Um/" class="post-feature-image" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
-        </a>
-      
-      <div class="post-abstract">
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <a href="https://youziki.github.io/14xSFypGf/">
-        <h2 class="post-title">题解 10.14模拟赛</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2020-10-30
-        </span>
-        <span>
-          4 min read
-        </span>
-        
-          <a href="https://youziki.github.io/ajbBPuKpd/" class="post-tag">
-            # 比赛
-          </a>
-        
-      </div>
-      
-        <a href="https://youziki.github.io/14xSFypGf/" class="post-feature-image" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
-        </a>
-      
-      <div class="post-abstract">
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <a href="https://youziki.github.io/CEdwscerZ/">
-        <h2 class="post-title">ywy_c_asm毒瘤模拟赛</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2020-10-30
-        </span>
-        <span>
-          20 min read
-        </span>
-        
-          <a href="https://youziki.github.io/ajbBPuKpd/" class="post-tag">
-            # 比赛
-          </a>
-        
-      </div>
-      
-        <a href="https://youziki.github.io/CEdwscerZ/" class="post-feature-image" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
-        </a>
-      
-      <div class="post-abstract">
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <a href="https://youziki.github.io/UHPAMm_2Y/">
-        <h2 class="post-title">题解 10.7模拟赛</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2020-10-30
-        </span>
-        <span>
-          5 min read
-        </span>
-        
-          <a href="https://youziki.github.io/ajbBPuKpd/" class="post-tag">
-            # 比赛
-          </a>
-        
-      </div>
-      
-        <a href="https://youziki.github.io/UHPAMm_2Y/" class="post-feature-image" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
-        </a>
-      
-      <div class="post-abstract">
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <a href="https://youziki.github.io/Yvqs1Lhjy/">
-        <h2 class="post-title">题解 9.29 模拟赛</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2020-10-30
-        </span>
-        <span>
-          5 min read
-        </span>
-        
-          <a href="https://youziki.github.io/ajbBPuKpd/" class="post-tag">
-            # 比赛
-          </a>
-        
-      </div>
-      
-        <a href="https://youziki.github.io/Yvqs1Lhjy/" class="post-feature-image" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
-        </a>
-      
-      <div class="post-abstract">
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <a href="https://youziki.github.io/KuJUbC3dJ/">
-        <h2 class="post-title">题解 9.25 &amp; 26 模拟赛</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2020-10-30
-        </span>
-        <span>
-          5 min read
-        </span>
-        
-          <a href="https://youziki.github.io/ajbBPuKpd/" class="post-tag">
-            # 比赛
-          </a>
-        
-      </div>
-      
-        <a href="https://youziki.github.io/KuJUbC3dJ/" class="post-feature-image" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
-        </a>
-      
-      <div class="post-abstract">
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <a href="https://youziki.github.io/MMhjaffUC/">
-        <h2 class="post-title">题解 9.22 模拟赛 T1 &amp; T2</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2020-10-30
-        </span>
-        <span>
-          5 min read
-        </span>
-        
-          <a href="https://youziki.github.io/ajbBPuKpd/" class="post-tag">
-            # 比赛
-          </a>
-        
-      </div>
-      
-        <a href="https://youziki.github.io/MMhjaffUC/" class="post-feature-image" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
-        </a>
-      
-      <div class="post-abstract">
-        
-      </div>
-    </article>
+    <a href="https://youziki.github.io/ajbBPuKpd/page/2" class="next">下一页 <i class="icon-arrow-ios-forward-outline"></i></a>
   
 </div>
 
-        <div class="pagination-container">
-  
-  
-    <a href="https://youziki.github.io/ajbBPuKpd/page/2" class="next-page">下一页</a>
-  
-</div>
-
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-  <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
-</div>
-
+        </div>
       </div>
     </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
   </body>
 </html>

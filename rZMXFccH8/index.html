@@ -1,13 +1,20 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" >
+
 <title>动态规划学习笔记 | 和JZ贴贴~</title>
-<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604583674025">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604840612149">
 <link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="动态规划学习笔记 | 和JZ贴贴~ - Atom Feed" href="https://youziki.github.io/atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 
 
@@ -18,88 +25,84 @@ CF908G New Year and Original Order
 某位歌姬的故事
 [POI2015..." />
     <meta name="keywords" content="学习笔记" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://youziki.github.io">
-  <img class="avatar" src="https://youziki.github.io/images/avatar.png?v=1604583674025" alt="">
-  </a>
-  <h1 class="site-title">
-    和JZ贴贴~
-  </h1>
-  <p class="site-description">
-    众人皆醉我独醒
-  </p>
-  <div class="menu-container">
-    
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://youziki.github.io">
+        <img src="https://youziki.github.io/images/avatar.png?v=1604840612149" class="site-logo">
+        <h1 class="site-title">和JZ贴贴~</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
       
-        <a href="/" class="menu">
-          首页
-        </a>
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
       
-    
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
       
-        <a href="/archives" class="menu">
-          归档
-        </a>
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
       
-    
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
       
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
+    </div>
   </div>
-  <div class="social-container">
-    
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
+      
+    </div>
+    <div class="site-description">
+      众人皆醉我独醒
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
   </div>
 </div>
 
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              动态规划学习笔记
-            </h2>
-            <div class="post-info">
-              <span>
-                2020-10-30
-              </span>
-              <span>
-                1 min read
-              </span>
-              
-                <a href="https://youziki.github.io/4STTQXNzf/" class="post-tag">
-                  # 学习笔记
-                </a>
-              
-            </div>
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">动态规划学习笔记</h2>
+            <div class="post-date">2020-10-30</div>
             
-              <img class="post-feature-image" src="https://cdn.luogu.com.cn/upload/image_hosting/xdvp0hhr.png" alt="">
+              <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/xdvp0hhr.png')">
+              </div>
             
-            <div class="post-content-wrapper">
-              <div class="post-content">
-                <p><s>一道都没做的时候预料到自己会是题解的搬运工</s> upd：9.22.21:02</p>
+            <div class="post-content" v-pre>
+              <p><s>一道都没做的时候预料到自己会是题解的搬运工</s> upd：9.22.21:02</p>
 <p>团队难题做不动，该做CF2000左右dp题</p>
 <h2 id="团队难题题解挖坑">团队难题题解挖坑：</h2>
 <h3 id="cf908g-new-year-and-original-order"><a href="https://www.luogu.com.cn/problem/CF908G">CF908G New Year and Original Order</a></h3>
@@ -117,103 +120,58 @@ CF908G New Year and Original Order
 <h3 id="cf533b-work-group"><a href="https://www.luogu.com.cn/problem/CF533B">CF533B Work Group</a></h3>
 <h3 id=""></h3>
 
-              </div>
-              <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E5%9B%A2%E9%98%9F%E9%9A%BE%E9%A2%98%E9%A2%98%E8%A7%A3%E6%8C%96%E5%9D%91">团队难题题解挖坑：</a>
-<ul>
-<li><a href="#cf908g-new-year-and-original-order">CF908G New Year and Original Order</a></li>
-<li><a href="#%E6%9F%90%E4%BD%8D%E6%AD%8C%E5%A7%AC%E7%9A%84%E6%95%85%E4%BA%8B">某位歌姬的故事</a></li>
-<li><a href="#poi2015myj">[POI2015]MYJ</a></li>
-<li><a href="#sp3734-periodni-periodni">SP3734 PERIODNI - Periodni</a></li>
-</ul>
-</li>
-<li><a href="#cf2000dp%E9%A2%98%E6%89%93%E5%8D%A1">CF2000dp题打卡：</a>
-<ul>
-<li><a href="#928">9.28：</a></li>
-<li><a href="#cf296b-yaroslav-and-two-strings">CF296B Yaroslav and Two Strings</a></li>
-<li><a href="#929">9.29：</a></li>
-<li><a href="#cf229d-towers">CF229D Towers</a></li>
-<li><a href="#cf82d-two-out-of-three">CF82D Two out of Three</a></li>
-<li><a href="#cf855c-helga-hufflepuffs-cup">CF855C Helga Hufflepuff's Cup</a></li>
-<li><a href="#cf847e-packmen">CF847E Packmen</a></li>
-<li><a href="#cf533b-work-group">CF533B Work Group</a></li>
-<li></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-              </div>
             </div>
-          </article>
-        </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://youziki.github.io/4STTQXNzf/" class="tag">
+                    学习笔记
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://youziki.github.io/MMhjaffUC/">
+                  <h3 class="post-title">
+                    题解 9.22 模拟赛 T1 &amp; T2
+                  </h3>
+                </a>
+              </div>
+            
 
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://youziki.github.io/MMhjaffUC/">
-              <h3 class="post-title">
-                题解 9.22 模拟赛 T1 &amp; T2
-              </h3>
-            </a>
+            
+
           </div>
-        
 
-        
-
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-  <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
-</div>
-
+        </div>
       </div>
     </div>
 
-    <script>
-      hljs.initHighlightingOnLoad()
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
 
-      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+AOS.init();
 
-      // This should probably be throttled.
-      // Especially because it triggers during smooth scrolling.
-      // https://lodash.com/docs/4.17.10#throttle
-      // You could do like...
-      // window.addEventListener("scroll", () => {
-      //    _.throttle(doThatStuff, 100);
-      // });
-      // Only not doing it here to keep this Pen dependency-free.
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
-      window.addEventListener("scroll", event => {
-        let fromTop = window.scrollY;
+</script>
 
-        mainNavLinks.forEach((link, index) => {
-          let section = document.getElementById(decodeURI(link.hash).substring(1));
-          let nextSection = null
-          if (mainNavLinks[index + 1]) {
-            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-          }
-          if (section.offsetTop <= fromTop) {
-            if (nextSection) {
-              if (nextSection.offsetTop > fromTop) {
-                link.classList.add("current");
-              } else {
-                link.classList.remove("current");    
-              }
-            } else {
-              link.classList.add("current");
-            }
-          } else {
-            link.classList.remove("current");
-          }
-        });
-      });
 
-    </script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
   </body>
 </html>

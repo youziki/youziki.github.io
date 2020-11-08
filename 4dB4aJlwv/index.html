@@ -1,13 +1,20 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" >
+
 <title>题解 8.21 T2 序列 | 和JZ贴贴~</title>
-<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604583674025">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604840612149">
 <link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="题解 8.21 T2 序列 | 和JZ贴贴~ - Atom Feed" href="https://youziki.github.io/atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 
 
@@ -25,88 +32,84 @@
 如果选则了这样的一段区间，显然可以拆为：2 5 | 4 10
 更..." />
     <meta name="keywords" content="那年暑假，我们砥砺前行——启智树" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://youziki.github.io">
-  <img class="avatar" src="https://youziki.github.io/images/avatar.png?v=1604583674025" alt="">
-  </a>
-  <h1 class="site-title">
-    和JZ贴贴~
-  </h1>
-  <p class="site-description">
-    众人皆醉我独醒
-  </p>
-  <div class="menu-container">
-    
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://youziki.github.io">
+        <img src="https://youziki.github.io/images/avatar.png?v=1604840612149" class="site-logo">
+        <h1 class="site-title">和JZ贴贴~</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
       
-        <a href="/" class="menu">
-          首页
-        </a>
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
       
-    
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
       
-        <a href="/archives" class="menu">
-          归档
-        </a>
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
       
-    
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
       
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
+    </div>
   </div>
-  <div class="social-container">
-    
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
+      
+    </div>
+    <div class="site-description">
+      众人皆醉我独醒
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
   </div>
 </div>
 
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              题解 8.21 T2 序列
-            </h2>
-            <div class="post-info">
-              <span>
-                2020-10-30
-              </span>
-              <span>
-                6 min read
-              </span>
-              
-                <a href="https://youziki.github.io/WZIkvhEfs/" class="post-tag">
-                  # 那年暑假，我们砥砺前行——启智树
-                </a>
-              
-            </div>
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">题解 8.21 T2 序列</h2>
+            <div class="post-date">2020-10-30</div>
             
-              <img class="post-feature-image" src="https://cdn.luogu.com.cn/upload/image_hosting/0pz3220b.png" alt="">
+              <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/0pz3220b.png')">
+              </div>
             
-            <div class="post-content-wrapper">
-              <div class="post-content">
-                <h1 id="挺好的结论题实现也不错">挺好的结论题，实现也不错</h1>
+            <div class="post-content" v-pre>
+              <h1 id="挺好的结论题实现也不错">挺好的结论题，实现也不错</h1>
 <h2 id="题意">题意：</h2>
 <p>将一个序列划分为任意段，使得所有段极差之和最大</p>
 <h2 id="题解">题解：</h2>
@@ -290,113 +293,58 @@ signed main(){
  }
 </code></pre>
 
-              </div>
-              <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li><a href="#%E6%8C%BA%E5%A5%BD%E7%9A%84%E7%BB%93%E8%AE%BA%E9%A2%98%E5%AE%9E%E7%8E%B0%E4%B9%9F%E4%B8%8D%E9%94%99">挺好的结论题，实现也不错</a>
-<ul>
-<li><a href="#%E9%A2%98%E6%84%8F">题意：</a></li>
-<li><a href="#%E9%A2%98%E8%A7%A3">题解：</a>
-<ul>
-<li><a href="#%E7%BB%93%E8%AE%BA">结论：</a>
-<ul>
-<li><a href="#%E8%AF%81%E6%98%8E-%E6%89%8B%E7%8E%A9">证明 <s>（手玩）</s>：</a></li>
-</ul>
-</li>
-<li><a href="#%E5%AE%9E%E7%8E%B0">实现：</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BB%A3%E7%A0%81">代码：</a>
-<ul>
-<li><a href="#%E8%AF%9D%E8%AF%B4ang%E7%A5%9E%E7%A0%81%E9%A3%8E%E5%A5%BD%E5%A5%BD%E7%9C%8B">话说ang神码风好好看</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E6%96%87%E6%9C%AB">文末</a>
-<ul>
-<li><a href="#-%E4%B8%8B%E9%9D%A2%E8%AF%B4%E8%AF%B4">- 下面说说：</a>
-<ul>
-<li><a href="#%E6%88%91%E7%9A%84%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81">我的错误代码：</a>
-<ul>
-<li><a href="#%E9%94%99%E8%AF%AF%E5%8E%86%E7%A8%8B">错误历程：</a></li>
-<li><a href="#hack%E6%95%B0%E6%8D%AE%E6%9B%B4%E5%8A%A0%E7%9B%B4%E8%A7%82%E5%9C%B0%E7%90%86%E8%A7%A3%E4%B8%8D%E6%80%A7%E6%84%9F">hack数据（更加直观地理解<s>不性感</s>）：</a></li>
-<li><a href="#%E4%BB%A3%E7%A0%81-2">代码：</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-              </div>
             </div>
-          </article>
-        </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://youziki.github.io/WZIkvhEfs/" class="tag">
+                    那年暑假，我们砥砺前行——启智树
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://youziki.github.io/MDeWh3EZb/">
+                  <h3 class="post-title">
+                    题解 8.20 T2 无聊的日常
+                  </h3>
+                </a>
+              </div>
+            
 
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://youziki.github.io/MDeWh3EZb/">
-              <h3 class="post-title">
-                题解 8.20 T2 无聊的日常
-              </h3>
-            </a>
+            
+
           </div>
-        
 
-        
-
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-  <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
-</div>
-
+        </div>
       </div>
     </div>
 
-    <script>
-      hljs.initHighlightingOnLoad()
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
 
-      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+AOS.init();
 
-      // This should probably be throttled.
-      // Especially because it triggers during smooth scrolling.
-      // https://lodash.com/docs/4.17.10#throttle
-      // You could do like...
-      // window.addEventListener("scroll", () => {
-      //    _.throttle(doThatStuff, 100);
-      // });
-      // Only not doing it here to keep this Pen dependency-free.
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
-      window.addEventListener("scroll", event => {
-        let fromTop = window.scrollY;
+</script>
 
-        mainNavLinks.forEach((link, index) => {
-          let section = document.getElementById(decodeURI(link.hash).substring(1));
-          let nextSection = null
-          if (mainNavLinks[index + 1]) {
-            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-          }
-          if (section.offsetTop <= fromTop) {
-            if (nextSection) {
-              if (nextSection.offsetTop > fromTop) {
-                link.classList.add("current");
-              } else {
-                link.classList.remove("current");    
-              }
-            } else {
-              link.classList.add("current");
-            }
-          } else {
-            link.classList.remove("current");
-          }
-        });
-      });
 
-    </script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
   </body>
 </html>
