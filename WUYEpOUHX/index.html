@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>题解 11.9 模拟赛 | 和JZ贴贴~</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604912834933">
+<link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="T1 淘淘蓝蓝之游戏
+大水题
+T2 淘淘蓝蓝与保温箱
+也挺水的，纯暴力就能过，就是转移和初始化的时候常规费了点心思
+Code：
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+con..." />
+    <meta name="keywords" content="比赛" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://youziki.github.io">
+        <img src="https://youziki.github.io/images/avatar.png?v=1604912834933" class="site-logo">
+        <h1 class="site-title">和JZ贴贴~</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      众人皆醉我独醒
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">题解 11.9 模拟赛</h2>
+            <div class="post-date">2020-11-09</div>
+            
+              <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p><a href="http://sjzezoj.com:9280/problem/21">T1 淘淘蓝蓝之游戏</a></p>
+<p>大水题</p>
+<p><a href="http://sjzezoj.com:9280/problem/22">T2 淘淘蓝蓝与保温箱</a></p>
+<p>也挺水的，纯暴力就能过，就是转移和初始化的时候常规费了点心思</p>
+<h4 id="code">Code：</h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+const int N = 85;
+
+int n, q, k, suma, sumb;
+int a[N], b[N], f[N][N][N * 20], g[N];
+
+int main()
+{
+	freopen(&quot;box.in&quot;, &quot;r&quot;, stdin);
+	freopen(&quot;box.out&quot;, &quot;w&quot;, stdout);
+	
+	scanf(&quot;%d&quot;, &amp;n);
+	for (int i = 1; i &lt;= n; ++i) scanf(&quot;%d&quot;, a + i), suma += a[i];
+	for (int i = 1; i &lt;= n; ++i) scanf(&quot;%d&quot;, b + i), sumb += b[i];
+	
+	// dp
+	memset(f, 0xcf, sizeof f);
+	f[0][0][0] = 0;
+	for (int i = 1; i &lt;= n; ++i)
+	{
+		for (int j = 0; j &lt;= i; ++j)
+			for (int k = 0; k &lt;= sumb; ++k)
+				f[i][j][k] = f[i - 1][j][k];
+		for (int j = 1; j &lt;= i; ++j)
+			for (int k = b[i]; k &lt;= sumb; ++k)
+				f[i][j][k] = max(f[i][j][k], f[i - 1][j - 1][k - b[i]] + a[i]);
+	}
+	
+	scanf(&quot;%d&quot;, &amp;q);
+	memset(g, 0x3f, sizeof g);
+	while (q --)
+	{
+		scanf(&quot;%d&quot;, &amp;k);
+		if (g[k] &lt; 0x3f3f3f3f)
+		{
+			printf(&quot;%d\n&quot;, g[k]);
+			continue;
+		}
+		int ans = -1;
+		for (int i = suma; i &lt;= sumb; ++i)
+			ans = max(ans, f[n][k][i]);
+		printf(&quot;%d\n&quot;, g[k] = (ans &lt;= -1 ? -1 : suma - ans));
+	}
+	
+	fclose(stdin);
+	fclose(stdout);
+	return 0;
+}
+/*
+选不超过k个
+总体积大于等于总水量
+总价值最大
+f[i][j][k]前i个(80)，选了j个(80)，体积为k(80*20)，最大价值(2)
+*/
+</code></pre>
+<p><a href="http://sjzezoj.com:9280/problem/23">T3 淘淘蓝蓝之树林</a></p>
+<h4 id="solution">Solution：</h4>
+<p>好题！</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/tlhffw3a.png" alt="" loading="lazy"><br>
+<img src="https://cdn.luogu.com.cn/upload/image_hosting/wvi2hq8l.png" alt="" loading="lazy"><br>
+<img src="https://cdn.luogu.com.cn/upload/image_hosting/a43oiu5d.png" alt="" loading="lazy"><br>
+<img src="https://cdn.luogu.com.cn/upload/image_hosting/g3yv9e65.png" alt="" loading="lazy"><br>
+<img src="https://cdn.luogu.com.cn/upload/image_hosting/7acha9nm.png" alt="" loading="lazy"><br>
+<img src="https://cdn.luogu.com.cn/upload/image_hosting/6qaebv2m.png" alt="" loading="lazy"><br>
+<img src="https://cdn.luogu.com.cn/upload/image_hosting/24qa4wu7.png" alt="" loading="lazy"><br>
+<img src="https://cdn.luogu.com.cn/upload/image_hosting/tbf4smky.png" alt="" loading="lazy"><br>
+<img src="https://cdn.luogu.com.cn/upload/image_hosting/o4461e4t.png" alt="" loading="lazy"></p>
+<h4 id="code-自己的码风好评">Code <s>(自己的码风好评)</s>：</h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+#define pii pair&lt;int, int&gt;
+
+const int N = 2333;
+const int INF = 1e8;
+
+char ch[N][N];
+int n, m, dis[N][N], sx, sy, px = INF, py;
+pii q[N];
+int facx[8] = {-1, 1, 0, 0, -1, -1, 1, 1}, facy[8] = {0, 0, -1, 1, -1, 1, -1, 1};
+
+inline void init()
+{
+	scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+	for (int i = 1; i &lt;= n; ++i) scanf(&quot;%s&quot;, ch[i] + 1);
+	for (int i = 1; i &lt;= n; ++i)
+		for (int j = 1; j &lt;= m; ++j)
+			if (ch[i][j] == '*') sx = i, sy = j;
+			else if (ch[i][j] == 'X' &amp;&amp; px &gt; i) px = i, py = j;
+	
+	for (int i = 1; i &lt; px; ++i) ch[i][py] = 'X';
+}
+
+inline bool check(int x, int y)
+{
+	if (x &lt; 1 || y &lt; 1) return 0;
+	if (x &gt; n || y &gt; m) return 0;
+	if (ch[x][y] == 'X') return 0;
+	return 1;
+}
+
+#define f dis
+queue&lt;pair&lt;int, int&gt; &gt; q;
+void spfa()
+{
+    memset(f, 0x3f, sizeof(f));
+    f[sx][sy] = 0;
+    q.push(make_pair(sx, sy));
+    while (q.size())
+	{
+        int x = q.front().first, y = q.front().second;
+        q.pop();
+        for (int i = 0; i &lt; 8; ++i)
+		{
+            int tx = x + facx[i], ty = y + facy[i];
+            if (tx &gt;= 1 &amp;&amp; tx &lt;= n &amp;&amp; ty &gt;= 1 &amp;&amp; ty &lt;= m &amp;&amp; f[x][y] + 1 &lt; f[tx][ty] &amp;&amp; ch[tx][ty] != 'X')
+			{
+                f[tx][ty] = f[x][y] + 1;
+                q.push(make_pair(tx, ty));
+            }
+        }
+    }
+}
+//inline void spfa() // 01bfs
+//{
+//	memset(dis, 0x3f, sizeof dis);
+//	int hh = 0, tt = 1;
+//	dis[sx][sy] = 0, q[0] = {sx, sy};
+//	
+//	while(hh != tt)
+//	{
+//		int x = q[hh].first, y = q[hh ++].second;
+//		if (hh == N - 2) hh = 0;
+//		
+//		for (int i = 0; i &lt; 8; ++i)
+//		{
+//			int tx = x + facx[i], ty = y + facy[i];
+//			if (! check(tx, ty)) continue;
+//			if (dis[x][y] + 1 &lt; dis[tx][ty])
+//			{
+//				dis[tx][ty] = dis[x][y] + 1;
+//				q[tt ++] = {tx, ty};
+//				if (tt == N - 2) tt = 0;
+//			}
+//		}
+//	}
+//}
+
+inline void calc()
+{
+	int ans = INF;
+	for (int i = 1; i &lt; px; ++i)
+	{
+		int t1 = min( dis[i][py + 1], min( dis[i + 1][py + 1], dis[i - 1][py + 1] ) );
+		int t2 = min( dis[i][py - 1], min( dis[i + 1][py - 1], dis[i - 1][py - 1] ) );
+		ans = min(ans, t1 + t2 + 2);
+	}
+	
+	printf(&quot;%d&quot;, ans);
+}
+
+signed main()
+{
+	init();
+	spfa();
+	calc();
+	
+	return 0;
+}
+</code></pre>
+<p><a href="http://sjzezoj.com:9280/problem/24">T4 淘淘蓝蓝之扮猪吃愉悦</a></p>
+<p>还不会，咕~</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://youziki.github.io/ajbBPuKpd/" class="tag">
+                    比赛
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://youziki.github.io/xtZfEILOr/">
+                  <h3 class="post-title">
+                    SA 1
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
