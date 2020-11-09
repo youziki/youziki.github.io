@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604841108616">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604904872191">
 <link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
 
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://youziki.github.io">
-        <img src="https://youziki.github.io/images/avatar.png?v=1604841108616" class="site-logo">
+        <img src="https://youziki.github.io/images/avatar.png?v=1604904872191" class="site-logo">
         <h1 class="site-title">和JZ贴贴~</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -141,71 +141,7 @@
                   2020-11-04
                 </div>
                 <div class="post-abstract">
-                  <h3 id="p1800-software"><a href="https://www.luogu.com.cn/problem/P1800">P1800 software</a></h3>
-<h4 id="题意">题意：</h4>
-<p>A，B两个工作，每个工作m个模块，n个人，每个人做A模块速度a[i]，做B模块速度b[i]，所有人同时做求最短时间</p>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo separator="true">,</mo><mi>m</mi><mo separator="true">,</mo><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo separator="true">,</mo><mi>b</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>&lt;</mo><mo>=</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">n,m,a[i],b[i] &lt;= 100</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span></span></span></span></p>
-<h4 id="solution">Solution：</h4>
-<p>考场上只有暴力<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>5</mn></msup><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^5logn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>做法，能水60tps，正解<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>3</mn></msup><mi>l</mi><mi>o</mi><mi>g</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^3log)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mclose">)</span></span></span></span>，二分肯定是要的，关键在于如何<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span>判断是否可做完</p>
-<p>令<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">f[i][j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>表示前i个人，做j个A，最多能做的B的个数，如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>[</mo><mi>n</mi><mo>]</mo><mo>[</mo><mi>m</mi><mo>]</mo><mo>&gt;</mo><mo>=</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">f[n][m]&gt;=m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathdefault">n</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">m</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>说明有解，转移枚举第i个人做多少A即可，<strong>贪心的思路：已知一个人做多少A后，令他做的B最多</strong></p>
-<h4 id="code">Code：</h4>
-<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
-
-const int N = 205;
-
-int n, m, a[N], b[N], f[N][N];
-
-inline bool check(int mid)
-{
-	memset(f, 0, sizeof f);
-	
-	int tot = 0;
-	for(int i = 1; i &lt;= n; ++i)
-	{
-		int J = mid / a[i];
-		for(int j = 0; j &lt;= J; ++j)
-		{
-			int K = (mid - j * a[i]) / b[i];
-			for(int k = j; k &lt;= min(tot + j, m); ++k)
-				f[i][k] = max(f[i][k], f[i - 1][k - j] + K);
-		}
-		
-		tot += J;
-		if(f[i][m] &gt;= m) return 1;
-	}
-	
-	return 0;
-}
-
-signed main()
-{
-	scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
-	for(int i = 1; i &lt;= n; ++i) scanf(&quot;%d%d&quot;, a + i, b + i);
-	
-	int l = 1, r = m * a[1] + m * b[1];
-	while(l &lt; r)
-	{
-		int mid = (l + r) &gt;&gt; 1;
-		if(check(mid)) r = mid;
-		else l = mid + 1;
-	}
-	
-	printf(&quot;%d&quot;, l);
-	
-	return 0;
-}
-</code></pre>
-<h4 id="总结">总结：</h4>
-<p>判断不一定要让A和B的数量刚好等于m，只要不少于即可，所以可确定一维然后贪心</p>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span>的状态也很不错</p>
-<h3 id="u139126-最大后缀值个数"><a href="https://www.luogu.com.cn/problem/U139126?contestId=36723">U139126 最大后缀值个数</a></h3>
-<h4 id="题意-2">题意：</h4>
-<p>给一颗有点权的树，对每个点求出从根到它路径上点权等于后缀最大值的点的数量</p>
-<h4 id="solution-2">Solution：</h4>
-<p>答案等于单调栈内元素数量是挺显然的，树上单调栈思路也不难，把回溯时还原整明白了就行了，但考场上回溯还原也没整对（可能我那样复杂度有假，不知为什么还会WA两个）</p>
-<p>正解给出了处理回溯还原的更简单更妙的方法，不模拟单调栈，直接二分插入位置，记录下原top和这个位置原值，最后只还原这两个值即可。这样做为什么是对的？因为实际上就改变了这两个值对吧，归纳地想，其实应该弹栈的元素都没有动，而后面递归的时候后面的元素虽说被覆盖，也会在回溯的时候还原，所以其实也只有二分到的位置和top有改动</p>
-
+                  
                 </div>
               </div>
               
