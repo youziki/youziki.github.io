@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>CSP2020 题解 | 和JZ贴贴~</title>
+<meta name="description" content="众人皆醉我独醒">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1605017592420">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
+
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://youziki.github.io">和JZ贴贴~</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/post/about" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>CSP2020 题解</h1>
+            <p class="article-meta">
+              2020-11-10
+              
+                <a href="https://youziki.github.io/ajbBPuKpd/" class="badge ">
+                  比赛
+                </a>
+              
+            </p>
+            
+              <img src="https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png" alt="CSP2020 题解">
+            
+            <div class="post-content">
+              <h1 id="j组">J组</h1>
+<h3 id="t1-优秀的拆分"><a href="https://www.acwing.com/problem/content/2769/">T1 优秀的拆分</a></h3>
+<h4 id="难度红">难度：红</h4>
+<p>水~</p>
+<h3 id="t2-直播获奖"><a href="https://www.acwing.com/problem/content/2770/">T2 直播获奖</a></h3>
+<h4 id="难度黄绿">难度：黄/绿</h4>
+<h4 id="solution">Solution：</h4>
+<ol>
+<li>
+<p>树状数组+二分 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>l</mi><mi>o</mi><msup><mi>g</mi><mn>2</mn></msup><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nlog^2 n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></p>
+</li>
+<li>
+<p>正解：对顶堆 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nlogn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></p>
+<p><s>我这个sb居然还想的是对顶栈！</s></p>
+<p>这可以说是一个<strong>对顶堆</strong>板子题， 好好学着：</p>
+<figure data-type="image" tabindex="1"><img src="https://cdn.luogu.com.cn/upload/image_hosting/n8hmk5cs.png" alt="" loading="lazy"></figure>
+<ul>
+<li>
+<p>右边一个<strong>小根堆</strong>，为了让分界线处元素为堆顶元素，左边一个<strong>大根堆</strong>，为了让分界线左边一个元素为堆顶元素</p>
+</li>
+<li>
+<p>右边堆的堆顶时刻保持是分界线处的元素（根据题目不同有时为分界线左边有时为分界线右边），本题为分界线右边</p>
+</li>
+<li>
+<p>图中的序列是从小到大排好序的（实际上不排），可以发现，题中实际上就是求右边符合条件的部分最靠左的元素，即右边堆的堆顶</p>
+</li>
+<li>
+<p>新插入一个元素x，如果x&lt;右边堆的堆顶元素或右边堆为空，就将x加入右边堆，否则加入左边堆（在“排序”好的数组中加入一个元素是多么的简单！）</p>
+</li>
+<li>
+<p>关键来了：如何维护左右两堆</p>
+<p>算出新的右边堆应该的siz（橙色部分），如果右边堆元素大于这个，弹堆顶到左边堆（相当于分界线在新排序好的数组中移动），同理，如果不足，就从左边堆弹堆顶到右边堆</p>
+</li>
+<li>
+<p>时间复杂度证明：每次插入元素是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nlogn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，分界线移动的总次数不会超过<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，所以也是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nlogn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，总时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nlogn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></p>
+</li>
+</ul>
+</li>
+</ol>
+<h5 id="多么美妙的算法">多么美妙的算法！</h5>
+<h4 id="code">Code：</h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+signed main()
+{
+    int n, w;
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;w);
+    
+    priority_queue&lt;int&gt; left;
+    priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt; &gt; right;
+    
+    for (int i = 1; i &lt;= n; ++i)
+    {
+        int x;
+        scanf(&quot;%d&quot;, &amp;x);
+        if (right.empty() || x &gt;= right.top()) right.push(x);
+        else left.push(x);
+        
+        int k = max(1, int(i / 100.0 * w));
+        while (right.size() &gt; k) left.push(right.top()), right.pop();
+        while (right.size() &lt; k) right.push(left.top()), left.pop();
+        
+        printf(&quot;%d &quot;, right.top());
+    }
+    
+    return 0;
+}
+</code></pre>
+<h3 id="t3-表达式"><a href="https://www.acwing.com/problem/content/2771/">T3 表达式</a></h3>
+<h4 id="难度蓝起码">难度：蓝（起码）</h4>
+<h4 id="solution-2">Solution：</h4>
+<p>感觉并不比<span class='katex-error' title='ParseError: KaTeX parse error: Double subscript at position 6: ywy_c_̲asm'>ywy_c_asm</span>的那道“求导”简单，细节比那道题似乎还多。。。</p>
+<p>同样是建出表达式树，题中给的后缀表达式还是简单了？（因为不用考虑括号的情况）</p>
+<p>建完之后求出每个节点的值</p>
+<p>比较方便的是每次只修改一个节点的值，而且对后面没有影响，而且只需要输出根节点的值，可以想到观察<strong>满足什么样的条件，才能让一个子节点改变之后，父节点的值改变</strong>，这个思路与<a href="https://www.luogu.com.cn/problem/P4332">三叉神经树</a>的核心思想一样！（所以说这题不简单~）于是就可以预处理出哪些点改变之后根节点会改变，打上标记，询问时候<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>回答询问即可</p>
+<p>代码难度 O(考场爆0)</p>
+<h4 id="code-2">Code：</h4>
+<p>没时间写啦！</p>
+<h3 id="t4-方格取数"><a href="https://www.acwing.com/problem/content/2772/">T4 方格取数</a></h3>
+<h4 id="难度蓝">难度：蓝</h4>
+<h4 id="solution-3">Solution：</h4>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span>吼题啊！</p>
+<p><s>想半个duo小时</s>可以想到用前缀和做，从左往右<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span>，代码有点恶心，一遍70，时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mi>m</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^2 m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathdefault">m</span><span class="mclose">)</span></span></span></span></p>
+<p>实在想不出正解<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>m</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nm)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord mathdefault">m</span><span class="mclose">)</span></span></span></span>做法：</p>
+<p>每到一个点的状态可以是从左边直接过来的或是从上面下来的，或是从下面上来的，所以直接按位置<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span>，从左往右<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span>，从上往下统计一遍最优解，从下往上再更新一遍，保证每个位置的三种情况都考虑过了</p>
+<p>注意：第二遍<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span>的时候要用s变量辅助记录到上一个位置（下方）的最优解，因为s可以保证是从下或左转移而来的，而如果用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>[</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">f[i + 1][j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>进行更新，其表示的含义有可能是从上面下来的最优解，再上去，与题意不符</p>
+<h4 id="code-3">Code：</h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+#define LL long long
+
+const int N = 1005;
+
+int n, m, a[N][N];
+LL f[N][N];
+
+signed main()
+{
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+    for (int i = 1; i &lt;= n; ++i)
+        for (int j = 1; j &lt;= m; ++j)
+            scanf(&quot;%d&quot;, &amp;a[i][j]);
+    
+    memset(f, 0xcf, sizeof f);
+    f[1][0] = 0;
+    for (int j = 1; j &lt;= m; ++j)
+    {
+        for (int i = 1; i &lt;= n; ++i)
+            f[i][j] = max(f[i][j - 1], f[i - 1][j]) + a[i][j];
+        LL s = -1e18;
+        for (int i = n; i; --i)
+        {
+            s = max(s, f[i][j - 1]) + a[i][j];
+            f[i][j] = max(f[i][j], s);
+        }
+    }
+    
+    printf(&quot;%lld&quot;, f[n][m]);
+    
+    return 0;
+}
+</code></pre>
+<h1 id="s组">S组</h1>
+<h3 id="t1-儒略日"><a href="https://www.acwing.com/problem/content/2773/">T1 儒略日</a></h3>
+<h4 id="难度绿">难度：绿</h4>
+<p>恶心死了</p>
+<h3 id="t2-动物园"><a href="https://www.acwing.com/problem/content/2774/">T2 动物园</a></h3>
+<h4 id="难度绿-2">难度：绿</h4>
+<p>思路很好想，特判太恶心：</p>
+<ul>
+<li>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>=</mo><mn>64</mn></mrow><annotation encoding="application/x-tex">k=64</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span><span class="mord">4</span></span></span></span>会爆<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>u</mi><mi>n</mi><mi>s</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi>e</mi><mi>d</mi><mi>l</mi><mi>o</mi><mi>n</mi><mi>g</mi><mi>l</mi><mi>o</mi><mi>n</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">unsigned long long</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">u</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mord mathdefault">e</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span></span></span></span>，必须特派判</p>
+</li>
+<li>
+<p>记得开<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>u</mi><mi>n</mi><mi>s</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi>e</mi><mi>d</mi><mi>l</mi><mi>o</mi><mi>n</mi><mi>g</mi><mi>l</mi><mi>o</mi><mi>n</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">unsigned long long</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">u</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mord mathdefault">e</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span></span></span></span>！输入、输出、中间过程，少一点都不行！！！</p>
+</li>
+</ul>
+<h3 id="t3-函数调用"><a href="https://www.acwing.com/problem/content/2775/">T3 函数调用</a></h3>
+<h4 id="难度蓝-2">难度：蓝</h4>
+<h4 id="code-4">Code：</h4>
+<pre><code class="language-cpp">
+</code></pre>
+<h3 id="t4-贪吃蛇"><a href="https://www.acwing.com/problem/content/2776/">T4 贪吃蛇</a></h3>
+<h4 id="难度紫">难度：紫</h4>
+<h4 id="code-5">Code：</h4>
+<pre><code class="language-cpp">
+</code></pre>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://youziki.github.io/ETwmqieTf/">
+                <h3 class="post-title">
+                  二维树状数组 1
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://youziki.github.io/images/avatar.png?v=1605017592420" class="no-responsive avatar">
+    <div class="text-muted">众人皆醉我独醒</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://youziki.github.io/DCsUFx0Nx/">CSP2020 题解</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/ETwmqieTf/">二维树状数组 1</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/LmMs6J-gP/">题解 11.10 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/WUYEpOUHX/">题解 11.9 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/xtZfEILOr/">SA 1</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/eS4-asQD4/">图论屑题复习 1</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/1koxEwg5w/">题解 11.3 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/soQX-qFgk/">题解 CF424C 【Magic Formulas】</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/o5cC90pZk/">题解 CF1442A 【Extreme Subtraction】</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/q57710-6-/">题解 CF1443A 【Kids Seating】</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge secondary">
+          比赛
+        </a>
+      
+        <a href="https://youziki.github.io/4STTQXNzf/" class="badge secondary">
+          学习笔记
+        </a>
+      
+        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge secondary">
+          刷题
+        </a>
+      
+        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge secondary">
+          题解
+        </a>
+      
+        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge ">
+          其他
+        </a>
+      
+        <a href="https://youziki.github.io/WZIkvhEfs/" class="badge warning">
+          那年暑假，我们砥砺前行——启智树
+        </a>
+      
+        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge secondary">
+          Gridea
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+
+  </body>
+</html>
