@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://youziki.github.io</id>
     <title>和JZ贴贴~</title>
-    <updated>2020-11-09T09:07:20.515Z</updated>
+    <updated>2020-11-10T09:35:09.252Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://youziki.github.io"/>
     <link rel="self" href="https://youziki.github.io/atom.xml"/>
@@ -11,189 +11,111 @@
     <icon>https://youziki.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 和JZ贴贴~</rights>
     <entry>
-        <title type="html"><![CDATA[题解 11.9 模拟赛]]></title>
-        <id>https://youziki.github.io/WUYEpOUHX/</id>
-        <link href="https://youziki.github.io/WUYEpOUHX/">
+        <title type="html"><![CDATA[二维树状数组 1]]></title>
+        <id>https://youziki.github.io/ETwmqieTf/</id>
+        <link href="https://youziki.github.io/ETwmqieTf/">
         </link>
-        <updated>2020-11-09T08:31:30.000Z</updated>
-        <content type="html"><![CDATA[<p><a href="http://sjzezoj.com:9280/problem/21">T1 淘淘蓝蓝之游戏</a></p>
-<p>大水题</p>
-<p><a href="http://sjzezoj.com:9280/problem/22">T2 淘淘蓝蓝与保温箱</a></p>
-<p>也挺水的，纯暴力就能过，就是转移和初始化的时候常规费了点心思</p>
+        <updated>2020-11-10T08:34:18.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="p4514-上帝造题的七分钟"><a href="https://www.luogu.com.cn/problem/P4514">P4514 上帝造题的七分钟</a></h3>
+<h4 id="solution">Solution：</h4>
+<ul>
+<li>
+<ol start="0">
+<li>区间加肯定是要差分的，强制在线就不能O(n^2)求前缀和，考虑树状数组动态维护前缀和 <s>（不就是二维的嘛）</s></li>
+</ol>
+</li>
+<li>
+<ol>
+<li>修改差分，前缀和表示单点值。要询问区间，就要再用二维前缀和的思想求一遍前缀和做一遍容斥</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>实际做起来很麻烦，推一推式子：</li>
+</ol>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>y</mi></msubsup><msubsup><mo>∑</mo><mrow><mi>h</mi><mo>=</mo><mn>1</mn></mrow><mi>i</mi></msubsup><msubsup><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>j</mi></msubsup><mi>a</mi><mo>[</mo><mi>h</mi><mo>]</mo><mo>[</mo><mi>k</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">\sum_{i = 1}^{x} \sum_{j = 1}^{y} \sum_{h = 1}^{i} \sum_{k = 1}^{j} a[h][k]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.400382em;vertical-align:-0.43581800000000004em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029000000000005em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">y</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.964564em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">h</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.964564em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029000000000005em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">h</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">]</span></span></span></span></p>
+<p>后两个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>∑</mo></mrow><annotation encoding="application/x-tex">\sum</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span></span></span></span>是单点值，前两个是在(x,y)位置处的二维前缀和，实际询问时就拿这个式子容斥（4个部分）</p>
+<p>考虑每一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mo>[</mo><mi>h</mi><mo>]</mo><mo>[</mo><mi>k</mi><mo>]</mo><mo>]</mo></mrow><annotation encoding="application/x-tex">d[h][k]]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mopen">[</span><span class="mord mathdefault">h</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">]</span><span class="mclose">]</span></span></span></span>的贡献（出现的次数），有下面的式子：</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>y</mi></msubsup><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>×</mo><mo>(</mo><mi>x</mi><mo>−</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo>)</mo><mo>×</mo><mo>(</mo><mi>y</mi><mo>−</mo><mi>j</mi><mo>+</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">\sum_{i = 1}^{x} \sum_{j = 1}^{y} a[i][j] \times (x - i + 1) \times (y - j + 1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.24011em;vertical-align:-0.43581800000000004em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029000000000005em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">y</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span></p>
+<p>整理得：</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>y</mi></msubsup><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>×</mo><mo>(</mo><mi>x</mi><mo>×</mo><mi>y</mi><mo>+</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo>+</mo><mn>1</mn><mo>)</mo><mo>−</mo><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>×</mo><mi>i</mi><mo>×</mo><mo>(</mo><mi>y</mi><mo>+</mo><mn>1</mn><mo>)</mo><mo>−</mo><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>×</mo><mi>j</mi><mo>×</mo><mo>(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo>)</mo><mo>+</mo><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>×</mo><mi>i</mi><mo>×</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">\sum_{i = 1}^{x} \sum_{j = 1}^{y} a[i][j] \times (x \times y + x + y + 1) - a[i][j] \times i \times (y + 1) - a[i][j] \times j \times (x + 1) + a[i][j] \times i \times j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.24011em;vertical-align:-0.43581800000000004em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029000000000005em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">y</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span></p>
+<p>就等于：</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>x</mi><mo>×</mo><mi>y</mi><mo>+</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo>+</mo><mn>1</mn><mo>)</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>y</mi></msubsup><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>−</mo><mo>(</mo><mi>y</mi><mo>+</mo><mn>1</mn><mo>)</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>y</mi></msubsup><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>×</mo><mi>i</mi><mo>−</mo><mo>(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo>)</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>y</mi></msubsup><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>×</mo><mi>j</mi><mo>+</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>y</mi></msubsup><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>×</mo><mi>i</mi><mo>×</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">(x \times y + x + y + 1)\sum_{i = 1}^{x} \sum_{j = 1}^{y} a[i][j] - (y + 1) \sum_{i = 1}^{x} \sum_{j = 1}^{y} a[i][j] \times i - (x + 1)\sum_{i = 1}^{x} \sum_{j = 1}^{y} a[i][j] \times j + \sum_{i = 1}^{x} \sum_{j = 1}^{y} a[i][j] \times i \times j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.24011em;vertical-align:-0.43581800000000004em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029000000000005em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">y</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.24011em;vertical-align:-0.43581800000000004em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029000000000005em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">y</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.24011em;vertical-align:-0.43581800000000004em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029000000000005em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">y</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.24011em;vertical-align:-0.43581800000000004em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029000000000005em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">y</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span></p>
+<p>于是就需要维护<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo separator="true">,</mo><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>×</mo><mi>i</mi><mo separator="true">,</mo><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>×</mo><mi>j</mi><mo separator="true">,</mo><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>×</mo><mi>i</mi><mo>×</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">a[i][j], a[i][j] \times i, a[i][j] \times j, a[i][j] \times i \times j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>的前缀和四个数组。这里代码有些容易理解错的点，注意：</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mi>d</mi><msub><mi>d</mi><mi>T</mi></msub></mrow><annotation encoding="application/x-tex">add_T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">d</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>函数内增量全为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo separator="true">,</mo><mi>k</mi><mo>∗</mo><mi>x</mi><mo separator="true">,</mo><mi>k</mi><mo>∗</mo><mi>y</mi><mo separator="true">,</mo><mi>k</mi><mo>∗</mo><mi>x</mi><mo>∗</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">k,k*x,k*y,k*x*y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>是因为，我们只在(x, y)（在式子中是(i, j)）位置增加了k，所以后面被影响到的增量是(x, y)为位置的增量，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mi>s</mi><msub><mi>k</mi><mi>T</mi></msub></mrow><annotation encoding="application/x-tex">ask_T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>函数内的x、y的含义不同，此时x和y为上面式子里的x和y，是前缀和的系数</p>
+</li>
+<li>
+<ol start="3">
+<li>总结一下，二维树状数组的两个核心函数的写法是“板子”的基础，本题是区间修改，所以需要多维护一个差分，两个前缀和加起来就需要推式子了。学习本题应先掌握板子部分，本题的扩展部分就好理解了。</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>思考：如果只是区间修改单点查询呢？只需要后两个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>∑</mo></mrow><annotation encoding="application/x-tex">\sum</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span></span></span></span>，如果只是单点修改区间查询呢？只需要前两个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>∑</mo></mrow><annotation encoding="application/x-tex">\sum</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span></span></span></span></li>
+</ol>
+</li>
+</ul>
+<p>CDQ似乎能拜托n的限制，只不过常数有点大，至于CDQ分治怎么做嘛，学了CDQ再说。。。</p>
 <h4 id="code">Code：</h4>
 <pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 using namespace std;
 
-const int N = 85;
-
-int n, q, k, suma, sumb;
-int a[N], b[N], f[N][N][N * 20], g[N];
-
-int main()
-{
-	freopen(&quot;box.in&quot;, &quot;r&quot;, stdin);
-	freopen(&quot;box.out&quot;, &quot;w&quot;, stdout);
-	
-	scanf(&quot;%d&quot;, &amp;n);
-	for (int i = 1; i &lt;= n; ++i) scanf(&quot;%d&quot;, a + i), suma += a[i];
-	for (int i = 1; i &lt;= n; ++i) scanf(&quot;%d&quot;, b + i), sumb += b[i];
-	
-	// dp
-	memset(f, 0xcf, sizeof f);
-	f[0][0][0] = 0;
-	for (int i = 1; i &lt;= n; ++i)
-	{
-		for (int j = 0; j &lt;= i; ++j)
-			for (int k = 0; k &lt;= sumb; ++k)
-				f[i][j][k] = f[i - 1][j][k];
-		for (int j = 1; j &lt;= i; ++j)
-			for (int k = b[i]; k &lt;= sumb; ++k)
-				f[i][j][k] = max(f[i][j][k], f[i - 1][j - 1][k - b[i]] + a[i]);
-	}
-	
-	scanf(&quot;%d&quot;, &amp;q);
-	memset(g, 0x3f, sizeof g);
-	while (q --)
-	{
-		scanf(&quot;%d&quot;, &amp;k);
-		if (g[k] &lt; 0x3f3f3f3f)
-		{
-			printf(&quot;%d\n&quot;, g[k]);
-			continue;
-		}
-		int ans = -1;
-		for (int i = suma; i &lt;= sumb; ++i)
-			ans = max(ans, f[n][k][i]);
-		printf(&quot;%d\n&quot;, g[k] = (ans &lt;= -1 ? -1 : suma - ans));
-	}
-	
-	fclose(stdin);
-	fclose(stdout);
-	return 0;
-}
-/*
-选不超过k个
-总体积大于等于总水量
-总价值最大
-f[i][j][k]前i个(80)，选了j个(80)，体积为k(80*20)，最大价值(2)
-*/
-</code></pre>
-<p><a href="http://sjzezoj.com:9280/problem/23">T3 淘淘蓝蓝之树林</a></p>
-<h4 id="solution">Solution：</h4>
-<p>好题！</p>
-<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/tlhffw3a.png" alt="" loading="lazy"><br>
-<img src="https://cdn.luogu.com.cn/upload/image_hosting/wvi2hq8l.png" alt="" loading="lazy"><br>
-<img src="https://cdn.luogu.com.cn/upload/image_hosting/a43oiu5d.png" alt="" loading="lazy"><br>
-<img src="https://cdn.luogu.com.cn/upload/image_hosting/g3yv9e65.png" alt="" loading="lazy"><br>
-<img src="https://cdn.luogu.com.cn/upload/image_hosting/7acha9nm.png" alt="" loading="lazy"><br>
-<img src="https://cdn.luogu.com.cn/upload/image_hosting/6qaebv2m.png" alt="" loading="lazy"><br>
-<img src="https://cdn.luogu.com.cn/upload/image_hosting/24qa4wu7.png" alt="" loading="lazy"><br>
-<img src="https://cdn.luogu.com.cn/upload/image_hosting/tbf4smky.png" alt="" loading="lazy"><br>
-<img src="https://cdn.luogu.com.cn/upload/image_hosting/o4461e4t.png" alt="" loading="lazy"></p>
-<h4 id="code-自己的码风好评">Code <s>(自己的码风好评)</s>：</h4>
-<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
-#define pii pair&lt;int, int&gt;
-
 const int N = 2333;
-const int INF = 1e8;
 
-char ch[N][N];
-int n, m, dis[N][N], sx, sy, px = INF, py;
-pii q[N];
-int facx[8] = {-1, 1, 0, 0, -1, -1, 1, 1}, facy[8] = {0, 0, -1, 1, -1, 1, -1, 1};
+int n, m, t[4][N][N];
+int x1, y_1, x2, y2, k;
 
-inline void init()
+inline int lowbit(int x)
 {
-	scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
-	for (int i = 1; i &lt;= n; ++i) scanf(&quot;%s&quot;, ch[i] + 1);
-	for (int i = 1; i &lt;= n; ++i)
-		for (int j = 1; j &lt;= m; ++j)
-			if (ch[i][j] == '*') sx = i, sy = j;
-			else if (ch[i][j] == 'X' &amp;&amp; px &gt; i) px = i, py = j;
-	
-	for (int i = 1; i &lt; px; ++i) ch[i][py] = 'X';
+	return x &amp; (- x);
 }
 
-inline bool check(int x, int y)
+inline void add_T(int x, int y, int k)
 {
-	if (x &lt; 1 || y &lt; 1) return 0;
-	if (x &gt; n || y &gt; m) return 0;
-	if (ch[x][y] == 'X') return 0;
-	return 1;
+	for (int i = x; i &lt;= n; i += lowbit(i))
+		for (int j = y; j &lt;= m; j += lowbit(j))
+			t[0][i][j] += k,
+			t[1][i][j] += k * x,
+			t[2][i][j] += k * y,
+			t[3][i][j] += k * x * y;
 }
 
-#define f dis
-queue&lt;pair&lt;int, int&gt; &gt; q;
-void spfa()
+inline int ask_T(int x, int y)
 {
-    memset(f, 0x3f, sizeof(f));
-    f[sx][sy] = 0;
-    q.push(make_pair(sx, sy));
-    while (q.size())
-	{
-        int x = q.front().first, y = q.front().second;
-        q.pop();
-        for (int i = 0; i &lt; 8; ++i)
-		{
-            int tx = x + facx[i], ty = y + facy[i];
-            if (tx &gt;= 1 &amp;&amp; tx &lt;= n &amp;&amp; ty &gt;= 1 &amp;&amp; ty &lt;= m &amp;&amp; f[x][y] + 1 &lt; f[tx][ty] &amp;&amp; ch[tx][ty] != 'X')
-			{
-                f[tx][ty] = f[x][y] + 1;
-                q.push(make_pair(tx, ty));
-            }
-        }
-    }
-}
-//inline void spfa() // 01bfs
-//{
-//	memset(dis, 0x3f, sizeof dis);
-//	int hh = 0, tt = 1;
-//	dis[sx][sy] = 0, q[0] = {sx, sy};
-//	
-//	while(hh != tt)
-//	{
-//		int x = q[hh].first, y = q[hh ++].second;
-//		if (hh == N - 2) hh = 0;
-//		
-//		for (int i = 0; i &lt; 8; ++i)
-//		{
-//			int tx = x + facx[i], ty = y + facy[i];
-//			if (! check(tx, ty)) continue;
-//			if (dis[x][y] + 1 &lt; dis[tx][ty])
-//			{
-//				dis[tx][ty] = dis[x][y] + 1;
-//				q[tt ++] = {tx, ty};
-//				if (tt == N - 2) tt = 0;
-//			}
-//		}
-//	}
-//}
-
-inline void calc()
-{
-	int ans = INF;
-	for (int i = 1; i &lt; px; ++i)
-	{
-		int t1 = min( dis[i][py + 1], min( dis[i + 1][py + 1], dis[i - 1][py + 1] ) );
-		int t2 = min( dis[i][py - 1], min( dis[i + 1][py - 1], dis[i - 1][py - 1] ) );
-		ans = min(ans, t1 + t2 + 2);
-	}
-	
-	printf(&quot;%d&quot;, ans);
+	int res = 0;
+	for (int i = x; i; i -= lowbit(i))
+		for (int j = y; j; j -= lowbit(j))
+			res += t[0][i][j] * (x * y + x + y + 1)
+				 - t[1][i][j] * (y + 1)
+				 - t[2][i][j] * (x + 1)
+				 + t[3][i][j];
+	return res;
 }
 
 signed main()
 {
-	init();
-	spfa();
-	calc();
+	char op[2];
+	scanf(&quot;%s%d%d&quot;, op, &amp;n, &amp;m);
+	while (scanf(&quot;%s&quot;, op) != EOF)
+	{
+		scanf(&quot;%d%d%d%d&quot;, &amp;x1, &amp;y_1, &amp;x2, &amp;y2);
+		if (*op == 'L')
+		{
+			scanf(&quot;%d&quot;, &amp;k);
+		    add_T(x1, y_1, k), add_T(x1, y2 + 1, -k), add_T(x2 + 1, y_1, -k), add_T(x2 + 1, y2 + 1, k);
+		}
+		else
+			printf(&quot;%d\n&quot;, ask_T(x2, y2) - ask_T(x2, y_1 - 1) - ask_T(x1 - 1, y2) + ask_T(x1 - 1, y_1 - 1));
+	}
 	
 	return 0;
 }
 </code></pre>
-<p><a href="http://sjzezoj.com:9280/problem/24">T4 淘淘蓝蓝之扮猪吃愉悦</a></p>
-<p>还不会，咕~</p>
+<h3 id="cf341d-iahub-and-xors"><a href="https://www.luogu.com.cn/problem/CF341D">CF341D Iahub and Xors</a></h3>
+<h4 id="solution-2">Solution：</h4>
+<h4 id="code-2">Code：</h4>
+<pre><code class="language-cpp">
+</code></pre>
 ]]></content>
     </entry>
     <entry>
@@ -844,118 +766,6 @@ signed main()
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[题解 11.3 模拟赛]]></title>
-        <id>https://youziki.github.io/1koxEwg5w/</id>
-        <link href="https://youziki.github.io/1koxEwg5w/">
-        </link>
-        <updated>2020-11-04T01:59:28.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="p1800-software"><a href="https://www.luogu.com.cn/problem/P1800">P1800 software</a></h3>
-<h4 id="题意">题意：</h4>
-<p>A，B两个工作，每个工作m个模块，n个人，每个人做A模块速度a[i]，做B模块速度b[i]，所有人同时做求最短时间</p>
-<p>n,m,a[i],b[i] &lt;= 100</p>
-<h4 id="solution">Solution：</h4>
-<p>考场上只有暴力O(n^5 logn)做法，能水60tps，正解O(n^3 log)，二分肯定是要的，关键在于如何dp判断是否可做完</p>
-<p>令f[i][j]表示前i个人，做j个A，最多能做的B的个数，如果f[n][m]&gt;=m说明有解，转移枚举第i个人做多少A即可，<strong>贪心的思路：已知一个人做多少A后，令他做的B最多</strong></p>
-<h4 id="code">Code：</h4>
-<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
-
-const int N = 205;
-
-int n, m, a[N], b[N], f[N][N];
-
-inline bool check(int mid)
-{
-	memset(f, 0, sizeof f);
-	
-	int tot = 0;
-	for(int i = 1; i &lt;= n; ++i)
-	{
-		int J = mid / a[i];
-		for(int j = 0; j &lt;= J; ++j)
-		{
-			int K = (mid - j * a[i]) / b[i];
-			for(int k = j; k &lt;= min(tot + j, m); ++k)
-				f[i][k] = max(f[i][k], f[i - 1][k - j] + K);
-		}
-		
-		tot += J;
-		if(f[i][m] &gt;= m) return 1;
-	}
-	
-	return 0;
-}
-
-signed main()
-{
-	scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
-	for(int i = 1; i &lt;= n; ++i) scanf(&quot;%d%d&quot;, a + i, b + i);
-	
-	int l = 1, r = m * a[1] + m * b[1];
-	while(l &lt; r)
-	{
-		int mid = (l + r) &gt;&gt; 1;
-		if(check(mid)) r = mid;
-		else l = mid + 1;
-	}
-	
-	printf(&quot;%d&quot;, l);
-	
-	return 0;
-}
-</code></pre>
-<h4 id="总结">总结：</h4>
-<p>判断不一定要让A和B的数量刚好等于m，只要不少于即可，所以可确定一维然后贪心</p>
-<p>dp的状态也很不错</p>
-<h3 id="u139126-最大后缀值个数"><a href="https://www.luogu.com.cn/problem/U139126?contestId=36723">U139126 最大后缀值个数</a></h3>
-<h4 id="题意-2">题意：</h4>
-<p>给一颗有点权的树，对每个点求出从根到它路径上点权等于后缀最大值的点的数量</p>
-<h4 id="solution-2">Solution：</h4>
-<p>答案等于单调栈内元素数量是挺显然的，树上单调栈思路也不难，把回溯时还原整明白了就行了，但考场上回溯还原也没整对（可能我那样复杂度有假，不知为什么还会WA两个）</p>
-<p>正解给出了处理回溯还原的更简单更妙的方法，不模拟单调栈，直接二分插入位置，记录下原top和这个位置原值，最后只还原这两个值即可。这样做为什么是对的？因为实际上就改变了这两个值对吧，归纳地想，其实应该弹栈的元素都没有动，而后面递归的时候后面的元素虽说被覆盖，也会在回溯的时候还原，所以其实也只有二分到的位置和top有改动</p>
-<h4 id="code-2">Code：</h4>
-<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
-
-const int N = 2333333;
-
-vector &lt;int&gt; son[N];
-int n, v[N], ans[N], stk[N], top;
-
-void dfs(int x)
-{
-	int l = 0, r = top;
-	while(l &lt;= r)
-	{
-		int mid = (l + r) &gt;&gt; 1;
-		if(stk[mid] &lt; v[x]) r = mid - 1;
-		else l = mid + 1;
-	}
-	int cur = stk[l], curtop = top;
-	stk[l] = v[x], top = l;
-	ans[x] = l + 1;
-	
-	for(int i = 0; i &lt; son[x].size(); ++i) dfs(son[x][i]);
-	stk[l] = cur, top = curtop;
-}
-
-signed main()
-{
-	ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-	
-	cin &gt;&gt; n;
-	for(int i = 2, fa; i &lt;= n; ++i) cin &gt;&gt; fa, son[fa].push_back(i);
-	for(int i = 1; i &lt;= n; ++i) cin &gt;&gt; v[i];
-	dfs(1);
-	
-	for(int i = 1; i &lt;= n; ++i) cout &lt;&lt; ans[i] &lt;&lt; ' ';
-	
-	return 0;
-}
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[题解 CF424C 【Magic Formulas】]]></title>
         <id>https://youziki.github.io/soQX-qFgk/</id>
         <link href="https://youziki.github.io/soQX-qFgk/">
@@ -1273,6 +1083,147 @@ signed main()
 <p>多测清空</p>
 <p><span class='katex-error' title='ParseError: KaTeX parse error: Expected &#039;EOF&#039;, got &#039;#&#039; at position 1: #̲define int long…'>#define int long long</span></p>
 <p>写上<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi><mi>e</mi><mi>t</mi><mi>u</mi><mi>r</mi><mi>n</mi><mn>0</mn></mrow><annotation encoding="application/x-tex">return 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">e</span><span class="mord mathdefault">t</span><span class="mord mathdefault">u</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">n</span><span class="mord">0</span></span></span></span></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[左偏树 1]]></title>
+        <id>https://youziki.github.io/3yBK2u17b/</id>
+        <link href="https://youziki.github.io/3yBK2u17b/">
+        </link>
+        <updated>2020-11-02T12:16:37.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="左偏树概述">左偏树概述：</h2>
+<h3 id="功能">功能：</h3>
+<p>又叫“可并堆”，是支持合并的堆，常用操作：</p>
+<p>插入一个数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(logn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></p>
+<p>查询最小数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></p>
+<p>合并两个左偏树<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(logn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></p>
+<p>删除最小数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(logn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>（实质上是合并两个左偏树）</p>
+<p>通常可与并查集结合使用（如下面左偏树模板），并查集的根就是左偏树的根（保证相同），可以查询特定点所在的左偏树的信息</p>
+<p>左偏树可删除任意元素，但过于复杂，很少用（不会~）</p>
+<h3 id="算法">算法：</h3>
+<p>维护一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>i</mi><mi>s</mi><mi>t</mi><mo>[</mo><mo>]</mo></mrow><annotation encoding="application/x-tex">dist[]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mopen">[</span><span class="mclose">]</span></span></span></span>表示深度，深度定义为：两个儿子中深度较小值+1</p>
+<blockquote>
+<p>左偏树的合并操作的复杂度与深度成正比</p>
+</blockquote>
+<p>保证左儿子的深度大于等于右儿子的深度（因此叫左偏树）</p>
+<p>合并时，权值小的为根，另一个树递归与右子树合并。如果回溯后左儿子深度小于右儿子深度，互换左右儿子</p>
+<p>新建节点时，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>i</mi><mi>s</mi><mi>t</mi><mo>[</mo><mo>]</mo></mrow><annotation encoding="application/x-tex">dist[]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mopen">[</span><span class="mclose">]</span></span></span></span>记得初始化</p>
+<h3 id="代码">代码：</h3>
+<p>只有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>e</mi><mi>r</mi><mi>g</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">merge</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">e</span></span></span></span>一个函数，将两个（左偏树的）根节点合并，返回新根节点</p>
+<pre><code class="language-cpp">int merge(int x, int y)
+{
+    if(! x || ! y) return x + y;
+    if(cmp(y, x)) swap(x, y); // 保证x小
+    rs[x] = merge(rs[x], y);
+    if(dist[rs[x]] &gt; dist[ls[x]]) swap(rs[x], ls[x]);
+    dist[x] = dist[rs[x]] + 1;
+    return x;
+}
+</code></pre>
+<h3 id="模板-左偏树"><a href="https://www.acwing.com/problem/content/2716/">模板 左偏树</a></h3>
+<h4 id="题意">题意：</h4>
+<p>维护一个左偏树（不一定是一个），初始序列为空，四种操作：</p>
+<ul>
+<li>
+<p>加入一个点作为新堆（给定点权）</p>
+</li>
+<li>
+<p>将第x个插入的数和第y个插入的数所在的堆合并（可能两点本身在一个堆中，忽视此操作）</p>
+</li>
+<li>
+<p>输出第x个插入的数所在的集合的最小数</p>
+</li>
+<li>
+<p>删除第x个插入的数所在的集合的最小数</p>
+</li>
+</ul>
+<h4 id="solution">Solution：</h4>
+<p>并查集处有些细节：</p>
+<ul>
+<li>
+<p>我们在删除一个点时，不在并查集中删除它（它并不会对后面产生影响），但要让左右儿子合并的新根（权值较小的那个）在并查集中指向自己（当然要让原根和原根另一个儿子指向它），这样可以保证该点不会访问到别的点</p>
+</li>
+<li>
+<p>因为不能让0作为根节点，但0权值最小，所以先将0的权值赋为INF</p>
+</li>
+</ul>
+<h4 id="code">Code：</h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+const int N = 233333;
+
+int fa[N], dist[N], v[N], ls[N], rs[N], tot;
+
+int find(int x)
+{
+    return x == fa[x] ? x : fa[x] = find(fa[x]);
+}
+
+inline bool cmp(int x, int y) // x是否小于y
+{
+    return v[x] == v[y] ? x &lt; y : v[x] &lt; v[y];
+}
+
+int merge(int x, int y)
+{
+    if(! x || ! y) return x + y;
+    if(cmp(y, x)) swap(x, y);
+    rs[x] = merge(rs[x], y);
+    if(dist[rs[x]] &gt; dist[ls[x]]) swap(rs[x], ls[x]);
+    dist[x] = dist[rs[x]] + 1;
+    return x;
+}
+
+signed main()
+{
+    ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+    
+    int n;
+    cin &gt;&gt; n;
+    v[0] = 2e9;
+    while(n --)
+    {
+        int t;
+        cin &gt;&gt; t;
+        if(t == 1)
+        {
+            int a;
+            cin &gt;&gt; a;
+            v[++ tot] = a;
+            fa[tot] = tot;
+            dist[tot] = 1;
+        }
+        else if(t == 2)
+        {
+            int x, y;
+            cin &gt;&gt; x &gt;&gt; y;
+            x = find(x), y = find(y); // 保证左偏树根节点就为并查集根节点
+            if(x == y) continue;
+            if(cmp(y, x)) swap(x, y); // y小就交换
+            fa[y] = x; // 根节点为小的
+            merge(x, y);
+        }
+        else if(t == 3)
+        {
+            int x;
+            cin &gt;&gt; x;
+            printf(&quot;%d\n&quot;, v[find(x)]);
+        }
+        else
+        {
+            int x;
+            cin &gt;&gt; x;
+            x = find(x);
+            if(cmp(ls[x], rs[x])) swap(ls[x], rs[x]);
+            fa[x] = rs[x], fa[rs[x]] = rs[x];
+            merge(rs[x], ls[x]);
+        }
+    }
+    
+    return 0;
+}
+</code></pre>
 ]]></content>
     </entry>
 </feed>

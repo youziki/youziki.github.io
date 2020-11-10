@@ -4,110 +4,99 @@
     <meta charset="utf-8" >
 
 <title>题解 11.9 模拟赛 | 和JZ贴贴~</title>
+<meta name="description" content="众人皆醉我独醒">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1605000902814">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1604912834933">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
 
 
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
 
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 
-
-    <meta name="description" content="T1 淘淘蓝蓝之游戏
-大水题
-T2 淘淘蓝蓝与保温箱
-也挺水的，纯暴力就能过，就是转移和初始化的时候常规费了点心思
-Code：
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
-
-con..." />
-    <meta name="keywords" content="比赛" />
   </head>
   <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://youziki.github.io">
-        <img src="https://youziki.github.io/images/avatar.png?v=1604912834933" class="site-logo">
-        <h1 class="site-title">和JZ贴贴~</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
-      
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://youziki.github.io">和JZ贴贴~</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
         
-          <a href="/" class="site-nav">
-            首页
-          </a>
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
         
-      
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
         
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
         
-      
+          <li>
+            
+              <a href="/post/about" class="menu">
+                关于
+              </a>
+            
+          </li>
         
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
-      
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
-      
+      </ul>
     </div>
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    </div>
-    <div class="site-description">
-      众人皆醉我独醒
-    </div>
-    <div class="site-footer">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
-    </div>
-  </div>
-</div>
+</nav>
 
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">题解 11.9 模拟赛</h2>
-            <div class="post-date">2020-11-09</div>
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>题解 11.9 模拟赛</h1>
+            <p class="article-meta">
+              2020-11-09
+              
+                <a href="https://youziki.github.io/ajbBPuKpd/" class="badge secondary">
+                  比赛
+                </a>
+              
+            </p>
             
-              <div class="feature-container" style="background-image: url('https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png')">
-              </div>
+              <img src="https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png" alt="题解 11.9 模拟赛">
             
-            <div class="post-content" v-pre>
-              <p><a href="http://sjzezoj.com:9280/problem/21">T1 淘淘蓝蓝之游戏</a></p>
+            <div class="post-content">
+              <h3 id="t1-淘淘蓝蓝之游戏"><a href="http://sjzezoj.com:9280/problem/21">T1 淘淘蓝蓝之游戏</a></h3>
 <p>大水题</p>
-<p><a href="http://sjzezoj.com:9280/problem/22">T2 淘淘蓝蓝与保温箱</a></p>
+<h3 id="t2-淘淘蓝蓝与保温箱"><a href="http://sjzezoj.com:9280/problem/22">T2 淘淘蓝蓝与保温箱</a></h3>
 <p>也挺水的，纯暴力就能过，就是转移和初始化的时候常规费了点心思</p>
 <h4 id="code">Code：</h4>
 <pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
@@ -167,7 +156,7 @@ int main()
 f[i][j][k]前i个(80)，选了j个(80)，体积为k(80*20)，最大价值(2)
 */
 </code></pre>
-<p><a href="http://sjzezoj.com:9280/problem/23">T3 淘淘蓝蓝之树林</a></p>
+<h3 id="t3-淘淘蓝蓝之树林"><a href="http://sjzezoj.com:9280/problem/23">T3 淘淘蓝蓝之树林</a></h3>
 <h4 id="solution">Solution：</h4>
 <p>好题！</p>
 <p><img src="https://cdn.luogu.com.cn/upload/image_hosting/tlhffw3a.png" alt="" loading="lazy"><br>
@@ -281,58 +270,355 @@ signed main()
 	return 0;
 }
 </code></pre>
-<p><a href="http://sjzezoj.com:9280/problem/24">T4 淘淘蓝蓝之扮猪吃愉悦</a></p>
+<h3 id="t4-淘淘蓝蓝之扮猪吃愉悦"><a href="http://sjzezoj.com:9280/problem/24">T4 淘淘蓝蓝之扮猪吃愉悦</a></h3>
 <p>还不会，咕~</p>
+<h3 id="t5-能量收集"><a href="http://sjzezoj.com:9280/problem/25">T5 能量收集</a></h3>
+<h4 id="solution-2">Solution：</h4>
+<p>这算是反悔贪心？</p>
+<p>先每次都收集能量，如果中间某个时刻耐久值小了，就恢复或防护，将这两个操作看成是<strong>增加耐久值</strong>，肯定增加最大的优，用堆维护最大的增加量，用完这个操作记得减去一个x。因为能量如果达到E，不需要受到当天损伤，所以算最大值的时候不考虑当天的损伤（看有关now的部分）。</p>
+<p>注意一个细节：算恢复和防护的时候，H不可能恢复不了，因为可以全用防护，所以一定可以撑到最后一天</p>
+<h4 id="code-2">Code：</h4>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+int n, x, y, h, e, d[123333];
+priority_queue&lt;int&gt; q;
+
+int main()
+{
+    scanf(&quot;%d%d%d%d%d&quot;, &amp;n, &amp;x, &amp;y, &amp;h, &amp;e);
+
+    int now = 0,mx = 0;
+    for (int i = 1; i &lt;= n; ++i)
+    {
+        scanf(&quot;%d&quot;, d + i);
+        q.push( max(d[i], y) );
+        now += x;
+		mx = max(mx, now);
+        if (now &gt;= e)
+        {
+            printf(&quot;YES\n%d&quot;, i);
+            return 0;
+        }
+        while (h &lt;= d[i])
+			now -= x, h += q.top(), q.pop();
+		h -= d[i];
+    }
+
+    printf(&quot;NO\n%d&quot;, mx);
+
+    return 0;
+}
+</code></pre>
+<h3 id="t6-数学题"><a href="http://sjzezoj.com:9280/problem/26">T6 数学题</a></h3>
+<p>原题+水题，折半爆搜</p>
 
             </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://youziki.github.io/ajbBPuKpd/" class="tag">
-                    比赛
-                  </a>
-                
-              </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://youziki.github.io/xtZfEILOr/">
-                  <h3 class="post-title">
-                    SA 1
-                  </h3>
-                </a>
-              </div>
-            
-
-            
-
-          </div>
-
+          </article>
         </div>
+        <div class="paper" data-aos="fade-in">
+          
+        </div>
+        
       </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://youziki.github.io/images/avatar.png?v=1605000902814" class="no-responsive avatar">
+    <div class="text-muted">众人皆醉我独醒</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://youziki.github.io/ETwmqieTf/">二维树状数组 1</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/LmMs6J-gP/">题解 11.10 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/WUYEpOUHX/">题解 11.9 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/xtZfEILOr/">SA 1</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/eS4-asQD4/">图论屑题复习 1</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/1koxEwg5w/">题解 11.3 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/soQX-qFgk/">题解 CF424C 【Magic Formulas】</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/o5cC90pZk/">题解 CF1442A 【Extreme Subtraction】</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/q57710-6-/">题解 CF1443A 【Kids Seating】</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/HDfnZFm-t/">题解 CF1444A 【Division】</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://youziki.github.io/4STTQXNzf/" class="badge ">
+          学习笔记
+        </a>
+      
+        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge success">
+          刷题
+        </a>
+      
+        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge warning">
+          题解
+        </a>
+      
+        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge secondary">
+          其他
+        </a>
+      
+        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge secondary">
+          比赛
+        </a>
+      
+        <a href="https://youziki.github.io/WZIkvhEfs/" class="badge secondary">
+          那年暑假，我们砥砺前行——启智树
+        </a>
+      
+        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge ">
+          Gridea
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
 <script type="application/javascript">
 
 AOS.init();
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+hljs.initHighlightingOnLoad()
 
 </script>
-
-
-  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>
-    hljs.initHighlightingOnLoad()
-  </script>
-
 
 
 
