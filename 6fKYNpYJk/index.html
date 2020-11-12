@@ -7,7 +7,7 @@
 <meta name="description" content="众人皆醉我独醒">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1605169994114">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1605171784679">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
@@ -154,9 +154,57 @@ signed main()
 <figure data-type="image" tabindex="6"><img src="https://cdn.luogu.com.cn/upload/image_hosting/eh992560.png" alt="" loading="lazy"></figure>
 <figure data-type="image" tabindex="7"><img src="https://cdn.luogu.com.cn/upload/image_hosting/ozjguj20.png" alt="" loading="lazy"></figure>
 <figure data-type="image" tabindex="8"><img src="https://cdn.luogu.com.cn/upload/image_hosting/217dt0yk.png" alt="" loading="lazy"></figure>
-<p>不太懂初始化</p>
+<p>不太懂边界</p>
 <h4 id="code-3">Code：</h4>
-<pre><code class="language-cpp">
+<pre><code class="language-cpp">int ans = 0;
+for (re int i = 0; i &lt; y; i++)
+{
+  l = 1 - l;
+  memset(f[1 - l], 0, sizeof f[1 - l]);
+
+  for (re int r = 0; r &lt;= m - y; r++)
+    for (re int j = 0; j &lt; x; j++)
+      for (re int z = 0; z &lt;= n - x; z++)
+      {
+        ans = std::max(ans, f[l][r][j][z]);
+
+        if (i + r &lt; y - 1)
+          f[1 - l][r][j][z] = max(f[1 - l][r][j][z],
+					  		f[l][r][j][z]
+							  + column[y - i - 1][std::min(n - j, x + z)]
+							  - column[y - i - 1][std::max(z, x - j - 1)]);
+        else
+          f[1 - l][r][j][z] = max(f[1 - l][r][j][z],
+		  					f[l][r][j][z]);
+            
+        if (i + r &lt; (m - y))
+          f[l][r + 1][j][z] = max(f[l][r + 1][j][z],
+		  					f[l][r][j][z]
+							  + column[y + r + 1][std::min(n - j, x + z)]
+							  - column[y + r + 1][std::max(z, x - j - 1)]);
+        else
+          f[l][r + 1][j][z] = max(f[l][r + 1][j][z],
+		  					f[l][r][j][z]);
+            
+		if (j + z &lt; x - 1)
+          f[l][r][j + 1][z] = max(f[l][r][j + 1][z],
+		  					f[l][r][j][z]
+							  + line[x - j - 1][std::min(m - i, y + r)]
+							  - line[x - j - 1][std::max(r, y - i - 1)]);
+     	else
+          f[l][r][j + 1][z] = max(f[l][r][j + 1][z],
+		  					f[l][r][j][z]);
+            
+		if (n - j &gt; z + x)
+          f[l][r][j][z + 1] = max(f[l][r][j][z + 1],
+		  					f[l][r][j][z]
+							  + line[z + x + 1][std::min(y + r, m - i)]
+							  - line[z + x + 1][std::max(r, y - i - 1)]);
+        else
+          f[l][r][j][z + 1] = max(f[l][r][j][z + 1],
+		  					f[l][r][j][z]);
+      }
+}
 </code></pre>
 <h3 id="总结">总结：</h3>
 <p>考一个规律题，一个构造题，都不知道该咋总结/lh，主要是注意考试技巧吧，如果考试技巧得当，本场比赛240没什么难度，CF还得多打</p>
@@ -172,7 +220,7 @@ signed main()
 
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="https://youziki.github.io/images/avatar.png?v=1605169994114" class="no-responsive avatar">
+    <img src="https://youziki.github.io/images/avatar.png?v=1605171784679" class="no-responsive avatar">
     <div class="text-muted">众人皆醉我独醒</div>
     <div class="social-container">
       
@@ -426,19 +474,19 @@ signed main()
     </div>
     <div class="row">
       
-        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge success">
+        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge secondary">
           比赛
         </a>
       
-        <a href="https://youziki.github.io/4STTQXNzf/" class="badge secondary">
+        <a href="https://youziki.github.io/4STTQXNzf/" class="badge warning">
           学习笔记
         </a>
       
-        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge secondary">
+        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge success">
           刷题
         </a>
       
-        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge secondary">
+        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge warning">
           题解
         </a>
       
@@ -450,7 +498,7 @@ signed main()
           那年暑假，我们砥砺前行——启智树
         </a>
       
-        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge ">
+        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge success">
           Gridea
         </a>
       
