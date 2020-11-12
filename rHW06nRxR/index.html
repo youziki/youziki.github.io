@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>题解 AT3621 [ARC084B] Small Multiple | 和JZ贴贴~</title>
+<title>题解 11.11 模拟赛 | 和JZ贴贴~</title>
 <meta name="description" content="众人皆醉我独醒">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -81,79 +81,124 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>题解 AT3621 [ARC084B] Small Multiple</h1>
+            <h1>题解 11.11 模拟赛</h1>
             <p class="article-meta">
-              2020-10-30
+              2020-11-11
               
-                <a href="https://youziki.github.io/CEgpF5PzU/" class="badge warning">
-                  题解
+                <a href="https://youziki.github.io/ajbBPuKpd/" class="badge success">
+                  比赛
                 </a>
               
             </p>
             
-              <img src="https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png" alt="题解 AT3621 [ARC084B] Small Multiple">
+              <img src="https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png" alt="题解 11.11 模拟赛">
             
             <div class="post-content">
-              <p><a href="https://www.luogu.com.cn/problem/AT3621">洛谷传送门</a></p>
-<p>思路很巧，实现也是一个知识点</p>
-<p>首先任意一个大于等于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>的数都可以由k每次<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+ 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span>或<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>×</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\times 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">×</span><span class="mord">1</span><span class="mord">0</span></span></span></span>得到，所以就这样连边，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+ 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span>连边权为1，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>×</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\times 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">×</span><span class="mord">1</span><span class="mord">0</span></span></span></span>连边权为0，跑双端队列<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi><mi>f</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">bfs</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">b</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">s</span></span></span></span></p>
-<p><strong>实现：</strong> 起点是1，跑到%k意义下为0就输出，只要是最短路，这样的结果就一定是最小的，要保证是最短路，就要0边权的从队头进入，1边权的从队尾进入</p>
+              <h3 id="t1-方程的解"><a href="http://sjzezoj.com:9280/problem/29">T1 方程的解</a></h3>
+<p>exgcd+特判+简单统计答案</p>
+<h3 id="t2-p3177-haoi2015树上染色"><a href="https://www.luogu.com.cn/problem/P3177">T2 P3177 [HAOI2015]树上染色</a></h3>
+<h4 id="solution">Solution：</h4>
+<p>树形dp，很容易想到的状态设计是：令<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">f[i][j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>表示以i为根的子树中选j个黑点的最大距离，但这样不好与整体构成联系，将“最大距离”改为“最大贡献”即可，即一条边被经过的次数是固定的，加入边的贡献。</p>
+<p>树形背包裸题，注意要倒序枚举</p>
+<h4 id="code">Code：</h4>
 <pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 using namespace std;
+#define LL long long
 
-const int N = 123333;
+const int N = 2333;
 
-struct Node
+int n, m, siz[N];
+LL f[N][N]; // 第i个点，选j个
+vector&lt;int&gt; son[N], w[N];
+
+void dp(int x, int fa)
 {
-    int num, k;
-};
-
-int k;
-bool vis[N];
-deque &lt;Node&gt; q;
-
-inline void bfs()
-{
-    while(q.size())
-    {
-        auto x = q.front(); q.pop_front();
-        if(vis[x.num]) continue;
-        vis[x.num] = 1;
-        if(! x.num)
-        {
-            printf(&quot;%d&quot;, x.k);
-            return;
-        }
-        q.push_front( {x.num * 10 % k, x.k} );
-        q.push_back( {(x.num + 1) % k, x.k + 1});
-    }
+	siz[x] = 1;
+	for (int i = 0; i &lt; son[x].size(); ++i)
+	{
+		int y = son[x][i];
+		LL z = w[x][i];
+		if (y == fa) continue;
+		dp(y, x);
+		for (int j = min(m, siz[x]); ~ j; --j)
+        // 不知道为啥，改成i为根的子树总共有j个会WA
+			for (int k = min(siz[y], m); ~ k; --k)
+				f[x][j + k] = max(f[x][j + k],
+						f[x][j] + f[y][k] + z * k * (m - k)
+                        + z * (siz[y] - k) * (n - m - siz[y] + k));
+		siz[x] += siz[y];
+	}
 }
 
 signed main()
 {
-    scanf(&quot;%d&quot;, &amp;k);
-    q.push_front( {1, 1} );
-    bfs();
-    
-    return 0;
+	scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+	for (int i = 1; i &lt; n; ++i)
+	{
+		int u, v, c;
+		scanf(&quot;%d%d%d&quot;, &amp;u, &amp;v, &amp;c);
+		son[u].push_back(v), son[v].push_back(u);
+		w[u].push_back(c), w[v].push_back(c);
+	}
+	
+	dp(1, 0);
+	
+	printf(&quot;%lld&quot;, f[1][m]);
+	
+	fclose(stdin);
+	fclose(stdout);
+	return 0;
 }
 </code></pre>
+<h3 id="t3-cf274e-mirror-room"><a href="https://www.luogu.com.cn/problem/CF274E">T3 CF274E Mirror Room</a></h3>
+<h3 id="t4-无向图"><a href="http://sjzezoj.com:9280/problem/32">T4 无向图</a></h3>
+<h3 id="t5-无题"><a href="http://sjzezoj.com:9280/problem/38">T5 无题</a></h3>
+<p>数位dp简单题，温习一下代码</p>
+<p>Code：</p>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+#define int long long
+using namespace std;
+const int digit = 20;
+int dp[digit][11];
+int l, r, x, y, num[digit];
+
+inline int DFS(int dep, bool limit, int lst)
+{
+    if (dep == 0) return 1;
+    if (!limit &amp;&amp; dp[dep][lst] != -1) return dp[dep][lst];
+    int up = limit ? num[dep] : 9;
+    int res = 0;
+    for (int i = 0; i &lt;= up; i++)
+        if (lst == 10 &amp;&amp; i == 0) res += DFS(dep - 1, limit &amp;&amp; i == up, 10);
+        else
+        {
+            if (i == y &amp;&amp; lst == x) continue;
+            res += DFS(dep - 1, limit &amp;&amp; i == up, i);
+        }
+    if (!limit) dp[dep][lst] = res;
+    return res;
+}
+
+inline int solve(int a)
+{
+    int cnt = 0;
+    while (a) num[++ cnt] = a % 10, a /= 10;
+    return DFS(cnt, true, 10);
+}
+
+signed main()
+{
+    cin &gt;&gt; l &gt;&gt; r &gt;&gt; x &gt;&gt; y;
+    memset(dp, -1, sizeof(dp));
+    printf(&quot;%lld&quot;, (solve(r) - solve(l - 1)));
+}
+</code></pre>
+<h3 id="t6-最低限度安全"><a href="http://sjzezoj.com:9280/problem/39">T6 最低限度安全</a></h3>
 
             </div>
           </article>
         </div>
         <div class="paper" data-aos="fade-in">
-          
-            <div class="next-post">
-              <div class="next">
-                下一篇
-              </div>
-              <a href="https://youziki.github.io/h03BnPY5Z/">
-                <h3 class="post-title">
-                  扫描线法1
-                </h3>
-              </a>
-            </div>
           
         </div>
         
@@ -415,23 +460,23 @@ signed main()
     </div>
     <div class="row">
       
-        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge success">
+        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge warning">
           比赛
         </a>
       
-        <a href="https://youziki.github.io/4STTQXNzf/" class="badge ">
+        <a href="https://youziki.github.io/4STTQXNzf/" class="badge secondary">
           学习笔记
         </a>
       
-        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge secondary">
+        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge ">
           刷题
         </a>
       
-        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge warning">
+        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge ">
           题解
         </a>
       
-        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge secondary">
+        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge success">
           其他
         </a>
       
@@ -439,7 +484,7 @@ signed main()
           那年暑假，我们砥砺前行——启智树
         </a>
       
-        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge warning">
+        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge success">
           Gridea
         </a>
       

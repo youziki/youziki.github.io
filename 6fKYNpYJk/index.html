@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>题解 AT3621 [ARC084B] Small Multiple | 和JZ贴贴~</title>
+<title>题解 11.12 模拟赛 | 和JZ贴贴~</title>
 <meta name="description" content="众人皆醉我独醒">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -81,79 +81,85 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>题解 AT3621 [ARC084B] Small Multiple</h1>
+            <h1>题解 11.12 模拟赛</h1>
             <p class="article-meta">
-              2020-10-30
+              2020-11-12
               
-                <a href="https://youziki.github.io/CEgpF5PzU/" class="badge warning">
-                  题解
+                <a href="https://youziki.github.io/ajbBPuKpd/" class="badge secondary">
+                  比赛
                 </a>
               
             </p>
             
-              <img src="https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png" alt="题解 AT3621 [ARC084B] Small Multiple">
+              <img src="https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png" alt="题解 11.12 模拟赛">
             
             <div class="post-content">
-              <p><a href="https://www.luogu.com.cn/problem/AT3621">洛谷传送门</a></p>
-<p>思路很巧，实现也是一个知识点</p>
-<p>首先任意一个大于等于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>的数都可以由k每次<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+ 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span>或<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>×</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\times 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">×</span><span class="mord">1</span><span class="mord">0</span></span></span></span>得到，所以就这样连边，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+ 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span>连边权为1，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>×</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\times 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">×</span><span class="mord">1</span><span class="mord">0</span></span></span></span>连边权为0，跑双端队列<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi><mi>f</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">bfs</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">b</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">s</span></span></span></span></p>
-<p><strong>实现：</strong> 起点是1，跑到%k意义下为0就输出，只要是最短路，这样的结果就一定是最小的，要保证是最短路，就要0边权的从队头进入，1边权的从队尾进入</p>
+              <h3 id="t1-a"><a href="https://www.qizhishu.com/codeadmin/front/client/competition_taskProblemDetail.zhtml?TaskID=5019&amp;ClazzID=715&amp;CourseID=3R01&amp;ChapterID=3R0101">T1 A</a></h3>
+<h4 id="solution">Solution：</h4>
+<p>规律题</p>
+<p>自己手玩<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo separator="true">,</mo><mi>c</mi><mo separator="true">,</mo><mi>d</mi></mrow><annotation encoding="application/x-tex">a,b,c,d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">c</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">d</span></span></span></span>全排列的式子就出来了，考场上直接推式子，没有手玩小数据</p>
+<p>题解给的思考方式很有趣，虽然自己在考场上不可能按着这个思路想：</p>
+<figure data-type="image" tabindex="1"><img src="https://cdn.luogu.com.cn/upload/image_hosting/2vlbz8t5.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://cdn.luogu.com.cn/upload/image_hosting/wxedy5zd.png" alt="" loading="lazy"></figure>
+<p>不过看到一个要求的式子或许可以考虑一下模型或者组合意义？</p>
+<h4 id="code">Code：</h4>
+<pre><code class="language-cpp">int n, ans = 1;
+	scanf(&quot;%d&quot;, &amp;n);
+	for (int i = 1, a; i &lt;= n; ++i)
+	{
+		scanf(&quot;%d&quot;, &amp;a);
+		ans = 1LL * ans * power(a, mod - 2) % mod;
+	}
+	printf(&quot;%d&quot;, ans);
+</code></pre>
+<h3 id="t2-b"><a href="https://www.qizhishu.com/codeadmin/front/client/competition_taskProblemDetail.zhtml?TaskID=5020&amp;ClazzID=715&amp;CourseID=3R01&amp;ChapterID=3R0101">T2 B</a></h3>
+<h4 id="solution-2">Solution：</h4>
+<p>小清新构造题 <s>（这么简单，考场上居然没有想出来。。。）</s></p>
+<p>不可能输出-1<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">/</mi><mi>l</mi><mi>h</mi></mrow><annotation encoding="application/x-tex">/lh</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">/</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">h</span></span></span></span></p>
+<p>一看就懂系列，上图：</p>
+<figure data-type="image" tabindex="3"><img src="https://cdn.luogu.com.cn/upload/image_hosting/tyisvp5l.png" alt="" loading="lazy"></figure>
+<p>这是基本框架</p>
+<figure data-type="image" tabindex="4"><img src="https://cdn.luogu.com.cn/upload/image_hosting/zutg5irq.png" alt="" loading="lazy"></figure>
+<p>这是构造方法</p>
+<h4 id="code-2">Code：</h4>
 <pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 using namespace std;
 
-const int N = 123333;
+const int N = 505;
 
-struct Node
-{
-    int num, k;
-};
-
-int k;
-bool vis[N];
-deque &lt;Node&gt; q;
-
-inline void bfs()
-{
-    while(q.size())
-    {
-        auto x = q.front(); q.pop_front();
-        if(vis[x.num]) continue;
-        vis[x.num] = 1;
-        if(! x.num)
-        {
-            printf(&quot;%d&quot;, x.k);
-            return;
-        }
-        q.push_front( {x.num * 10 % k, x.k} );
-        q.push_back( {(x.num + 1) % k, x.k + 1});
-    }
-}
+int n, m;
+char mp[N][N];
 
 signed main()
 {
-    scanf(&quot;%d&quot;, &amp;k);
-    q.push_front( {1, 1} );
-    bfs();
-    
-    return 0;
+	scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+	for (int i = 1; i &lt;= n; ++i) scanf(&quot;%s&quot;, mp[i] + 1);
+	
+	for (int i = 1; i &lt;= n; ++i, putchar('\n'))
+		for (int j = 1; j &lt;= m; ++j)
+			putchar( (j == 1 || (i &amp; 1) || mp[i][j] == '1') &amp;&amp; j != m ? '1' : '0');
+	
+	putchar('\n');
+	
+	for (int i = 1; i &lt;= n; ++i, putchar('\n'))
+		for (int j = 1; j &lt;= m; ++j)
+			putchar( (j == m || ! (i &amp; 1) || mp[i][j] == '1') &amp;&amp; j != 1 ? '1' : '0');
+	
+	return 0;
 }
 </code></pre>
+<h3 id="t3-c"><a href="https://www.qizhishu.com/codeadmin/front/client/competition_taskProblemDetail.zhtml?TaskID=5021&amp;ClazzID=715&amp;CourseID=3R01&amp;ChapterID=3R0101">T3 C</a></h3>
+<h4 id="solution-3">Solution：</h4>
+<h4 id="code-3">Code：</h4>
+<pre><code class="language-cpp">
+</code></pre>
+<h3 id="总结">总结：</h3>
+<p>考一个规律题，一个构造题，都不知道该咋总结/lh，主要是注意考试技巧吧，如果考试技巧得当，本场比赛240没什么难度，CF还得多打</p>
 
             </div>
           </article>
         </div>
         <div class="paper" data-aos="fade-in">
-          
-            <div class="next-post">
-              <div class="next">
-                下一篇
-              </div>
-              <a href="https://youziki.github.io/h03BnPY5Z/">
-                <h3 class="post-title">
-                  扫描线法1
-                </h3>
-              </a>
-            </div>
           
         </div>
         
@@ -415,11 +421,11 @@ signed main()
     </div>
     <div class="row">
       
-        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge success">
+        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge secondary">
           比赛
         </a>
       
-        <a href="https://youziki.github.io/4STTQXNzf/" class="badge ">
+        <a href="https://youziki.github.io/4STTQXNzf/" class="badge warning">
           学习笔记
         </a>
       
@@ -427,15 +433,15 @@ signed main()
           刷题
         </a>
       
-        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge warning">
+        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge secondary">
           题解
         </a>
       
-        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge secondary">
+        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge success">
           其他
         </a>
       
-        <a href="https://youziki.github.io/WZIkvhEfs/" class="badge ">
+        <a href="https://youziki.github.io/WZIkvhEfs/" class="badge success">
           那年暑假，我们砥砺前行——启智树
         </a>
       

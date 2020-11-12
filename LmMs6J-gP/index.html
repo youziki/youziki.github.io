@@ -7,7 +7,7 @@
 <meta name="description" content="众人皆醉我独醒">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1605089908900">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1605164660759">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
@@ -85,7 +85,7 @@
             <p class="article-meta">
               2020-11-10
               
-                <a href="https://youziki.github.io/ajbBPuKpd/" class="badge warning">
+                <a href="https://youziki.github.io/ajbBPuKpd/" class="badge secondary">
                   比赛
                 </a>
               
@@ -94,7 +94,8 @@
               <img src="https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png" alt="题解 11.10 模拟赛">
             
             <div class="post-content">
-              <h3 id="t1-斐波那契"><a href="http://sjzezoj.com:9280/problem/33">T1 斐波那契</a></h3>
+              <p>完结！</p>
+<h3 id="t1-斐波那契"><a href="http://sjzezoj.com:9280/problem/33">T1 斐波那契</a></h3>
 <h4 id="solution">Solution：</h4>
 <p>挺水的，暴力就能过 <s>（只不过在n老师那个lj评测机上会T，流下了代码常数大的眼泪）</s>，不说</p>
 <h4 id="code">Code：</h4>
@@ -129,10 +130,345 @@ signed main()
 <h4 id="solution-2">Solution：</h4>
 <p>T3和T2难度反了。。。</p>
 <p>SKy：泥做过zc讲的那道题吗（没有）， 泥做过上帝造题的七分钟吗（没有），那泥就把它想象成二维树状数组（大雾）</p>
-<p>不过确实不难（如果你做过<a href="">上面的两道题</a>的话（大雾））。</p>
+<p>不过确实不难（如果你做过<a href="https://youziki.github.io/ETwmqieTf/">上面的两道题</a>的话（大雾））。思路和代码都很简单。</p>
+<p>注意hash冲突！太恶心了！必须得rand()乘上一个数再加上一个rand()。</p>
 <h4 id="code-2">Code：</h4>
-<pre><code class="language-cpp">
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+const int N = 2333;
+
+int n, m, q, t[N][N];
+
+inline int lowbit(int x)
+{
+	return x &amp; -x;
+}
+
+inline void add_T(int x, int y, int k)
+{
+	for (int i = x; i &lt;= n; i += lowbit(i))
+		for (int j = y; j &lt;= m; j += lowbit(j))
+			t[i][j] += k;
+}
+
+inline int ask_T(int x, int y)
+{
+	int res = 0;
+	for (int i = x; i; i-= lowbit(i))
+		for (int j = y; j; j -= lowbit(j))
+			res += t[i][j];
+	return res;
+}
+
+
+signed main()
+{
+	scanf(&quot;%d%d%d&quot;, &amp;n, &amp;m, &amp;q);
+	
+	map&lt;pair&lt;pair&lt;int, int&gt;, pair&lt;int, int&gt; &gt;, int&gt; mp;
+	
+	for (int i = 1; i &lt;= q; ++i)
+	{
+		int op, x1, y1, x2, y2;
+		scanf(&quot;%d%d%d%d%d&quot;, &amp;op, &amp;x1, &amp;y1, &amp;x2, &amp;y2);
+		if (op == 1)
+		{
+			int v = rand() * 2333 % 13131 + rand();
+			mp[{ {x1, y1}, {x2, y2} }] = v;
+			add_T(x1, y1, v), add_T(x2 + 1, y2 + 1, v), add_T(x2 + 1, y1, -v), add_T(x1, y2 + 1, -v);
+		}
+		else if (op == 2)
+		{
+			int v = mp[{ {x1, y1}, {x2, y2} }];
+			add_T(x1, y1, -v), add_T(x2 + 1, y2 + 1, -v), add_T(x2 + 1, y1, v), add_T(x1, y2 + 1, v);
+		}
+		else
+			puts(ask_T(x1, y1) == ask_T(x2, y2) ? &quot;Yes&quot; : &quot;No&quot;);
+	}
+	
+	return 0;
+}
 </code></pre>
+<h3 id="t2-序列"><a href="http://sjzezoj.com:9280/problem/34">T2 序列</a></h3>
+<h4 id="考场思路-感觉比正解要好">考场思路 <s>（感觉比正解要好）</s>：</h4>
+<p><strong>中位数在[l1,r1]区间内，即“区间内小于l1的数不到一半（上取整），且区间内大于r1的数不到一半（上取整）”</strong></p>
+<ul>
+<li>
+<p>30tps：</p>
+<p>搞出前缀小于l1的数的个数和大于r1的个数，O(n^2)枚举区间即可</p>
+</li>
+<li>
+<p>70tps：</p>
+<p>三维偏序：（CDQ分治）</p>
+<p>对一个位置j，作为区间右端点对答案的贡献为它前面的位置i的个数，满足：</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>u</mi><mi>m</mi><msub><mn>1</mn><mi>j</mi></msub><mo>−</mo><mi>s</mi><mi>u</mi><mi>m</mi><msub><mn>1</mn><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>&lt;</mo><mo>=</mo><mfrac><mrow><mi>j</mi><mo>−</mo><mi>i</mi></mrow><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">sum1_j - sum1_{i-1} &lt;= \frac {j - i} {2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9305479999999999em;vertical-align:-0.286108em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.852771em;vertical-align:-0.208331em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.252772em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.907772em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.446108em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">−</span><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>（先忽略sum2）</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>∗</mo><mi>s</mi><mi>u</mi><mi>m</mi><msub><mn>1</mn><mi>j</mi></msub><mo>−</mo><mi>j</mi><mo>&lt;</mo><mn>2</mn><mo>∗</mo><mi>s</mi><mi>u</mi><mi>m</mi><msub><mn>1</mn><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>−</mo><mo>(</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">2 * sum1_j - j &lt; 2 * sum1_{i-1} - (i-1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.9305479999999999em;vertical-align:-0.286108em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.852771em;vertical-align:-0.208331em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span></p>
+<p>于是就以<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>∗</mo><mi>s</mi><mi>u</mi><mi>m</mi><msub><mn>1</mn><mi>j</mi></msub><mo>−</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">2*sum1_j-j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.9305479999999999em;vertical-align:-0.286108em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>为横坐标，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>∗</mo><mi>s</mi><mi>u</mi><mi>m</mi><msub><mn>2</mn><mi>j</mi></msub><mo>−</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">2*sum2_j-j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.9305479999999999em;vertical-align:-0.286108em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>为纵坐标，对每个点统计在它右上方（不含）的点的个数，和即为答案</p>
+<p>但需要保证i &lt; j，所以是三维偏序</p>
+</li>
+<li>
+<p>100tps：</p>
+<p>需要多维护一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi><mn>1</mn><mo>&lt;</mo><mo>=</mo><mi>j</mi><mo>−</mo><mi>i</mi><mo>&lt;</mo><mo>=</mo><mi>r</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">r1 &lt;= j - i &lt;= r2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68354em;vertical-align:-0.0391em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69862em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord">2</span></span></span></span></p>
+<p>三维偏序？CDQ分治？（想不到了）</p>
+</li>
+</ul>
+<h4 id="code考场30分暴力">Code（考场30分暴力）：</h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+const int N = 123333;
+
+int n, m, t[N], a[N], l1, r1, l2, r2, sum1[N], sum2[N];
+
+inline bool check(int i, int j)
+{
+	if (j - i + 1 &lt; l2 || j - i + 1 &gt; r2) return 0;
+	if (sum1[j] - sum1[i - 1] &gt;= (j - i + 2) / 2) return 0;
+	if (sum2[j] - sum2[i - 1] &gt; j - i + 1 - (j - i + 2) / 2) return 0;
+	return 1;
+}
+
+signed main()
+{	
+	scanf(&quot;%d&quot;, &amp;n)
+	for (int i = 1; i &lt;= n; ++i) scanf(&quot;%d&quot;, a + i);
+	
+	scanf(&quot;%d&quot;, &amp;m)
+	while (m --)
+	{
+		scanf(&quot;%d%d%d%d&quot;, &amp;l1, &amp;r1, &amp;l2, &amp;r2);
+		for (int i = 1; i &lt;= n; ++i)
+			sum1[i] = sum1[i - 1] + (a[i] &lt; l1),
+			sum2[i] = sum2[i - 1] + (a[i] &gt; r1);
+		int ans = 0;
+		for (int i = 1; i &lt;= n; ++i)
+			for (int j = i; j &lt;= n; ++j)
+				if (check(i, j))
+					++ ans;
+		printf(&quot;%d\n&quot;, ans);
+	}
+	
+	return 0;
+}
+</code></pre>
+<h4 id="solution-3">Solution：</h4>
+<p>主席树</p>
+<p>类似考场思路地，对于中位数，转化为：<strong>中位数小于等于k的区间，小于等于k的数的个数一定大于等于大于k的数的个数</strong></p>
+<p>记录一个前缀，前者为1，后者为-1，对一个位置j，在前面找区间和大于等于0的i位置的个数，也就是小于等于当前前缀的数的个数</p>
+<p>加上了区间长度的限制就是对i的位置进行了限制，于是就变成了区间小于等于某数的数的个数了。对应主席树的单点修改（加入），区间查询</p>
+<p>似乎主席树的题，代码都很基础？所以说主席树真好用：）</p>
+<h4 id="code-3">Code：</h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+#define LL long long
+
+const int N = 123333;
+const int M = N * 45;
+
+int n, m, a[N], rt[N], ls[M], rs[M], siz[M], tot;
+
+int update(int root, int l, int r, int k)
+{
+	int dir = ++ tot;
+	ls[dir] = ls[root], rs[dir] = rs[root], siz[dir] = siz[root] + 1;
+	if (l == r) return dir;
+	
+	int mid = (l + r) &gt;&gt; 1;
+	
+	if (k &lt;= mid)
+		ls[dir] = update(ls[root], l, mid, k);
+	else
+		rs[dir] = update(rs[dir], mid + 1, r, k);
+	return dir;
+}
+
+int query(int p, int q, int l, int r, int x, int y)
+{
+	if (x &lt;= l &amp;&amp; r &lt;= y) return siz[q] - siz[p];
+	
+	int mid = (l + r) &gt;&gt; 1, ans = 0;
+	
+	if (x &lt;= mid)
+		ans += query(ls[p], ls[q], l, mid, x, y);
+	if (y &gt; mid)
+		ans += query(rs[p], rs[q], mid + 1, r, x, y);
+	
+	return ans;
+}
+
+inline LL solve(int x, int l, int r)
+{
+	for (int i = 1; i &lt;= tot; ++i) ls[i] = rs[i] = siz[i] = 0;
+	for (int i = 1; i &lt;= n; ++i) rt[i] = 0;
+	tot = 0;
+	
+	rt[1] = update(rt[1], 0, 2 * n, n);
+	int cnt = 0;
+	LL sum = 0;
+	for (int i = 1; i &lt;= n; ++i)
+	{
+		cnt += (a[i] &lt;= x) ? 1 : -1;
+		rt[i + 1] = update(rt[i], 0, 2 * n, cnt + n);
+		sum += query(rt[max(0, i - r)], rt[max(0, i - l + 1)], 0, 2 * n, 0, cnt + n);
+	}
+	
+	return sum;
+}
+
+signed main()
+{
+	scanf(&quot;%d&quot;, &amp;n);
+	for (int i = 1; i &lt;= n; ++i) scanf(&quot;%d&quot;, a + i);
+
+	scanf(&quot;%d&quot;, &amp;m);
+	while (m --)
+	{
+		int l1, r1, l2, r2;
+		scanf(&quot;%d%d%d%d&quot;, &amp;l1, &amp;r1, &amp;l2, &amp;r2);
+		printf(&quot;%lld\n&quot;, solve(r1, l2, r2) - solve(l1 - 1, l2, r2));
+	}
+	
+	return 0;
+}
+</code></pre>
+<h3 id="t4-cf551c-gukiz-hates-boxes"><a href="https://www.luogu.com.cn/problem/CF551C">T4 CF551C GukiZ hates Boxes</a></h3>
+<h4 id="solution-4">Solution：</h4>
+<p>二分+模拟</p>
+<p>考场上二分可以想出，怎么判不会，以为是复杂<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span>。其实贪心就吼了。。。</p>
+<p>令每个人都到最远的，取完前面的要“后退”，其实前进的总步数是不变的，所以实现也比较方便，直接从远往近能拿多少拿多少就行</p>
+<h4 id="code-4">Code：</h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+#define LL long long
+
+const int N = 123333;
+
+int n, m, a[N], b[N];
+
+inline bool check(LL mid)
+{
+	for (int i = 1; i &lt;= n; ++i) b[i] = a[i];
+	
+	int now = n;
+	for (int i = 1; i &lt;= m; ++i)
+	{
+		while (! b[now] &amp;&amp; now) -- now;
+		if (! now) return 1;
+		LL tx = mid - now;
+		if (tx &lt; 0) return 0;
+		
+		while (tx)
+			if (b[now] &lt; tx)
+			{
+				tx -= b[now];
+				b[now] = 0;
+				while (! b[now] &amp;&amp; now) -- now;
+				if (! now) return 1;
+			}
+			else
+			{
+				b[now] -= tx;
+				break;
+			}
+	}
+	
+	while (! b[now] &amp;&amp; now) -- now;
+	return ! now;
+}
+
+signed main()
+{
+	scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+	for (int i = 1; i &lt;= n; ++i) scanf(&quot;%d&quot;, a + i);
+	
+	LL l = 0, r = 1e15;
+	while (l &lt; r)
+	{
+		LL mid = (l + r) &gt;&gt; 1;
+		if (check(mid)) r = mid;
+		else l = mid + 1;
+	}
+	
+	printf(&quot;%lld&quot;, l);
+	
+	return 0;
+}
+</code></pre>
+<h3 id="t5-cf1349b-orac-and-medians"><a href="https://www.luogu.com.cn/problem/CF1349B">T5 CF1349B Orac and Medians</a></h3>
+<h4 id="solution-5">Solution：</h4>
+<ul>
+<li>
+<p>转化1</p>
+<p>可以发现，输出<code>yes</code>当且仅当有k且至少有一个长度不小于2的子区间的中位数&gt;=k。</p>
+</li>
+<li>
+<p>转化2</p>
+<p>这样的子区间当且仅当区间内&gt;= k的数严格大于&lt; k的数。</p>
+</li>
+<li>
+<p>转化3</p>
+<p>前者赋为1，后者-1，区间和大于0</p>
+</li>
+<li>
+<p>转化4</p>
+<p>做一遍前缀和，右端大于左端</p>
+</li>
+<li>
+<p>做法</p>
+<p>不妨令左端为前面前缀最小的（最优），看是否有合法右端即可。</p>
+<p>保证区间长度至少为2可以令左端只扫到i-2位置的前缀</p>
+</li>
+</ul>
+<h4 id="code-5">Code：</h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+const int N = 123333;
+
+int b[N];
+
+signed main()
+{
+	int t;
+	scanf(&quot;%d&quot;, &amp;t);
+	while(t --)
+	{
+		int n, flag = 0, k;
+		scanf(&quot;%d%d&quot;, &amp;n, &amp;k);
+		for (int i = 1; i &lt;= n; ++i)
+		{
+			int a;
+			scanf(&quot;%d&quot;, &amp;a);
+			flag |= a == k;
+			b[i] = b[i - 1] + (a &gt;= k ? 1 : -1);
+		}
+		if (! flag)
+		{
+			puts(&quot;no&quot;);
+			continue;
+		}
+		
+		flag = 0;
+		for (int i = 2, mi = 0; i &lt;= n; ++i)
+		{
+			mi = min(mi, b[i - 2]);
+			if (b[i] &gt; mi) flag = 1;
+		}
+		puts(flag || n == 1 ? &quot;yes&quot; : &quot;no&quot;);
+		
+		for (int i = 1; i &lt;= n; ++i) b[i] = 0;
+	}
+	
+	return 0;
+}
+</code></pre>
+<h3 id="总结">总结：</h3>
+<p>T1做的时候被卡常了，set比map快！要用set！</p>
+<p>T2中自己想到了70分的CDQ，思维很不错！但其实100分做法与我的差距并不大，而且思维难度也并不比我的CDQ大，可以多从一个思路想想其他做法</p>
+<p>T4、T5评级都不高，但考场上一点思路都没有，尤其是T5，每一个转化都不难，但想到一个转化花费的时间太多，要留心积累应用这样的套路。T4思维难度和代码难度都不大，考场上想不出来...</p>
+<p>CDQ、主席树、二维树状数组等数据结构都要能熟练掌握才行！</p>
 
             </div>
           </article>
@@ -145,7 +481,7 @@ signed main()
 
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="https://youziki.github.io/images/avatar.png?v=1605089908900" class="no-responsive avatar">
+    <img src="https://youziki.github.io/images/avatar.png?v=1605164660759" class="no-responsive avatar">
     <div class="text-muted">众人皆醉我独醒</div>
     <div class="social-container">
       
@@ -167,6 +503,18 @@ signed main()
     </div>
     <div class="row">
       <ul>
+        
+          
+            <li>
+              <a href="https://youziki.github.io/6fKYNpYJk/">题解 11.12 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/rHW06nRxR/">题解 11.11 模拟赛</a>
+            </li>
+          
         
           
             <li>
@@ -217,15 +565,7 @@ signed main()
           
         
           
-            <li>
-              <a href="https://youziki.github.io/o5cC90pZk/">题解 CF1442A 【Extreme Subtraction】</a>
-            </li>
-          
         
-          
-            <li>
-              <a href="https://youziki.github.io/q57710-6-/">题解 CF1443A 【Kids Seating】</a>
-            </li>
           
         
           
@@ -395,7 +735,7 @@ signed main()
     </div>
     <div class="row">
       
-        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge secondary">
+        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge success">
           比赛
         </a>
       
@@ -403,7 +743,7 @@ signed main()
           学习笔记
         </a>
       
-        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge secondary">
+        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge ">
           刷题
         </a>
       
@@ -411,7 +751,7 @@ signed main()
           题解
         </a>
       
-        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge success">
+        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge secondary">
           其他
         </a>
       
