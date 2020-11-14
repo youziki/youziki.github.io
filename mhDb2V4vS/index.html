@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>题解 11.14 模拟赛 | 和JZ贴贴~</title>
+<meta name="description" content="众人皆醉我独醒">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1605356256251">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
+
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://youziki.github.io">和JZ贴贴~</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/post/about" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>题解 11.14 模拟赛</h1>
+            <p class="article-meta">
+              2020-11-14
+              
+                <a href="https://youziki.github.io/ajbBPuKpd/" class="badge success">
+                  比赛
+                </a>
+              
+            </p>
+            
+              <img src="https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png" alt="题解 11.14 模拟赛">
+            
+            <div class="post-content">
+              <h3 id="t1-演讲"><a href="http://sjzezoj.com:9280/problem/49">T1 演讲</a></h3>
+<p>水题，考场30分钟切</p>
+<h3 id="t2-卡车调度"><a href="http://sjzezoj.com:9280/problem/50">T2 卡车调度</a></h3>
+<h4 id="solution">Solution：</h4>
+<p>考场上把一棵树的情况想出来该怎么做了，但是没有想出来图的</p>
+<p>其实只要将图变成一个最小生成树就行了！（考场上半点没想到）</p>
+<p>再填补一些细节：</p>
+<p>做最小生成树的时候，记录一下每个点的次小权值边和次次小，为什么不用记最小？最小的就在生成树里！（性感理解）</p>
+<p>还有一些细节看代码吧</p>
+<h4 id="总结">总结：</h4>
+<p>最小生成树可以将一部分树上会解决的问题扩展到图上，图上问题可以考虑解决树上情况再试最小生成树可不可</p>
+<h4 id="code">Code：</h4>
+<pre><code class="language-cpp">const int N = 400500, M = 1050000;
+struct edges {
+    int x, y, w;
+    bool operator&lt;(const edges &amp;i) const { return w &lt; i.w; }
+} ed[M];
+
+int h[N], ne[N &lt;&lt; 1], to[N &lt;&lt; 1], w[N &lt;&lt; 1], f[N], vis[N], val[N], tot;
+inline void add(int x, int y, int z) {
+    ne[++tot] = h[x], to[h[x] = tot] = y, w[tot] = z;
+}
+inline int find(int x) { return f[x] == x ? x : f[x] = find(f[x]); }
+
+int dep[N], fa[19][N], mn[19][N], mx[19][N];
+void dfs(int x, int fat) {
+    dep[x] = dep[fat] + 1;
+    for (int i = h[x]; i; i = ne[i]) {
+        int y = to[i];
+        if (y == fat) continue;
+        fa[0][y] = x, mn[0][y] = val[y], mx[0][y] = w[i];
+        for (int j = 1; j &lt;= 18 &amp;&amp; fa[j - 1][y]; j++) {
+            fa[j][y] = fa[j - 1][fa[j - 1][y]];
+            mn[j][y] = min(mn[j - 1][y], mn[j - 1][fa[j - 1][y]]);
+            mx[j][y] = max(mx[j - 1][y], mx[j - 1][fa[j - 1][y]]);
+        }
+        dfs(y, x);
+    }
+}
+
+ll query(int x, int y) {
+    if (dep[x] &lt; dep[y]) swap(x, y);
+    int ans = min(vis[x], vis[y]), rd = 0;
+    for (int i = 18; i &gt;= 0; i--)
+        if (dep[fa[i][x]] &gt;= dep[y])
+            Mx(rd, mx[i][x]), Mn(ans, mn[i][x]), x = fa[i][x];
+    if (x == y) return max(min(ans, val[x]), rd);
+    for (int i = 18; i &gt;= 0; i--)
+        if (fa[i][x] != fa[i][y]) {
+            Mn(ans, min(mn[i][x], mn[i][y]));
+            Mx(rd, max(mx[i][x], mx[i][y]));
+            x = fa[i][x], y = fa[i][y];
+        }
+    Mx(rd, max(mx[0][x], mx[0][y]));
+    Mn(ans, min(val[x], val[y]));
+    return max(rd, min(ans, val[fa[0][x]]));
+}
+
+int deg[N], n, m, q;
+int main() {
+    read(n), read(m), read(q);
+    for (int i = 1; i &lt;= m; i++) read(ed[i].x), read(ed[i].y), read(ed[i].w);
+    sort(ed + 1, ed + m + 1);
+    for (int i = 0; i &lt;= n; i++) vis[i] = val[i] = 2e9, f[i] = i;
+    for (int i = 1; i &lt;= m; i++) {
+        int x = ed[i].x, y = ed[i].y;
+        deg[x]++, deg[y]++;
+        if (deg[x] == 3) val[x] = ed[i].w;
+        if (deg[y] == 3) val[y] = ed[i].w;
+        if (deg[x] == 2) vis[x] = ed[i].w;
+        if (deg[y] == 2) vis[y] = ed[i].w;
+        if (find(x) != find(y))
+            add(x, y, ed[i].w), add(y, x, ed[i].w), f[find(x)] = y;
+    }
+    mn[0][1] = val[1], dfs(1, 0);
+    for (int i = 1, x, y; i &lt;= q; i++) read(x), read(y), write(query(x, y));
+    return 0;
+}
+</code></pre>
+<h3 id="t3-篝火舞蹈"><a href="http://sjzezoj.com:9280/problem/51">T3 篝火舞蹈</a></h3>
+<h4 id="solution-2">Solution：</h4>
+<p>一看空间1024MB，该想到Trie树的（虽说直接看确实看不出来），真是神仙思路！</p>
+<p>操作2可以很简单维护，所有数+1即可，操作1呢？想到了跟3进制位有关，又不太确定，也没找规律。实际上可以这样理解操作1：</p>
+<p>位置的每一位三进制表示下1变为2，2变为1，对应到Trie上，就是将一个点的1儿子和2儿子交换（打标记实现）</p>
+<p>同样地，我们也想将操作2变为类似的格式以便都在Trie上完成，一位+1有以下步骤：一位为0变为1，1变为2，2变为0然后高位+1。可以发现这个过程是从低位到高位进行的，所以Trie上插入数的时候从低位到高位（这样对于操作1的翻转是没有影响的，因为是每一位都要翻转顺序无关）</p>
+<p>注意到前面实际上是将每一个位置操作后的答案改变到了对应位置，所以最后要统计一遍答案，记录下到每个节点的实际数值，如果这个节点是一个数（初始位置）的结尾，这个数（初始位置）的答案就是当前的数值</p>
+<p>于是代码就比较好写了，记得要pushdown！顺便说一句，Trie是同一层同一个数值，但前缀不一样，也是不同节点，所以节点数要开<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>3</mn><mn>1</mn></msup><mn>3</mn></mrow><annotation encoding="application/x-tex">3^13</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">3</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span><span class="mord">3</span></span></span></span>有这么多不同前缀</p>
+<h4 id="code-2">Code：</h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+void print(int x)
+{
+	if (x &gt; 9) print(x / 10);
+	putchar(x % 10 + '0');
+}
+
+const int N = pow(3, 13);
+const int Q = 200005;
+
+int n, m, q, tri[N][3], tot = 1, rev[N], ed[N], ans[N];
+char s[Q];
+
+inline void insert(int x) // 从低位往高位插，因为这样+1比较好修改
+{
+	int rt = 1, xx = x;
+	for (int i = 0; i &lt; n; ++i)
+	{
+		int v = x % 3;
+		x /= 3;
+		if (! tri[rt][v]) tri[rt][v] = ++ tot;
+		rt = tri[rt][v];
+	}
+	ed[rt] = xx;
+}
+
+inline void pushrev(int x) // 这个模拟很妙啊
+{
+	swap(tri[x][1], tri[x][2]), rev[x] ^= 1;
+}
+
+inline void pushdown(int x)
+{
+	if(rev[x])
+	{
+		if (tri[x][0]) pushrev(tri[x][0]);
+		if (tri[x][1]) pushrev(tri[x][1]);
+		if (tri[x][2]) pushrev(tri[x][2]);
+		rev[x] = 0;
+	}
+}
+
+void dfs_add(int x) // 在第x位 +1（最低位为1）
+{
+	pushdown(x);
+	swap(tri[x][0], tri[x][2]), swap(tri[x][1], tri[x][2]);
+	if (tri[x][0]) dfs_add(tri[x][0]); // 需要在上一位 +1
+}
+
+void calc(int x, int now, int pw) // 节点编号、当前这个数是几、当前位权
+{
+	pushdown(x);
+	if (~ ed[x]) ans[ed[x]] = now;
+	if (tri[x][0]) calc(tri[x][0], now, pw * 3);
+	if (tri[x][1]) calc(tri[x][1], now + pw, pw * 3);
+	if (tri[x][2]) calc(tri[x][2], now + pw + pw, pw * 3);
+	
+}
+
+signed main()
+{
+	scanf(&quot;%d%s&quot;, &amp;n, s + 1);
+	q = strlen(s + 1);
+	m = pow(3, n);
+	
+	memset(ed, -1, sizeof ed);
+	for (int i = 0; i &lt; m; ++i) insert(i);
+	
+	for (int i = 1; i &lt;= q; ++i)
+		if (s[i] == 'S') pushrev(1);
+		else dfs_add(1);
+	
+	calc(1, 0, 1);
+	for (int i = 0; i &lt; m; ++i) print(ans[i]), putchar(' ');
+	
+	return 0;
+}
+</code></pre>
+<h3 id="t4-练习曲"><a href="http://sjzezoj.com:9280/problem/52">T4 练习曲</a></h3>
+<p>题没看懂，咕~</p>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+        </div>
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://youziki.github.io/images/avatar.png?v=1605356256251" class="no-responsive avatar">
+    <div class="text-muted">众人皆醉我独醒</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://youziki.github.io/kFQq3LCjl/">题解 11.13 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/mhDb2V4vS/">题解 11.14 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/6c3N6Woc9/">莫队 1</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/6fKYNpYJk/">题解 11.12 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/rHW06nRxR/">题解 11.11 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/DCsUFx0Nx/">CSP2020 题解</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/ETwmqieTf/">二维树状数组 1</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/LmMs6J-gP/">题解 11.10 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/WUYEpOUHX/">题解 11.9 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/xtZfEILOr/">SA 1</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge success">
+          比赛
+        </a>
+      
+        <a href="https://youziki.github.io/4STTQXNzf/" class="badge ">
+          学习笔记
+        </a>
+      
+        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge warning">
+          刷题
+        </a>
+      
+        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge ">
+          题解
+        </a>
+      
+        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge secondary">
+          其他
+        </a>
+      
+        <a href="https://youziki.github.io/WZIkvhEfs/" class="badge ">
+          那年暑假，我们砥砺前行——启智树
+        </a>
+      
+        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge secondary">
+          Gridea
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+
+  </body>
+</html>

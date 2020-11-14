@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>题解 CF1445B 【Elimination】 | 和JZ贴贴~</title>
+<title>莫队 1 | 和JZ贴贴~</title>
 <meta name="description" content="众人皆醉我独醒">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -81,59 +81,21 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>题解 CF1445B 【Elimination】</h1>
+            <h1>莫队 1</h1>
             <p class="article-meta">
-              2020-11-03
+              2020-11-14
               
-                <a href="https://youziki.github.io/CEgpF5PzU/" class="badge secondary">
-                  题解
+                <a href="https://youziki.github.io/4STTQXNzf/" class="badge secondary">
+                  学习笔记
                 </a>
               
             </p>
             
-              <img src="https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png" alt="题解 CF1445B 【Elimination】">
+              <img src="https://cdn.luogu.com.cn/upload/image_hosting/xdvp0hhr.png" alt="莫队 1">
             
             <div class="post-content">
-              <h2 id="证明思路很好">证明思路很好</h2>
-<h4 id="证明">证明：</h4>
-<ul>
-<li>
-<p>答案不小于这个数：</p>
-<p>这个数已经有至少100人了，所以第100名不可能小于这个分数</p>
-</li>
-<li>
-<p>答案不大于这个数：</p>
-<p>大于这个数<strong>没意义</strong>，考虑在所有这条分数线上的人（包括这个分数）都是这个分，仍有至少100个人可选</p>
-</li>
-</ul>
-<h4 id="总结">总结：</h4>
-<ul>
-<li>
-<p>猜完结论之后，从正反两方面将结论证明，如果成功，不要犹豫，写上去就对了</p>
-</li>
-<li>
-<p>“没意义”是OI证明或构造时常用的套路，尤其是CF的题，只需考虑答案的正确性即可</p>
-</li>
-</ul>
-<h4 id="code">Code：</h4>
-<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
-#define int long long
-
-signed main()
-{
-	int t;
-	cin &gt;&gt;t;
-	while(t --)
-	{
-		int a,b,c,d;
-		cin&gt;&gt;a&gt;&gt;b&gt;&gt;c&gt;&gt;d;
-		cout&lt;&lt;max(a+b,c+d)&lt;&lt;endl;
-	}
-	
-	return 0;
-}
-</code></pre>
+              <p>先上5个板子：</p>
+<h3 id="p1972-sdoi2009hh的项链"><a href="https://www.luogu.com.cn/problem/P1972">P1972 [SDOI2009]HH的项链</a></h3>
 
             </div>
           </article>
@@ -144,9 +106,9 @@ signed main()
               <div class="next">
                 下一篇
               </div>
-              <a href="https://youziki.github.io/FQbsnRyha/">
+              <a href="https://youziki.github.io/DCsUFx0Nx/">
                 <h3 class="post-title">
-                  题解 CF1445A 【Array Rearrangment】
+                  CSP2020 题解
                 </h3>
               </a>
             </div>
@@ -417,15 +379,15 @@ signed main()
     </div>
     <div class="row">
       
-        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge warning">
+        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge secondary">
           比赛
         </a>
       
-        <a href="https://youziki.github.io/4STTQXNzf/" class="badge secondary">
+        <a href="https://youziki.github.io/4STTQXNzf/" class="badge warning">
           学习笔记
         </a>
       
-        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge warning">
+        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge secondary">
           刷题
         </a>
       
@@ -437,11 +399,11 @@ signed main()
           其他
         </a>
       
-        <a href="https://youziki.github.io/WZIkvhEfs/" class="badge ">
+        <a href="https://youziki.github.io/WZIkvhEfs/" class="badge secondary">
           那年暑假，我们砥砺前行——启智树
         </a>
       
-        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge secondary">
+        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge warning">
           Gridea
         </a>
       

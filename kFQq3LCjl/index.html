@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>题解 CF1445B 【Elimination】 | 和JZ贴贴~</title>
+<title>题解 11.13 模拟赛 | 和JZ贴贴~</title>
 <meta name="description" content="众人皆醉我独醒">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -81,56 +81,139 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>题解 CF1445B 【Elimination】</h1>
+            <h1>题解 11.13 模拟赛</h1>
             <p class="article-meta">
-              2020-11-03
+              2020-11-14
               
-                <a href="https://youziki.github.io/CEgpF5PzU/" class="badge secondary">
-                  题解
+                <a href="https://youziki.github.io/ajbBPuKpd/" class="badge ">
+                  比赛
                 </a>
               
             </p>
             
-              <img src="https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png" alt="题解 CF1445B 【Elimination】">
+              <img src="https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png" alt="题解 11.13 模拟赛">
             
             <div class="post-content">
-              <h2 id="证明思路很好">证明思路很好</h2>
-<h4 id="证明">证明：</h4>
+              <h3 id="t1-gcd"><a href="http://sjzezoj.com:9280/problem/37">T1 gcd</a></h3>
+<h4 id="solution">Solution：</h4>
+<p>思路真不错！咋想到的呀？</p>
 <ul>
 <li>
-<p>答案不小于这个数：</p>
-<p>这个数已经有至少100人了，所以第100名不可能小于这个分数</p>
+<p>考虑一种暴力：</p>
+<p>答案为从1到i的所有数的gcd求和（区间）</p>
+<p>等价做法：记录从每个位置开始的后缀，每次与每个后缀做gcd，并更新这些后缀的gcd，同时开一个以当前数开始的后缀</p>
 </li>
 <li>
-<p>答案不大于这个数：</p>
-<p>大于这个数<strong>没意义</strong>，考虑在所有这条分数线上的人（包括这个分数）都是这个分，仍有至少100个人可选</p>
-</li>
-</ul>
-<h4 id="总结">总结：</h4>
-<ul>
-<li>
-<p>猜完结论之后，从正反两方面将结论证明，如果成功，不要犹豫，写上去就对了</p>
+<p>优化：</p>
+<p>第二个做法加一个判断：是否是前面那个数（gcd）的倍数，如果是，直接break。还要记录一个前面所有位置开始的后缀的前缀和，如果修改，同时<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>修改这个前缀和，每次加上这个前缀和（修改后）即可</p>
 </li>
 <li>
-<p>“没意义”是OI证明或构造时常用的套路，尤其是CF的题，只需考虑答案的正确性即可</p>
+<p>时间复杂度证明：</p>
+<p>每个g[]只会被修改30次，所以总复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>a</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nloga)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">a</span><span class="mclose">)</span></span></span></span>。也可以换种方式理解，如果有一个位置会一直往前遍历（前面的g[]都相同），那么得到前面这些g[]的时候，全是O(1)的，所以这种情况会被均摊掉</p>
 </li>
 </ul>
 <h4 id="code">Code：</h4>
+<pre><code class="language-cpp">signed main()
+{
+	scanf(&quot;%lld&quot;, &amp;n);
+	for (int i = 1, a; i &lt;= n; ++i)
+	{
+		scanf(&quot;%lld&quot;, &amp;a);
+		g[i] = a, (sum += a) %= mod;
+		int j = i - 1;
+		while (j &amp;&amp; a % g[j])
+			(sum -= g[j]) %= mod, g[j] = __gcd(g[j], a), (sum += g[j]) %= mod,
+			--j;
+		(ans += sum) %= mod;
+	}
+	printf(&quot;%lld&quot;, (ans + mod) % mod);
+	
+	return 0;
+}
+</code></pre>
+<h3 id="t2-or_and"><a href="http://sjzezoj.com:9280/problem/43">T2 or_and</a></h3>
+<h4 id="solution-2">Solution：</h4>
+<p>练习取模的好题！</p>
+<p>考场上很快推出式子，写完，然后爆了</p>
+<p>long long开少一点都不行，取mod取少一点都不行，注意：n和m的范围是1e18，在运算的时候要取模，但不能先对n和m取模，因为它们还表示数量</p>
+<h4 id="code-2">Code：</h4>
+<pre><code class="language-cpp">#define int long long
+
+const int mod = 1e9 + 7;
+
+#define P mod
+
+signed main()
+{	
+	int n, m;
+	int ans = 0;
+	scanf(&quot;%lld%lld&quot;, &amp;n, &amp;m);
+	if (n &lt; m) swap(n, m);
+	
+	++ n, ++ m;
+	
+	int val = 1;
+	for (int i = 0; val &lt; n; ++i, val &lt;&lt;= 1)
+	{
+		int times_n = (val &gt; n / 2) ?
+				n - val :
+				n / (val &lt;&lt; 1) * val % P
+					+ ( (n % (val &lt;&lt; 1) &gt; val) ? n % (val &lt;&lt; 1) - val : 0 ), times_m = 0;
+		if (val &lt;= m)
+			times_m = (val &gt; m / 2) ?
+				m - val :
+				m / (val &lt;&lt; 1) * val % P
+					+ ( (m % (val &lt;&lt; 1) &gt; val) ? m % (val &lt;&lt; 1) - val : 0 );
+		times_n %= P, times_m %= P;
+		int t = (
+				(times_n * (m % P) % P + times_m * (n % P) % P - times_n * times_m % P) % P
+				+ P ) % P;
+		ans = (ans + t * (val % P) % P) % P;
+	}
+	
+	printf(&quot;%lld&quot;, ans);
+	
+	return 0;
+}
+</code></pre>
+<h3 id="t3-middle"><a href="http://sjzezoj.com:9280/problem/46">T3 middle</a></h3>
+<h4 id="code-3">Code：</h4>
+<pre><code class="language-cpp">
+</code></pre>
+<h3 id="t4-beautiful"><a href="http://sjzezoj.com:9280/problem/47">T4 beautiful</a></h3>
+<h4 id="solution-3">Solution：</h4>
+<p>一看就知道是反悔贪心，可惜不会。。。代码很简单的，看看吧，从后往前放右括号是为了保证每一个后缀右括号都不少于左括号</p>
+<p>是时候该学习反悔贪心了？！</p>
+<h4 id="code-4">Code：</h4>
 <pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
 using namespace std;
-#define int long long
+
+#define LL long long
+
+const int N = 300005;
+
+int n, a[N], b[N];
+LL sum;
 
 signed main()
 {
-	int t;
-	cin &gt;&gt;t;
-	while(t --)
+	scanf(&quot;%d&quot;, &amp;n);
+
+	for (int i = 1; i &lt;= n; ++i) scanf(&quot;%d&quot;, a + i), sum += a[i];
+	for (int i = 1; i &lt;= n; ++i) scanf(&quot;%d&quot;, b + i), b[i] = a[i] - b[i];
+
+	priority_queue&lt;int&gt; q;
+	q.push(b[n]);
+	for (int i = 1; i &lt;= n / 2; ++i)
 	{
-		int a,b,c,d;
-		cin&gt;&gt;a&gt;&gt;b&gt;&gt;c&gt;&gt;d;
-		cout&lt;&lt;max(a+b,c+d)&lt;&lt;endl;
+		int v = q.top(); q.pop();
+		sum -= v;
+		q.push(b[n - 2 * i + 1]), q.push(b[n - 2 * i]);
 	}
-	
+
+	printf(&quot;%lld&quot;, sum);
+
 	return 0;
 }
 </code></pre>
@@ -144,9 +227,9 @@ signed main()
               <div class="next">
                 下一篇
               </div>
-              <a href="https://youziki.github.io/FQbsnRyha/">
+              <a href="https://youziki.github.io/6c3N6Woc9/">
                 <h3 class="post-title">
-                  题解 CF1445A 【Array Rearrangment】
+                  莫队 1
                 </h3>
               </a>
             </div>
@@ -421,15 +504,15 @@ signed main()
           比赛
         </a>
       
-        <a href="https://youziki.github.io/4STTQXNzf/" class="badge secondary">
+        <a href="https://youziki.github.io/4STTQXNzf/" class="badge ">
           学习笔记
         </a>
       
-        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge warning">
+        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge success">
           刷题
         </a>
       
-        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge secondary">
+        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge ">
           题解
         </a>
       
@@ -437,7 +520,7 @@ signed main()
           其他
         </a>
       
-        <a href="https://youziki.github.io/WZIkvhEfs/" class="badge ">
+        <a href="https://youziki.github.io/WZIkvhEfs/" class="badge secondary">
           那年暑假，我们砥砺前行——启智树
         </a>
       
