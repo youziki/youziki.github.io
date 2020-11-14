@@ -7,7 +7,7 @@
 <meta name="description" content="众人皆醉我独醒">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1605361894753">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1605363583046">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
@@ -85,7 +85,7 @@
             <p class="article-meta">
               2020-10-30
               
-                <a href="https://youziki.github.io/QjIXjFt9R/" class="badge success">
+                <a href="https://youziki.github.io/QjIXjFt9R/" class="badge warning">
                   其他
                 </a>
               
@@ -193,6 +193,42 @@ signed main(){
 <p>mod取998244353时，不要写成99824353！！！</p>
 <h3 id="17">17</h3>
 <p>别再傻傻地写分治了！想想能不能<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>做！！！</p>
+<h3 id="18">18</h3>
+<p>题：传纸条，注意后两维只是不同路径，都表示纵坐标，不能一个n一个m</p>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+const int N = 55;
+
+int n, m, a[N][N], f[N &lt;&lt; 1][N][N], A, B, C;
+
+signed main()
+{
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+    for (int i = 1; i &lt;= n; ++i)
+        for (int j = 1; j &lt;= m; ++j)
+            scanf(&quot;%d&quot;, &amp;a[i][j]);
+    
+    for (int i = 2; i &lt;= n + m; ++i) // 横纵坐标之和
+        for (int i1 = 1; i1 &lt;= min(i - 1, n); ++i1) // 纵坐标，下同
+            for (int i2 = 1; i2 &lt;= min(i - 1, n); ++i2)
+            {
+                if (i1 == i2 &amp;&amp; i1 != n &amp;&amp; i1 != 1) continue;
+                int j1 = i - i1, j2 = i - i2, &amp;x = f[i][i1][i2];
+                x = max(x, f[i - 1][i1][i2]);
+                x = max(x, f[i - 1][i1 - 1][i2 - 1]);
+                x = max(x, f[i - 1][i1 - 1][i2]);
+                x = max(x, f[i - 1][i1][i2 - 1]);
+                x += a[i1][j1];
+                if (i1 != i2) x += a[i2][j2];
+            }
+    
+    printf(&quot;%d&quot;, f[n + m][n][n]); // 千万注意：这里不是f[n + m][n][m]，这两维只是不同的路径，都是纵坐标！
+    
+    return 0;
+}
+</code></pre>
 
             </div>
           </article>
@@ -216,7 +252,7 @@ signed main(){
 
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="https://youziki.github.io/images/avatar.png?v=1605361894753" class="no-responsive avatar">
+    <img src="https://youziki.github.io/images/avatar.png?v=1605363583046" class="no-responsive avatar">
     <div class="text-muted">众人皆醉我独醒</div>
     <div class="social-container">
       
@@ -476,7 +512,7 @@ signed main(){
     </div>
     <div class="row">
       
-        <a href="https://youziki.github.io/4STTQXNzf/" class="badge success">
+        <a href="https://youziki.github.io/4STTQXNzf/" class="badge warning">
           学习笔记
         </a>
       
@@ -488,7 +524,7 @@ signed main(){
           刷题
         </a>
       
-        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge warning">
+        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge ">
           题解
         </a>
       
@@ -496,7 +532,7 @@ signed main(){
           其他
         </a>
       
-        <a href="https://youziki.github.io/WZIkvhEfs/" class="badge warning">
+        <a href="https://youziki.github.io/WZIkvhEfs/" class="badge ">
           那年暑假，我们砥砺前行——启智树
         </a>
       
