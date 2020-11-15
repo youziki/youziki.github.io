@@ -7,7 +7,7 @@
 <meta name="description" content="众人皆醉我独醒">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1605364199803">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1605421278018">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
@@ -85,7 +85,7 @@
             <p class="article-meta">
               2020-10-30
               
-                <a href="https://youziki.github.io/4STTQXNzf/" class="badge secondary">
+                <a href="https://youziki.github.io/4STTQXNzf/" class="badge warning">
                   学习笔记
                 </a>
               
@@ -241,6 +241,18 @@ for (int i = 1; i &lt;= q; i++) {
         puts(&quot;3&quot;);
 }
 </code></pre>
+<h3 id="p2642-双子序列最大和"><a href="https://www.luogu.com.cn/problem/P2642">P2642 双子序列最大和</a></h3>
+<p>题解有几篇就行了，我写一下自己的总结</p>
+<p>是一道黄题，但我并没有秒掉，还想了十来分钟<s>还是个hongming</s>，最后想出来也是没什么思考过程/kk</p>
+<p>思维被传纸条带偏了，这么大的范围，老想着用状态将选的方案表示出来。但我们看到，正解的思维是线性的（包括状态和转移），对吧，我还是思维太僵化了</p>
+<p>像这题有双子串，如果状态比较复杂，可以考虑dp部分，结合其他技巧，状态少了，就好表示了</p>
+<p>如果只有一个连续子串呢？没必要完全表示子串，是吧，考虑到转移肯定是从前面一个地方转移的，问题就迎刃而解了</p>
+<p>因为忘了最大连续子串了，所以这题相当于0基础想的思路，也是正好发挥了这道题的价值吧</p>
+<h3 id="总结">总结：</h3>
+<p>状态复杂，可以考虑用dp结合别的技巧（像“中间还要间隔一个”之类的，用别的技巧会很简单）</p>
+<p>状态设计可以先考虑考虑转移（虽然听起来有点鬼），没必要把状态都表示出来</p>
+<p>找到dp的子问题</p>
+<p>不要忘记线性dp的状态呀（最后一个位置以前...）</p>
 
             </div>
           </article>
@@ -264,7 +276,7 @@ for (int i = 1; i &lt;= q; i++) {
 
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="https://youziki.github.io/images/avatar.png?v=1605364199803" class="no-responsive avatar">
+    <img src="https://youziki.github.io/images/avatar.png?v=1605421278018" class="no-responsive avatar">
     <div class="text-muted">众人皆醉我独醒</div>
     <div class="social-container">
       
@@ -524,23 +536,23 @@ for (int i = 1; i &lt;= q; i++) {
     </div>
     <div class="row">
       
-        <a href="https://youziki.github.io/4STTQXNzf/" class="badge success">
+        <a href="https://youziki.github.io/4STTQXNzf/" class="badge secondary">
           学习笔记
         </a>
       
-        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge ">
+        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge warning">
           比赛
         </a>
       
-        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge warning">
+        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge secondary">
           刷题
         </a>
       
-        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge ">
+        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge warning">
           题解
         </a>
       
-        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge ">
+        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge secondary">
           其他
         </a>
       
@@ -548,7 +560,7 @@ for (int i = 1; i &lt;= q; i++) {
           那年暑假，我们砥砺前行——启智树
         </a>
       
-        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge secondary">
+        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge ">
           Gridea
         </a>
       
