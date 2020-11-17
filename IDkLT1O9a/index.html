@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>题解 11.17 模拟赛 | 和JZ贴贴~</title>
+<meta name="description" content="众人皆醉我独醒">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1605617723481">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
+
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://youziki.github.io">和JZ贴贴~</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="https://youziki.github.io/about" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>题解 11.17 模拟赛</h1>
+            <p class="article-meta">
+              2020-11-17
+              
+                <a href="https://youziki.github.io/ajbBPuKpd/" class="badge warning">
+                  比赛
+                </a>
+              
+            </p>
+            
+              <img src="https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png" alt="题解 11.17 模拟赛">
+            
+            <div class="post-content">
+              <h3 id="t1-队伍统计"><a href="https://www.qizhishu.com/codeadmin/front/client/competition_taskProblemDetail.zhtml?TaskID=4962&amp;ClazzID=703&amp;CourseID=3M01&amp;ChapterID=3M0101">T1 队伍统计</a></h3>
+<p>不难，状压板子，练习吧，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mn>2</mn><mi>n</mi></msup><mi>n</mi><mi>k</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(2^nnk)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span></p>
+<h4 id="注意">注意：</h4>
+<p>状压不都要记录“最后一个放在哪里”呀！这题就不用考虑，状态和转移都没有</p>
+<h4 id="code状压">Code：<a href="#code3">状压</a></h4>
+<h3 id="t2-序列问题"><a href="https://www.qizhishu.com/codeadmin/front/client/competition_taskProblemDetail.zhtml?TaskID=4962&amp;ClazzID=703&amp;CourseID=3M01&amp;ChapterID=3M0101">T2 序列问题</a></h3>
+<h4 id="题面">题面：</h4>
+<p>求所有子区间最大值最小值的乘积之和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>&lt;</mo><mo>=</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">n &lt;= 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span></p>
+<h4 id="solution">Solution：</h4>
+<p>考场刚了半天才想到单调栈，又写了之后才发现不能维护一段相同最大值内的不同最小值，昂神立刻就想到了维护最大值最小值的乘积，所以就发现不用树状数组或线段树维护最大最小值是不行的（区间赋值，区间求和），单调栈写法没调出来，全WA，过样例（复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nlogn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>速度还挺快，最慢的点500ms）</p>
+<p>正解：分治<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nlogn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></p>
+<p>但是怎样才能保证复杂度呢？对左半部分每一个位置i，它的最大最小值在右区间内找到一个相同的值，因为两边的最大最小值都具有单调性，所以可以用双指针<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>对左区间每个i找到这样的位置，下面说说怎样处理一个区间：</p>
+<figure data-type="image" tabindex="1"><img src="https://cdn.luogu.com.cn/upload/image_hosting/fvngqfs3.png" alt="" loading="lazy"></figure>
+<p>答案分三部分统计：</p>
+<ul>
+<li>
+<p>对于浅蓝色的区间，最大最小值直接为i处的最大最小值，直接乘即可</p>
+</li>
+<li>
+<p>对于深蓝色的区间，最大值固定，记录最小值前缀和相乘即可（有可能此处为：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>i</mi><mi>n</mi><mo>&lt;</mo><mi>m</mi><mi>i</mi><mo separator="true">,</mo><mi>m</mi><mi>a</mi><mi>x</mi><mo>=</mo><mi>m</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">min&lt;mi,max=mx</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69862em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">a</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">x</span></span></span></span>，但只需要令最小值固定，乘最大值前缀和即可）</p>
+</li>
+<li>
+<p>对于紫色的区间，最大值最小值为区间内的，直接记录最大最小值乘积前缀和即可</p>
+</li>
+</ul>
+<h4 id="code单调栈-分治">Code：<a href="#code1">（单调栈）</a> <a href="#code2">（分治）</a></h4>
+<h3 id="t3-带权排序"><a href="https://www.qizhishu.com/codeadmin/front/client/competition_taskProblemDetail.zhtml?TaskID=4963&amp;ClazzID=703&amp;CourseID=3M01&amp;ChapterID=3M0101">T3 带权排序</a></h3>
+<p>题面没看懂，咕</p>
+<h5 id="code1">Code1：</h5>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+#define int long long
+#define LL long long
+const int N = 500005, P = 1e9 + 7;
+int n, a[N];
+int stk[2][N], top[2], wid[2][N]; // 减、增
+LL t[2][2][N]; // 第一维：mx, mi 第二维：aj, aj*j
+LL ans, sum;
+inline void add_T(LL t[], LL x, LL y) {
+	for (; x &lt; N; x += x &amp; -x) t[x] = (t[x] + y) % P ;
+}
+inline LL ask_T(LL t[], LL x) {
+	LL res = 0;
+	for (; x; x -= x &amp; -x) res = (res + t[x]) % P;
+	return res;
+}
+inline void add_1(int l, int r, LL y, int k) { // 区间加（差分、维护两个树状数组）
+	add_T(t[k][0], l, y), add_T(t[k][1], l, y * l);
+	add_T(t[k][0], r + 1, -y), add_T(t[k][1], r + 1, -y * (r + 1));
+}
+inline LL ask_1(int l, int r, int k) { // 区间查询（式子），记得前缀和相减
+	LL ans1 = (1LL * (r + 1) * ask_T(t[k][0], r) % P - ask_T(t[k][1], r) + P) % P;
+	LL ans2 = (1LL * l * ask_T(t[k][0], l - 1) % P - ask_T(t[k][1], l - 1) + P) % P;
+	return (ans1 - ans2 + P) % P;
+}
+signed main() {
+	scanf(&quot;%lld&quot;, &amp;n);
+	for (int i = 1; i &lt;= n; ++i) {
+		scanf(&quot;%lld&quot;, a + i);
+		if (! a[i]) {
+			ans = 0;
+			while (top[0]) wid[0][top[0]] = stk[0][top[0]] = 0, -- top[0];
+			while (top[1]) wid[1][top[1]] = stk[1][top[1]] = 0, -- top[1];
+			memset(t, 0, sizeof t);
+			continue;
+		}
+		ans = (ans + 1LL * a[i] * a[i] % P) % P;
+		if (a[i] &lt; a[ stk[0][top[0]] ]) stk[0][++ top[0]] = i, wid[0][top[0]] = 1, add_1(i, i, a[i], 0);
+		else {
+			int width = 0;
+			while (top[0] &amp;&amp; a[ stk[0][top[0]] ] &lt;= a[i]) {
+				LL s = ask_1(stk[0][top[0]] - wid[0][top[0]] + 1, stk[0][top[0]], 1);
+				ans = (ans + 1LL * (a[i] - a[ stk[0][top[0]] ]) * s % P) % P;
+				add_1(stk[0][top[0]] - wid[0][top[0]] + 1, stk[0][top[0]], - a[ stk[0][top[0]] ] + a[i], 0);
+				width += wid[0][top[0]], -- top[0];
+			}
+			stk[0][++ top[0]] = i, wid[0][top[0]] = width + 1;
+		}
+		if (a[i] &gt; a[ stk[1][top[1]] ]) stk[1][++ top[1]] = i, wid[1][top[1]] = 1, add_1(i, i, a[i], 1);
+		else {
+			int width = 0;
+			while (top[1] &amp;&amp; a[ stk[1][top[1]] ] &gt;= a[i]) {
+				LL s = ask_1(stk[1][top[1]] - wid[1][top[1]] + 1, stk[1][top[1]], 0);
+				ans = (ans + 1LL * (a[i] - a[ stk[1][top[1]] ]) * s % P + P) % P;
+				add_1(stk[1][top[1]] - wid[1][top[1]] + 1, stk[1][top[1]], - a[ stk[1][top[1]] ] + a[i], 1);
+				width += wid[1][top[1]], -- top[1];
+			}
+			stk[1][++ top[1]] = i, wid[1][top[1]] = width + 1;
+		}
+		sum = (sum + ans) % P;
+	}
+	printf(&quot;%lld&quot;, sum);
+	return 0;
+}
+</code></pre>
+<h5 id="code2">Code2：</h5>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+#define int long long
+const int N = 500005, P = 1000000007;
+int n, ans, a[N], mi[N], mx[N], sum[2][N], sum2[N];
+inline int add(int x, int y) {return x + y &gt;= P ? x + y - P : x + y;}
+inline int del(int x, int y) {return x &gt; y ? x - y : x - y + P;}
+void solve(int l, int r) {
+	if (l &gt; r) return;
+	if (l == r) return ans = add(ans, a[l] * a[l] % P), void();
+	int mid = (l + r) &gt;&gt; 1;
+	mi[mid] = P, mx[mid] = -P;
+	for (int i = mid + 1; i &lt;= r; ++i)
+		mi[i] = min(mi[i - 1], a[i]), mx[i] = max(mx[i - 1], a[i]),
+		sum[0][i] = add(sum[0][i - 1],  mi[i]), sum[1][i] = add(sum[1][i - 1], mx[i]),
+		sum2[i] = add(sum2[i - 1], mi[i] * mx[i] % P);
+	int mn_p = mid + 1, ma_p = mid + 1, mn = P, ma = -P;
+	for (int i = mid; i &gt;= l; --i) {
+		mn = min(mn, a[i]); while (mi[mn_p] &gt; mn &amp;&amp; mn_p &lt;= r) ++ mn_p;
+		ma = max(ma, a[i]); while (mx[ma_p] &lt; ma &amp;&amp; ma_p &lt;= r) ++ ma_p;
+		ans = add(ans, mn_p &lt; ma_p ? add(mn * ma % P * (mn_p - mid - 1) % P, add(ma * del(sum[0][ma_p - 1], sum[0][mn_p - 1]) % P, del(sum2[r], sum2[ma_p - 1])))
+								   : add(mn * ma % P * (ma_p - mid - 1) % P, add(mn * del(sum[1][mn_p - 1], sum[1][ma_p - 1]) % P, del(sum2[r], sum2[mn_p - 1]))) );
+	}
+	for (int i = mid + 1; i &lt;= r; ++i) mi[i] = mx[i] = sum[0][i] = sum[1][i] = sum2[i] = 0;
+	solve(l, mid), solve(mid + 1, r);
+}
+signed main() {
+	scanf(&quot;%lld&quot;, &amp;n); for (int i = 1; i &lt;= n; ++i) scanf(&quot;%lld&quot;, a + i);
+	solve(1, n);
+	printf(&quot;%lld&quot;, ans);
+	return 0;
+}
+</code></pre>
+<h5 id="code3">Code3：</h5>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int N = 21, P = 1e9 + 7;
+int n, m, k, mx, f[1 &lt;&lt; N][N], ans;
+bitset&lt;N&gt; nxt[N];
+signed main() {
+	scanf(&quot;%d%d%d&quot;, &amp;n, &amp;m, &amp;k); mx = (1 &lt;&lt; n) - 1;
+	for (int i = 1, u, v; i &lt;= m; ++i) scanf(&quot;%d%d&quot;, &amp;u, &amp;v), nxt[u].set(v - 1);
+	for (int i = 1; i &lt;= n; ++i) f[1 &lt;&lt; (i - 1)][0] = 1;
+	for (int s = 0; s &lt;= mx; ++s)
+		for (int j = 1; j &lt;= n; ++j) if (! ((s &gt;&gt; (j - 1)) &amp; 1) )
+			for (int p = 0; p &lt;= k; ++p) {
+				bitset&lt;N&gt; cur(s);
+				cur &amp;= nxt[j];
+				int p2 = p + cur.count();
+				if (p2 &lt;= k) {
+					int &amp;x = f[s | (1 &lt;&lt; (j - 1))][p2];
+					x = (x + f[s][p]) % P;
+				}
+			}
+	for (int i = 0; i &lt;= k; ++i) ans = (ans + f[mx][i]) % P;
+	printf(&quot;%d&quot;, ans);
+	return 0;
+}
+</code></pre>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://youziki.github.io/CinD9qxaQ/">
+                <h3 class="post-title">
+                  题解 11.15 CF
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://youziki.github.io/images/avatar.png?v=1605617723481" class="no-responsive avatar">
+    <div class="text-muted">众人皆醉我独醒</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://youziki.github.io/IDkLT1O9a/">题解 11.17 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/MlxP-PXGZ/">题解 11.16 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/CinD9qxaQ/">题解 11.15 CF</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/kFQq3LCjl/">题解 11.13 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/mhDb2V4vS/">题解 11.14 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/6c3N6Woc9/">莫队 1</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/6fKYNpYJk/">题解 11.12 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/rHW06nRxR/">题解 11.11 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/DCsUFx0Nx/">CSP2020 题解</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/ETwmqieTf/">二维树状数组 1</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge warning">
+          比赛
+        </a>
+      
+        <a href="https://youziki.github.io/4STTQXNzf/" class="badge secondary">
+          学习笔记
+        </a>
+      
+        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge ">
+          刷题
+        </a>
+      
+        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge success">
+          题解
+        </a>
+      
+        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge success">
+          其他
+        </a>
+      
+        <a href="https://youziki.github.io/WZIkvhEfs/" class="badge secondary">
+          那年暑假，我们砥砺前行——启智树
+        </a>
+      
+        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge secondary">
+          Gridea
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+
+  </body>
+</html>
