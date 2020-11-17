@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>题解 P2938 【[USACO09FEB]Stock Market G】 | 和JZ贴贴~</title>
+<title>比赛 | 和JZ贴贴~</title>
 <meta name="description" content="众人皆醉我独醒">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -23,7 +23,6 @@
 
   </head>
   <body>
-  
     <nav class="navbar border fixed split-nav">
   <div class="nav-brand">
     <h3><a href="https://youziki.github.io">和JZ贴贴~</a></h3>
@@ -80,62 +79,68 @@
     <div id="top" class="row site">
       <div class="sm-12 md-8 col">
         <div class="paper">
-          <article class="article">
-            <h1>题解 P2938 【[USACO09FEB]Stock Market G】</h1>
-            <p class="article-meta">
-              2020-10-30
-              
-                <a href="https://youziki.github.io/CEgpF5PzU/" class="badge secondary">
-                  题解
-                </a>
-              
-            </p>
-            
-              <img src="https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png" alt="题解 P2938 【[USACO09FEB]Stock Market G】">
-            
-            <div class="post-content">
-              <h1 id="细节好评">细节好评！</h1>
-<p>pj的题都做不了满分（第一次提交）/kk</p>
-<p>做法：贪心+完全背包，别的题解都已经说的很清楚了（大概，毕竟我也没看）</p>
-<p>说一下让我觉得很好的一个细节：</p>
-<p>先看我一开始的代码：</p>
-<pre><code class="language-cpp">m=f[m];
-</code></pre>
-<p>发现过不了样例，对着样例可以发现问题：<strong>第二天用不完所有的钱</strong></p>
-<p>于是改了之后成为下面这个：</p>
-<pre><code class="language-cpp">int ans=m;
-while(f[ans-1]==f[m])--ans;
-m=f[ans]+m-ans;
-</code></pre>
-<p>发现84tps，没有样例了，看代码~~~ 看着这个while循环怎么这么假<s>FAke</s>？</p>
-<p>于是想，ans如果继续--，如果减得很多，而f[ans]减得比较少呢？</p>
-<p>于是就有了下面的AC代码：</p>
-<pre><code class="language-cpp">int ans=m;
-for(re int j=1;j&lt;=m;++j)ans=max(ans,f[j]+m-j);
-m=ans;
-</code></pre>
-<p>祝大家 <s>看完题解</s> 一遍AC！</p>
+          <h2 class="current-tag">标签: 比赛</h2>
+          
+  <article class="article">
+    <h2 class="article-title">
+      <a href="https://youziki.github.io/52WeJKeNP/">题解 9.3 &amp; 9.4 模拟赛</a>
+    </h2>
+    <p class="article-meta">
+      2020-10-30
+      
+        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge success">
+          比赛
+        </a>
+      
+    </p>
+    <p class="text-lead">
+      
+    </p>
+    <div class="row">
+      <a href="https://youziki.github.io/52WeJKeNP/" class="readmore-link">
+        <button>
+          Read More
+        </button>
+      </a>
+    </div>
+  </article>
 
-            </div>
-          </article>
+  <article class="article">
+    <h2 class="article-title">
+      <a href="https://youziki.github.io/niu-ke-kao-qian-ji-xun/">牛客考前集训</a>
+    </h2>
+    <p class="article-meta">
+      2020-10-29
+      
+        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge secondary">
+          比赛
+        </a>
+      
+    </p>
+    <p class="text-lead">
+      
+    </p>
+    <div class="row">
+      <a href="https://youziki.github.io/niu-ke-kao-qian-ji-xun/" class="readmore-link">
+        <button>
+          Read More
+        </button>
+      </a>
+    </div>
+  </article>
+
+
         </div>
-        <div class="paper" data-aos="fade-in">
-          
-            <div class="next-post">
-              <div class="next">
-                下一篇
-              </div>
-              <a href="https://youziki.github.io/9TgB9WBGd/">
-                <h3 class="post-title">
-                  题解 CF439E 【Devu and Birthday Celebration】
-                </h3>
-              </a>
-            </div>
-          
-        </div>
-        
+        <div class="row flex-edges">
+  
+    <a href="https://youziki.github.io/ajbBPuKpd/page/2/" class="paper-btn">
+      上一页
+    </a>
+  
+  
+</div>
+
       </div>
-
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
     <img src="https://youziki.github.io/images/avatar.png?v=1605571893883" class="no-responsive avatar">
@@ -402,23 +407,23 @@ m=ans;
     </div>
     <div class="row">
       
-        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge secondary">
+        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge ">
           比赛
         </a>
       
-        <a href="https://youziki.github.io/4STTQXNzf/" class="badge secondary">
+        <a href="https://youziki.github.io/4STTQXNzf/" class="badge warning">
           学习笔记
         </a>
       
-        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge ">
+        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge secondary">
           刷题
         </a>
       
-        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge secondary">
+        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge success">
           题解
         </a>
       
-        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge warning">
+        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge ">
           其他
         </a>
       
@@ -436,7 +441,6 @@ m=ans;
     Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
   </div>
 </div>
-
 
     </div>
 

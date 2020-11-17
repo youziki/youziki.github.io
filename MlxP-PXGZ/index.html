@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>题解 11.9 模拟赛 | 和JZ贴贴~</title>
+<title>题解 11.17 模拟赛 | 和JZ贴贴~</title>
 <meta name="description" content="众人皆醉我独醒">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -81,238 +81,73 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>题解 11.9 模拟赛</h1>
+            <h1>题解 11.17 模拟赛</h1>
             <p class="article-meta">
-              2020-11-09
+              2020-11-17
               
-                <a href="https://youziki.github.io/ajbBPuKpd/" class="badge success">
+                <a href="https://youziki.github.io/ajbBPuKpd/" class="badge secondary">
                   比赛
                 </a>
               
             </p>
             
-              <img src="https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png" alt="题解 11.9 模拟赛">
+              <img src="https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png" alt="题解 11.17 模拟赛">
             
             <div class="post-content">
-              <p>完结！</p>
-<h3 id="t1-淘淘蓝蓝之游戏"><a href="http://sjzezoj.com:9280/problem/21">T1 淘淘蓝蓝之游戏</a></h3>
-<p>大水题</p>
-<h3 id="t2-淘淘蓝蓝与保温箱"><a href="http://sjzezoj.com:9280/problem/22">T2 淘淘蓝蓝与保温箱</a></h3>
-<p>也挺水的，纯暴力就能过，就是转移和初始化的时候常规费了点心思</p>
+              <p>上午模拟赛太难，就先不写了</p>
+<h3 id="t5-平面图"><a href="http://sjzezoj.com:9280/problem/57">T5 平面图</a></h3>
+<h4 id="solution">Solution：</h4>
+<p>考场上想到思路，估计错复杂度，把<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mn>2</mn><mi>m</mi></msup><mi>m</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(2^mmn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">m</span></span></span></span></span></span></span></span><span class="mord mathdefault">m</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>估成了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mn>2</mn><mi>m</mi></msup><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(2^mn^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">m</span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>，导致自暴自弃写了prim/kk</p>
+<p>实际上kruskal就能跑满分，只不过用到MST的性质，挺好想的，循环内跑MST的时候只遍历最小生成树内的边</p>
 <h4 id="code">Code：</h4>
 <pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 using namespace std;
-
-const int N = 85;
-
-int n, q, k, suma, sumb;
-int a[N], b[N], f[N][N][N * 20], g[N];
-
-int main()
-{
-	freopen(&quot;box.in&quot;, &quot;r&quot;, stdin);
-	freopen(&quot;box.out&quot;, &quot;w&quot;, stdout);
-	
-	scanf(&quot;%d&quot;, &amp;n);
-	for (int i = 1; i &lt;= n; ++i) scanf(&quot;%d&quot;, a + i), suma += a[i];
-	for (int i = 1; i &lt;= n; ++i) scanf(&quot;%d&quot;, b + i), sumb += b[i];
-	
-	// dp
-	memset(f, 0xcf, sizeof f);
-	f[0][0][0] = 0;
-	for (int i = 1; i &lt;= n; ++i)
-	{
-		for (int j = 0; j &lt;= i; ++j)
-			for (int k = 0; k &lt;= sumb; ++k)
-				f[i][j][k] = f[i - 1][j][k];
-		for (int j = 1; j &lt;= i; ++j)
-			for (int k = b[i]; k &lt;= sumb; ++k)
-				f[i][j][k] = max(f[i][j][k], f[i - 1][j - 1][k - b[i]] + a[i]);
+const int N = 2005, M = 15;
+int n, m, tot, cnt, x[N], y[N], k[N], c[N], son[M][N], fa[N], sum, ed[N];
+int find(int x) {return x == fa[x] ? x : fa[x] = find(fa[x]);}
+struct Edge {
+	int a, b, c;
+	bool operator &lt; (const Edge &amp;A) const {return c &lt; A.c;}
+} e[N * N];
+inline int work() {
+	int res = 0;
+	for (int i = 1; i &lt;= cnt; ++i) {
+		int a = find(e[ed[i]].a), b = find(e[ed[i]].b);
+		if (a != b) res += e[ed[i]].c, fa[a] = b;
 	}
-	
-	scanf(&quot;%d&quot;, &amp;q);
-	memset(g, 0x3f, sizeof g);
-	while (q --)
-	{
-		scanf(&quot;%d&quot;, &amp;k);
-		if (g[k] &lt; 0x3f3f3f3f)
-		{
-			printf(&quot;%d\n&quot;, g[k]);
-			continue;
+	return res;
+}
+signed main() {
+	scanf(&quot;%d%d&quot;, &amp;n, &amp;m); for (int i = 1; i &lt;= n; ++i) scanf(&quot;%d%d&quot;, x + i, y + i);
+	for (int i = 1, u, v; i &lt;= m; ++i) {
+		scanf(&quot;%d%d&quot;, k + i, c + i);
+		for (int j = 1; j &lt;= k[i]; ++j) scanf(&quot;%d&quot;, &amp;son[i][j]);
+	}
+	for (int i = 1; i &lt;= n; ++i)
+		for (int j = 1; j &lt;= n; ++j) if (i != j)
+			e[++ tot] = {i, j, (x[i] - x[j]) * (x[i] - x[j]) + (y[i] - y[j]) * (y[i] - y[j])};
+	sort(e + 1, e + tot + 1);
+	for (int i = 1; i &lt;= n; ++i) fa[i] = i;
+	for (int i = 1; i &lt;= tot; ++i) {
+		int a = find(e[i].a), b = find(e[i].b), c = e[i].c;
+		if (a != b) fa[a] = b, sum += c, ed[++ cnt] = i;
+	}
+	int ans = sum, res = 0;
+	for (int i = 1; i &lt; (1 &lt;&lt; m); ++i) {
+		res = 0;
+		for (int j = 1; j &lt;= n; ++j) fa[j] = j;
+		for (int j = 1; j &lt;= m; ++j) if (i &amp; (1 &lt;&lt; (j - 1))) {
+			int F = find(son[j][1]);
+			for (int l = 2; l &lt;= k[j]; ++l) if (find(son[j][l]) != F) fa[find(son[j][l])] = F;
+			res += c[j];
 		}
-		int ans = -1;
-		for (int i = suma; i &lt;= sumb; ++i)
-			ans = max(ans, f[n][k][i]);
-		printf(&quot;%d\n&quot;, g[k] = (ans &lt;= -1 ? -1 : suma - ans));
+		ans = min(ans, work() + res);
 	}
-	
-	fclose(stdin);
-	fclose(stdout);
-	return 0;
-}
-/*
-选不超过k个
-总体积大于等于总水量
-总价值最大
-f[i][j][k]前i个(80)，选了j个(80)，体积为k(80*20)，最大价值(2)
-*/
-</code></pre>
-<h3 id="t3-淘淘蓝蓝之树林"><a href="http://sjzezoj.com:9280/problem/23">T3 淘淘蓝蓝之树林</a></h3>
-<h4 id="solution">Solution：</h4>
-<p>好题！</p>
-<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/tlhffw3a.png" alt="" loading="lazy"><br>
-<img src="https://cdn.luogu.com.cn/upload/image_hosting/wvi2hq8l.png" alt="" loading="lazy"><br>
-<img src="https://cdn.luogu.com.cn/upload/image_hosting/a43oiu5d.png" alt="" loading="lazy"><br>
-<img src="https://cdn.luogu.com.cn/upload/image_hosting/g3yv9e65.png" alt="" loading="lazy"><br>
-<img src="https://cdn.luogu.com.cn/upload/image_hosting/7acha9nm.png" alt="" loading="lazy"><br>
-<img src="https://cdn.luogu.com.cn/upload/image_hosting/6qaebv2m.png" alt="" loading="lazy"><br>
-<img src="https://cdn.luogu.com.cn/upload/image_hosting/24qa4wu7.png" alt="" loading="lazy"><br>
-<img src="https://cdn.luogu.com.cn/upload/image_hosting/tbf4smky.png" alt="" loading="lazy"><br>
-<img src="https://cdn.luogu.com.cn/upload/image_hosting/o4461e4t.png" alt="" loading="lazy"></p>
-<h4 id="code-自己的码风好评">Code <s>(自己的码风好评)</s>：</h4>
-<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
-#define pii pair&lt;int, int&gt;
-
-const int N = 2333;
-const int INF = 1e8;
-
-char ch[N][N];
-int n, m, dis[N][N], sx, sy, px = INF, py;
-pii q[N];
-int facx[8] = {-1, 1, 0, 0, -1, -1, 1, 1}, facy[8] = {0, 0, -1, 1, -1, 1, -1, 1};
-
-inline void init()
-{
-	scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
-	for (int i = 1; i &lt;= n; ++i) scanf(&quot;%s&quot;, ch[i] + 1);
-	for (int i = 1; i &lt;= n; ++i)
-		for (int j = 1; j &lt;= m; ++j)
-			if (ch[i][j] == '*') sx = i, sy = j;
-			else if (ch[i][j] == 'X' &amp;&amp; px &gt; i) px = i, py = j;
-	
-	for (int i = 1; i &lt; px; ++i) ch[i][py] = 'X';
-}
-
-inline bool check(int x, int y)
-{
-	if (x &lt; 1 || y &lt; 1) return 0;
-	if (x &gt; n || y &gt; m) return 0;
-	if (ch[x][y] == 'X') return 0;
-	return 1;
-}
-
-#define f dis
-queue&lt;pair&lt;int, int&gt; &gt; q;
-void spfa()
-{
-    memset(f, 0x3f, sizeof(f));
-    f[sx][sy] = 0;
-    q.push(make_pair(sx, sy));
-    while (q.size())
-	{
-        int x = q.front().first, y = q.front().second;
-        q.pop();
-        for (int i = 0; i &lt; 8; ++i)
-		{
-            int tx = x + facx[i], ty = y + facy[i];
-            if (tx &gt;= 1 &amp;&amp; tx &lt;= n &amp;&amp; ty &gt;= 1 &amp;&amp; ty &lt;= m &amp;&amp; f[x][y] + 1 &lt; f[tx][ty] &amp;&amp; ch[tx][ty] != 'X')
-			{
-                f[tx][ty] = f[x][y] + 1;
-                q.push(make_pair(tx, ty));
-            }
-        }
-    }
-}
-//inline void spfa() // 01bfs
-//{
-//	memset(dis, 0x3f, sizeof dis);
-//	int hh = 0, tt = 1;
-//	dis[sx][sy] = 0, q[0] = {sx, sy};
-//	
-//	while(hh != tt)
-//	{
-//		int x = q[hh].first, y = q[hh ++].second;
-//		if (hh == N - 2) hh = 0;
-//		
-//		for (int i = 0; i &lt; 8; ++i)
-//		{
-//			int tx = x + facx[i], ty = y + facy[i];
-//			if (! check(tx, ty)) continue;
-//			if (dis[x][y] + 1 &lt; dis[tx][ty])
-//			{
-//				dis[tx][ty] = dis[x][y] + 1;
-//				q[tt ++] = {tx, ty};
-//				if (tt == N - 2) tt = 0;
-//			}
-//		}
-//	}
-//}
-
-inline void calc()
-{
-	int ans = INF;
-	for (int i = 1; i &lt; px; ++i)
-	{
-		int t1 = min( dis[i][py + 1], min( dis[i + 1][py + 1], dis[i - 1][py + 1] ) );
-		int t2 = min( dis[i][py - 1], min( dis[i + 1][py - 1], dis[i - 1][py - 1] ) );
-		ans = min(ans, t1 + t2 + 2);
-	}
-	
 	printf(&quot;%d&quot;, ans);
-}
-
-signed main()
-{
-	init();
-	spfa();
-	calc();
-	
 	return 0;
 }
 </code></pre>
-<h3 id="t4-淘淘蓝蓝之扮猪吃愉悦"><a href="http://sjzezoj.com:9280/problem/24">T4 淘淘蓝蓝之扮猪吃愉悦</a></h3>
-<p>还不会，咕~</p>
-<h3 id="t5-能量收集"><a href="http://sjzezoj.com:9280/problem/25">T5 能量收集</a></h3>
-<h4 id="solution-2">Solution：</h4>
-<p>这算是反悔贪心？</p>
-<p>先每次都收集能量，如果中间某个时刻耐久值小了，就恢复或防护，将这两个操作看成是<strong>增加耐久值</strong>，肯定增加最大的优，用堆维护最大的增加量，用完这个操作记得减去一个x。因为能量如果达到E，不需要受到当天损伤，所以算最大值的时候不考虑当天的损伤（看有关now的部分）。</p>
-<p>注意一个细节：算恢复和防护的时候，H不可能恢复不了，因为可以全用防护，所以一定可以撑到最后一天</p>
-<h4 id="code-2">Code：</h4>
-<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-
-int n, x, y, h, e, d[123333];
-priority_queue&lt;int&gt; q;
-
-int main()
-{
-    scanf(&quot;%d%d%d%d%d&quot;, &amp;n, &amp;x, &amp;y, &amp;h, &amp;e);
-
-    int now = 0,mx = 0;
-    for (int i = 1; i &lt;= n; ++i)
-    {
-        scanf(&quot;%d&quot;, d + i);
-        q.push( max(d[i], y) );
-        now += x;
-		mx = max(mx, now);
-        if (now &gt;= e)
-        {
-            printf(&quot;YES\n%d&quot;, i);
-            return 0;
-        }
-        while (h &lt;= d[i])
-			now -= x, h += q.top(), q.pop();
-		h -= d[i];
-    }
-
-    printf(&quot;NO\n%d&quot;, mx);
-
-    return 0;
-}
-</code></pre>
-<h3 id="t6-数学题"><a href="http://sjzezoj.com:9280/problem/26">T6 数学题</a></h3>
-<p>原题+水题，折半爆搜</p>
+<h3 id="t6-食堂承包"><a href="http://sjzezoj.com:9280/problem/58">T6 食堂承包</a></h3>
 
             </div>
           </article>
@@ -589,7 +424,7 @@ int main()
     </div>
     <div class="row">
       
-        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge ">
+        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge secondary">
           比赛
         </a>
       
@@ -601,19 +436,19 @@ int main()
           刷题
         </a>
       
-        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge ">
+        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge warning">
           题解
         </a>
       
-        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge secondary">
+        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge success">
           其他
         </a>
       
-        <a href="https://youziki.github.io/WZIkvhEfs/" class="badge ">
+        <a href="https://youziki.github.io/WZIkvhEfs/" class="badge success">
           那年暑假，我们砥砺前行——启智树
         </a>
       
-        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge success">
+        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge ">
           Gridea
         </a>
       
