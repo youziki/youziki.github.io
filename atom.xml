@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://youziki.github.io</id>
     <title>和JZ贴贴~</title>
-    <updated>2020-11-17T12:55:28.410Z</updated>
+    <updated>2020-11-17T12:56:19.122Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://youziki.github.io"/>
     <link rel="self" href="https://youziki.github.io/atom.xml"/>
@@ -44,6 +44,7 @@
 <h4 id="code单调栈-分治">Code：<a href="#code1">（单调栈）</a> <a href="#code2">（分治）</a></h4>
 <h3 id="t3-带权排序"><a href="https://www.qizhishu.com/codeadmin/front/client/competition_taskProblemDetail.zhtml?TaskID=4963&amp;ClazzID=703&amp;CourseID=3M01&amp;ChapterID=3M0101">T3 带权排序</a></h3>
 <p>题面没看懂，咕</p>
+<hr>
 <h5 id="code1">Code1：</h5>
 <pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 using namespace std;
