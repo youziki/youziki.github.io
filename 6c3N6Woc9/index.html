@@ -7,7 +7,7 @@
 <meta name="description" content="众人皆醉我独醒">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1605617774187">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1605691879651">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
@@ -85,7 +85,7 @@
             <p class="article-meta">
               2020-11-14
               
-                <a href="https://youziki.github.io/4STTQXNzf/" class="badge secondary">
+                <a href="https://youziki.github.io/4STTQXNzf/" class="badge warning">
                   学习笔记
                 </a>
               
@@ -142,7 +142,8 @@ for (int i = 1; i &lt;= m; ++i)
 for (int i = 1; i &lt;= m; ++i) printf(&quot;%d\n&quot;, ans[i]);
 </code></pre>
 <h4 id="cf617e-xor-and-favorite-number"><a href="https://www.luogu.com.cn/problem/CF617E">CF617E XOR and Favorite Number</a></h4>
-<p>：自己十几分钟想出来，变形之后就是板子<a href="#code1">Code</a></p>
+<p>：自己十几分钟想出来，变形之后就是板子</p>
+<h5 id="code-2"><a href="#code1">Code</a></h5>
 <h3 id="p1903-国家集训队数颜色-维护队列"><a href="https://www.luogu.com.cn/problem/P1903">P1903 [国家集训队]数颜色 / 维护队列</a>：带修莫队</h3>
 <p>询问区间内不同颜色数，每次单点修改，离线</p>
 <h4 id="笔记-2">笔记：</h4>
@@ -163,7 +164,7 @@ for (int i = 1; i &lt;= m; ++i) printf(&quot;%d\n&quot;, ans[i]);
 <p>一些细节：</p>
 <p>输入的时候，输入一个修改操作，要及时修改为正确值，是为了正确初始化修改的结构体（pre）</p>
 <p>输入完之后，要从后往前将修改还原</p>
-<h4 id="code-2">Code：</h4>
+<h4 id="code-3">Code：</h4>
 <p>定义变量</p>
 <pre><code class="language-cpp">int n, m, t, a[N], ans[N], sum[M], cnt, totc, totq;
 struct C {
@@ -215,11 +216,22 @@ for (int i = 1; i &lt;= totq; ++i) {
 	ans[q[i].id] = cnt;
 }
 </code></pre>
+<h4 id="cf940f-machine-learning"><a href="https://www.luogu.com.cn/problem/CF940F">CF940F Machine Learning</a>：一句话题解：出现次数最多<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msqrt><mrow><mi>l</mi><mi>e</mi><mi>n</mi></mrow></msqrt></mrow><annotation encoding="application/x-tex">\sqrt {len}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.10777999999999999em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.93222em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord mathdefault">n</span></span></span><span style="top:-2.89222em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
+-10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
+-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
+35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
+-221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
+s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
+s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.10777999999999999em;"><span></span></span></span></span></span></span></span></span>，直接暴力找mex即可，注意离散化，注意这题块长开<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mfrac><mn>2</mn><mn>3</mn></mfrac></msup></mrow><annotation encoding="application/x-tex">n^{\frac 2 3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9540200000000001em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9540200000000001em;"><span style="top:-3.363em;margin-right:0.05em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mopen nulldelimiter sizing reset-size3 size6"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8443142857142858em;"><span style="top:-2.656em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">3</span></span></span><span style="top:-3.2255000000000003em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line mtight" style="border-bottom-width:0.049em;"></span></span><span style="top:-3.384em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.344em;"><span></span></span></span></span></span><span class="mclose nulldelimiter sizing reset-size3 size6"></span></span></span></span></span></span></span></span></span></span></span></span></span>最快（不然会T）</h4>
+<h5 id="code-4"><a href="#code2">Code</a></h5>
 <h3 id="at1219-歴史の研究"><a href="https://www.luogu.com.cn/problem/AT1219">AT1219 歴史の研究</a>：回滚莫队</h3>
 <p>询问静态区间最大值，离线</p>
-<h4 id="code-3">Code：</h4>
+<h4 id="code-5">Code：</h4>
 <pre><code class="language-cpp">
 </code></pre>
+<h4 id="p4137-rmq-problem-mex"><a href="https://www.luogu.com.cn/problem/P4137">P4137 Rmq Problem / mex</a>：</h4>
+<h5 id="code-6"><a href="#code3">Code</a></h5>
+<hr>
 <h5 id="code1">Code1：</h5>
 <pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 using namespace std;
@@ -252,6 +264,91 @@ signed main() {
 	return 0;
 }
 </code></pre>
+<h5 id="code2">Code2：</h5>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+#define re register
+const int M (1 &lt;&lt; 23);
+char buf[M], *p1 (buf), *p2 (buf);
+#define gc() (p1 == p2 &amp;&amp; (p2 = (p1 = buf) + fread(buf, 1, M, stdin), p1 == p2) ? EOF : *p1 ++)
+inline int read() {
+	re int ff (0); re char ch (gc());
+	while(! isdigit(ch)) ch = gc();
+	while(isdigit(ch)) { ff = (ff &lt;&lt; 1) + (ff &lt;&lt; 3) + (ch ^ 48); ch = gc(); }
+	return ff;
+}
+void print(re int x) { if(x &gt; 9) print(x / 10); putchar(x % 10 + '0'); }
+const int N = 400005;
+int n, m, t, a[N], sum[N], cnt[N], ans[N], totc, totq, tmp[N], tot;
+struct C {
+	int pos, pre, suf;
+} cg[N];
+struct Q {
+	int l, r, pre, id, bll, blr;
+	bool operator &lt; (const Q &amp;A) const {
+		return bll != A.bll ? bll &lt; A.bll : (blr != A.blr ? blr &lt; A.blr : pre &lt; A.pre);
+	}
+} q[N];
+inline int get(int x) {return lower_bound(tmp + 1, tmp + tot + 1, x) - tmp;}
+inline void init() {
+	scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+	for (int i = 1; i &lt;= n; ++i) scanf(&quot;%d&quot;, a + i), tmp[++ tot] = a[i];
+	for (int i = 1, op, u, v; i &lt;= m; ++i) {
+		scanf(&quot;%d%d%d&quot;, &amp;op, &amp;u, &amp;v);
+		if (op ^ 1) cg[++ totc] = {u, a[u], v}, a[u] = v, tmp[++ tot] = v;
+		else q[++ totq] = {u, v, totc, totq};
+	}
+	sort(tmp + 1, tmp + tot + 1);
+	tot = unique(tmp + 1, tmp + tot + 1) - (tmp + 1);
+	for (int i = 1; i &lt;= n; ++i) a[i] = get(a[i]);
+	for (int i = 1; i &lt;= totc; ++i) cg[i].pre = get(cg[i].pre), cg[i].suf = get(cg[i].suf);
+	t = pow(n, 2.0 / 3.0) + 1; // t = pow(n * totc, 1 / 3.0) + 1;
+	for (int i = 1; i &lt;= totq; ++i) q[i].bll = (q[i].l - 1) / t + 1, q[i].blr = (q[i].r - 1) / t + 1;
+	for (int i = totc; i; --i) a[cg[i].pos] = cg[i].pre;
+}
+inline void work() {
+	sort(q + 1, q + totq + 1);
+	int l = 1, r = 0, t = 0;
+	for (int i = 1; i &lt;= m; ++i) {
+		int ll = q[i].l, rr = q[i].r, tt = q[i].pre;
+		while (l &lt; ll) -- cnt[sum[a[l]]], ++ cnt[-- sum[a[l ++]]];
+		while (l &gt; ll) -- cnt[sum[a[-- l]]], ++ cnt[++ sum[a[l]]];
+		while (r &lt; rr) -- cnt[sum[a[++ r]]], ++ cnt[++ sum[a[r]]];
+		while (r &gt; rr) -- cnt[sum[a[r]]], ++ cnt[-- sum[a[r --]]];
+		while (t &lt; tt) {
+			int posi = cg[++ t].pos;
+			if (posi &lt;= r &amp;&amp; posi &gt;= l) -- cnt[sum[a[posi]]], ++ cnt[-- sum[a[posi]]];
+			a[posi] = cg[t].suf;
+			if (posi &lt;= r &amp;&amp; posi &gt;= l) -- cnt[sum[a[posi]]], ++ cnt[++ sum[a[posi]]];
+		}
+		while (t &gt; tt) {
+			int posi = cg[t].pos;
+			if (posi &lt;= r &amp;&amp; posi &gt;= l) -- cnt[sum[a[posi]]], ++ cnt[-- sum[a[posi]]];
+			a[posi] = cg[t --].pre;
+			if (posi &lt;= r &amp;&amp; posi &gt;= l) -- cnt[sum[a[posi]]], ++ cnt[++ sum[a[posi]]];
+		}
+		int mex = 0; while (cnt[++ mex]); ans[q[i].id] = mex;
+	}
+}
+signed main() {
+	init();
+	work();
+	for (int i = 1; i &lt;= totq; ++i) printf(&quot;%d\n&quot;, ans[i]);
+	return 0;
+}
+</code></pre>
+<h5 id="code3">Code3：</h5>
+<pre><code class="language-cpp">
+</code></pre>
+<h5 id="code4">Code4：</h5>
+<pre><code class="language-cpp">
+</code></pre>
+<h5 id="code5">Code5：</h5>
+<pre><code class="language-cpp">
+</code></pre>
+<h5 id="code6">Code6：</h5>
+<pre><code class="language-cpp">
+</code></pre>
 
             </div>
           </article>
@@ -275,7 +372,7 @@ signed main() {
 
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="https://youziki.github.io/images/avatar.png?v=1605617774187" class="no-responsive avatar">
+    <img src="https://youziki.github.io/images/avatar.png?v=1605691879651" class="no-responsive avatar">
     <div class="text-muted">众人皆醉我独醒</div>
     <div class="social-container">
       
@@ -541,31 +638,31 @@ signed main() {
     </div>
     <div class="row">
       
-        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge warning">
+        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge secondary">
           比赛
         </a>
       
-        <a href="https://youziki.github.io/4STTQXNzf/" class="badge warning">
+        <a href="https://youziki.github.io/4STTQXNzf/" class="badge success">
           学习笔记
         </a>
       
-        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge ">
+        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge secondary">
           刷题
         </a>
       
-        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge success">
+        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge secondary">
           题解
         </a>
       
-        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge success">
+        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge secondary">
           其他
         </a>
       
-        <a href="https://youziki.github.io/WZIkvhEfs/" class="badge secondary">
+        <a href="https://youziki.github.io/WZIkvhEfs/" class="badge success">
           那年暑假，我们砥砺前行——启智树
         </a>
       
-        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge ">
+        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge warning">
           Gridea
         </a>
       
