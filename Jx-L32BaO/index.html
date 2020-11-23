@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>比赛 | 和JZ贴贴~</title>
+<title>题解 11.23 模拟赛 | 和JZ贴贴~</title>
 <meta name="description" content="众人皆醉我独醒">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -23,6 +23,7 @@
 
   </head>
   <body>
+  
     <nav class="navbar border fixed split-nav">
   <div class="nav-brand">
     <h3><a href="https://youziki.github.io">和JZ贴贴~</a></h3>
@@ -79,264 +80,113 @@
     <div id="top" class="row site">
       <div class="sm-12 md-8 col">
         <div class="paper">
-          <h2 class="current-tag">标签: 比赛</h2>
-          
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://youziki.github.io/WUYEpOUHX/">题解 11.9 模拟赛</a>
-    </h2>
-    <p class="article-meta">
-      2020-11-09
-      
-        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge success">
-          比赛
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://youziki.github.io/WUYEpOUHX/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
+          <article class="article">
+            <h1>题解 11.23 模拟赛</h1>
+            <p class="article-meta">
+              2020-11-23
+              
+                <a href="https://youziki.github.io/ajbBPuKpd/" class="badge secondary">
+                  比赛
+                </a>
+              
+            </p>
+            
+              <img src="https://cdn.luogu.com.cn/upload/image_hosting/53rwar9p.png" alt="题解 11.23 模拟赛">
+            
+            <div class="post-content">
+              <h3 id="u141642-下棋chess"><a href="https://www.luogu.com.cn/problem/U141642?contestId=37710">U141642 下棋（chess）</a></h3>
+<h4 id="题面">题面：</h4>
+<p>有n个白色棋子，m个黑色棋子，现在需要把他们排成一排，要求对于任意一段棋子，其中的白色棋子和黑色棋子的差不能超过k，求棋子排列方案数对1000000007(1e9+7)的结果。</p>
+<p>注：(黑-黑-白-白) 与 (白-白-黑-黑) 视为不同的方案。</p>
+<h4 id="solution">Solution：</h4>
+<p>记搜实现，令<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>[</mo><mi>x</mi><mo>]</mo><mo>[</mo><mi>y</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">f[i][j][x][y]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">x</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">]</span></span></span></span>为已经放了i个白子，j个黑子，所有后缀中白子比黑子最多多x个，所有后缀中黑子比白子最多多y个</p>
+<p>转移不难，关键是<strong>记搜的方向</strong>，我一开始令<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>[</mo><mi>x</mi><mo>]</mo><mo>[</mo><mi>y</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">f[i][j][x][y]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">x</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">]</span></span></span></span>为达到这个状态的方案数，应该为“这个状态可以扩展出来的方案数”，这样边界比较好判<code>if (i == n &amp;&amp; j == m) return 1;</code>，而且输出状态也容易<code>cout &lt;&lt; dp(0, 0, 0, 0);</code>。考虑<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>f</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">dfs</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">s</span></span></span></span>不就是从初始状态开始吗？</p>
+<h4 id="code"><a href="#code1">Code</a></h4>
+<h3 id="u141645-堆石子stone"><a href="https://www.luogu.com.cn/problem/U141645?contestId=37710">U141645 堆石子(stone)</a></h3>
+<h4 id="题面-2">题面：</h4>
+<p>一堆数，合并一些数，使得最后所有堆的数%m的余数最大值最大</p>
+<h4 id="solution-2">solution：</h4>
+<p>考场上类似小学生出的那道题的解法用bitset写的，20pts， 正解就一句话：折半</p>
+<p>爆搜和枚举都能过</p>
+<h4 id="考场代码"><a href="#code2">考场代码</a> <a href="#code3">爆搜</a> <a href="#code4">枚举</a></h4>
+<hr>
+<h5 id="code1">Code1：</h5>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int N = 155, K = 22, P = 1e9 + 7;
+int n, m, k, f[N][N][K][K], ans;
+bool vis[N][N][K][K];
+int dp(int i, int j, int x, int y) {
+    if (i == n &amp;&amp; j == m) return 1;
+    int &amp;X = f[i][j][x][y];
+    if (vis[i][j][x][y]) return X;
+    vis[i][j][x][y] = 1;
+    if (i &lt; n &amp;&amp; x &lt; k) X = (X + dp(i + 1, j, x + 1, max(0, y - 1))) % P;
+    if (j &lt; m &amp;&amp; y &lt; k) X = (X + dp(i, j + 1, max(0, x - 1), y + 1)) % P;
+    return X;
+}
+signed main() {
+    cin &gt;&gt; n &gt;&gt; m &gt;&gt; k;
+    cout &lt;&lt; dp(0, 0, 0, 0);
+    return 0;
+}
+</code></pre>
+<h5 id="code2">Code2：</h5>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int N = 100000005; // 1e8 + 5
+int n, m;
+bitset&lt;N&gt; b;
+signed main() {
+	cin &gt;&gt; n &gt;&gt; m;
+    for (int i = 1, a; i &lt;= n; ++i) {
+        cin &gt;&gt; a; a %= m;
+        b.set(a);
+		b |= b &lt;&lt; a;
+        b |= b &gt;&gt; m;
+    }
+    for (int i = m - 1; ~i; --i) if (b[i] == 1) return cout &lt;&lt; i, 0;
+}
+</code></pre>
+<h5 id="code3">Code3：</h5>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+#define int long long
+const int N = 40;
+int n, m, s[N], ans;
+set&lt;int&gt; S[2];
+void dfs(int x, int l, int r) {
+    x = x &gt;= m ? x - m : x;
+    if (l == r) return S[r == n + 1].insert(x), void();
+    dfs(x + s[l], l + 1, r);
+    dfs(x, l + 1, r);
+}
+signed main() {
+    cin &gt;&gt; n &gt;&gt; m;
+    for (int i = 1; i &lt;= n; ++i) {cin &gt;&gt; s[i]; s[i] %= m;}
+    dfs(0, 1, n / 2 + 1); S[0].insert(0);
+    dfs(0, n / 2 + 1, n + 1); S[1].insert(0);
+    for (set&lt;int&gt;::iterator it = S[0].begin(); it != S[0].end(); ++ it) {
+        int x = m - 1 - *it;
+        ans = max(ans, *(-- S[1].upper_bound(x)) + *it);
+    }
+    cout &lt;&lt; ans;
+    return 0;
+}
+</code></pre>
+<h5 id="code4">Code4：</h5>
+<pre><code class="language-cpp">
+</code></pre>
 
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://youziki.github.io/1koxEwg5w/">题解 11.3 模拟赛</a>
-    </h2>
-    <p class="article-meta">
-      2020-11-04
-      
-        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge ">
-          比赛
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://youziki.github.io/1koxEwg5w/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://youziki.github.io/e1Vw74hqC/">题解 11.1模拟赛</a>
-    </h2>
-    <p class="article-meta">
-      2020-11-01
-      
-        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge secondary">
-          比赛
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://youziki.github.io/e1Vw74hqC/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://youziki.github.io/KtjKX9FvN/">题解 10.20 模拟赛</a>
-    </h2>
-    <p class="article-meta">
-      2020-10-30
-      
-        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge success">
-          比赛
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://youziki.github.io/KtjKX9FvN/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://youziki.github.io/tqh1AV_Um/">题解 模拟赛们</a>
-    </h2>
-    <p class="article-meta">
-      2020-10-30
-      
-        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge success">
-          比赛
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://youziki.github.io/tqh1AV_Um/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://youziki.github.io/14xSFypGf/">题解 10.14模拟赛</a>
-    </h2>
-    <p class="article-meta">
-      2020-10-30
-      
-        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge success">
-          比赛
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://youziki.github.io/14xSFypGf/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://youziki.github.io/CEdwscerZ/">ywy_c_asm毒瘤模拟赛</a>
-    </h2>
-    <p class="article-meta">
-      2020-10-30
-      
-        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge secondary">
-          比赛
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://youziki.github.io/CEdwscerZ/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://youziki.github.io/UHPAMm_2Y/">题解 10.7模拟赛</a>
-    </h2>
-    <p class="article-meta">
-      2020-10-30
-      
-        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge secondary">
-          比赛
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://youziki.github.io/UHPAMm_2Y/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://youziki.github.io/Yvqs1Lhjy/">题解 9.29 模拟赛</a>
-    </h2>
-    <p class="article-meta">
-      2020-10-30
-      
-        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge success">
-          比赛
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://youziki.github.io/Yvqs1Lhjy/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://youziki.github.io/KuJUbC3dJ/">题解 9.25 &amp; 26 模拟赛</a>
-    </h2>
-    <p class="article-meta">
-      2020-10-30
-      
-        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge warning">
-          比赛
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://youziki.github.io/KuJUbC3dJ/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-
+            </div>
+          </article>
         </div>
-        <div class="row flex-edges">
-  
-    <a href="https://youziki.github.io/ajbBPuKpd" class="paper-btn">
-      上一页
-    </a>
-  
-  
-    <a href="https://youziki.github.io/ajbBPuKpd/page/3/" class="paper-btn">
-      下一页
-    </a>
-  
-</div>
-
+        <div class="paper" data-aos="fade-in">
+          
+        </div>
+        
       </div>
+
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
     <img src="https://youziki.github.io/images/avatar.png?v=1606119927304" class="no-responsive avatar">
@@ -617,7 +467,7 @@
           比赛
         </a>
       
-        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge ">
+        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge secondary">
           刷题
         </a>
       
@@ -625,7 +475,7 @@
           题解
         </a>
       
-        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge warning">
+        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge success">
           其他
         </a>
       
@@ -633,7 +483,7 @@
           那年暑假，我们砥砺前行——启智树
         </a>
       
-        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge secondary">
+        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge success">
           Gridea
         </a>
       
@@ -643,6 +493,7 @@
     Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
   </div>
 </div>
+
 
     </div>
 

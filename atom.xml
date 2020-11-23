@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://youziki.github.io</id>
     <title>和JZ贴贴~</title>
-    <updated>2020-11-18T13:43:33.804Z</updated>
+    <updated>2020-11-23T08:25:33.929Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://youziki.github.io"/>
     <link rel="self" href="https://youziki.github.io/atom.xml"/>
@@ -10,6 +10,253 @@
     <logo>https://youziki.github.io/images/avatar.png</logo>
     <icon>https://youziki.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 和JZ贴贴~</rights>
+    <entry>
+        <title type="html"><![CDATA[LCA 1]]></title>
+        <id>https://youziki.github.io/SFB0cRJta/</id>
+        <link href="https://youziki.github.io/SFB0cRJta/">
+        </link>
+        <updated>2020-11-19T06:29:24.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="引入">引入</h2>
+<h3 id="1172-祖孙询问"><a href="https://www.acwing.com/problem/content/1174/">1172. 祖孙询问</a></h3>
+<h4 id="code板子">Code：<a href="#code1">板子</a></h4>
+<h3 id="p3379-模板最近公共祖先lca"><a href="https://www.luogu.com.cn/problem/P3379">P3379 【模板】最近公共祖先（LCA）</a></h3>
+<h4 id="code又一道板子">Code：<a href="#code2">又一道板子</a></h4>
+<h3 id="p3258-jloi2014松鼠的新家"><a href="https://www.luogu.com.cn/problem/P3258">P3258 [JLOI2014]松鼠的新家</a></h3>
+<p>树上差分板子，让每个点到下一个点之间的路径</p>
+<h4 id="code差分板子">Code：<a href="#code3">差分板子</a></h4>
+<h2 id="总结一下树上差分">总结一下树上差分：</h2>
+<p>分为点差分和边差分，一个是统计路径上点上信息，一个是统计路径上边上信息，举个例子：路径点数路径边数</p>
+<ul>
+<li>
+<p>点差分：在两个儿子处加1，在lca处减1，在lca的父亲处减1</p>
+</li>
+<li>
+<p>边差分：在两个儿子处加1，在lca处减2</p>
+</li>
+</ul>
+<p><strong>重点：</strong>“减还是加”？“统计从上到下还是子树信息？”</p>
+<p>第一个问题上面已经说到，第二个问题：将差分变为真实值是统计子树信息，此时每个点的单点答案已经正确（例如：一个点被覆盖的次数），也就是，完成了“区间修改，单点查询”</p>
+<p>如果还想查询一条链的信息，就要从上到下统计信息，然后在lca处容斥即可（分点差分和边差分），也就是“区间修改，区间查询”</p>
+<h2 id="实战">实战</h2>
+<h3 id="商人-50"><a href="http://sjzezoj.com:9280/problem/62">商人 5.0</a></h3>
+<p>要用到上面所说的“区间修改，区间查询”</p>
+<h4 id="code"><a href="#code4">Code</a></h4>
+<h3 id=""></h3>
+<hr>
+<h5 id="code1">Code1：</h5>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int MA = 1 &lt;&lt; 23;
+char buf[MA], *p1 = buf, *p2 = buf;
+#define gc() (p1 == p2 &amp;&amp; (p2 = (p1 = buf) + fread(buf, 1, MA, stdin), p1 == p2) ? EOF : *p1 ++)
+inline int read() {
+	int f = 0, r = 1; char ch = gc();
+	while (! isdigit(ch)) { if (ch == '-') r = -1; ch = gc(); }
+	while (isdigit(ch)) { f = (f &lt;&lt; 1) + (f &lt;&lt; 3) + (ch ^ 48); ch = gc(); }
+	return f * r;
+}
+const int N = 40005;
+int n, m, root, fa[N][20], dep[N], q[N];
+vector&lt;int&gt; son[N];
+inline void get_fa_bfs() {
+	memset(dep, 0x3f, sizeof dep);
+	int hh = 0, tt = 0;
+	dep[0] = 0, dep[root] = 1, q[0] = root;
+	while (hh &lt;= tt) {
+		int x = q[hh ++];
+		for (int i = 0; i &lt; son[x].size(); ++i) { int y = son[x][i]; if (dep[y] &lt; dep[x] + 1) continue;
+			dep[y] = dep[x] + 1, fa[y][0] = x, q[++ tt] = y;
+			for (int k = 1; (1 &lt;&lt; k) &lt;= n; ++k)
+				fa[y][k] = fa[fa[y][k - 1]][k - 1];
+		}
+	}
+}
+inline int lca(int U, int V) {
+	if (dep[U] &lt; dep[V]) swap(U, V);
+	for (int k = 15; ~k; --k)
+		if (dep[fa[U][k]] &gt;= dep[V]) U = fa[U][k];
+	if (U == V) return U;
+	for (int k = 15; ~k; --k)
+		if (fa[U][k] != fa[V][k]) U = fa[U][k], V = fa[V][k];
+	return fa[U][0];
+}
+signed main() {
+	n = read(); for (int i = 1, u, v; i &lt;= n; ++i) {
+		u = read(), v = read();
+		if (v == -1) root = u;
+		else son[u].push_back(v), son[v].push_back(u);
+	}
+	get_fa_bfs();
+	m = read(); for (int i = 1, u, v; i &lt;= m; ++i, putchar('\n')) u = read(), v = read(), putchar(lca(u, v) == u ? '1' : (lca(u, v) == v ? '2' : '0'));
+	return 0;
+}
+</code></pre>
+<h5 id="code2">Code2：</h5>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int MA = 1 &lt;&lt; 23;
+char buf[MA], *p1 = buf, *p2 = buf;
+#define gc() (p1 == p2 &amp;&amp; (p2 = (p1 = buf) + fread(buf, 1, MA, stdin), p1 == p2) ? EOF : *p1 ++)
+inline int read() {
+	int ff = 0, rr = 1; char ch = gc();
+	while (! isdigit(ch)) { if (ch == '-') rr = -1; ch = gc(); }
+	while (isdigit(ch)) { ff = (ff &lt;&lt; 1) + (ff &lt;&lt; 3) + (ch ^ 48); ch = gc(); }
+	return ff * rr;
+}
+void print(int x) { if (x &lt; 0) putchar('-'), x = -x; if (x &gt; 9) print(x / 10); putchar(x % 10 + '0'); }
+const int N = 500005;
+int n, m, root, fa[N][25], dep[N], q[N];
+vector&lt;int&gt; son[N];
+inline void get_fa_bfs() {
+	memset(dep, 0x3f, sizeof dep);
+	int hh = 0, tt = 0;
+	dep[root] = 1, dep[0] = 0, q[0] = root;
+	while (hh &lt;= tt) {
+		int x = q[hh ++];
+		for (int i = 0; i &lt; son[x].size(); ++i) { int y = son[x][i]; if(dep[y] &lt; dep[x] + 1) continue;
+			dep[y] = dep[x] + 1, fa[y][0] = x, q[++ tt] = y;
+			for (int k = 1; (1 &lt;&lt; k) &lt;= n; ++k) fa[y][k] = fa[fa[y][k - 1]][k - 1];
+		}
+	}
+}
+inline int lca(int U, int V) {
+	if (dep[U] &lt; dep[V]) swap(U, V);
+	for(int k = 15; ~k; --k)
+		if (dep[fa[U][k]] &gt;= dep[V]) U = fa[U][k];
+	if (U == V) return U;
+	for (int k = 15; ~k; --k)
+		if (fa[U][k] != fa[V][k]) U = fa[U][k], V = fa[V][k];
+	return fa[U][0];
+}
+signed main() {
+	n = read(), m = read(), root = read(); for (int i = 1, u, v; i &lt; n; ++i) u = read(), v = read(), son[u].push_back(v), son[v].push_back(u);
+	get_fa_bfs();
+	for(int i = 1, u, v; i &lt;= m; ++i, putchar('\n')) u = read(), v = read(), print(lca(u, v));
+	return 0;
+}
+</code></pre>
+<h5 id="code3">Code3：</h5>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int MA = 1 &lt;&lt; 23;
+char buf[MA], *p1 = buf, *p2 = buf;
+#define gc() (p1 == p2 &amp;&amp; (p2 = (p1 = buf) + fread(buf, 1, MA, stdin), p1 == p2) ? EOF : *p1 ++)
+inline int read() {
+	int ff = 0, rr = 1; char ch = gc();
+	while (! isdigit(ch)) { if (ch == '-') rr = -1; ch = gc(); }
+	while (isdigit(ch)) { ff = (ff &lt;&lt; 1) + (ff &lt;&lt; 3) + (ch ^ 48); ch = gc(); }
+	return ff * rr;
+}
+void print(int x) { if (x &lt; 0) putchar('-'), x = -x; if (x &gt; 9) print (x / 10); putchar(x % 10 + '0'); }
+const int N = 300005;
+int n, fa[N][20], dep[N], q[N], a[N], point[N];
+vector&lt;int&gt; son[N];
+inline void get_fa_bfs() {
+	memset(dep, 0x3f, sizeof dep);
+	int hh = 0, tt = 0;
+	dep[0] = 0, dep[1] = 1, q[0] = 1;
+	while (hh &lt;= tt) {
+		int x = q[hh ++];
+		for (int i = 0; i &lt; son[x].size(); ++i) { int y = son[x][i]; if (dep[y] &lt; dep[x] + 1) continue;
+			dep[y] = dep[x] + 1, fa[y][0] = x, q[++ tt] = y;
+			for (int k = 1; (1 &lt;&lt; k) &lt;= n; ++k) fa[y][k] = fa[fa[y][k - 1]][k - 1];
+		}
+	}
+}
+inline int lca(int U, int V) {
+	if (dep[U] &lt; dep[V]) swap(U, V);
+	for (int k = 19; ~k; --k)
+		if (dep[fa[U][k]] &gt;= dep[V]) U = fa[U][k];
+	if (U == V) return U;
+	for (int k = 19; ~k; --k)
+		if (fa[U][k] != fa[V][k]) U = fa[U][k], V = fa[V][k];
+	return fa[U][0];
+}
+void get_sum_dfs(int x, int F) {
+	for (int i = 0; i &lt; son[x].size(); ++i) { int y = son[x][i]; if (y == F) continue;
+		get_sum_dfs(y, x);
+		point[x] += point[y];
+	}
+}
+signed main() {
+	n = read(); for (int i = 1, u, v; i &lt;= n; ++i) a[i] = read();
+	for (int i = 1, u, v; i &lt; n; ++i) u = read(), v = read(), son[u].push_back(v), son[v].push_back(u);
+	get_fa_bfs();
+	for (int i = 2; i &lt;= n; ++i) ++ point[a[i - 1]], ++ point[a[i]], -- point[lca(a[i - 1], a[i])], -- point[fa[lca(a[i - 1], a[i])][0]];
+	get_sum_dfs(1, 0);
+	for (int i = 2; i &lt;= n; ++i) -- point[a[i]];
+	for (int i = 1; i &lt;= n; ++i, putchar('\n')) print(point[i]);
+	return 0;
+}
+</code></pre>
+<h5 id="code4">Code4：</h5>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int MA = 1 &lt;&lt; 23;
+char buf[MA], *p1 = buf, *p2 = buf;
+#define gc() (p1 == p2 &amp;&amp; (p2 = (p1 = buf) + fread(buf, 1, MA, stdin), p1 == p2) ? EOF : *p1 ++)
+inline int read() {
+	int ff = 0, rr = 1; char ch = gc();
+	while (! isdigit(ch)) { if (ch == '-') rr = -1; ch = gc(); }
+	while (isdigit(ch)) { ff = (ff &lt;&lt; 1) + (ff &lt;&lt; 3) + (ch ^ 48); ch = gc(); }
+	return ff * rr;
+}
+void print(int x) { if (x &lt; 0) putchar('-'), x = -x; if (x &gt; 9) print(x / 10); putchar(x % 10 + '0'); }
+const int N = 200005;
+int n, m, point[N], edge[N], fa[N][20], dep[N], q[N], u[N], v[N], d[N];
+vector&lt;int&gt; son[N];
+inline void get_fa_bfs() {
+	memset(dep, 0x3f, sizeof dep);
+	int hh = 0, tt = 0;
+	dep[0] = 0, dep[1] = 1, q[0] = 1;
+	while (hh &lt;= tt) {
+		int x = q[hh ++];
+		for (int i = 0; i &lt; son[x].size(); ++i) { int y = son[x][i]; if (dep[y] &lt; dep[x] + 1) continue;
+			dep[y] = dep[x] + 1, fa[y][0] = x, q[++ tt] = y;
+			for (int k = 1; (1 &lt;&lt; k) &lt;= n; ++k) fa[y][k] = fa[fa[y][k - 1]][k - 1];
+		}
+	}
+}
+inline int lca(int U, int V) {
+	if (dep[U] &lt; dep[V]) swap(U, V);
+	for (int k = 19; ~k; --k)
+		if (dep[fa[U][k]] &gt;= dep[V]) U = fa[U][k];
+	if (U == V) return U;
+	for (int k = 19; ~k; --k)
+		if (fa[U][k] != fa[V][k]) U = fa[U][k], V = fa[V][k];
+	return fa[U][0];
+}
+void get_sum_dfs(int x, int F) {
+	for (int i = 0; i &lt; son[x].size(); ++i) { int y = son[x][i]; if (y == F) continue;
+		get_sum_dfs(y, x);
+		point[x] += point[y], edge[x] += edge[y];
+	}
+}
+void get_ans_dfs(int x, int F) {
+	for (int i = 0; i &lt; son[x].size(); ++i) { int y = son[x][i]; if (y == F) continue;
+		point[y] += point[x], edge[y] += edge[x];
+		get_ans_dfs(y, x);
+	}
+}
+signed main() {
+	n = read(), m = read(); for (int i = 1, U, V; i &lt; n; ++i) U = read(), V = read(), son[U].push_back(V), son[V].push_back(U);
+	get_fa_bfs();
+	for (int i = 1; i &lt;= m; ++i)
+		d[i] = lca(u[i] = read(), v[i] = read()), ++ point[u[i]], ++ point[v[i]], -- point[d[i]], -- point[fa[d[i]][0]], -- edge[u[i]], -- edge[v[i]], edge[d[i]] += 2;
+	get_sum_dfs(1, 0), get_ans_dfs(1, 0);
+	point[0] = edge[0] = 0;
+	for (int i = 1; i &lt;= m; ++i, putchar('\n')) print(point[u[i]] + point[v[i]] - point[d[i]] - point[fa[d[i]][0]] + edge[u[i]] + edge[v[i]] - edge[d[i]] * 2 - 1);
+	return 0;
+}
+</code></pre>
+<h5 id="code5">Code5：</h5>
+<pre><code class="language-cpp">
+</code></pre>
+<h5 id="code6">Code6：</h5>
+<pre><code class="language-cpp">
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[题解 11.15 CF]]></title>
         <id>https://youziki.github.io/CinD9qxaQ/</id>
@@ -1604,101 +1851,6 @@ signed main()
 	return 0;
 }
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[题解 CF1444A 【Division】]]></title>
-        <id>https://youziki.github.io/HDfnZFm-t/</id>
-        <link href="https://youziki.github.io/HDfnZFm-t/">
-        </link>
-        <updated>2020-11-03T03:15:12.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="将思路理清">将思路理清</h2>
-<h4 id="前言">前言：</h4>
-<p>打CF的时候，思路清晰，出解法就很快了，正确性证明也会很简单</p>
-<h4 id="solution">Solution：</h4>
-<p>题中让我们求一个数x是p的因数，但不是q的倍数</p>
-<p>一个<strong>套路</strong>的第一反应：<strong>分类讨论</strong></p>
-<ul>
-<li>
-<p>如果p不是q的倍数，p合法，且p是p中最大的因数，答案为p，特判掉即可</p>
-</li>
-<li>
-<p>如果p是q的倍数，<strong>转化题意</strong>，p中删去最小的一些因数，使得p不再是q的倍数</p>
-</li>
-</ul>
-<p>对于这个新的题意，我们的思路肯定是什么筛质因子，判断个数之类的，但都太复杂了，不如再<strong>观察下题面</strong>，看看有没有其他<strong>性质</strong></p>
-<p>不是q的倍数，一定存在一个q的约数，p中“不包含”</p>
-<p>枚举这个约数即可，别着急，看一个例子：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo>=</mo><mn>24</mn><mo separator="true">,</mo><mi>q</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">p=24, q=4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">2</span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span>答案为6，但6包含2这个4的因子，所以实际上是用这个约数缩小p的范围，知道p不是q的倍数为止</p>
-<p>容易发现这个约数不能取1，但要注意判这个约数为q的情况（因为这个WA了两回），一个例子<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo>=</mo><mn>12</mn><mo separator="true">,</mo><mi>q</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">p=12, q=2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span></p>
-<p>总时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>T</mi><msqrt><mi>q</mi></msqrt><mo>)</mo></mrow><annotation encoding="application/x-tex">O(T\sqrt{q})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.08694em;vertical-align:-0.33693999999999996em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.70306em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathdefault" style="margin-right:0.03588em;">q</span></span></span><span style="top:-2.66306em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
--10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
--50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
-35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
--221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
-s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
-s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.33693999999999996em;"><span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
-<h4 id="code">Code：</h4>
-<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
-#define int long long
-
-int gcd(int x, int y)
-{
-	return ! y ? x : gcd(y, x%y);
-}
-
-signed main()
-{
-	int t;
-	cin&gt;&gt;t;
-	while(t --)
-	{
-		int p,q;
-		cin&gt;&gt;p&gt;&gt;q;
-		if(p==1)
-		{
-			cout&lt;&lt;1&lt;&lt;endl;
-			continue;
-		}
-		int d=gcd(p,q);
-		if(d!=q)
-		{
-			cout&lt;&lt;p&lt;&lt;endl;
-			continue;
-		}
-
-		d=2e18;
-		for(int i=2;i*i&lt;=q;++i)if(q%i==0){ //找到一个数，把它完全删去的代价 
-			int dd=1,k=p;
-			while(k%q==0) dd*=i,k/=i;
-			d=min(d, dd);
-			int j=q/i;
-			dd=1,k=p;
-			while(k%q==0) dd*=j,k/=j;
-			d=min(d, dd);
-		}
-		int dd=1,k=p;
-		while(k%q==0) dd*=q,k/=q;
-		d=min(d, dd);
-
-		cout&lt;&lt;p/d&lt;&lt;endl;
-	}
-	
-	return 0;
-}
-</code></pre>
-<p>养成好习惯：</p>
-<ul>
-<li>
-<p>多加一些特判，即使可能没必要</p>
-</li>
-<li>
-<p>自己手写C++11才有的函数</p>
-</li>
-<li>
-<p>分解完因数记得判断1和q也是因数</p>
-</li>
-</ul>
 ]]></content>
     </entry>
 </feed>

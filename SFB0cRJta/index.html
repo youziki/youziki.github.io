@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>LCA 1 | 和JZ贴贴~</title>
+<meta name="description" content="众人皆醉我独醒">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1606119927304">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
+
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://youziki.github.io">和JZ贴贴~</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="https://youziki.github.io/about" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>LCA 1</h1>
+            <p class="article-meta">
+              2020-11-19
+              
+                <a href="https://youziki.github.io/4STTQXNzf/" class="badge success">
+                  学习笔记
+                </a>
+              
+            </p>
+            
+              <img src="https://cdn.luogu.com.cn/upload/image_hosting/xdvp0hhr.png" alt="LCA 1">
+            
+            <div class="post-content">
+              <h2 id="引入">引入</h2>
+<h3 id="1172-祖孙询问"><a href="https://www.acwing.com/problem/content/1174/">1172. 祖孙询问</a></h3>
+<h4 id="code板子">Code：<a href="#code1">板子</a></h4>
+<h3 id="p3379-模板最近公共祖先lca"><a href="https://www.luogu.com.cn/problem/P3379">P3379 【模板】最近公共祖先（LCA）</a></h3>
+<h4 id="code又一道板子">Code：<a href="#code2">又一道板子</a></h4>
+<h3 id="p3258-jloi2014松鼠的新家"><a href="https://www.luogu.com.cn/problem/P3258">P3258 [JLOI2014]松鼠的新家</a></h3>
+<p>树上差分板子，让每个点到下一个点之间的路径</p>
+<h4 id="code差分板子">Code：<a href="#code3">差分板子</a></h4>
+<h2 id="总结一下树上差分">总结一下树上差分：</h2>
+<p>分为点差分和边差分，一个是统计路径上点上信息，一个是统计路径上边上信息，举个例子：路径点数路径边数</p>
+<ul>
+<li>
+<p>点差分：在两个儿子处加1，在lca处减1，在lca的父亲处减1</p>
+</li>
+<li>
+<p>边差分：在两个儿子处加1，在lca处减2</p>
+</li>
+</ul>
+<p><strong>重点：</strong>“减还是加”？“统计从上到下还是子树信息？”</p>
+<p>第一个问题上面已经说到，第二个问题：将差分变为真实值是统计子树信息，此时每个点的单点答案已经正确（例如：一个点被覆盖的次数），也就是，完成了“区间修改，单点查询”</p>
+<p>如果还想查询一条链的信息，就要从上到下统计信息，然后在lca处容斥即可（分点差分和边差分），也就是“区间修改，区间查询”</p>
+<h2 id="实战">实战</h2>
+<h3 id="商人-50"><a href="http://sjzezoj.com:9280/problem/62">商人 5.0</a></h3>
+<p>要用到上面所说的“区间修改，区间查询”</p>
+<h4 id="code"><a href="#code4">Code</a></h4>
+<h3 id=""></h3>
+<hr>
+<h5 id="code1">Code1：</h5>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int MA = 1 &lt;&lt; 23;
+char buf[MA], *p1 = buf, *p2 = buf;
+#define gc() (p1 == p2 &amp;&amp; (p2 = (p1 = buf) + fread(buf, 1, MA, stdin), p1 == p2) ? EOF : *p1 ++)
+inline int read() {
+	int f = 0, r = 1; char ch = gc();
+	while (! isdigit(ch)) { if (ch == '-') r = -1; ch = gc(); }
+	while (isdigit(ch)) { f = (f &lt;&lt; 1) + (f &lt;&lt; 3) + (ch ^ 48); ch = gc(); }
+	return f * r;
+}
+const int N = 40005;
+int n, m, root, fa[N][20], dep[N], q[N];
+vector&lt;int&gt; son[N];
+inline void get_fa_bfs() {
+	memset(dep, 0x3f, sizeof dep);
+	int hh = 0, tt = 0;
+	dep[0] = 0, dep[root] = 1, q[0] = root;
+	while (hh &lt;= tt) {
+		int x = q[hh ++];
+		for (int i = 0; i &lt; son[x].size(); ++i) { int y = son[x][i]; if (dep[y] &lt; dep[x] + 1) continue;
+			dep[y] = dep[x] + 1, fa[y][0] = x, q[++ tt] = y;
+			for (int k = 1; (1 &lt;&lt; k) &lt;= n; ++k)
+				fa[y][k] = fa[fa[y][k - 1]][k - 1];
+		}
+	}
+}
+inline int lca(int U, int V) {
+	if (dep[U] &lt; dep[V]) swap(U, V);
+	for (int k = 15; ~k; --k)
+		if (dep[fa[U][k]] &gt;= dep[V]) U = fa[U][k];
+	if (U == V) return U;
+	for (int k = 15; ~k; --k)
+		if (fa[U][k] != fa[V][k]) U = fa[U][k], V = fa[V][k];
+	return fa[U][0];
+}
+signed main() {
+	n = read(); for (int i = 1, u, v; i &lt;= n; ++i) {
+		u = read(), v = read();
+		if (v == -1) root = u;
+		else son[u].push_back(v), son[v].push_back(u);
+	}
+	get_fa_bfs();
+	m = read(); for (int i = 1, u, v; i &lt;= m; ++i, putchar('\n')) u = read(), v = read(), putchar(lca(u, v) == u ? '1' : (lca(u, v) == v ? '2' : '0'));
+	return 0;
+}
+</code></pre>
+<h5 id="code2">Code2：</h5>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int MA = 1 &lt;&lt; 23;
+char buf[MA], *p1 = buf, *p2 = buf;
+#define gc() (p1 == p2 &amp;&amp; (p2 = (p1 = buf) + fread(buf, 1, MA, stdin), p1 == p2) ? EOF : *p1 ++)
+inline int read() {
+	int ff = 0, rr = 1; char ch = gc();
+	while (! isdigit(ch)) { if (ch == '-') rr = -1; ch = gc(); }
+	while (isdigit(ch)) { ff = (ff &lt;&lt; 1) + (ff &lt;&lt; 3) + (ch ^ 48); ch = gc(); }
+	return ff * rr;
+}
+void print(int x) { if (x &lt; 0) putchar('-'), x = -x; if (x &gt; 9) print(x / 10); putchar(x % 10 + '0'); }
+const int N = 500005;
+int n, m, root, fa[N][25], dep[N], q[N];
+vector&lt;int&gt; son[N];
+inline void get_fa_bfs() {
+	memset(dep, 0x3f, sizeof dep);
+	int hh = 0, tt = 0;
+	dep[root] = 1, dep[0] = 0, q[0] = root;
+	while (hh &lt;= tt) {
+		int x = q[hh ++];
+		for (int i = 0; i &lt; son[x].size(); ++i) { int y = son[x][i]; if(dep[y] &lt; dep[x] + 1) continue;
+			dep[y] = dep[x] + 1, fa[y][0] = x, q[++ tt] = y;
+			for (int k = 1; (1 &lt;&lt; k) &lt;= n; ++k) fa[y][k] = fa[fa[y][k - 1]][k - 1];
+		}
+	}
+}
+inline int lca(int U, int V) {
+	if (dep[U] &lt; dep[V]) swap(U, V);
+	for(int k = 15; ~k; --k)
+		if (dep[fa[U][k]] &gt;= dep[V]) U = fa[U][k];
+	if (U == V) return U;
+	for (int k = 15; ~k; --k)
+		if (fa[U][k] != fa[V][k]) U = fa[U][k], V = fa[V][k];
+	return fa[U][0];
+}
+signed main() {
+	n = read(), m = read(), root = read(); for (int i = 1, u, v; i &lt; n; ++i) u = read(), v = read(), son[u].push_back(v), son[v].push_back(u);
+	get_fa_bfs();
+	for(int i = 1, u, v; i &lt;= m; ++i, putchar('\n')) u = read(), v = read(), print(lca(u, v));
+	return 0;
+}
+</code></pre>
+<h5 id="code3">Code3：</h5>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int MA = 1 &lt;&lt; 23;
+char buf[MA], *p1 = buf, *p2 = buf;
+#define gc() (p1 == p2 &amp;&amp; (p2 = (p1 = buf) + fread(buf, 1, MA, stdin), p1 == p2) ? EOF : *p1 ++)
+inline int read() {
+	int ff = 0, rr = 1; char ch = gc();
+	while (! isdigit(ch)) { if (ch == '-') rr = -1; ch = gc(); }
+	while (isdigit(ch)) { ff = (ff &lt;&lt; 1) + (ff &lt;&lt; 3) + (ch ^ 48); ch = gc(); }
+	return ff * rr;
+}
+void print(int x) { if (x &lt; 0) putchar('-'), x = -x; if (x &gt; 9) print (x / 10); putchar(x % 10 + '0'); }
+const int N = 300005;
+int n, fa[N][20], dep[N], q[N], a[N], point[N];
+vector&lt;int&gt; son[N];
+inline void get_fa_bfs() {
+	memset(dep, 0x3f, sizeof dep);
+	int hh = 0, tt = 0;
+	dep[0] = 0, dep[1] = 1, q[0] = 1;
+	while (hh &lt;= tt) {
+		int x = q[hh ++];
+		for (int i = 0; i &lt; son[x].size(); ++i) { int y = son[x][i]; if (dep[y] &lt; dep[x] + 1) continue;
+			dep[y] = dep[x] + 1, fa[y][0] = x, q[++ tt] = y;
+			for (int k = 1; (1 &lt;&lt; k) &lt;= n; ++k) fa[y][k] = fa[fa[y][k - 1]][k - 1];
+		}
+	}
+}
+inline int lca(int U, int V) {
+	if (dep[U] &lt; dep[V]) swap(U, V);
+	for (int k = 19; ~k; --k)
+		if (dep[fa[U][k]] &gt;= dep[V]) U = fa[U][k];
+	if (U == V) return U;
+	for (int k = 19; ~k; --k)
+		if (fa[U][k] != fa[V][k]) U = fa[U][k], V = fa[V][k];
+	return fa[U][0];
+}
+void get_sum_dfs(int x, int F) {
+	for (int i = 0; i &lt; son[x].size(); ++i) { int y = son[x][i]; if (y == F) continue;
+		get_sum_dfs(y, x);
+		point[x] += point[y];
+	}
+}
+signed main() {
+	n = read(); for (int i = 1, u, v; i &lt;= n; ++i) a[i] = read();
+	for (int i = 1, u, v; i &lt; n; ++i) u = read(), v = read(), son[u].push_back(v), son[v].push_back(u);
+	get_fa_bfs();
+	for (int i = 2; i &lt;= n; ++i) ++ point[a[i - 1]], ++ point[a[i]], -- point[lca(a[i - 1], a[i])], -- point[fa[lca(a[i - 1], a[i])][0]];
+	get_sum_dfs(1, 0);
+	for (int i = 2; i &lt;= n; ++i) -- point[a[i]];
+	for (int i = 1; i &lt;= n; ++i, putchar('\n')) print(point[i]);
+	return 0;
+}
+</code></pre>
+<h5 id="code4">Code4：</h5>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int MA = 1 &lt;&lt; 23;
+char buf[MA], *p1 = buf, *p2 = buf;
+#define gc() (p1 == p2 &amp;&amp; (p2 = (p1 = buf) + fread(buf, 1, MA, stdin), p1 == p2) ? EOF : *p1 ++)
+inline int read() {
+	int ff = 0, rr = 1; char ch = gc();
+	while (! isdigit(ch)) { if (ch == '-') rr = -1; ch = gc(); }
+	while (isdigit(ch)) { ff = (ff &lt;&lt; 1) + (ff &lt;&lt; 3) + (ch ^ 48); ch = gc(); }
+	return ff * rr;
+}
+void print(int x) { if (x &lt; 0) putchar('-'), x = -x; if (x &gt; 9) print(x / 10); putchar(x % 10 + '0'); }
+const int N = 200005;
+int n, m, point[N], edge[N], fa[N][20], dep[N], q[N], u[N], v[N], d[N];
+vector&lt;int&gt; son[N];
+inline void get_fa_bfs() {
+	memset(dep, 0x3f, sizeof dep);
+	int hh = 0, tt = 0;
+	dep[0] = 0, dep[1] = 1, q[0] = 1;
+	while (hh &lt;= tt) {
+		int x = q[hh ++];
+		for (int i = 0; i &lt; son[x].size(); ++i) { int y = son[x][i]; if (dep[y] &lt; dep[x] + 1) continue;
+			dep[y] = dep[x] + 1, fa[y][0] = x, q[++ tt] = y;
+			for (int k = 1; (1 &lt;&lt; k) &lt;= n; ++k) fa[y][k] = fa[fa[y][k - 1]][k - 1];
+		}
+	}
+}
+inline int lca(int U, int V) {
+	if (dep[U] &lt; dep[V]) swap(U, V);
+	for (int k = 19; ~k; --k)
+		if (dep[fa[U][k]] &gt;= dep[V]) U = fa[U][k];
+	if (U == V) return U;
+	for (int k = 19; ~k; --k)
+		if (fa[U][k] != fa[V][k]) U = fa[U][k], V = fa[V][k];
+	return fa[U][0];
+}
+void get_sum_dfs(int x, int F) {
+	for (int i = 0; i &lt; son[x].size(); ++i) { int y = son[x][i]; if (y == F) continue;
+		get_sum_dfs(y, x);
+		point[x] += point[y], edge[x] += edge[y];
+	}
+}
+void get_ans_dfs(int x, int F) {
+	for (int i = 0; i &lt; son[x].size(); ++i) { int y = son[x][i]; if (y == F) continue;
+		point[y] += point[x], edge[y] += edge[x];
+		get_ans_dfs(y, x);
+	}
+}
+signed main() {
+	n = read(), m = read(); for (int i = 1, U, V; i &lt; n; ++i) U = read(), V = read(), son[U].push_back(V), son[V].push_back(U);
+	get_fa_bfs();
+	for (int i = 1; i &lt;= m; ++i)
+		d[i] = lca(u[i] = read(), v[i] = read()), ++ point[u[i]], ++ point[v[i]], -- point[d[i]], -- point[fa[d[i]][0]], -- edge[u[i]], -- edge[v[i]], edge[d[i]] += 2;
+	get_sum_dfs(1, 0), get_ans_dfs(1, 0);
+	point[0] = edge[0] = 0;
+	for (int i = 1; i &lt;= m; ++i, putchar('\n')) print(point[u[i]] + point[v[i]] - point[d[i]] - point[fa[d[i]][0]] + edge[u[i]] + edge[v[i]] - edge[d[i]] * 2 - 1);
+	return 0;
+}
+</code></pre>
+<h5 id="code5">Code5：</h5>
+<pre><code class="language-cpp">
+</code></pre>
+<h5 id="code6">Code6：</h5>
+<pre><code class="language-cpp">
+</code></pre>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://youziki.github.io/CinD9qxaQ/">
+                <h3 class="post-title">
+                  题解 11.15 CF
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://youziki.github.io/images/avatar.png?v=1606119927304" class="no-responsive avatar">
+    <div class="text-muted">众人皆醉我独醒</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://youziki.github.io/Jx-L32BaO/">题解 11.23 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/SFB0cRJta/">LCA 1</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/IDkLT1O9a/">题解 11.17 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/MlxP-PXGZ/">题解 11.16 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/CinD9qxaQ/">题解 11.15 CF</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/kFQq3LCjl/">题解 11.13 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/mhDb2V4vS/">题解 11.14 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/6c3N6Woc9/">莫队 1</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/6fKYNpYJk/">题解 11.12 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/rHW06nRxR/">题解 11.11 模拟赛</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://youziki.github.io/4STTQXNzf/" class="badge secondary">
+          学习笔记
+        </a>
+      
+        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge warning">
+          比赛
+        </a>
+      
+        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge ">
+          刷题
+        </a>
+      
+        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge secondary">
+          题解
+        </a>
+      
+        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge success">
+          其他
+        </a>
+      
+        <a href="https://youziki.github.io/WZIkvhEfs/" class="badge secondary">
+          那年暑假，我们砥砺前行——启智树
+        </a>
+      
+        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge ">
+          Gridea
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+
+  </body>
+</html>
