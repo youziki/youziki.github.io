@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>题解 CF1452E 【Two Editorials】 | 和JZ贴贴~</title>
+<meta name="description" content="众人皆醉我独醒">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1606287192656">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
+
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://youziki.github.io">和JZ贴贴~</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="https://youziki.github.io/about" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>题解 CF1452E 【Two Editorials】</h1>
+            <p class="article-meta">
+              2020-11-25
+              
+                <a href="https://youziki.github.io/CEgpF5PzU/" class="badge secondary">
+                  题解
+                </a>
+              
+            </p>
+            
+              <img src="https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png" alt="题解 CF1452E 【Two Editorials】">
+            
+            <div class="post-content">
+              <p><a href="https://www.luogu.com.cn/problem/CF1452E">传送门</a></p>
+<h3 id="题面经过我的魔改更好理解">题面（经过我的魔改，更好理解）：</h3>
+<p>有两个讲师，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>个听课的人，总的讲课范围为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>1</mn><mo separator="true">,</mo><mi>n</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">[1,n]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">]</span></span></span></span>，第i个听课的人感兴趣的范围为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><msub><mi>l</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>r</mi><mi>i</mi></msub><mo>]</mo></mrow><annotation encoding="application/x-tex">[l_i,r_i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.01968em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span>，每个讲师的讲课范围为一段长度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>的连续的区间，每个听课的人只能听一个讲师讲课（你可以认为两个讲师同时讲课）</p>
+<p>任务：任意选定两个讲师讲课的区间，并任意制定每个听课的人听的讲师，使得每个听课的人能听到的感兴趣的区间之和最大，你只需要输出这个最大值</p>
+<p>sample input:</p>
+<pre><code class="language-cpp">10 5 3
+1 3
+2 4
+6 9
+6 9
+1 8
+</code></pre>
+<p>sample output:</p>
+<pre><code class="language-cpp">14
+</code></pre>
+<p>解释：一个讲师在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>1</mn><mo separator="true">,</mo><mn>3</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">[1,3]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">3</span><span class="mclose">]</span></span></span></span>，另一个讲师在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>6</mn><mo separator="true">,</mo><mn>8</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">[6,8]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">6</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">8</span><span class="mclose">]</span></span></span></span>区间，第一个人对答案的贡献为3，从第二个人开始依次是：2 3 3 3</p>
+<p>数据范围：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo separator="true">,</mo><mi>m</mi><mo separator="true">,</mo><mi>k</mi><mo>&lt;</mo><mo>=</mo><mn>2000</mn></mrow><annotation encoding="application/x-tex">n,m,k&lt;=2000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">n</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span></span></span></span></p>
+<h3 id="solution">Solution：</h3>
+<ul>
+<li>
+<p>考虑一个听课的人的区间和讲师的区间的重合部分如何计算</p>
+<p>观察到讲师的区间从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>1</mn><mo separator="true">,</mo><mi>k</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">[1,k]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">]</span></span></span></span>开始向右移动，重合部分变化过程是：（可能不是每种情况都完整地包含一下所有过程，但一定是一段连续的子过程）</p>
+<p>0 -&gt; 逐渐增大 -&gt; 最大 -&gt; 持续一段时间 -&gt; 最大 -&gt; 逐渐减小 -&gt; 0</p>
+<p>发现性质：而当两个区间的中点位置重合的时候，两个区间的重合面积一定是最大的</p>
+<p>于是我们可以将每个听课的人的区间用其中点位置表示，并排序，这样做可以保证存在一个位置：左边所有区间听课最优方案为左边的讲师区间，右边的所有区间的最优方案为右边的讲师区间（自己理解）</p>
+</li>
+<li>
+<p>枚举每一种情况</p>
+<p>暴力是枚举两个讲师开始的位置，然后根据以上性质判断每个区间归到哪个讲师，并计算答案，求最大值，时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mi>m</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^2m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathdefault">m</span><span class="mclose">)</span></span></span></span>，我看到CF上确实绝大多数人都是用这个方法A掉此题，但并不严谨，理论会<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span></span></span></span></p>
+<p>正解：考虑以上性质：“存在一个位置”，可以直接枚举这个“位置”</p>
+<p>只有一个区间的情况：枚举这个区间放在哪里，并枚举所有听课的人，计算出该区间下“后i个人的最大答案”，并用来更新“后i个人在只有一个区间下的最大答案”</p>
+<p>再枚举另一个区间的位置，枚举划分点在哪里，划分点以左的像刚才一样统计“该区间下前i个人的最大答案”，后m-i个人就是听另一个区间，“后m-i个人听同一个区间的最大答案”已经算出，可以直接加上，加和就为“该区间下该划分点为该位置的最大答案”，每求出一个更新ans，最终答案就是“所有区间下所有划分点时的最大答案”</p>
+</li>
+</ul>
+<h3 id="code">Code：</h3>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int N = 2005;
+int n, m, k, sum[N];
+struct P {
+    int l, r;
+    inline bool operator &lt; (const P &amp;A) const {
+        return l + r &lt; A.l + A.r;
+    }
+} a[N];
+signed main() {
+    scanf(&quot;%d%d%d&quot;, &amp;n, &amp;m, &amp;k);
+    for (int i = 1; i &lt;= m; ++i) scanf(&quot;%d%d&quot;, &amp;a[i].l, &amp;a[i].r), -- a[i].l;
+    sort(a + 1, a + m + 1);
+    for (int i = 0; i &lt;= n - k; ++i) {
+        int cur = 0;
+        for (int j = m; j; --j) {
+            cur += max(0, min(i + k, a[j].r) - max(i, a[j].l));
+            sum[j] = max(sum[j], cur);
+        }
+    }
+    int ans = sum[0];
+    for (int i = 0; i &lt;= n - k; ++i) {
+        int cur = 0;
+        for (int j = 1; j &lt;= m; ++j) {
+            cur += max(0, min(i + k, a[j].r) - max(i, a[j].l));
+            ans = max(ans, cur + sum[j + 1]);
+        }
+    }
+    printf(&quot;%d&quot;, ans);
+    return 0;
+}
+</code></pre>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://youziki.github.io/8DLm3OtRE/">
+                <h3 class="post-title">
+                  题解 水1（折半）
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://youziki.github.io/images/avatar.png?v=1606287192656" class="no-responsive avatar">
+    <div class="text-muted">众人皆醉我独醒</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://youziki.github.io/9HQIPdIlB/">CF系列题解 11.25</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/lt7XtT9OO/">题解 CF1452E 【Two Editorials】</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/8DLm3OtRE/">题解 水1（折半）</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/Jx-L32BaO/">题解 11.23 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/SFB0cRJta/">LCA 1</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/IDkLT1O9a/">题解 11.17 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/MlxP-PXGZ/">题解 11.16 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/CinD9qxaQ/">题解 11.15 CF</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/kFQq3LCjl/">题解 11.13 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/mhDb2V4vS/">题解 11.14 模拟赛</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://youziki.github.io/4STTQXNzf/" class="badge secondary">
+          学习笔记
+        </a>
+      
+        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge secondary">
+          题解
+        </a>
+      
+        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge secondary">
+          比赛
+        </a>
+      
+        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge warning">
+          刷题
+        </a>
+      
+        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge warning">
+          其他
+        </a>
+      
+        <a href="https://youziki.github.io/WZIkvhEfs/" class="badge ">
+          那年暑假，我们砥砺前行——启智树
+        </a>
+      
+        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge secondary">
+          Gridea
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+
+  </body>
+</html>

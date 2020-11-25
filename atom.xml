@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://youziki.github.io</id>
     <title>和JZ贴贴~</title>
-    <updated>2020-11-24T09:00:24.300Z</updated>
+    <updated>2020-11-25T06:53:24.143Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://youziki.github.io"/>
     <link rel="self" href="https://youziki.github.io/atom.xml"/>
@@ -10,6 +10,91 @@
     <logo>https://youziki.github.io/images/avatar.png</logo>
     <icon>https://youziki.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 和JZ贴贴~</rights>
+    <entry>
+        <title type="html"><![CDATA[CF系列题解 11.25]]></title>
+        <id>https://youziki.github.io/9HQIPdIlB/</id>
+        <link href="https://youziki.github.io/9HQIPdIlB/">
+        </link>
+        <updated>2020-11-25T06:48:23.000Z</updated>
+        <content type="html"><![CDATA[<p>分</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[题解 CF1452E 【Two Editorials】]]></title>
+        <id>https://youziki.github.io/lt7XtT9OO/</id>
+        <link href="https://youziki.github.io/lt7XtT9OO/">
+        </link>
+        <updated>2020-11-25T06:47:39.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/CF1452E">传送门</a></p>
+<h3 id="题面经过我的魔改更好理解">题面（经过我的魔改，更好理解）：</h3>
+<p>有两个讲师，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>个听课的人，总的讲课范围为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>1</mn><mo separator="true">,</mo><mi>n</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">[1,n]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">]</span></span></span></span>，第i个听课的人感兴趣的范围为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><msub><mi>l</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>r</mi><mi>i</mi></msub><mo>]</mo></mrow><annotation encoding="application/x-tex">[l_i,r_i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.01968em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span>，每个讲师的讲课范围为一段长度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>的连续的区间，每个听课的人只能听一个讲师讲课（你可以认为两个讲师同时讲课）</p>
+<p>任务：任意选定两个讲师讲课的区间，并任意制定每个听课的人听的讲师，使得每个听课的人能听到的感兴趣的区间之和最大，你只需要输出这个最大值</p>
+<p>sample input:</p>
+<pre><code class="language-cpp">10 5 3
+1 3
+2 4
+6 9
+6 9
+1 8
+</code></pre>
+<p>sample output:</p>
+<pre><code class="language-cpp">14
+</code></pre>
+<p>解释：一个讲师在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>1</mn><mo separator="true">,</mo><mn>3</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">[1,3]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">3</span><span class="mclose">]</span></span></span></span>，另一个讲师在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>6</mn><mo separator="true">,</mo><mn>8</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">[6,8]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">6</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">8</span><span class="mclose">]</span></span></span></span>区间，第一个人对答案的贡献为3，从第二个人开始依次是：2 3 3 3</p>
+<p>数据范围：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo separator="true">,</mo><mi>m</mi><mo separator="true">,</mo><mi>k</mi><mo>&lt;</mo><mo>=</mo><mn>2000</mn></mrow><annotation encoding="application/x-tex">n,m,k&lt;=2000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">n</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span></span></span></span></p>
+<h3 id="solution">Solution：</h3>
+<ul>
+<li>
+<p>考虑一个听课的人的区间和讲师的区间的重合部分如何计算</p>
+<p>观察到讲师的区间从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>1</mn><mo separator="true">,</mo><mi>k</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">[1,k]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">]</span></span></span></span>开始向右移动，重合部分变化过程是：（可能不是每种情况都完整地包含一下所有过程，但一定是一段连续的子过程）</p>
+<p>0 -&gt; 逐渐增大 -&gt; 最大 -&gt; 持续一段时间 -&gt; 最大 -&gt; 逐渐减小 -&gt; 0</p>
+<p>发现性质：而当两个区间的中点位置重合的时候，两个区间的重合面积一定是最大的</p>
+<p>于是我们可以将每个听课的人的区间用其中点位置表示，并排序，这样做可以保证存在一个位置：左边所有区间听课最优方案为左边的讲师区间，右边的所有区间的最优方案为右边的讲师区间（自己理解）</p>
+</li>
+<li>
+<p>枚举每一种情况</p>
+<p>暴力是枚举两个讲师开始的位置，然后根据以上性质判断每个区间归到哪个讲师，并计算答案，求最大值，时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mi>m</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^2m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathdefault">m</span><span class="mclose">)</span></span></span></span>，我看到CF上确实绝大多数人都是用这个方法A掉此题，但并不严谨，理论会<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span></span></span></span></p>
+<p>正解：考虑以上性质：“存在一个位置”，可以直接枚举这个“位置”</p>
+<p>只有一个区间的情况：枚举这个区间放在哪里，并枚举所有听课的人，计算出该区间下“后i个人的最大答案”，并用来更新“后i个人在只有一个区间下的最大答案”</p>
+<p>再枚举另一个区间的位置，枚举划分点在哪里，划分点以左的像刚才一样统计“该区间下前i个人的最大答案”，后m-i个人就是听另一个区间，“后m-i个人听同一个区间的最大答案”已经算出，可以直接加上，加和就为“该区间下该划分点为该位置的最大答案”，每求出一个更新ans，最终答案就是“所有区间下所有划分点时的最大答案”</p>
+</li>
+</ul>
+<h3 id="code">Code：</h3>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int N = 2005;
+int n, m, k, sum[N];
+struct P {
+    int l, r;
+    inline bool operator &lt; (const P &amp;A) const {
+        return l + r &lt; A.l + A.r;
+    }
+} a[N];
+signed main() {
+    scanf(&quot;%d%d%d&quot;, &amp;n, &amp;m, &amp;k);
+    for (int i = 1; i &lt;= m; ++i) scanf(&quot;%d%d&quot;, &amp;a[i].l, &amp;a[i].r), -- a[i].l;
+    sort(a + 1, a + m + 1);
+    for (int i = 0; i &lt;= n - k; ++i) {
+        int cur = 0;
+        for (int j = m; j; --j) {
+            cur += max(0, min(i + k, a[j].r) - max(i, a[j].l));
+            sum[j] = max(sum[j], cur);
+        }
+    }
+    int ans = sum[0];
+    for (int i = 0; i &lt;= n - k; ++i) {
+        int cur = 0;
+        for (int j = 1; j &lt;= m; ++j) {
+            cur += max(0, min(i + k, a[j].r) - max(i, a[j].l));
+            ans = max(ans, cur + sum[j + 1]);
+        }
+    }
+    printf(&quot;%d&quot;, ans);
+    return 0;
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[题解 水1（折半）]]></title>
         <id>https://youziki.github.io/8DLm3OtRE/</id>
@@ -1767,95 +1852,6 @@ signed main()
 	int ans=0;
 	for(int i=1;i&lt;=n;++i)if(find(i)==i)++ans;
 	cout&lt;&lt;ans;
-	
-	return 0;
-}
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[题解 CF424C 【Magic Formulas】]]></title>
-        <id>https://youziki.github.io/soQX-qFgk/</id>
-        <link href="https://youziki.github.io/soQX-qFgk/">
-        </link>
-        <updated>2020-11-03T03:16:48.000Z</updated>
-        <content type="html"><![CDATA[<p>考试因为中途得知打表程序超过大小限制被迫想正解。。。</p>
-<p>其实正解并不难 <s>（只是毒瘤的csp模拟赛一开始没有草稿纸）</s></p>
-<p>先从打表说起：直接打表会T，考虑优化打表，可以把答案这样划分：一个数%所有数，%后面数为它自身，对答案的贡献为<span class='katex-error' title='ParseError: KaTeX parse error: Expected &#039;EOF&#039;, got &#039;&amp;&#039; at position 7: ( ( i &amp;̲ 1 ) ^ ( n &amp; 1 …'>( ( i &amp; 1 ) ^ ( n &amp; 1 ) ) ? i : 0</span>，只需处理%前面数的即可，复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
-<p>考虑正解：可以将答案转化为所有数%一个数，可以发现答案为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">1,2,3,4,...,j-1,0,1,2,...,j-1,0,1,...,k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>于是可以预处理前缀异或和，判断前面段数奇偶，再算上末尾不成段的贡献即可</p>
-<h4 id="code">Code：</h4>
-<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
-#define LL long long
-
-const int N = 1233333;
-
-int xo[N];
-
-signed main()
-{
-	
-	LL n, ans = 0;
-	scanf(&quot;%lld&quot;, &amp;n);
-	for(int i = 1; i &lt;= n; ++i) xo[i] = xo[i - 1] ^ i;
-	for(int i = 1; i &lt;= n; ++i)
-	{
-		LL x;
-		scanf(&quot;%lld&quot;, &amp;x);
-		ans ^= x;
-		ans ^= ((n / i) &amp; 1) ? xo[i - 1] : 0;
-		ans ^= xo[n % i];
-	}
-	printf(&quot;%lld&quot;, ans);
-	
-	return 0;
-}
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[题解 CF1442A 【Extreme Subtraction】]]></title>
-        <id>https://youziki.github.io/o5cC90pZk/</id>
-        <link href="https://youziki.github.io/o5cC90pZk/">
-        </link>
-        <updated>2020-11-03T03:16:17.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="全局观想思路">全局观想思路</h2>
-<h4 id="题意">题意：</h4>
-<p>给一个序列，每次可将从头开始的若干连续元素-1，或以尾结束的若干连续元素-1，是否可以将整个序列变为全0</p>
-<h4 id="solution">Solution：</h4>
-<p>我自己在考场上想到：两边大于靠中间一个的数是没有贡献的，削成一样，然后看中间高出的部分是否都一样，发现不对，于是发现中间高出的部分可以是凹凸形的，只要满足凸出的两边“尖”可以消去即可，于是就复杂了。。。</p>
-<p>假如我不那么心急，咱们从后面的思路开始想：</p>
-<p>两边“尖”是否可消去可记录一个需要消去的总数，与最两边的大小比较，这本身就可以转化为<strong>差分</strong>，对于开始想的两边，也可用这个思路<strong>统一</strong>起来：“如果第二个比第一个小，可以看做第一个加上第二个的差分”，这就是将全局的问题统一起来了，接着解决这个问题</p>
-<p>可以发现，如果加差分加到小于0，肯定是不行的，只需判断是否小于0即可</p>
-<p>疑问：我在考场上想的是两边一块解决“削尖”问题，怎么变成开头解决，结尾的贡献不算在内了呢？其实不是的，可以发现，结尾不管把后面的怎么削，前面的“尖”是不会受到影响的，也就是说它们是<strong>相互孤立的</strong>，所以这个疑问就解决了！</p>
-<p>实现：直接按找前面说的思路，差分，从前到后扫一遍即可</p>
-<h4 id="code">Code：</h4>
-<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
-
-const int N = 233333;
-
-int b[N];
-
-signed main()
-{
-	int t;
-	cin &gt;&gt; t;
-	while(t --)
-	{
-		int n, lst = 0;
-		cin &gt;&gt; n;
-		for(int i = 1, a; i &lt;= n; ++i) cin &gt;&gt; a, b[i] = a - lst, lst = a;
-		
-		int flag = 1, sum = b[1];
-		for(int i = 2; i &lt;= n; ++i)
-			if(b[i] &lt; 0)
-				if((sum += b[i]) &lt; 0) flag = 0;
-		
-		puts(flag ? &quot;YES&quot; : &quot;NO&quot;);
-		
-		for(int i = 1; i &lt;= n; ++i) b[i] = 0;
-	}
 	
 	return 0;
 }

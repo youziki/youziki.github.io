@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>题解 CF1419D2 【Sage&#39;s Birthday (hard version)】 | 和JZ贴贴~</title>
+<title>CF系列题解 11.25 | 和JZ贴贴~</title>
 <meta name="description" content="众人皆醉我独醒">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -81,65 +81,20 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>题解 CF1419D2 【Sage&#39;s Birthday (hard version)】</h1>
+            <h1>CF系列题解 11.25</h1>
             <p class="article-meta">
-              2020-10-30
+              2020-11-25
               
-                <a href="https://youziki.github.io/CEgpF5PzU/" class="badge success">
-                  题解
+                <a href="https://youziki.github.io/4STTQXNzf/" class="badge warning">
+                  学习笔记
                 </a>
               
             </p>
             
-              <img src="https://cdn.luogu.com.cn/upload/image_hosting/0frcxl89.png" alt="题解 CF1419D2 【Sage&#39;s Birthday (hard version)】">
+              <img src="https://cdn.luogu.com.cn/upload/image_hosting/xdvp0hhr.png" alt="CF系列题解 11.25">
             
             <div class="post-content">
-              <h4 id="弱化版"><a href="https://www.luogu.com.cn/problem/CF1419D1">弱化版</a></h4>
-<h4 id="加强版"><a href="https://www.luogu.com.cn/problem/CF1419D2">加强版</a></h4>
-<p>如果想做出加强版的话，建议不要看弱化版浪费时间，因为弱化版错误贪心也能过 <s>别问我怎么知道的</s></p>
-<h3 id="题意">题意：</h3>
-<p>只有1组数据，一个n表示长度，n个数字[1,1e9]，要求任意排列n个数字，使得“严格小于左右两个数字的数字”个数最大</p>
-<p>输出最大个数 和 排列， spj</p>
-<h3 id="solution">Solution：</h3>
-<p>先看样例：</p>
-<pre><code>3
-3 1 4 2 4 2 5
-</code></pre>
-<p><s>是不是什么都没看出</s> <s>你看了结论就咋看咋觉得不应该看不出了</s></p>
-<h4 id="结论自己找">结论（<s>自己找</s>）：</h4>
-<pre><code>3 # 4 # 4 # 5
-# 1 # 2 # 2 #
-</code></pre>
-<p>代码就不难写啦~</p>
-<h4 id="简单口胡一下为什么是对的">简单口胡一下为什么是对的：</h4>
-<ol>
-<li>首先分出“上下”两行，即“胜者组”跟“败者组”，败者组个数即为答案</li>
-</ol>
-<p>这样为什么优呢？</p>
-<p>首先明确：胜者一定大于等于败者</p>
-<p>假如最后答案不是这样的，让一个“放错位置的胜者组”和一个“放错位置的败者组”交换位置：</p>
-<p>之前败者能干的事，胜者也能，所以败者夹的数仍有贡献</p>
-<p>胜者两边的数比它大，一定也比败者大，所以之前胜者的贡献也不会减少</p>
-<ol start="2">
-<li>再让小的胜者匹配小的败者，大的胜者匹配大的败者</li>
-</ol>
-<p>假如将这样得到的方案改动一下：</p>
-<p>如果能力小的人有一件事做不了（证明这个“败者”和它一样大），而能力大的胜者可以做，</p>
-<p>能力大的人一定严格大于所有败者，所以将它们换位置，能力大的人能做的事没有变多，能力小的人能做的事也没有变多</p>
-<h3 id="code">Code:</h3>
-<pre><code class="language-cpp">int n,a[N],b[N],ans,j;
-signed main(){
-	cin&gt;&gt;n;
-	for(int i=1;i&lt;=n;++i)cin&gt;&gt;a[i];
-	sort(a+1,a+n+1);
-	for(int i=1;i&lt;=n;++i)if(!(i&amp;1))b[i]=a[++j];
-	for(int i=1;i&lt;=n;++i)if(i&amp;1)b[i]=a[++j];
-	for(int i=2;i&lt;n;++i)if(b[i]&lt;b[i-1]&amp;&amp;b[i]&lt;b[i+1])++ans;
-	cout&lt;&lt;ans&lt;&lt;endl;
-	for(int i=1;i&lt;=n;++i)cout&lt;&lt;b[i]&lt;&lt;' ';
-}
-</code></pre>
-<p>你可以去交弱化版<s>随便AC</s>啦！</p>
+              <p>分</p>
 
             </div>
           </article>
@@ -150,9 +105,9 @@ signed main(){
               <div class="next">
                 下一篇
               </div>
-              <a href="https://youziki.github.io/tsBoMPwUc/">
+              <a href="https://youziki.github.io/lt7XtT9OO/">
                 <h3 class="post-title">
-                  题解 CF1419A 【Digit Game】
+                  题解 CF1452E 【Two Editorials】
                 </h3>
               </a>
             </div>
@@ -439,7 +394,7 @@ signed main(){
     </div>
     <div class="row">
       
-        <a href="https://youziki.github.io/4STTQXNzf/" class="badge warning">
+        <a href="https://youziki.github.io/4STTQXNzf/" class="badge success">
           学习笔记
         </a>
       
@@ -451,11 +406,11 @@ signed main(){
           比赛
         </a>
       
-        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge warning">
+        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge secondary">
           刷题
         </a>
       
-        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge secondary">
+        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge success">
           其他
         </a>
       
@@ -463,7 +418,7 @@ signed main(){
           那年暑假，我们砥砺前行——启智树
         </a>
       
-        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge success">
+        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge warning">
           Gridea
         </a>
       
