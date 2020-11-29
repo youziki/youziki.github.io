@@ -7,7 +7,7 @@
 <meta name="description" content="众人皆醉我独醒">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1606287192656">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1606630555193">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
@@ -85,7 +85,7 @@
             <p class="article-meta">
               2020-11-25
               
-                <a href="https://youziki.github.io/4STTQXNzf/" class="badge ">
+                <a href="https://youziki.github.io/4STTQXNzf/" class="badge secondary">
                   学习笔记
                 </a>
               
@@ -94,7 +94,139 @@
               <img src="https://cdn.luogu.com.cn/upload/image_hosting/xdvp0hhr.png" alt="CF系列题解 11.25">
             
             <div class="post-content">
-              <p>分</p>
+              <h2 id="codeforces-round-668-div-1"><a href="https://codeforces.com/contest/1404">Codeforces Round #668 (Div. 1)</a></h2>
+<h3 id="a-balanced-bitstring"><a href="https://codeforces.com/contest/1404/problem/A">A. Balanced Bitstring</a></h3>
+<h4 id="题面">题面：</h4>
+<p>给一个01串，中间有一些问号（可以为0也可以为1），是否可以变成“每一个长度为k的子串01个数相等”的串</p>
+<h4 id="solution">Solution：</h4>
+<p>枚举前k个字符，每一个往后每次<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">+k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>，遇到不合法的就停止，遇到必须赋值的就立刻赋值（为了后面遇到不合法的可以判出来），不合法一定是前k个0或1个数大于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mi>k</mi><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">\frac k 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2251079999999999em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8801079999999999em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>，输出即可</p>
+<h4 id="code"><a href="#code1">Code</a></h4>
+<h3 id="b-tree-tag"><a href="https://codeforces.com/contest/1404/problem/B">B. Tree Tag</a></h3>
+<h4 id="solution-2">Solution：</h4>
+<p>博弈论，结论很简单，怎么都想不出来，证明也不是很难</p>
+<p>只有三种情况 Alice 赢</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>i</mi><mi>s</mi><mo>(</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo>)</mo><mo>≤</mo><mi>d</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">dis(a,b) ≤ da</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">a</span></span></span></span><br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>×</mo><mi>d</mi><mi>a</mi><mo>≥</mo><mi>d</mi><mi>b</mi></mrow><annotation encoding="application/x-tex">2×da≥db</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83041em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">b</span></span></span></span> 此时只要一步步逼近即可<br>
+树的直径 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>≤</mo><mn>2</mn><mo>×</mo><mi>d</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">≤2×da</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">a</span></span></span></span> 此时只要占据直径中点即可</p>
+<p>以下证明剩下情况必定可以（设 b 为根，特殊链指的是长度大于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>×</mo><mi>d</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">2×da</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">a</span></span></span></span> 的链）</p>
+<ul>
+<li>
+<p>若特殊链某一端点到 b 路径上（不含 b） 的任意节点不是 a 的祖先</p>
+<p>那么直接对着这一端点跳然后特殊链上反复横跳即可</p>
+</li>
+<li>
+<p>若特殊链在 a 子树内</p>
+<p>则 a 往子树内最深处 d 走至少能走 da+1 步，加上 a,b 距离至少为 da+1，故 b 到 d 的链一定为特殊链且为 1. 情况，成立</p>
+</li>
+<li>
+<p>若特殊链一端点到 b 路径不经过 a 且除 b 外还有一个点 c 为 a 祖先</p>
+<p>若 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>a</mi><mi>d</mi><mi>i</mi><mi>s</mi><mo>(</mo><mi>a</mi><mo separator="true">,</mo><mi>c</mi><mo>)</mo><mo>&gt;</mo><mi>d</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">dadis(a,c)&gt;da</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">a</span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">c</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">a</span></span></span></span> ，则显然存在 1. 情况链，否则直接向 c 沿链（非 a 方向）走显然 Alice 追不上，走到底之后就可以在这条特殊链上反复横跳了</p>
+</li>
+</ul>
+<h4 id="code-2"><a href="#code2">Code</a></h4>
+<h3 id="c-fixed-point-removal"><a href="https://codeforces.com/contest/1404/problem/C">C. Fixed Point Removal</a></h3>
+<h4 id="solution-3"><a href="https://www.luogu.com.cn/blog/AlexWei/solution-cf1404c">Solution</a></h4>
+<hr>
+<h5 id="code1">Code1：</h5>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+#define int long long
+
+const int N = 300005;
+char ch[N];
+
+signed main() {
+    int t;
+    cin &gt;&gt; t;
+    while (t--) {
+        int n, k, f = 0;
+        cin &gt;&gt; n &gt;&gt; k &gt;&gt; ch + 1;
+        for (int i = 1; i &lt;= k &amp;&amp; !f; ++i)
+            for (int j = i + k; j &lt;= n; j += k)
+                if (ch[i] != '?' &amp;&amp; ch[j] != '?' &amp;&amp; ch[i] != ch[j])
+                    f = 1;
+                else if (ch[i] == '?' &amp;&amp; ch[j] != '?')
+                    ch[i] = ch[j];
+        if (f) {
+            puts(&quot;NO&quot;);
+            continue;
+        }
+        int c0 = 0, c1 = 0;
+        for (int i = 1; i &lt;= k; ++i) c0 += ch[i] == '0', c1 += ch[i] == '1';
+        if (c0 &gt; k / 2 || c1 &gt; k / 2)
+            puts(&quot;NO&quot;);
+        else
+            puts(&quot;YES&quot;);
+    }
+    return 0;
+}
+</code></pre>
+<h5 id="code2">Code2：</h5>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int MA = 1 &lt;&lt; 23;
+char buf[MA], *p1 = buf, *p2 = buf;
+#define gc()                                                            \
+    (p1 == p2 &amp;&amp; (p2 = (p1 = buf) + fread(buf, 1, MA, stdin), p1 == p2) \
+         ? EOF                                                          \
+         : *p1++)
+inline int read() {
+    int ff = 0;
+    char ch = gc();
+    while (!isdigit(ch)) ch = gc();
+    while (isdigit(ch)) {
+        ff = (ff &lt;&lt; 1) + (ff &lt;&lt; 3) + (ch ^ 48);
+        ch = gc();
+    }
+    return ff;
+}
+void print(int x) {
+    if (x &gt; 9) print(x / 10);
+    putchar(x % 10 + '0');
+}
+const int N = 100005;
+int n, m, posa, posb, disa, disb, head[N], tot, dep[N], id, maxdep;
+struct E {
+    int ver, nxt;
+} e[N &lt;&lt; 1];
+inline void add(int u, int v) { e[++tot] = {v, head[u]}, head[u] = tot; }
+void dfs1(int x, int F) {
+    dep[x] = dep[F] + 1;
+    maxdep = max(maxdep, dep[x]);
+    for (int i = head[x]; i; i = e[i].nxt) {
+        int y = e[i].ver;
+        if (y == F) continue;
+        dfs1(y, x);
+    }
+}
+signed main() {
+    int t = read();
+    while (t--) {
+        for (int i = 1; i &lt;= n; ++i) head[i] = 0;
+        tot = maxdep = 0;
+        n = read(), posa = read(), posb = read(), disa = read(), disb = read();
+        for (int i = 1, u, v; i &lt; n; ++i)
+            u = read(), v = read(), add(u, v), add(v, u);
+        if (disa * 2 &gt;= disb) {
+            puts(&quot;Alice&quot;);
+            continue;
+        }
+        dep[0] = -1;
+        dfs1(posb, 0);
+        if (dep[posa] &lt;= disa) {
+            puts(&quot;Alice&quot;);
+            continue;
+        }
+        for (int i = 1; i &lt;= n; ++i) {
+            if (maxdep == dep[i]) id = i;
+            dep[i] = 0;
+        }
+        dfs1(id, 0);
+        puts(maxdep &lt;= disa * 2 ? &quot;Alice&quot; : &quot;Bob&quot;);
+    }
+    return 0;
+}
+</code></pre>
 
             </div>
           </article>
@@ -118,7 +250,7 @@
 
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="https://youziki.github.io/images/avatar.png?v=1606287192656" class="no-responsive avatar">
+    <img src="https://youziki.github.io/images/avatar.png?v=1606630555193" class="no-responsive avatar">
     <div class="text-muted">众人皆醉我独醒</div>
     <div class="social-container">
       
@@ -140,6 +272,12 @@
     </div>
     <div class="row">
       <ul>
+        
+          
+            <li>
+              <a href="https://youziki.github.io/JZKS4WeNL/">题解 11.26 &amp; 11.27 模拟赛</a>
+            </li>
+          
         
           
             <li>
@@ -195,10 +333,6 @@
             </li>
           
         
-          
-            <li>
-              <a href="https://youziki.github.io/mhDb2V4vS/">题解 11.14 模拟赛</a>
-            </li>
           
         
           
@@ -394,7 +528,11 @@
     </div>
     <div class="row">
       
-        <a href="https://youziki.github.io/4STTQXNzf/" class="badge warning">
+        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge secondary">
+          比赛
+        </a>
+      
+        <a href="https://youziki.github.io/4STTQXNzf/" class="badge secondary">
           学习笔记
         </a>
       
@@ -402,11 +540,7 @@
           题解
         </a>
       
-        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge success">
-          比赛
-        </a>
-      
-        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge success">
+        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge warning">
           刷题
         </a>
       
@@ -418,7 +552,7 @@
           那年暑假，我们砥砺前行——启智树
         </a>
       
-        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge ">
+        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge warning">
           Gridea
         </a>
       

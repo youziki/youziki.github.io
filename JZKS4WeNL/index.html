@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>题解 11.26 &amp; 11.27 模拟赛 | 和JZ贴贴~</title>
+<meta name="description" content="众人皆醉我独醒">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://youziki.github.io/favicon.ico?v=1606630555193">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://youziki.github.io/styles/main.css">
+
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://youziki.github.io">和JZ贴贴~</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="https://youziki.github.io/about" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>题解 11.26 &amp; 11.27 模拟赛</h1>
+            <p class="article-meta">
+              2020-11-27
+              
+                <a href="https://youziki.github.io/ajbBPuKpd/" class="badge secondary">
+                  比赛
+                </a>
+              
+            </p>
+            
+              <img src="https://cdn.luogu.com.cn/upload/image_hosting/xdvp0hhr.png" alt="题解 11.26 &amp; 11.27 模拟赛">
+            
+            <div class="post-content">
+              <h1 id="day1-t3">day1 <a href="http://sjzezoj.com:9280/problem/129">T3</a></h1>
+<p>非常好的一道题，主要有两点：</p>
+<h3 id="solution">Solution：</h3>
+<h4 id="part-1-观察-简化">Part 1 ： 观察、简化</h4>
+<ul>
+<li>
+<p>一个节点子树内没有苹果（不含这个点），这棵子树可以不存在</p>
+</li>
+<li>
+<p>一个节点子树内有苹果（不含这个点），如果这个点有苹果，可以忽略，因为去这个点子树一定还要经过这个点</p>
+</li>
+</ul>
+<p>于是树就变为了：有且只有叶子节点有苹果</p>
+<p>问题就转化为了：将所有苹果分为两个集合，使得两个集合内边数最大值最小，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mi>n</mi><mi>s</mi><mo>=</mo><mn>2</mn><mo>×</mo><mi>m</mi><mi>a</mi><mi>x</mi><mo>(</mo><msub><mi>W</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>W</mi><mn>2</mn></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">ans=2\times max(W_1,W_2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">a</span><span class="mord mathdefault">x</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
+<h4 id="part-2-dp-确定顺序">Part 2 ： dp、确定顺序</h4>
+<p>先设状态：令<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo><mo>[</mo><mi>k</mi><mo>]</mo><mo>[</mo><mi>l</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">f[i][j][k][l]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mclose">]</span></span></span></span>为前i个苹果，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>W</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">W1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mord">1</span></span></span></span>集合最后一个为第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>个，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>W</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">W2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mord">2</span></span></span></span>集合最后一个为第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>个，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>W</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">W1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mord">1</span></span></span></span>集合的大小为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi></mrow><annotation encoding="application/x-tex">l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span></span></span></span>时<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>W</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">W2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mord">2</span></span></span></span>集合最小的大小</p>
+<p>现在有四个难点：如何计算集合大小，如何确定苹果顺序，如何转移，如何优化成3维状态</p>
+<ol>
+<li>
+<p>考虑一个确定的集合可以按照dfs序在原来的树上加入一条链，于是式子不难得出：</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>W</mi><mn>1</mn><mo>=</mo><mi>D</mi><mi>e</mi><mi>p</mi><mo>[</mo><msub><mi>a</mi><mn>1</mn></msub><mo>]</mo><mo>+</mo><msubsup><mo>∑</mo><mn>2</mn><mrow><mi>n</mi><mi>u</mi><msub><mi>m</mi><mn>1</mn></msub></mrow></msubsup><mi>D</mi><mi>e</mi><mi>p</mi><mo>[</mo><msub><mi>a</mi><mi>i</mi></msub><mo>]</mo><mo>−</mo><mi>D</mi><mi>e</mi><mi>p</mi><mo>[</mo><mi>l</mi><mi>c</mi><mi>a</mi><mo>(</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><mo separator="true">,</mo><msub><mi>a</mi><mi>i</mi></msub><mo>)</mo><mo>]</mo></mrow><annotation encoding="application/x-tex">W1 = Dep[a_1] + \sum_{2}^{num_1}Dep[a_i] - Dep[lca(a_{i - 1}, a_i)]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault">e</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mord mathdefault mtight">u</span><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31731428571428577em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault">e</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault">e</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">c</span><span class="mord mathdefault">a</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mclose">]</span></span></span></span></p>
+</li>
+<li>
+<p>为了方便计算集合大小，显然应该按照dfs序将节点排序，记<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><msub><mi>d</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">id_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord mathdefault">i</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>表示第i个苹果</p>
+</li>
+<li>
+<p>考虑填表法，每次在已有状态加入一个点<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><msub><mi>d</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">id_{i+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.902771em;vertical-align:-0.208331em;"></span><span class="mord mathdefault">i</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span></span></span></span>，枚举加入到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>s</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">lst</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span></span></span></span>所在的集合还是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><msub><mi>d</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">id_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord mathdefault">i</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>所在的集合，注意：转移方程里写的是实际放入点在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mi>d</mi><mo>[</mo><mo>]</mo></mrow><annotation encoding="application/x-tex">id[]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">i</span><span class="mord mathdefault">d</span><span class="mopen">[</span><span class="mclose">]</span></span></span></span>里的下标，计算新的大小的时候要用原点</p>
+</li>
+<li>
+<p>发现<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>W</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">W1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mord">1</span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>W</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">W2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mord">2</span></span></span></span>的最后一个元素中必有一个是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>，所以可以不用枚举这一维，状态里也省去，时间空间复杂度均为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>3</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
+</li>
+</ol>
+<p>因为数据范围较小（所以答案小），考虑用short压空间</p>
+<h3 id="code">Code：</h3>
+<pre><code class="language-cpp">/*============================================================================
+  .--,       .--,   长亭外，古道边，
+ ( (  \.---./  ) )  芳草碧连天。 晚风拂柳笛声残，夕阳山外山。
+  '.__/o   o\__.'   天之涯，地之角，知交半零落。
+     {=  ^  =}      一瓢浊酒尽余欢，今宵别梦寒。
+      &gt;  -  &lt;
+     /       \      念念不忘，必有回响
+    //       \\
+   //|   .   |\\    A person who is regarded as a loser isn't those
+ordinarys,but the satisfieds
+   &quot;'\       /'&quot;_.-~^`'-.
+      \  _  /--'         `
+    ___)( )(___
+   (((__) (__)))    高山仰止,景行行止.虽不能至,心向往之。
+============================================================================*/
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+#define int short
+
+const int MA = 1 &lt;&lt; 14;
+char buf[MA], *p1 = buf, *p2 = buf;
+#define gc()                                                            \
+    (p1 == p2 &amp;&amp; (p2 = (p1 = buf) + fread(buf, 1, MA, stdin), p1 == p2) \
+         ? EOF                                                          \
+         : *p1++)
+inline int read() {
+    int ff = 0;
+    char ch = gc();
+    while (!isdigit(ch)) ch = gc();
+    while (isdigit(ch)) {
+        ff = (ff &lt;&lt; 1) + (ff &lt;&lt; 3) + (ch ^ 48);
+        ch = gc();
+    }
+    return ff;
+}
+void print(int x) {
+    if (x &gt; 9) print(x / 10);
+    putchar(x % 10 + '0');
+}
+
+const int N = 420;
+
+int n, k, head[N &lt;&lt; 2], tot;
+struct E {
+    int ver, nxt;
+} e[N &lt;&lt; 3];
+inline void add(int u, int v) {
+    e[++ tot] = {v, head[u]}, head[u] = tot;
+}
+
+int dep[N], fa[N][10], q[N];
+inline void get_fa_bfs() {
+    memset(dep, 0x3f, sizeof dep);
+    int hh = 0, tt = 0;
+    q[0] = 1, dep[0] = -1, dep[1] = 0;
+    while (hh &lt;= tt) {
+        int x = q[hh ++];
+        for (int i = head[x]; i; i = e[i].nxt) {
+            int y = e[i].ver;
+            if (dep[y] &lt; dep[x] + 1) continue;
+            dep[y] = dep[x] + 1;
+            fa[y][0] = x;
+            q[++ tt] = y;
+            for (int k = 1; (1 &lt;&lt; k) &lt;= n; ++k)
+                fa[y][k] = fa[fa[y][k - 1]][k - 1];
+        }
+    }
+}
+inline int lca(int U, int V) {
+    if (dep[U] &lt; dep[V]) swap(U, V);
+    for (int k = 8; ~k; --k)
+        if (dep[fa[U][k]] &gt;= dep[V]) U = fa[U][k];
+    if (U == V) return U;
+    for (int k = 8; ~k; --k)
+        if (fa[U][k] != fa[V][k]) U = fa[U][k], V = fa[V][k];
+    return fa[U][0];
+}
+
+int point[N], id[N], cnt;
+void get_id_dfs(int x, int F) {
+    int f = point[x];
+    for (int i = head[x]; i; i = e[i].nxt) {
+        int y = e[i].ver;
+        if (y == F) continue;
+        get_id_dfs(y, x);
+        point[x] += point[y];
+    }
+    if (f &amp;&amp; point[x] == f) id[++ cnt] = x;
+}
+
+int f[N][N][N], L[N][N]; // “前i个叶子， 不含i的W中的最后一个叶子， 不含i的W的大小” 另一个W的最小值
+inline void update(int &amp;x, int y) {
+    x = x &gt; y ? y : x;
+}
+inline void dp() {
+	for (int i = 0; i &lt;= n; ++i)
+		for (int j = 0; j &lt;= n; ++j)
+			for (int p = 0; p &lt;= n; ++p)
+				f[i][j][p] = 0x3f3f;
+    f[1][0][0] = dep[id[1]];
+    for (int i = 1; i &lt; cnt; ++i)
+        for (int lst = 0; lst &lt; i; ++lst)
+            for (int siz = 0; siz &lt;= n; ++siz) {
+            	if (lst)
+                	update(f[i + 1][i][ f[i][lst][siz] ],
+							siz + dep[id[i + 1]] - dep[ L[lst][i + 1] ]);
+				else if (! siz)
+					f[i + 1][i][ f[i][lst][siz] ] = dep[id[i + 1]];
+
+                update(f[i + 1][lst][siz],
+						f[i][lst][siz] + dep[id[i + 1]] - dep[ L[i][i + 1] ]);
+			}
+}
+
+signed main() {
+    n = read(), k = read();
+    for (int i = 1, u, v; i &lt; n; ++i)
+        u = read(), v = read(),
+        add(u, v), add(v, u);
+    for (int i = 1; i &lt;= k; ++i) ++ point[read()];
+    get_fa_bfs();
+    get_id_dfs(1, 0);
+    for (int i = 1; i &lt;= cnt; ++i)
+    	for (int j = i + 1; j &lt;= cnt; ++j)
+    		L[i][j] = lca(id[i], id[j]);
+    dp();
+    int ans = 0x7f7f;
+    int ff = 1;
+    for (int i = 0; i &lt; cnt; ++i) // W1最后一个是什么
+        for (int j = 0; j &lt;= n; ++j) // W1大小
+        {
+            ans = min(ans, int(2 * max(f[cnt][i][j], j)) );
+        	if (ans == 32 &amp;&amp; ff) {
+        		ff = 0;
+        		cout &lt;&lt; i &lt;&lt; ' ' &lt;&lt; j &lt;&lt; ' ' &lt;&lt; f[cnt][i][j] &lt;&lt; '\n';
+			}
+		}
+	print(ans);
+    return 0;
+}
+/*
+7 7
+1 2
+1 3
+1 4
+1 5
+1 6
+1 7
+1 2 3 4 5 6 7
+*/
+</code></pre>
+<hr>
+<h1 id="day2-t3">day2 T3</h1>
+<p><a href="https://www.luogu.com.cn/problem/CF875F">洛谷传送门</a> <a href="https://codeforces.com/problemset/problem/875/F">CF传送门</a></p>
+<h3 id="前言">前言</h3>
+<p>模拟赛考了这题，都想的最大生成基环树森林，所以都假了，网络流可做</p>
+<h3 id="solution-2">Solution：</h3>
+<h4 id="part-1-为什么错">Part 1 ： 为什么错</h4>
+<p>先提供一组hack数据</p>
+<pre><code class="language-cpp">6 7
+1 2 10000
+2 3 10000
+1 3 10000
+4 5 10000
+5 6 10000
+4 6 10000
+1 4 1
+</code></pre>
+<p>解释：</p>
+<figure data-type="image" tabindex="1"><img src="https://cdn.luogu.com.cn/upload/image_hosting/4z1ouwlo.png" alt="" loading="lazy"></figure>
+<p>应该是选两个环，但最大生成基环树森林为少选一条环上的边，答案变小 <s>（我自己写法丑，全选）</s></p>
+<h4 id="part-2-怎么改">Part 2 ： 怎么改</h4>
+<p>说一下我是怎么改的，我原来的代码：</p>
+<pre><code class="language-cpp">n = read(), m = read();
+for (int i = 1; i &lt;= m; ++i) {
+    int a = read(), b = read(), c = read();
+    e[i] = {a, b, c};
+}
+sort(e + 1, e + m + 1);
+for (int i = 1; i &lt;= n + m; ++i) fa[i] = i;
+for (int i = 1; i &lt;= m; ++i) {
+    int a = find(e[i].a), b = find(e[i].b), c = e[i].c;
+    if (a != b) ans += c, fa[min(a, b)] = max(a, b);
+    else if (a &lt;= n) ans += c, fa[a] = n + i;
+}
+</code></pre>
+<p>含义：一个连通块如果已经多加了一条边，用多加的一条边作为并查集的代表元素（但这不重要，重要的是我下面怎么改）</p>
+<p>观察到有可能a&gt;n &amp;&amp; b&gt;n &amp;&amp; a!=b，这时就会在两个环中加一条边，答案肯定变大，也不合法，因此可以判一下a和b是否全大于n（但这样还是错的）</p>
+<p>考虑上面说到的为什么是错的，不难发现，跑最大生成树的时候最优策略为：碰到一条边，能加就加，不用同一个树内就不加了</p>
+<p>于是判断能不能加一条边就好了，不能加当且仅当：</p>
+<ul>
+<li>
+<p>两端为两个基环树</p>
+</li>
+<li>
+<p>两端为同一个基环树</p>
+</li>
+</ul>
+<p>用vis标记一个并查集是不是基环树即可</p>
+<h4 id="code-2">Code：</h4>
+<pre><code class="language-cpp">n = read(), m = read();
+for (int i = 1; i &lt;= m; ++i) {
+    int a = read(), b = read(), c = read();
+    e[i] = {a, b, c};
+}
+sort(e + 1, e + m + 1);
+for (int i = 0; i &lt;= n + m + 1; ++i) fa[i] = i;
+for (int i = 1; i &lt;= m; ++i) {
+    int a = find(e[i].a), b = find(e[i].b), c = e[i].c;
+    if (a == b) {
+    	if (! vis[a])
+    		vis[a] = 1, ans += c;
+	}
+	else {
+		if (! vis[a] &amp;&amp; ! vis[b])
+			fa[a] = b, ans += c;
+		else if (vis[a]) {
+			if (! vis[b])
+				fa[b] = a, ans += c;
+		}
+		else {
+			fa[a] = b, ans += c;
+		}
+	}
+}
+</code></pre>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://youziki.github.io/9HQIPdIlB/">
+                <h3 class="post-title">
+                  CF系列题解 11.25
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://youziki.github.io/images/avatar.png?v=1606630555193" class="no-responsive avatar">
+    <div class="text-muted">众人皆醉我独醒</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://youziki.github.io/JZKS4WeNL/">题解 11.26 &amp; 11.27 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/9HQIPdIlB/">CF系列题解 11.25</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/lt7XtT9OO/">题解 CF1452E 【Two Editorials】</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/8DLm3OtRE/">题解 水1（折半）</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/Jx-L32BaO/">题解 11.23 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/SFB0cRJta/">LCA 1</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/IDkLT1O9a/">题解 11.17 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/MlxP-PXGZ/">题解 11.16 模拟赛</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/CinD9qxaQ/">题解 11.15 CF</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://youziki.github.io/kFQq3LCjl/">题解 11.13 模拟赛</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://youziki.github.io/ajbBPuKpd/" class="badge ">
+          比赛
+        </a>
+      
+        <a href="https://youziki.github.io/4STTQXNzf/" class="badge ">
+          学习笔记
+        </a>
+      
+        <a href="https://youziki.github.io/CEgpF5PzU/" class="badge success">
+          题解
+        </a>
+      
+        <a href="https://youziki.github.io/gsfoIjW4c/" class="badge success">
+          刷题
+        </a>
+      
+        <a href="https://youziki.github.io/QjIXjFt9R/" class="badge warning">
+          其他
+        </a>
+      
+        <a href="https://youziki.github.io/WZIkvhEfs/" class="badge warning">
+          那年暑假，我们砥砺前行——启智树
+        </a>
+      
+        <a href="https://youziki.github.io/VBzk7ZUb4/" class="badge ">
+          Gridea
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youziki.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+
+  </body>
+</html>
